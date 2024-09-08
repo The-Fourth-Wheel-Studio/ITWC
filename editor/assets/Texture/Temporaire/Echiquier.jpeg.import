@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwoq3st6476n2"
-path.s3tc="res://.godot/imported/Echiquier.jpeg-eedc8eea3ed54b75353e013fb1ce5db9.s3tc.ctex"
+path.s3tc="res://.godot/imported/Echiquier.jpeg-6158d1d71064eaa753aa80a100055931.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://IPWC/editor/assets/Texture/Temporaire/Echiquier.jpeg"
-dest_files=["res://.godot/imported/Echiquier.jpeg-eedc8eea3ed54b75353e013fb1ce5db9.s3tc.ctex"]
+source_file="res://editor/assets/Texture/Temporaire/Echiquier.jpeg"
+dest_files=["res://.godot/imported/Echiquier.jpeg-6158d1d71064eaa753aa80a100055931.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://da856chyddphc"
-path.s3tc="res://.godot/imported/personnage_Felix_Albedo.png-3e43a59f20e72192122d24148321009a.s3tc.ctex"
+path.s3tc="res://.godot/imported/personnage_Felix_Albedo.png-58156f078604d198985d88345c9f7310.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://IPWC/game/assets/texture/player/personnage_Felix_Albedo.png"
-dest_files=["res://.godot/imported/personnage_Felix_Albedo.png-3e43a59f20e72192122d24148321009a.s3tc.ctex"]
+source_file="res://game/assets/texture/player/personnage_Felix_Albedo.png"
+dest_files=["res://.godot/imported/personnage_Felix_Albedo.png-58156f078604d198985d88345c9f7310.s3tc.ctex"]
 
 [params]
 

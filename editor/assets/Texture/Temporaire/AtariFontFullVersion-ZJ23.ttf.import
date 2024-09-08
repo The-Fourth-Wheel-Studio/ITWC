@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://w7x1dhxqgc0g"
-path="res://.godot/imported/AtariFontFullVersion-ZJ23.ttf-c65566927fe40b10cf11f2f825238453.fontdata"
+path="res://.godot/imported/AtariFontFullVersion-ZJ23.ttf-656a82f6d6c8187ae540b10efab09e68.fontdata"
 
 [deps]
 
-source_file="res://IPWC/editor/assets/Texture/Temporaire/AtariFontFullVersion-ZJ23.ttf"
-dest_files=["res://.godot/imported/AtariFontFullVersion-ZJ23.ttf-c65566927fe40b10cf11f2f825238453.fontdata"]
+source_file="res://editor/assets/Texture/Temporaire/AtariFontFullVersion-ZJ23.ttf"
+dest_files=["res://.godot/imported/AtariFontFullVersion-ZJ23.ttf-656a82f6d6c8187ae540b10efab09e68.fontdata"]
 
 [params]
 

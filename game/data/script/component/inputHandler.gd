@@ -9,11 +9,10 @@ class_name inputHandler
 @export var isCrouch : bool = false
 @export var constraint : Dictionary
 
-func _ready():
-	NetworkTime.before_tick_loop.connect(_gather)
-
-func _gather():
+func _process(delta: float) -> void:
+	_gather()
 	
+func _gather():
 	if not is_multiplayer_authority():
 		return
 	
@@ -28,10 +27,5 @@ func applyconstraint():
 	for i in constraint.keys():
 		var varToChange = get(constraint[i])
 		var varToSet = get(i)
-		varToChange = xor(varToChange, varToSet)
+		varToChange = Common.xor(varToChange, varToSet)
 		set(constraint[i], varToChange)
-
-func xor(bool1 : bool, bool2 : bool):
-	if bool1 and bool2:
-		return false
-	return bool1

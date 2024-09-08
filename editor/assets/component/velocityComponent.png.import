@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5ai6k21lqhnh"
-path="res://.godot/imported/velocityComponent.png-ad77257df1d976f2ecf0a522a553917d.ctex"
+path="res://.godot/imported/velocityComponent.png-050301f7daea435db66d8beebecfab31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://IPWC/editor/assets/component/velocityComponent.png"
-dest_files=["res://.godot/imported/velocityComponent.png-ad77257df1d976f2ecf0a522a553917d.ctex"]
+source_file="res://editor/assets/component/velocityComponent.png"
+dest_files=["res://.godot/imported/velocityComponent.png-050301f7daea435db66d8beebecfab31.ctex"]
 
 [params]
 

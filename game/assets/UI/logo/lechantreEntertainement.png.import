@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cib6toaqpnppg"
-path="res://.godot/imported/lechantreEntertainement.png-3896adde41b6220dc7fbbf969a572590.ctex"
+path="res://.godot/imported/lechantreEntertainement.png-d1ccaa855e4d5b937e0d4385fec9e9aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://IPWC/game/assets/UI/logo/lechantreEntertainement.png"
-dest_files=["res://.godot/imported/lechantreEntertainement.png-3896adde41b6220dc7fbbf969a572590.ctex"]
+source_file="res://game/assets/UI/logo/lechantreEntertainement.png"
+dest_files=["res://.godot/imported/lechantreEntertainement.png-d1ccaa855e4d5b937e0d4385fec9e9aa.ctex"]
 
 [params]
 

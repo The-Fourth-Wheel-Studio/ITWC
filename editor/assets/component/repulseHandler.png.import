@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://n78p5r4q7wd7"
-path="res://.godot/imported/repulseHandler.png-27c1f1b8bb47f5460805cf4a967e5e15.ctex"
+path="res://.godot/imported/repulseHandler.png-02b868b8fb2ec22d8f314198ab0713ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://IPWC/editor/assets/component/repulseHandler.png"
-dest_files=["res://.godot/imported/repulseHandler.png-27c1f1b8bb47f5460805cf4a967e5e15.ctex"]
+source_file="res://editor/assets/component/repulseHandler.png"
+dest_files=["res://.godot/imported/repulseHandler.png-02b868b8fb2ec22d8f314198ab0713ff.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3bs3nok06ye"
-path.s3tc="res://.godot/imported/personnage_Felix_Emission.png-3345baed8fbdd64b98f114b5ee19bc60.s3tc.ctex"
+path.s3tc="res://.godot/imported/personnage_Felix_Emission.png-166c19b01d201811d9072b95c90a77ee.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://IPWC/game/assets/model/player/personnage_Felix_Emission.png"
-dest_files=["res://.godot/imported/personnage_Felix_Emission.png-3345baed8fbdd64b98f114b5ee19bc60.s3tc.ctex"]
+source_file="res://game/assets/model/player/personnage_Felix_Emission.png"
+dest_files=["res://.godot/imported/personnage_Felix_Emission.png-166c19b01d201811d9072b95c90a77ee.s3tc.ctex"]
 
 [params]
 
