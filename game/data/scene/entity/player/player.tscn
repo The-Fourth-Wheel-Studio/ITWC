@@ -44,6 +44,7 @@ repulseHandler = NodePath("repulseHandler")
 [node name="isOnFloorComponent" parent="." node_paths=PackedStringArray("NodeToCheck") instance=ExtResource("5_ds37b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.474714, 0)
 NodeToCheck = NodePath("..")
+lenght = 0.1
 
 [node name="repulseHandler" parent="." instance=ExtResource("6_tik5m")]
 

@@ -9,6 +9,7 @@ var speed : float = 0.0
 @export var inputhandler : inputHandler
 @export var isOnFloor : isOneFloorComponent
 @export var repulseHandler : repulseHandler
+@export var camera : theBestCameraEver
 	
 func _unhandled_input(event):
 	pass
@@ -30,7 +31,7 @@ func _process(delta):
 					speedVariation(),
 					playerAttributeVar.SPEED_VARIATION)
 		var input_dir = inputhandler.direction
-		velocityHandler.setVelocityXZ(input_dir * speed)
+		velocityHandler.setVelocityXZ(camera.getNewDir(input_dir) * speed)
 
 		for body in repulseHandler.getOtherBody():
 			velocityHandler.addVelocityXZ(repulseHandler.repulse(body,self))

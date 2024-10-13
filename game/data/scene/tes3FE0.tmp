@@ -39,12 +39,12 @@ mesh = SubResource("PlaneMesh_8lny7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_cdlq4")
 
-[node name="CharacterBody3D" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_s4abd")]
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_s4abd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98323, 0)
-camera = NodePath("../Camera3D")
+isAbleToMove = true
 
 [node name="Camera3D" parent="." instance=ExtResource("2_nk0wk")]
-transform = Transform3D(-0.500151, 0.407867, -0.763867, 0, 0.882127, 0.471012, 0.865938, 0.235577, -0.441197, -2.63329, 3.75275, -1.10872)
-fov = 71.8844
+transform = Transform3D(1, 0, 0, 0, 0.934863, 0.355009, 0, -0.355009, 0.934863, 0, 3.75275, 4.24164)
+fov = 143.327
 
 [editable path="CharacterBody3D"]
