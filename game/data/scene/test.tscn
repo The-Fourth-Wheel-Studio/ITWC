@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ehr7mj2n6uju"]
+[gd_scene load_steps=14 format=3 uid="uid://ehr7mj2n6uju"]
 
 [ext_resource type="PackedScene" uid="uid://5j05ep0smgod" path="res://game/data/scene/entity/player/player.tscn" id="1_s4abd"]
 [ext_resource type="Script" path="res://game/data/script/start_up.gd" id="2_d2byt"]
@@ -28,7 +28,10 @@ glow_enabled = true
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fxc4m"]
-size = Vector3(12.1255, 3.31152, 11.3921)
+size = Vector3(11.4728, 3.31152, 9.50965)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qn060"]
+size = Vector3(11.4728, 3.31152, 9.50965)
 
 [node name="test" type="Node3D"]
 
@@ -36,7 +39,7 @@ size = Vector3(12.1255, 3.31152, 11.3921)
 script = ExtResource("2_d2byt")
 
 [node name="player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_s4abd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32367, 0)
+transform = Transform3D(0.999983, -0.0057421, 0, 0.0057421, 0.999983, 0, 0, 0, 1, 0, 1.32367, 0)
 camera = NodePath("../Camera3D")
 
 [node name="Camera3D" parent="." instance=ExtResource("3_7nyrb")]
@@ -57,13 +60,14 @@ shadow_transmittance_bias = -16.0
 shadow_blur = 0.0
 
 [node name="word" type="MeshInstance3D" parent="word"]
-transform = Transform3D(16.6895, 0, 0, 0, 1, 0, 0, 0, 5.67812, 0, 0, 0)
+transform = Transform3D(16.6895, 0, 0, 0, 1, -0.00465779, 0, 0.000820305, 5.67812, 0, 0.00500858, 0)
 mesh = SubResource("PlaneMesh_8lny7")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="word/word"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="word/word/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.387273, -5.59484e-05)
 shape = SubResource("ConcavePolygonShape3D_cdlq4")
 
 [node name="cameraZone2" parent="." node_paths=PackedStringArray("collider", "behavior") instance=ExtResource("4_n3ol1")]
@@ -72,7 +76,7 @@ collider = NodePath("CameraZoneCollider")
 behavior = NodePath("cameraZoneBehavior")
 
 [node name="CameraZoneCollider" parent="cameraZone2" instance=ExtResource("5_7gukp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.912565, 1.18889, -0.386274)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.725749, 1.73012, -0.386274)
 shape = SubResource("BoxShape3D_fxc4m")
 
 [node name="cameraZoneBehavior" parent="cameraZone2" instance=ExtResource("6_y0o4e")]
@@ -86,8 +90,8 @@ collider = NodePath("CameraZoneCollider")
 behavior = NodePath("cameraZoneBehavior")
 
 [node name="CameraZoneCollider" parent="cameraZone" instance=ExtResource("5_7gukp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72049, 1.15576, 0.833984)
-shape = SubResource("BoxShape3D_fxc4m")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.40463, 1.15576, -0.107242)
+shape = SubResource("BoxShape3D_qn060")
 
 [node name="cameraZoneBehavior" parent="cameraZone" instance=ExtResource("6_y0o4e")]
 
