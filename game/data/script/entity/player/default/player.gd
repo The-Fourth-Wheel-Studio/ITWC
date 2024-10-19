@@ -11,6 +11,9 @@ var speed : float = 0.0
 @export var repulseHandler : repulseHandler
 @export var camera : theBestCameraEver
 	
+func _ready():
+	GameManager.setCurrentPlayer(self)
+	
 func _unhandled_input(event):
 	pass
 

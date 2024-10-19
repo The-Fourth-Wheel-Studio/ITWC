@@ -4,14 +4,17 @@ class_name theBestCameraEver
 
 @export var cameraRotation : float
 @export var references : Vector4 = Vector4.ZERO
-
+@export var currentBehavior : cameraZoneBehavior
 
 func _process(delta):
 	cameraRotation = self.rotation_degrees.y
+	if currentBehavior:
+		currentBehavior.run()
 	
 func _ready():
 	cameraRotation = self.rotation_degrees.y
 	references = getNewreference(cameraRotation)
+	GameManager.setCurrentCamera(self)
 
 func getProjectionVector(curVec : Vector2, angle : float) -> Vector2:
 	var angleRad = deg_to_rad(angle)
@@ -33,3 +36,10 @@ func getNewDir(curDir : Vector2) -> Vector2:
 
 func getNewDirY(curDir : Vector2) -> Vector2:
 	return Vector2((references.y ) * curDir.y, (references.w) * curDir.y).normalized()	
+
+
+func moveFromVect3(vec : Vector3):
+	self.position += vec
+
+func rotateFromDegrees(deg : Vector3):
+	self.rotation += deg
