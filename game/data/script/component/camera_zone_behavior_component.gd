@@ -14,18 +14,23 @@ func execute():
 	print("executed !")
 
 func run():
-	if setup and not isSetup:
-		transition()
+	if setup:
+		if not isSetup:
+			transition()
+		else:
+			GameManager.currentCamera.getNewReference()
+			isSetup = true
 	else:
 		behave()
 
 func transition():
-	GameManager.currentCamera.moveFromVect3((startPoint - GameManager.currentCamera.position).normalized())
+	GameManager.currentCamera.moveFromVect3((startPoint - GameManager.currentCamera.position).normalized() * 0.1)
 	GameManager.currentCamera.look_at(GameManager.player.position)
 	if (startPoint.distance_to(GameManager.currentCamera.position) < 0.6):
 		setup = false
-		isSetup = true
+		
 	print(startPoint.distance_to(GameManager.currentCamera.position))
 
 func behave():
+	GameManager.currentCamera.getNewReference()
 	GameManager.currentCamera.look_at(GameManager.player.position)

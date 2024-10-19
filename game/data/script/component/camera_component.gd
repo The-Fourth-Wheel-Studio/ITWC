@@ -11,6 +11,11 @@ func _process(delta):
 	if currentBehavior:
 		currentBehavior.run()
 	
+
+func getNewReference():
+	cameraRotation = self.rotation_degrees.y
+	references = getNewreference(cameraRotation)
+	
 func _ready():
 	cameraRotation = self.rotation_degrees.y
 	references = getNewreference(cameraRotation)

@@ -28,7 +28,7 @@ glow_enabled = true
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fxc4m"]
-size = Vector3(6.85938, 3.31152, 7.96875)
+size = Vector3(12.1255, 3.31152, 11.3921)
 
 [node name="test" type="Node3D"]
 
@@ -66,6 +66,20 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="word/word/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_cdlq4")
 
+[node name="cameraZone2" parent="." node_paths=PackedStringArray("collider", "behavior") instance=ExtResource("4_n3ol1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.57606, 0, 0)
+collider = NodePath("CameraZoneCollider")
+behavior = NodePath("cameraZoneBehavior")
+
+[node name="CameraZoneCollider" parent="cameraZone2" instance=ExtResource("5_7gukp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.912565, 1.18889, -0.386274)
+shape = SubResource("BoxShape3D_fxc4m")
+
+[node name="cameraZoneBehavior" parent="cameraZone2" instance=ExtResource("6_y0o4e")]
+
+[node name="startPos" parent="cameraZone2/cameraZoneBehavior" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75339, 5.4435, -2.4575)
+
 [node name="cameraZone" parent="." node_paths=PackedStringArray("collider", "behavior") instance=ExtResource("4_n3ol1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56559, 0, 0)
 collider = NodePath("CameraZoneCollider")
@@ -78,6 +92,7 @@ shape = SubResource("BoxShape3D_fxc4m")
 [node name="cameraZoneBehavior" parent="cameraZone" instance=ExtResource("6_y0o4e")]
 
 [node name="startPos" parent="cameraZone/cameraZoneBehavior" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.05227, 3.41207)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.70049, 6.11665)
 
+[editable path="cameraZone2/cameraZoneBehavior"]
 [editable path="cameraZone/cameraZoneBehavior"]
