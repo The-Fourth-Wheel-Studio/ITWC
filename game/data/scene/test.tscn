@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ehr7mj2n6uju"]
+[gd_scene load_steps=16 format=3 uid="uid://ehr7mj2n6uju"]
 
 [ext_resource type="PackedScene" uid="uid://5j05ep0smgod" path="res://game/data/scene/entity/player/player.tscn" id="1_s4abd"]
 [ext_resource type="Script" path="res://game/data/script/start_up.gd" id="2_d2byt"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c4r56iwnkjfmu" path="res://editor/component/camera_zone_collider_component.tscn" id="5_7gukp"]
 [ext_resource type="PackedScene" uid="uid://v5xnjr7e8wj4" path="res://editor/component/camera_zone_behavior_component.tscn" id="6_y0o4e"]
 [ext_resource type="PackedScene" uid="uid://ctrq8vqv7n10u" path="res://game/data/scene/entity/test/robot_swag.tscn" id="7_thlw7"]
+[ext_resource type="Script" path="res://game/data/script/animTest.gd" id="8_1od1t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t013n"]
 sky_top_color = Color(0.686275, 0.898039, 1, 1)
@@ -29,7 +30,7 @@ glow_enabled = true
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fxc4m"]
-size = Vector3(11.4728, 3.31152, 9.50965)
+size = Vector3(12.8215, 3.31152, 9.67914)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qn060"]
 size = Vector3(11.4728, 3.31152, 9.50965)
@@ -77,7 +78,7 @@ collider = NodePath("CameraZoneCollider")
 behavior = NodePath("cameraZoneBehavior")
 
 [node name="CameraZoneCollider" parent="cameraZone2" instance=ExtResource("5_7gukp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.725749, 1.73012, -0.386274)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4001, 1.73012, -0.47102)
 shape = SubResource("BoxShape3D_fxc4m")
 
 [node name="cameraZoneBehavior" parent="cameraZone2" instance=ExtResource("6_y0o4e")]
@@ -102,5 +103,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.70049, 6.11665)
 [node name="robot_swag" parent="." instance=ExtResource("7_thlw7")]
 transform = Transform3D(0.225267, 0, -0.446379, 0, 0.5, 0, 0.446379, 0, 0.225267, -2.80335, 0.850845, 0)
 
+[node name="AnimationPlayer" parent="robot_swag" index="1"]
+script = ExtResource("8_1od1t")
+
 [editable path="cameraZone2/cameraZoneBehavior"]
 [editable path="cameraZone/cameraZoneBehavior"]
+[editable path="robot_swag"]
