@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctrq8vqv7n10u"]
+
+[ext_resource type="PackedScene" uid="uid://c7pmas2txkw0h" path="res://game/assets/model/entity/robot_swag.glb" id="1_omeq4"]
+
+[node name="robot_swag" instance=ExtResource("1_omeq4")]
+
+[node name="Skeleton3D" parent="robot_low" index="0"]
+bones/1/position = Vector3(0, 1.00517, 0.000115067)
+bones/2/rotation = Quaternion(-0.420631, 0.568392, -0.568392, 0.420632)
+bones/3/rotation = Quaternion(8.88988e-08, 0.887011, 0.461749, -1.70562e-07)
+bones/4/rotation = Quaternion(-0.218092, 0.173821, -0.0481144, 0.959118)
+bones/5/rotation = Quaternion(-0.00138717, 0.00912649, 0.0034279, 0.999952)
+bones/8/rotation = Quaternion(-8.74276e-08, 0.866025, 5.52068e-08, -0.5)
+bones/9/position = Vector3(1.35203, -0.522768, -1.80776)
+bones/10/rotation = Quaternion(0.525301, 0.473349, 0.473349, 0.5253)
+bones/11/rotation = Quaternion(-0.0574942, 0.880108, 0.458155, 0.110445)
+bones/12/rotation = Quaternion(-0.128291, -0.775378, 0.182015, 0.590933)
+bones/13/rotation = Quaternion(-0.00352998, -0.0097624, 0.00106799, 0.999946)
+bones/14/rotation = Quaternion(-9.46078e-09, 0.866025, 3.31504e-08, -0.5)
+bones/15/rotation = Quaternion(5.40371e-08, 0.948683, 1.45321e-07, -0.316228)
+bones/17/position = Vector3(1.26412, -0.617331, 1.80109)
+bones/17/rotation = Quaternion(8.22587e-08, 0.707107, 0.707107, -5.33851e-08)

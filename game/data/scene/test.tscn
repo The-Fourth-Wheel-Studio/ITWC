@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ehr7mj2n6uju"]
+[gd_scene load_steps=15 format=3 uid="uid://ehr7mj2n6uju"]
 
 [ext_resource type="PackedScene" uid="uid://5j05ep0smgod" path="res://game/data/scene/entity/player/player.tscn" id="1_s4abd"]
 [ext_resource type="Script" path="res://game/data/script/start_up.gd" id="2_d2byt"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c3ajbw87mqdt4" path="res://editor/component/camera_zone_component.tscn" id="4_n3ol1"]
 [ext_resource type="PackedScene" uid="uid://c4r56iwnkjfmu" path="res://editor/component/camera_zone_collider_component.tscn" id="5_7gukp"]
 [ext_resource type="PackedScene" uid="uid://v5xnjr7e8wj4" path="res://editor/component/camera_zone_behavior_component.tscn" id="6_y0o4e"]
+[ext_resource type="PackedScene" uid="uid://ctrq8vqv7n10u" path="res://game/data/scene/entity/test/robot_swag.tscn" id="7_thlw7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t013n"]
 sky_top_color = Color(0.686275, 0.898039, 1, 1)
@@ -82,7 +83,7 @@ shape = SubResource("BoxShape3D_fxc4m")
 [node name="cameraZoneBehavior" parent="cameraZone2" instance=ExtResource("6_y0o4e")]
 
 [node name="startPos" parent="cameraZone2/cameraZoneBehavior" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75339, 5.4435, -2.4575)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7388, 5.69149, 0.23948)
 
 [node name="cameraZone" parent="." node_paths=PackedStringArray("collider", "behavior") instance=ExtResource("4_n3ol1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56559, 0, 0)
@@ -97,6 +98,9 @@ shape = SubResource("BoxShape3D_qn060")
 
 [node name="startPos" parent="cameraZone/cameraZoneBehavior" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.70049, 6.11665)
+
+[node name="robot_swag" parent="." instance=ExtResource("7_thlw7")]
+transform = Transform3D(0.225267, 0, -0.446379, 0, 0.5, 0, 0.446379, 0, 0.225267, -2.80335, 0.850845, 0)
 
 [editable path="cameraZone2/cameraZoneBehavior"]
 [editable path="cameraZone/cameraZoneBehavior"]
