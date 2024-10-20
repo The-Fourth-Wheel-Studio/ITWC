@@ -9,11 +9,13 @@ var mat : StandardMaterial3D = StandardMaterial3D.new()
 func _init(node:cameraZoneCollider):
 	var plugin = get_plugin();
 	self.node = node
-	mat.albedo_color = Color(1.0,1.0,0.0,0.5)
+	mat.albedo_color = self.node.get_parent().color
 	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	
 func _redraw():
 	clear()
+	mat.albedo_color = self.node.get_parent().color
+	mat.albedo_color.a = 0.5
 	add_lines(PackedVector3Array([Vector3(0.0,0.0,0.0),Vector3(10.0,0.0,0.0)]),mat)
 	var boxmesh : BoxMesh = BoxMesh.new()
 	boxmesh.size = self.node.shape.size

@@ -1,7 +1,7 @@
 @tool
 extends EditorPlugin
 
-var TrackGizmos = preload("res://addons/ITWCdt/createGizmo.gd").new()
+var TrackGizmos = preload("res://addons/ITWCdt/gizmo/cameraZone/createCameraZoneGizmo.gd").new()
 
 
 func _enter_tree():
