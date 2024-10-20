@@ -2,16 +2,20 @@
 extends Node
 class_name cameraZoneBehavior
 
-@export var setup : bool = false
-@export var isSetup : bool = false
+
+
+@export var speed : float = 1.0
+
 @onready var startPoint : Vector3 = $startPos.position
 
+var setup : bool = false
+var isSetup : bool = false
 
 func execute():
 	isSetup = false
 	setup = true
 	GameManager.currentCamera.currentBehavior = self
-	print("executed !")
+	MKUtil.print("Change camera angles to : " + str(self.get_parent().name))
 
 func run():
 	if setup:
@@ -24,12 +28,12 @@ func run():
 		behave()
 
 func transition():
-	GameManager.currentCamera.moveFromVect3((startPoint - GameManager.currentCamera.position).normalized() * 0.1)
-	GameManager.currentCamera.look_at(GameManager.player.position)
 	if (startPoint.distance_to(GameManager.currentCamera.position) < 0.6):
 		setup = false
-		
-	print(startPoint.distance_to(GameManager.currentCamera.position))
+	else:
+		GameManager.currentCamera.moveFromVect3((startPoint - GameManager.currentCamera.position).normalized() * speed)
+		GameManager.currentCamera.look_at(GameManager.player.position)
+	
 
 func behave():
 	GameManager.currentCamera.getNewReference()
