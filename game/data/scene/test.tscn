@@ -26,7 +26,7 @@ glow_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8lny7"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cdlq4"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_thafs"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fxc4m"]
@@ -69,8 +69,7 @@ skeleton = NodePath("../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="word/word"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="word/word/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.387273, -5.59484e-05)
-shape = SubResource("ConcavePolygonShape3D_cdlq4")
+shape = SubResource("ConcavePolygonShape3D_thafs")
 
 [node name="cameraZone2" parent="." node_paths=PackedStringArray("collider", "behavior") instance=ExtResource("4_n3ol1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.57606, 0, 0)
@@ -100,7 +99,7 @@ shape = SubResource("BoxShape3D_qn060")
 speed = 0.55
 
 [node name="startPos" parent="cameraZone/cameraZoneBehavior" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.70049, 6.81074)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37868, 6.81074)
 
 [node name="robot_swag" parent="." instance=ExtResource("7_thlw7")]
 transform = Transform3D(0.225267, 0, -0.446379, 0, 0.5, 0, 0.446379, 0, 0.225267, -2.80335, 0.850845, 0)
