@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ehr7mj2n6uju"]
+[gd_scene load_steps=21 format=3 uid="uid://ehr7mj2n6uju"]
 
 [ext_resource type="PackedScene" uid="uid://5j05ep0smgod" path="res://game/data/scene/entity/player/player.tscn" id="1_s4abd"]
 [ext_resource type="Script" path="res://game/data/script/start_up.gd" id="2_d2byt"]
@@ -6,8 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://c3ajbw87mqdt4" path="res://editor/component/camera_zone_component.tscn" id="4_n3ol1"]
 [ext_resource type="PackedScene" uid="uid://c4r56iwnkjfmu" path="res://editor/component/camera_zone_collider_component.tscn" id="5_7gukp"]
 [ext_resource type="PackedScene" uid="uid://v5xnjr7e8wj4" path="res://editor/component/camera_zone_behavior_component.tscn" id="6_y0o4e"]
+[ext_resource type="PackedScene" uid="uid://blwh5u2buoufm" path="res://editor/component/camera_zone_transition_component.tscn" id="7_mya0i"]
 [ext_resource type="PackedScene" uid="uid://ctrq8vqv7n10u" path="res://game/data/scene/entity/test/robot_swag.tscn" id="7_thlw7"]
 [ext_resource type="Script" path="res://game/data/script/animTest.gd" id="8_1od1t"]
+[ext_resource type="PackedScene" uid="uid://dmcfnahvapei0" path="res://editor/component/camera_zone_start_pos_component.tscn" id="8_2yboh"]
+[ext_resource type="PackedScene" uid="uid://b021rcd1nb0ly" path="res://editor/component/cameraComponent/cameraZoneBehavior/camera_zone_behavior_cylinder.tscn" id="8_mtjkq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t013n"]
 sky_top_color = Color(0.686275, 0.898039, 1, 1)
@@ -30,7 +33,16 @@ glow_enabled = true
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fxc4m"]
-size = Vector3(11.0053, 3.31152, 9.44162)
+size = Vector3(44.16, 3.31152, 38.9838)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3tsdk"]
+transparency = 1
+albedo_color = Color(0.172549, 1, 1, 0.458824)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_v732p"]
+material = SubResource("StandardMaterial3D_3tsdk")
+top_radius = 10.0
+bottom_radius = 10.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qn060"]
 size = Vector3(11.4728, 3.31152, 9.50965)
@@ -41,7 +53,7 @@ size = Vector3(11.4728, 3.31152, 9.50965)
 script = ExtResource("2_d2byt")
 
 [node name="player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_s4abd")]
-transform = Transform3D(0.999983, -0.0057421, 0, 0.0057421, 0.999983, 0, 0, 0, 1, 0, 1.32367, 0)
+transform = Transform3D(0.999983, -0.0057421, 0, 0.0057421, 0.999983, 0, 0, 0, 1, 0, 1.32367, -0.40731)
 camera = NodePath("../Camera3D")
 
 [node name="Camera3D" parent="." instance=ExtResource("3_7nyrb")]
@@ -62,7 +74,7 @@ shadow_transmittance_bias = -16.0
 shadow_blur = 0.0
 
 [node name="word" type="MeshInstance3D" parent="word"]
-transform = Transform3D(16.6895, 0, 0, 0, 1, -0.00465779, 0, 0.000820305, 5.67812, 0, 0.00500858, 0)
+transform = Transform3D(21.4608, 0, 0, 0, 1.00166, -0.0141081, 0, 0.00082167, 17.1986, 0, 0.00500858, 0.339932)
 mesh = SubResource("PlaneMesh_8lny7")
 skeleton = NodePath("../..")
 
@@ -71,35 +83,49 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="word/word/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_thafs")
 
-[node name="cameraZone2" parent="." node_paths=PackedStringArray("collider", "behavior") instance=ExtResource("4_n3ol1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.57606, 0, 0)
+[node name="cameraZone2" parent="." node_paths=PackedStringArray("collider", "behavior", "transition") instance=ExtResource("4_n3ol1")]
 collider = NodePath("CameraZoneCollider")
 behavior = NodePath("cameraZoneBehavior")
+transition = NodePath("cameraZoneTransition")
 
 [node name="CameraZoneCollider" parent="cameraZone2" instance=ExtResource("5_7gukp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30819, 1.73012, -0.35226)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.37414, 1.73012, -3.43909)
 shape = SubResource("BoxShape3D_fxc4m")
 
-[node name="cameraZoneBehavior" parent="cameraZone2" instance=ExtResource("6_y0o4e")]
-speed = 0.55
+[node name="cameraZoneTransition" parent="cameraZone2" node_paths=PackedStringArray("startPos") instance=ExtResource("7_mya0i")]
+startPos = NodePath("startPos")
+speed = 0.2
 
-[node name="startPos" parent="cameraZone2/cameraZoneBehavior" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4903, 7.42826, 7.98977)
+[node name="startPos" parent="cameraZone2/cameraZoneTransition" instance=ExtResource("8_2yboh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.80462, 4.59162, 9.6912)
 
-[node name="cameraZone" parent="." node_paths=PackedStringArray("collider", "behavior") instance=ExtResource("4_n3ol1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.077902, 0, 0)
+[node name="cameraZoneBehavior" parent="cameraZone2" instance=ExtResource("8_mtjkq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.74942, 0, 0)
+radius = 10.0
+yOffset = 5.0
+height = 10.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cameraZone2/cameraZoneBehavior"]
+mesh = SubResource("CylinderMesh_v732p")
+
+[node name="cameraZone" parent="." node_paths=PackedStringArray("collider", "behavior", "transition") instance=ExtResource("4_n3ol1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.0435, 0, -0.957875)
 collider = NodePath("CameraZoneCollider")
 behavior = NodePath("cameraZoneBehavior")
+transition = NodePath("cameraZoneTransition")
 
 [node name="CameraZoneCollider" parent="cameraZone" instance=ExtResource("5_7gukp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.40463, 1.15576, -0.107242)
 shape = SubResource("BoxShape3D_qn060")
 
 [node name="cameraZoneBehavior" parent="cameraZone" instance=ExtResource("6_y0o4e")]
-speed = 0.55
 
-[node name="startPos" parent="cameraZone/cameraZoneBehavior" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37868, 6.81074)
+[node name="cameraZoneTransition" parent="cameraZone" node_paths=PackedStringArray("startPos") instance=ExtResource("7_mya0i")]
+startPos = NodePath("startPos")
+speed = 0.2
+
+[node name="startPos" parent="cameraZone/cameraZoneTransition" instance=ExtResource("8_2yboh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.30955, 10.5911)
 
 [node name="robot_swag" parent="." instance=ExtResource("7_thlw7")]
 transform = Transform3D(0.225267, 0, -0.446379, 0, 0.5, 0, 0.446379, 0, 0.225267, -2.80335, 0.850845, 0)
@@ -107,6 +133,7 @@ transform = Transform3D(0.225267, 0, -0.446379, 0, 0.5, 0, 0.446379, 0, 0.225267
 [node name="AnimationPlayer" parent="robot_swag" index="1"]
 script = ExtResource("8_1od1t")
 
-[editable path="cameraZone2/cameraZoneBehavior"]
+[editable path="cameraZone2/cameraZoneTransition"]
 [editable path="cameraZone/cameraZoneBehavior"]
+[editable path="cameraZone/cameraZoneTransition"]
 [editable path="robot_swag"]
