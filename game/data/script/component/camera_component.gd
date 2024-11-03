@@ -4,12 +4,12 @@ class_name theBestCameraEver
 
 @export var cameraRotation : float
 @export var references : Vector4 = Vector4.ZERO
-@export var currentBehavior : cameraZoneBehavior
+@export var currentCameraZone : cameraZone
 
 func _process(delta):
 	cameraRotation = self.rotation_degrees.y
-	if currentBehavior:
-		currentBehavior.run()
+	if currentCameraZone:
+		currentCameraZone.run()
 	
 
 func getNewReference():
