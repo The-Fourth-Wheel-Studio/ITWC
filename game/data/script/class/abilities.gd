@@ -7,12 +7,12 @@ var player : CharacterBody3D
 func setActive(b : bool):
 	self.active = b
 
-func doWhatever():
+func doWhatever(delta):
 	pass
 
-func execute():
+func execute(delta):
 	if self.active and player:
-		self.doWhatever()
+		self.doWhatever(delta)
 	
 func load():
 	self.player = GameManager.player

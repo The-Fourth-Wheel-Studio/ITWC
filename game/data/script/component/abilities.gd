@@ -11,7 +11,8 @@ func load():
 	MKUtil.print("successful loading of " + str(len(abilitiesList)) + " abillities")
 
 
-func execute():
+func execute(delta):
+	
 	for i in abilitiesList:
 		if i.active:
-			i.execute()
+			i.execute(delta)

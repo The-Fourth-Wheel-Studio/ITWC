@@ -1,17 +1,4 @@
-extends CharacterBody3D
-
-#var for movement
-var speed : float = 0.0
-@export var playerAttributeVar : playerAttribute
-@export var isAbleToMove : bool = true
-
-@export var velocityHandler : velocityComponent
-@export var inputhandler : inputHandler
-@export var isOnFloor : isOneFloorComponent
-@export var repulseHandler : repulseHandler
-@export var camera : theBestCameraEver
-
-@export var abilitieManager : abilitiesManager
+extends Player
 	
 func _ready():
 	GameManager.setCurrentPlayer(self)
@@ -21,30 +8,13 @@ func _unhandled_input(event):
 	pass
 
 func _process(delta):
-	
-	abilitieManager.execute()
-	
+	#set velocity
 	velocityHandler.setCurrentVelocity(velocity)
-	if isAbleToMove:
-		if not isOnFloor.isOnFloorImprove():
-			velocityHandler.applyGravity(playerAttributeVar.GRAVITY, delta)
-		# Handle Jump.
-		if inputhandler.asJump :
-			if isOnFloor.isOnFloorImprove():
-				velocityHandler.setVelocityY(playerAttributeVar.JUMP_VELOCITY)
-
-		# Update speed
-		var currentSpeed : float
-		speed = lerp(speed, 
-					speedVariation(),
-					playerAttributeVar.SPEED_VARIATION)
-		var input_dir = inputhandler.direction
-		#velocityHandler.setVelocityXZ(camera.getNewDir(input_dir) * speed)
-
-		for body in repulseHandler.getOtherBody():
-			velocityHandler.addVelocityXZ(repulseHandler.repulse(body,self))
-
-		
+	#move
+	abilitieManager.execute(delta)
+	#repulse handler to fix
+	#for body in repulseHandler.getOtherBody():
+		#velocityHandler.addVelocityXZ(repulseHandler.repulse(body,self))
 	velocity = velocityHandler.getFinalVelocity()
 	move_and_slide()
 		

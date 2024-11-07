@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://5j05ep0smgod"]
+[gd_scene load_steps=13 format=3 uid="uid://5j05ep0smgod"]
 
 [ext_resource type="Script" path="res://game/data/script/entity/player/default/player.gd" id="1_8kmop"]
 [ext_resource type="Script" path="res://game/data/script/ressources/player/playerAttribute.gd" id="2_34a5h"]
@@ -8,8 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cmvb2bhw5jycr" path="res://editor/component/repulse_handler.tscn" id="6_tik5m"]
 [ext_resource type="Script" path="res://game/data/script/component/abilities.gd" id="7_4v37l"]
 [ext_resource type="Script" path="res://game/data/script/entity/player/abilities/walk.gd" id="7_a822u"]
-[ext_resource type="Script" path="res://game/data/script/entity/player/abilities/gravity.gd" id="9_0cx1k"]
-[ext_resource type="Script" path="res://game/data/script/entity/player/abilities/jump.gd" id="10_4oq0h"]
 
 [sub_resource type="Resource" id="Resource_wl6tr"]
 script = ExtResource("2_34a5h")
@@ -59,12 +57,6 @@ shape = SubResource("BoxShape3D_6wdi5")
 
 [node name="TEMP" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_18qmg")
-
-[node name="gravity" type="Node3D" parent="."]
-script = ExtResource("9_0cx1k")
-
-[node name="jump" type="Node3D" parent="."]
-script = ExtResource("10_4oq0h")
 
 [node name="abilities" type="Node" parent="."]
 script = ExtResource("7_4v37l")
