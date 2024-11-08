@@ -41,7 +41,11 @@ size = Vector3(21.0412, 3.31152, 33.1364)
 script = ExtResource("2_d2byt")
 
 [node name="player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_s4abd")]
-transform = Transform3D(0.999983, -0.0057421, 0, 0.0057421, 0.999983, 0, 0, 0, 1, 0, 12.1242, -0.40731)
+transform = Transform3D(0.999983, -0.0057421, 0, 0.0057421, 0.999983, 0, 0, 0, 1, 0, 0.939401, -0.40731)
+camera = NodePath("../Camera3D")
+
+[node name="player2" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_s4abd")]
+transform = Transform3D(0.999983, -0.0057421, 0, 0.0057421, 0.999983, 0, 0, 0, 1, 0, 0.952813, -0.40731)
 camera = NodePath("../Camera3D")
 
 [node name="Camera3D" parent="." instance=ExtResource("3_7nyrb")]
@@ -86,6 +90,7 @@ startPos = NodePath("startPos")
 speed = 0.2
 
 [node name="startPos" parent="cameraZone2/cameraZoneTransition" instance=ExtResource("8_2yboh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.98435, 0)
 
 [node name="cameraZoneBehavior" parent="cameraZone2" instance=ExtResource("6_y0o4e")]
 
