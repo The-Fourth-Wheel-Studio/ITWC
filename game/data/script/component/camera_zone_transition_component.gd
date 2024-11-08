@@ -8,7 +8,7 @@ class_name cameraZoneTransition
 var startPoint : Vector3 
 
 func _ready():
-	startPoint = startPos.position
+	startPoint = self.get_parent().position + startPos.position
 
 func transition():
 	if (startPoint.distance_to(GameManager.currentCamera.position) < 0.6):

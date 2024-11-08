@@ -73,3 +73,4 @@ active = true
 
 [node name="walk" type="Node3D" parent="abilities"]
 script = ExtResource("7_a822u")
+active = true

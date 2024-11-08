@@ -12,3 +12,6 @@ var speed : float = 0.0
 @export var repulseHandler : repulseHandler
 @export var camera : theBestCameraEver
 @export var abilitieManager : abilitiesManager
+
+func execute(delta):
+	pass
