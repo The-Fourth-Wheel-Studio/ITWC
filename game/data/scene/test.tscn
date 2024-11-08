@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ehr7mj2n6uju"]
+[gd_scene load_steps=19 format=3 uid="uid://ehr7mj2n6uju"]
 
 [ext_resource type="PackedScene" uid="uid://5j05ep0smgod" path="res://game/data/scene/entity/player/player.tscn" id="1_s4abd"]
 [ext_resource type="Script" path="res://game/data/script/start_up.gd" id="2_d2byt"]
@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c4r56iwnkjfmu" path="res://editor/component/camera_zone_collider_component.tscn" id="5_7gukp"]
 [ext_resource type="PackedScene" uid="uid://v5xnjr7e8wj4" path="res://editor/component/camera_zone_behavior_component.tscn" id="6_y0o4e"]
 [ext_resource type="PackedScene" uid="uid://blwh5u2buoufm" path="res://editor/component/camera_zone_transition_component.tscn" id="7_mya0i"]
-[ext_resource type="PackedScene" uid="uid://ctrq8vqv7n10u" path="res://game/data/scene/entity/test/robot_swag.tscn" id="7_thlw7"]
-[ext_resource type="Script" path="res://game/data/script/animTest.gd" id="8_1od1t"]
 [ext_resource type="PackedScene" uid="uid://dmcfnahvapei0" path="res://editor/component/camera_zone_start_pos_component.tscn" id="8_2yboh"]
 [ext_resource type="PackedScene" uid="uid://b021rcd1nb0ly" path="res://editor/component/cameraComponent/cameraZoneBehavior/camera_zone_behavior_cylinder.tscn" id="8_mtjkq"]
 
@@ -127,13 +125,6 @@ speed = 0.2
 [node name="startPos" parent="cameraZone/cameraZoneTransition" instance=ExtResource("8_2yboh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.30955, 10.5911)
 
-[node name="robot_swag" parent="." instance=ExtResource("7_thlw7")]
-transform = Transform3D(0.225267, 0, -0.446379, 0, 0.5, 0, 0.446379, 0, 0.225267, -2.80335, 0.850845, 0)
-
-[node name="AnimationPlayer" parent="robot_swag" index="1"]
-script = ExtResource("8_1od1t")
-
 [editable path="cameraZone2/cameraZoneTransition"]
 [editable path="cameraZone/cameraZoneBehavior"]
 [editable path="cameraZone/cameraZoneTransition"]
-[editable path="robot_swag"]

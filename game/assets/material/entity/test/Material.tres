@@ -1,9 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bv1c57cvmq82w"]
-
-[ext_resource type="Texture2D" uid="uid://c8c4ai2gd5ba0" path="res://game/assets/model/entity/robot_swag_Untitled.png" id="1_q5e28"]
-
-[resource]
-resource_name = "Material"
-cull_mode = 2
-shading_mode = 0
-albedo_texture = ExtResource("1_q5e28")
