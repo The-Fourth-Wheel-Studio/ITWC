@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=4 uid="uid://ctrq8vqv7n10u"]
 
-[ext_resource type="PackedScene" uid="uid://c7pmas2txkw0h" path="res://game/assets/model/entity/robot_swag.glb" id="1_omeq4"]
+[ext_resource type="PackedScene" uid="uid://c7pjaak5meib2" path="res://game/assets/model/entity/robot_swag.glb" id="1_omeq4"]
 [ext_resource type="Material" uid="uid://bv1c57cvmq82w" path="res://game/assets/material/entity/test/Material.tres" id="2_wq03u"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nn18f"]

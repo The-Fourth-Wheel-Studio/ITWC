@@ -63,6 +63,3 @@ func getFinalVelocity():
 	RETURN Velocity TYPE Vector3
 	'''
 	return self.Velocity
-
-func _process(delta):
-	print(self.Velocity)
