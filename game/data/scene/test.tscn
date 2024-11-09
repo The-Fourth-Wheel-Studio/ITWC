@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ehr7mj2n6uju"]
+[gd_scene load_steps=17 format=3 uid="uid://ehr7mj2n6uju"]
 
 [ext_resource type="PackedScene" uid="uid://5j05ep0smgod" path="res://game/data/scene/entity/player/player.tscn" id="1_s4abd"]
 [ext_resource type="Script" path="res://game/data/script/start_up.gd" id="2_d2byt"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://v5xnjr7e8wj4" path="res://editor/component/camera_zone_behavior_component.tscn" id="6_y0o4e"]
 [ext_resource type="PackedScene" uid="uid://blwh5u2buoufm" path="res://editor/component/camera_zone_transition_component.tscn" id="7_mya0i"]
 [ext_resource type="PackedScene" uid="uid://dmcfnahvapei0" path="res://editor/component/camera_zone_start_pos_component.tscn" id="8_2yboh"]
+[ext_resource type="PackedScene" uid="uid://cu2ab1ft468ui" path="res://editor/component/cameraComponent/cameraZoneBehavior/camera_zone_behavior_planar.tscn" id="8_bukdi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t013n"]
 sky_top_color = Color(0.686275, 0.898039, 1, 1)
@@ -74,7 +75,7 @@ shape = SubResource("ConcavePolygonShape3D_thafs")
 [node name="cameraZone2" parent="." node_paths=PackedStringArray("collider", "behavior", "transition") instance=ExtResource("4_n3ol1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3441, 0, 0)
 collider = NodePath("CameraZoneCollider")
-behavior = NodePath("")
+behavior = NodePath("cameraZoneBehavior")
 transition = NodePath("cameraZoneTransition")
 
 [node name="CameraZoneCollider" parent="cameraZone2" instance=ExtResource("5_7gukp")]
@@ -86,6 +87,8 @@ speed = 0.2
 
 [node name="startPos" parent="cameraZone2/cameraZoneTransition" instance=ExtResource("8_2yboh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.98435, 0)
+
+[node name="cameraZoneBehavior" parent="cameraZone2" instance=ExtResource("8_bukdi")]
 
 [node name="cameraZone" parent="." node_paths=PackedStringArray("collider", "behavior", "transition") instance=ExtResource("4_n3ol1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1632, 0, -0.957875)

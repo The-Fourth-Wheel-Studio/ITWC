@@ -9,7 +9,7 @@ class_name cameraZoneBehaviorPlanar
 var plan : Plan
 
 func _ready() -> void:
-	plan = Plan.new(x,y,self.transform + self.get_parent().transform)
+	plan = Plan.new(x,y,self.position + self.get_parent().position)
 	
 func behave():
 	
