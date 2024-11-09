@@ -1,6 +1,5 @@
 class_name Common
-
-const vectorReferenceX = Vector3(1.0,0.0,0.0)
+#Welcome in Titruc's hell !
 
 static func banUnallowedChar(unAllowedChar : Array[String], string : String):
 	var newString : String = ""

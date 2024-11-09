@@ -1,7 +1,7 @@
 @icon("res://editor/assets/component/cameraZoneBehaviorComponent.png")
-extends Node3D
-class_name cameraZoneBehavior
-
+extends cameraZoneBehavior
+class_name cameraZoneBehaviorPlanar
+	
 func behave():
 	
 	GameManager.currentCamera.getNewReference()
