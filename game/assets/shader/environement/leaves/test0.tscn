@@ -100,7 +100,7 @@ shader = SubResource("Shader_garm8")
 shader_parameter/Albedo = Color(2.27117e-06, 0.268987, 0.00333835, 1)
 shader_parameter/Roughness = 1.0
 shader_parameter/Metallicness = 0.0
-shader_parameter/pos = Vector3(-0.590415, -0.203768, -0.143798)
+shader_parameter/pos = Vector3(0.0937917, 0.0539644, -0.299731)
 shader_parameter/leaveTexture = ExtResource("2_n7c4t")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8lmk2"]
@@ -204,7 +204,7 @@ shader = SubResource("Shader_n3ctp")
 shader_parameter/Albedo = Color(0, 0.270588, 0.00392157, 1)
 shader_parameter/Roughness = 1.0
 shader_parameter/Metallicness = 0.0
-shader_parameter/pos = Vector3(0.47365, -0.44287, -0.694955)
+shader_parameter/pos = Vector3(-0.148923, 0.140041, 0.501095)
 shader_parameter/leaveTexture = ExtResource("2_n7c4t")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7dwcj"]
@@ -308,7 +308,7 @@ shader = SubResource("Shader_fmeuv")
 shader_parameter/Albedo = Color(0, 0.270588, 0.00392157, 1)
 shader_parameter/Roughness = 1.0
 shader_parameter/Metallicness = 0.0
-shader_parameter/pos = Vector3(-0.0839944, 0.24612, -0.459154)
+shader_parameter/pos = Vector3(0, -0.405352, 0.309332)
 shader_parameter/leaveTexture = ExtResource("2_n7c4t")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hqrbb"]
@@ -412,7 +412,7 @@ shader = SubResource("Shader_kn5nr")
 shader_parameter/Albedo = Color(0, 0.270588, 0.00392157, 1)
 shader_parameter/Roughness = 1.0
 shader_parameter/Metallicness = 0.0
-shader_parameter/pos = Vector3(-0.646141, 0.320493, -0.0512024)
+shader_parameter/pos = Vector3(-0.143415, 0.249294, -0.216103)
 shader_parameter/leaveTexture = ExtResource("2_n7c4t")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_y8ayx"]
@@ -516,7 +516,7 @@ shader = SubResource("Shader_wcp65")
 shader_parameter/Albedo = Color(0, 0.270588, 0.00392157, 1)
 shader_parameter/Roughness = 1.0
 shader_parameter/Metallicness = 0.0
-shader_parameter/pos = Vector3(0.323407, -0.0555513, -0.216544)
+shader_parameter/pos = Vector3(-0.0491819, 0, 0.457713)
 shader_parameter/leaveTexture = ExtResource("2_n7c4t")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4wtva"]
@@ -620,7 +620,7 @@ shader = SubResource("Shader_aj063")
 shader_parameter/Albedo = Color(0, 0.270588, 0.00392157, 1)
 shader_parameter/Roughness = 1.0
 shader_parameter/Metallicness = 0.0
-shader_parameter/pos = Vector3(-0.389843, -0.0348954, -0.0304891)
+shader_parameter/pos = Vector3(-0.0389585, -0.164841, 0.474317)
 shader_parameter/leaveTexture = ExtResource("2_n7c4t")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_e3mei"]
@@ -724,7 +724,7 @@ shader = SubResource("Shader_j5eaw")
 shader_parameter/Albedo = Color(0, 0.270588, 0.00392157, 1)
 shader_parameter/Roughness = 1.0
 shader_parameter/Metallicness = 0.0
-shader_parameter/pos = Vector3(0.496506, -0.126582, -0.31954)
+shader_parameter/pos = Vector3(-0.0537794, -0.367234, -0.104211)
 shader_parameter/leaveTexture = ExtResource("2_n7c4t")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_d75g4"]
@@ -828,7 +828,7 @@ shader = SubResource("Shader_xvh3s")
 shader_parameter/Albedo = Color(0, 0.270588, 0.00392157, 1)
 shader_parameter/Roughness = 1.0
 shader_parameter/Metallicness = 0.0
-shader_parameter/pos = Vector3(-1.00978, -0.113927, -0.269931)
+shader_parameter/pos = Vector3(0, -0.058479, -0.0219678)
 shader_parameter/leaveTexture = ExtResource("2_n7c4t")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tkxfc"]
@@ -935,7 +935,7 @@ shader = SubResource("Shader_ci31p")
 shader_parameter/Albedo = Color(0, 0.270588, 0.00392157, 1)
 shader_parameter/Roughness = 1.0
 shader_parameter/Metallicness = 0.0
-shader_parameter/pos = Vector3(-0.226848, 0.456031, -0.0190149)
+shader_parameter/pos = Vector3(-0.240849, 0.0372199, 0.345712)
 shader_parameter/leaveTexture = SubResource("CompressedTexture2D_ypoo3")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ed4ov"]
@@ -944,51 +944,47 @@ orientation = 2
 
 [node name="leave" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.104315, 0.332524, 0.937308, -0.489001, 0.83781, -0.242803, 0, 0, 0)
-shadow_enabled = true
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.590415, -0.203768, -0.143798)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0937917, 0.0539644, -0.299731)
 mesh = SubResource("PlaneMesh_8lmk2")
 script = ExtResource("3_ed2c0")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47365, -0.44287, -0.694955)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.148923, 0.140041, 0.501095)
 mesh = SubResource("PlaneMesh_7dwcj")
 script = ExtResource("3_ed2c0")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0839944, 0.24612, -0.459154)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.405352, 0.309332)
 mesh = SubResource("PlaneMesh_hqrbb")
 script = ExtResource("3_ed2c0")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.646141, 0.320493, -0.0512024)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.143415, 0.249294, -0.216103)
 mesh = SubResource("PlaneMesh_y8ayx")
 script = ExtResource("3_ed2c0")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.323407, -0.0555513, -0.216544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0491819, 0, 0.457713)
 mesh = SubResource("PlaneMesh_4wtva")
 script = ExtResource("3_ed2c0")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.389843, -0.0348954, -0.0304891)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0389585, -0.164841, 0.474317)
 mesh = SubResource("PlaneMesh_e3mei")
 script = ExtResource("3_ed2c0")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.496506, -0.126582, -0.31954)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0537794, -0.367234, -0.104211)
 mesh = SubResource("PlaneMesh_d75g4")
 script = ExtResource("3_ed2c0")
 
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00978, -0.113927, -0.269931)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.058479, -0.0219678)
 mesh = SubResource("PlaneMesh_tkxfc")
 script = ExtResource("3_ed2c0")
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.226848, 0.456031, -0.0190149)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.240849, 0.0372199, 0.345712)
 mesh = SubResource("PlaneMesh_ed4ov")
 script = ExtResource("3_ed2c0")
