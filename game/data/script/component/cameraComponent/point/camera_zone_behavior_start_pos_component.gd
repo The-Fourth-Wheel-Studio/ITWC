@@ -1,3 +1,3 @@
 @tool
 extends pointComponent
-class_name cameraZoneBehaviorStartPos
+class_name cameraZoneBehaviorPlanarPoint
