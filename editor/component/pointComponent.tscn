@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8glec4apf8aw"]
+
+[ext_resource type="Script" path="res://game/data/script/component/point_component.gd" id="1_vu5s8"]
+
+[node name="PointComponent" type="Marker3D"]
+script = ExtResource("1_vu5s8")

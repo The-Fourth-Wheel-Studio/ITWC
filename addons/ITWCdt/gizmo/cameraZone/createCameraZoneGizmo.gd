@@ -5,7 +5,7 @@ const cameraZoneColliderGizmo = preload("res://addons/ITWCdt/gizmo/cameraZone/gi
 const cameraZoneBehaviorStartPosGizmo = preload("res://addons/ITWCdt/gizmo/cameraZone/gizmo/cameraZoneBehaviorStartPosGizmo.gd")
 
 const cameraZoneColliderType = preload("res://game/data/script/component/camera_zone_collider.gd")
-const cameraZoneBehaviorStartPosType = preload("res://game/data/script/component/camera_zone_behavior_start_pos_component.gd")
+const cameraZoneBehaviorStartPosType = preload("res://game/data/script/component/cameraComponent/point/camera_zone_behavior_start_pos_component.gd")
 
 
 func _init():

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c4r56iwnkjfmu" path="res://editor/component/camera_zone_collider_component.tscn" id="5_7gukp"]
 [ext_resource type="PackedScene" uid="uid://v5xnjr7e8wj4" path="res://editor/component/camera_zone_behavior_component.tscn" id="6_y0o4e"]
 [ext_resource type="PackedScene" uid="uid://blwh5u2buoufm" path="res://editor/component/camera_zone_transition_component.tscn" id="7_mya0i"]
-[ext_resource type="PackedScene" uid="uid://dmcfnahvapei0" path="res://editor/component/camera_zone_start_pos_component.tscn" id="8_2yboh"]
+[ext_resource type="PackedScene" uid="uid://dmcfnahvapei0" path="res://editor/component/cameraComponent/point/camera_zone_start_pos_component.tscn" id="8_2yboh"]
 [ext_resource type="PackedScene" uid="uid://cu2ab1ft468ui" path="res://editor/component/cameraComponent/cameraZoneBehavior/camera_zone_behavior_planar.tscn" id="8_bukdi"]
 [ext_resource type="PackedScene" uid="uid://c8y1p82jwg3bt" path="res://game/assets/model/props/stairs test.glb" id="10_be6r6"]
 
