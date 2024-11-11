@@ -14,7 +14,7 @@ func _ready() -> void:
 	plan = Plan.new(x,y,self.position + self.get_parent().position)
 	
 func behave():
-	
+	GameManager.currentCamera.position = plan.getOrthogonalProjection(GameManager.player.position)
 	GameManager.currentCamera.getNewReference()
 	GameManager.currentCamera.look_at(GameManager.player.position)
 

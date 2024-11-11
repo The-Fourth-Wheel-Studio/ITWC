@@ -33,7 +33,7 @@ glow_enabled = true
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fxc4m"]
-size = Vector3(22.2065, 3.31152, 30.6259)
+size = Vector3(41.4016, 6.14941, 30.6259)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qn060"]
 size = Vector3(21.0412, 3.31152, 33.1364)
@@ -81,7 +81,7 @@ behavior = NodePath("cameraZoneBehavior")
 transition = NodePath("cameraZoneTransition")
 
 [node name="CameraZoneCollider" parent="cameraZone2" instance=ExtResource("5_7gukp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.23181, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.59755, 1.98679, 0)
 shape = SubResource("BoxShape3D_fxc4m")
 
 [node name="cameraZoneTransition" parent="cameraZone2" node_paths=PackedStringArray("startPos") instance=ExtResource("7_mya0i")]
@@ -92,16 +92,16 @@ speed = 0.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 11)
 
 [node name="cameraZoneBehavior" parent="cameraZone2" node_paths=PackedStringArray("point") instance=ExtResource("8_bukdi")]
-transform = Transform3D(0.734583, 0, -0.678519, 0, 1, 0, 0.678519, 0, 0.734583, 0, 0.331254, 0)
+transform = Transform3D(-0.999723, 0, 0.0235599, 0, 1, 0, -0.0235599, 0, -0.999723, 0, 6.83738, 3.58901)
 point = NodePath("point")
-x = Vector3(-2.02444, 4.96532, 0)
-y = Vector3(0, 4.96532, 5.68895)
+x = Vector3(-5.13408, 6.34529, 0)
+y = Vector3(0, 6.34529, -10.3896)
 
 [node name="point" parent="cameraZone2/cameraZoneBehavior" instance=ExtResource("9_s4r52")]
-transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 1, 2.37294, 4.96532, 5.55262)
+transform = Transform3D(1, 0, 8.56817e-08, 0, 1, 0, -8.56817e-08, 0, 1, 5.37743, 6.34529, 10.2658)
 
 [node name="cameraZone" parent="." node_paths=PackedStringArray("collider", "behavior", "transition") instance=ExtResource("4_n3ol1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1632, 0, -0.957875)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.125, 0, -0.957875)
 collider = NodePath("CameraZoneCollider")
 behavior = NodePath("cameraZoneBehavior")
 transition = NodePath("cameraZoneTransition")
