@@ -3,6 +3,8 @@
 extends cameraZoneBehavior
 class_name cameraZoneBehaviorPlanar
 
+@export var point : cameraZoneBehaviorPlanarPoint
+
 @export var x : Vector3
 @export var y : Vector3
 	
@@ -15,3 +17,10 @@ func behave():
 	
 	GameManager.currentCamera.getNewReference()
 	GameManager.currentCamera.look_at(GameManager.player.position)
+
+func _process(delta):
+	setXY()
+
+func setXY():
+	x = Vector3(point.global_position.x - self.global_position.x,point.global_position.y - self.global_position.y,0)
+	y = Vector3(0 ,point.global_position.y - self.global_position.y,point.global_position.z - self.global_position.z)
