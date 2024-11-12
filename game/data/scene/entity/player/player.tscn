@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://5j05ep0smgod"]
+[gd_scene load_steps=16 format=3 uid="uid://5j05ep0smgod"]
 
 [ext_resource type="Script" path="res://game/data/script/entity/player/default/player.gd" id="1_8kmop"]
 [ext_resource type="Script" path="res://game/data/script/ressources/player/playerAttribute.gd" id="2_34a5h"]
@@ -33,15 +33,18 @@ albedo_color = Color(1, 0, 1, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_18qmg"]
 material = SubResource("StandardMaterial3D_chnfo")
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("velocityHandler", "inputhandler", "isOnFloor", "repulseHandler", "abilitieManager")]
+[sub_resource type="SphereMesh" id="SphereMesh_0gh0r"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("velocityHandler", "inputhandler", "isOnFloor", "repulseHandler", "abilitieManager", "model")]
 collision_layer = 3
 script = ExtResource("1_8kmop")
-playerAttributeVar = SubResource("Resource_wl6tr")
 velocityHandler = NodePath("velocityComponent")
 inputhandler = NodePath("inputHandeler")
 isOnFloor = NodePath("isOnFloorComponent")
 repulseHandler = NodePath("repulseHandler")
 abilitieManager = NodePath("abilities")
+model = NodePath("TEMP")
+playerAttributeVar = SubResource("Resource_wl6tr")
 
 [node name="velocityComponent" parent="." instance=ExtResource("3_ty0mc")]
 
@@ -59,6 +62,10 @@ shape = SubResource("BoxShape3D_6wdi5")
 
 [node name="TEMP" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_18qmg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TEMP"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.495273, 0.373361, 0.049017)
+mesh = SubResource("SphereMesh_0gh0r")
 
 [node name="abilities" type="Node" parent="."]
 script = ExtResource("7_4v37l")
