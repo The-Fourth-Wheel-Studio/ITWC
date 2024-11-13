@@ -69,8 +69,27 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="word/word/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_thafs")
 
+[node name="cameraZone2" parent="." node_paths=PackedStringArray("collider", "behavior", "transition") instance=ExtResource("4_n3ol1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.73246, 0, -1.91575)
+collider = NodePath("CameraZoneCollider")
+behavior = NodePath("cameraZoneBehavior")
+transition = NodePath("cameraZoneTransition")
+
+[node name="CameraZoneCollider" parent="cameraZone2" instance=ExtResource("5_7gukp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93968, 0.664394, 0)
+shape = SubResource("BoxShape3D_qn060")
+
+[node name="cameraZoneBehavior" parent="cameraZone2" instance=ExtResource("6_y0o4e")]
+
+[node name="cameraZoneTransition" parent="cameraZone2" node_paths=PackedStringArray("startPos") instance=ExtResource("7_mya0i")]
+startPos = NodePath("point")
+speed = 0.2
+
+[node name="point" parent="cameraZone2/cameraZoneTransition" instance=ExtResource("8_2yboh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 24)
+
 [node name="cameraZone" parent="." node_paths=PackedStringArray("collider", "behavior", "transition") instance=ExtResource("4_n3ol1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86623, 0, -0.957875)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.987, 0, -0.957875)
 collider = NodePath("CameraZoneCollider")
 behavior = NodePath("cameraZoneBehavior")
 transition = NodePath("cameraZoneTransition")
@@ -86,10 +105,12 @@ startPos = NodePath("point")
 speed = 0.2
 
 [node name="point" parent="cameraZone/cameraZoneTransition" instance=ExtResource("8_2yboh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5306, 24)
 
 [node name="stairs test" parent="." instance=ExtResource("10_be6r6")]
 transform = Transform3D(0.70127, 0, 0.712896, 0, 1, 0, -0.712896, 0, 0.70127, -32.3725, 14.267, -5.60493)
 
+[editable path="cameraZone2/cameraZoneBehavior"]
+[editable path="cameraZone2/cameraZoneTransition"]
 [editable path="cameraZone/cameraZoneBehavior"]
 [editable path="cameraZone/cameraZoneTransition"]
