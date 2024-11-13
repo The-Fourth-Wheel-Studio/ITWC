@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://ehr7mj2n6uju"]
+[gd_scene load_steps=20 format=3 uid="uid://ehr7mj2n6uju"]
 
 [ext_resource type="PackedScene" uid="uid://5j05ep0smgod" path="res://game/data/scene/entity/player/player.tscn" id="1_s4abd"]
 [ext_resource type="Script" path="res://game/data/script/start_up.gd" id="2_d2byt"]
 [ext_resource type="PackedScene" uid="uid://chtj5oaqp0etm" path="res://editor/component/camera_component.tscn" id="3_7nyrb"]
 [ext_resource type="PackedScene" uid="uid://c3ajbw87mqdt4" path="res://editor/component/camera_zone_component.tscn" id="4_n3ol1"]
+[ext_resource type="PackedScene" uid="uid://cmvb2bhw5jycr" path="res://editor/component/repulse_handler.tscn" id="4_shcep"]
 [ext_resource type="PackedScene" uid="uid://c4r56iwnkjfmu" path="res://editor/component/camera_zone_collider_component.tscn" id="5_7gukp"]
+[ext_resource type="PackedScene" uid="uid://mhr0qi18vj7c" path="res://editor/component/repusle_handler_zone.tscn" id="5_ql612"]
 [ext_resource type="PackedScene" uid="uid://v5xnjr7e8wj4" path="res://editor/component/camera_zone_behavior_component.tscn" id="6_y0o4e"]
 [ext_resource type="PackedScene" uid="uid://blwh5u2buoufm" path="res://editor/component/camera_zone_transition_component.tscn" id="7_mya0i"]
 [ext_resource type="PackedScene" uid="uid://dmcfnahvapei0" path="res://editor/component/cameraComponent/point/camera_zone_start_pos_component.tscn" id="8_2yboh"]
@@ -29,6 +31,13 @@ glow_enabled = true
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_thafs"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gqbnt"]
+top_radius = 0.1
+bottom_radius = 0.1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_h45h6"]
+radius = 0.0987008
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qn060"]
 size = Vector3(21.0412, 3.31152, 33.1364)
@@ -68,6 +77,16 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="word/word/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_thafs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="word/word"]
+transform = Transform3D(1, 0, 0, 0, 1, 9.31323e-10, 0, 3.63798e-12, 1, 0.415969, 0, 0)
+mesh = SubResource("CylinderMesh_gqbnt")
+
+[node name="repulseHandler" parent="word/word/MeshInstance3D" node_paths=PackedStringArray("collider") instance=ExtResource("4_shcep")]
+collider = NodePath("addARepulseHandlerZone/repusleZone")
+
+[node name="repusleZone" parent="word/word/MeshInstance3D/repulseHandler/addARepulseHandlerZone" index="0" instance=ExtResource("5_ql612")]
+shape = SubResource("CylinderShape3D_h45h6")
 
 [node name="cameraZone2" parent="." node_paths=PackedStringArray("collider", "behavior", "transition") instance=ExtResource("4_n3ol1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.73246, 0, -1.91575)
@@ -110,6 +129,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5306, 24)
 [node name="stairs test" parent="." instance=ExtResource("10_be6r6")]
 transform = Transform3D(0.70127, 0, 0.712896, 0, 1, 0, -0.712896, 0, 0.70127, -32.3725, 14.267, -5.60493)
 
+[editable path="word/word/MeshInstance3D/repulseHandler"]
 [editable path="cameraZone2/cameraZoneBehavior"]
 [editable path="cameraZone2/cameraZoneTransition"]
 [editable path="cameraZone/cameraZoneBehavior"]

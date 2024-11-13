@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://5j05ep0smgod"]
+[gd_scene load_steps=18 format=3 uid="uid://5j05ep0smgod"]
 
 [ext_resource type="Script" path="res://game/data/script/entity/player/default/player.gd" id="1_8kmop"]
 [ext_resource type="Script" path="res://game/data/script/ressources/player/playerAttribute.gd" id="2_34a5h"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cmvb2bhw5jycr" path="res://editor/component/repulse_handler.tscn" id="6_tik5m"]
 [ext_resource type="Script" path="res://game/data/script/component/abilities.gd" id="7_4v37l"]
 [ext_resource type="Script" path="res://game/data/script/entity/player/abilities/walk.gd" id="7_a822u"]
+[ext_resource type="PackedScene" uid="uid://mhr0qi18vj7c" path="res://editor/component/repusle_handler_zone.tscn" id="7_usdg0"]
 [ext_resource type="Script" path="res://game/data/script/entity/player/abilities/gravity.gd" id="9_0cx1k"]
 [ext_resource type="Script" path="res://game/data/script/entity/player/abilities/jump.gd" id="10_4oq0h"]
 
@@ -24,6 +25,9 @@ FOV_VARIATION = 20.0
 BOB_FREQUENTY = 2.0
 BOB_AMPLITUDE = 0.06
 GRAVITY = 9.81
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_iugtl"]
+radius = 0.685219
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6wdi5"]
 
@@ -55,7 +59,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.474714, 0)
 NodeToCheck = NodePath("..")
 lenght = 0.1
 
-[node name="repulseHandler" parent="." instance=ExtResource("6_tik5m")]
+[node name="repulseHandler" parent="." node_paths=PackedStringArray("collider") instance=ExtResource("6_tik5m")]
+force = 0.6
+collider = NodePath("addARepulseHandlerZone/repusleZone")
+
+[node name="repusleZone" parent="repulseHandler/addARepulseHandlerZone" index="0" instance=ExtResource("7_usdg0")]
+shape = SubResource("CylinderShape3D_iugtl")
 
 [node name="mainCollision" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_6wdi5")
@@ -81,3 +90,5 @@ active = true
 [node name="walk" type="Node3D" parent="abilities"]
 script = ExtResource("7_a822u")
 active = true
+
+[editable path="repulseHandler"]
