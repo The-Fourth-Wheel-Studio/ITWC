@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmcfnahvapei0"]
-
-[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/point/camera_zone_behavior_planar_point.gd" id="1_685cg"]
-
-[node name="point" type="Marker3D"]
-script = ExtResource("1_685cg")

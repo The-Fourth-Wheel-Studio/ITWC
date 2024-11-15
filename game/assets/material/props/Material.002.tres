@@ -1,9 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bro0yhsgf5j42"]
-
-[ext_resource type="Texture2D" uid="uid://das07kwbr584m" path="res://game/assets/texture/props/treeTest_treeTest.png" id="1_dyweu"]
-
-[resource]
-resource_name = "Material.002"
-cull_mode = 2
-albedo_texture = ExtResource("1_dyweu")
-roughness = 0.5
