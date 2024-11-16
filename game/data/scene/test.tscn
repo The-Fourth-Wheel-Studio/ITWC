@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ehr7mj2n6uju"]
+[gd_scene load_steps=20 format=3 uid="uid://ehr7mj2n6uju"]
 
 [ext_resource type="PackedScene" uid="uid://5j05ep0smgod" path="res://game/data/scene/entity/player/player.tscn" id="1_s4abd"]
 [ext_resource type="Script" path="res://game/data/script/start_up.gd" id="2_d2byt"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dmcfnahvapei0" path="res://editor/component/cameraComponent/point/camera_zone_start_pos_component.tscn" id="8_2yboh"]
 [ext_resource type="PackedScene" uid="uid://cu2ab1ft468ui" path="res://editor/component/cameraComponent/cameraZoneBehavior/camera_zone_behavior_planar.tscn" id="8_bukdi"]
 [ext_resource type="PackedScene" uid="uid://c8y1p82jwg3bt" path="res://game/assets/model/props/stairs test.glb" id="10_be6r6"]
+[ext_resource type="PackedScene" uid="uid://d1khpduxws6ko" path="res://game/assets/model/props/treeTest.glb" id="11_4tvjh"]
+[ext_resource type="PackedScene" uid="uid://d1mm0df2qipss" path="res://game/assets/shader/environement/leaves/test0.tscn" id="11_jib07"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t013n"]
 sky_top_color = Color(0.686275, 0.898039, 1, 1)
@@ -112,6 +114,57 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 24)
 
 [node name="stairs test" parent="." instance=ExtResource("10_be6r6")]
 transform = Transform3D(0.70127, 0, 0.712896, 0, 1, 0, -0.712896, 0, 0.70127, -32.3725, 14.267, -5.60493)
+
+[node name="treeTest" parent="." instance=ExtResource("11_4tvjh")]
+transform = Transform3D(1.33096, 0, 0, 0, 1.33096, 0, 0, 0, 1.33096, -10.0585, 0.029695, -7.56217)
+
+[node name="leave" parent="treeTest" instance=ExtResource("11_jib07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2717, 2.92177, 0.517212)
+
+[node name="leave2" parent="treeTest" instance=ExtResource("11_jib07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.510866, 3.76482, -2.2986)
+
+[node name="leave3" parent="treeTest" instance=ExtResource("11_jib07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28834, 4.45209, 1.14698)
+
+[node name="leave4" parent="treeTest" instance=ExtResource("11_jib07")]
+transform = Transform3D(0.999688, 0.0249905, 0, -0.0249905, 0.999688, 0, 0, 0, 1, 1.98645, 3.37169, 1.41331)
+
+[node name="leave5" parent="treeTest" instance=ExtResource("11_jib07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.544635, 5.50937, -0.447905)
+
+[node name="leave6" parent="treeTest" instance=ExtResource("11_jib07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441246, 4.12061, 1.65711)
+
+[node name="leave7" parent="treeTest" instance=ExtResource("11_jib07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441246, 4.12079, -0.721098)
+
+[node name="leave8" parent="treeTest" instance=ExtResource("11_jib07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07, 4.03181, -0.396495)
+
+[node name="leave9" parent="treeTest" instance=ExtResource("11_jib07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441246, 4.86353, 0.529811)
+
+[node name="leave10" parent="treeTest" instance=ExtResource("11_jib07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441246, 3.59527, -1.58743)
+
+[node name="leave11" parent="treeTest" instance=ExtResource("11_jib07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441246, 4.12061, 1.65711)
+
+[node name="leave12" parent="treeTest" instance=ExtResource("11_jib07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.915939, 3.09405, 1.15097)
+
+[node name="leave13" parent="treeTest" instance=ExtResource("11_jib07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65035, 4.12061, -1.09892)
+
+[node name="leave14" parent="treeTest" instance=ExtResource("11_jib07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.913346, 4.85019, -0.763947)
+
+[node name="leave15" parent="treeTest" instance=ExtResource("11_jib07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40039, 4.12061, -1.48434)
+
+[node name="leave16" parent="treeTest" instance=ExtResource("11_jib07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19673, 5.70693, -0.545122)
 
 [editable path="cameraZone2/cameraZoneTransition"]
 [editable path="cameraZone/cameraZoneBehavior"]

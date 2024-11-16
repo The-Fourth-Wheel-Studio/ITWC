@@ -15,7 +15,7 @@ func _init(node:cameraZoneCollider):
 func _redraw():
 	clear()
 	mat.albedo_color = self.node.get_parent().color
-	mat.albedo_color.a = 0.3
+	mat.albedo_color.a = 0.5
 	add_lines(PackedVector3Array([Vector3(0.0,0.0,0.0),Vector3(10.0,0.0,0.0)]),mat)
 	var boxmesh : BoxMesh = BoxMesh.new()
 	boxmesh.size = self.node.shape.size
