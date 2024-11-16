@@ -2,14 +2,14 @@ extends abilities
 
 var speed : float = 0.0
 
-func doWhatever(delta):
-	
+func doWhatever():
 	if player.isAbleToMove:
 		
 		speed = lerp(speed, 
 					player.speedVariation(),
 					player.playerAttributeVar.SPEED_VARIATION)
+		print("ok ", player.speedVariation())
 		var input_dir = player.inputhandler.direction
-		
-		player.velocityHandler.setVelocityXZ(player.camera.getNewDir(input_dir) * player.speed)
-		print(player.velocityHandler.getFinalVelocity())
+		print(input_dir)
+		print(player.camera.getNewDir(input_dir) * player.speed)
+		player.velocity = player.camera.getNewDir(input_dir) * player.speed
