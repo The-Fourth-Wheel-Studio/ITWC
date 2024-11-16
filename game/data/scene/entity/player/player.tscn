@@ -60,16 +60,14 @@ shape = SubResource("BoxShape3D_6wdi5")
 [node name="TEMP" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_18qmg")
 
+[node name="gravity" type="Node3D" parent="."]
+script = ExtResource("9_0cx1k")
+
+[node name="jump" type="Node3D" parent="."]
+script = ExtResource("10_4oq0h")
+
 [node name="abilities" type="Node" parent="."]
 script = ExtResource("7_4v37l")
-
-[node name="gravity" type="Node3D" parent="abilities"]
-script = ExtResource("9_0cx1k")
-active = true
-
-[node name="jump" type="Node3D" parent="abilities"]
-script = ExtResource("10_4oq0h")
-active = true
 
 [node name="walk" type="Node3D" parent="abilities"]
 script = ExtResource("7_a822u")
