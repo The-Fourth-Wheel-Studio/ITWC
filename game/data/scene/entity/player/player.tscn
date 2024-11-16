@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://5j05ep0smgod"]
+[gd_scene load_steps=18 format=3 uid="uid://5j05ep0smgod"]
 
 [ext_resource type="Script" path="res://game/data/script/entity/player/default/player.gd" id="1_8kmop"]
 [ext_resource type="Script" path="res://game/data/script/ressources/player/playerAttribute.gd" id="2_34a5h"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://mhr0qi18vj7c" path="res://editor/component/repusle_handler_zone.tscn" id="7_usdg0"]
 [ext_resource type="Script" path="res://game/data/script/entity/player/abilities/gravity.gd" id="9_0cx1k"]
 [ext_resource type="Script" path="res://game/data/script/entity/player/abilities/jump.gd" id="10_4oq0h"]
-[ext_resource type="Script" path="res://game/data/script/entity/player/abilities/repulse.gd" id="12_2cken"]
 
 [sub_resource type="Resource" id="Resource_wl6tr"]
 script = ExtResource("2_34a5h")
@@ -90,10 +89,6 @@ active = true
 
 [node name="walk" type="Node3D" parent="abilities"]
 script = ExtResource("7_a822u")
-active = true
-
-[node name="repulse" type="Node3D" parent="abilities"]
-script = ExtResource("12_2cken")
 active = true
 
 [editable path="repulseHandler"]

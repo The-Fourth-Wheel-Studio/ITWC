@@ -12,9 +12,9 @@ func execute(delta):
 	velocityHandler.setCurrentVelocity(velocity)
 	#move
 	abilitieManager.execute(delta)
-	#repulse handler to fix (titruc - july 2024)
-	#it's fix ! (look at habilities) (titruc - november 2024)
-	
+	#repulse handler to fix
+	for body in repulseHandler.getOtherBody():
+		velocityHandler.addVelocityXZ(repulseHandler.repulse(body,self))
 	velocity = velocityHandler.getFinalVelocity()
 	move_and_slide()
 		
