@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq3ho8bwa0if1"]
-
-[ext_resource type="PackedScene" uid="uid://v5xnjr7e8wj4" path="res://editor/component/camera_zone_behavior_component.tscn" id="1_k3006"]
-[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_planar.gd" id="2_n4s11"]
-
-[node name="cameraZoneBehavior" instance=ExtResource("1_k3006")]
-script = ExtResource("2_n4s11")
-x = Vector3(0, 0, 0)
-y = Vector3(0, 0, 0)

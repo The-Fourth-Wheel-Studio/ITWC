@@ -72,12 +72,13 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_thafs")
 
 [node name="cameraZone2" parent="." node_paths=PackedStringArray("collider", "behavior", "transition") instance=ExtResource("4_n3ol1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3441, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8625, 0, 0)
 collider = NodePath("CameraZoneCollider")
-behavior = NodePath("")
+behavior = NodePath("cameraZoneBehavior")
 transition = NodePath("cameraZoneTransition")
 
 [node name="CameraZoneCollider" parent="cameraZone2" instance=ExtResource("5_7gukp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2079, 1.73012, 1.21458)
 shape = SubResource("BoxShape3D_fxc4m")
 
 [node name="cameraZoneTransition" parent="cameraZone2" node_paths=PackedStringArray("startPos") instance=ExtResource("7_mya0i")]
@@ -87,6 +88,8 @@ speed = 0.2
 [node name="startPos" parent="cameraZone2/cameraZoneTransition" instance=ExtResource("8_2yboh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.98435, 0)
 
+[node name="cameraZoneBehavior" parent="cameraZone2" instance=ExtResource("6_y0o4e")]
+
 [node name="cameraZone" parent="." node_paths=PackedStringArray("collider", "behavior", "transition") instance=ExtResource("4_n3ol1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1632, 0, -0.957875)
 collider = NodePath("CameraZoneCollider")
@@ -94,7 +97,7 @@ behavior = NodePath("cameraZoneBehavior")
 transition = NodePath("cameraZoneTransition")
 
 [node name="CameraZoneCollider" parent="cameraZone" instance=ExtResource("5_7gukp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93968, 0.664394, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37957, 1.15576, 1.94584)
 shape = SubResource("BoxShape3D_qn060")
 
 [node name="cameraZoneBehavior" parent="cameraZone" instance=ExtResource("6_y0o4e")]
