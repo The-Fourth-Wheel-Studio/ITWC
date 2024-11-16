@@ -31,7 +31,11 @@ data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fxc4m"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 size = Vector3(5.90201, 3.31152, 9.44162)
+=======
+size = Vector3(11.0053, 3.31152, 9.44162)
+>>>>>>> parent of a71481b (backend + i^2 = -1)
 =======
 size = Vector3(11.0053, 3.31152, 9.44162)
 >>>>>>> parent of a71481b (backend + i^2 = -1)
@@ -82,7 +86,11 @@ behavior = NodePath("cameraZoneBehavior")
 
 [node name="CameraZoneCollider" parent="cameraZone2" instance=ExtResource("5_7gukp")]
 <<<<<<< HEAD
+<<<<<<< HEAD
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39355, 1.73012, -0.35226)
+=======
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30819, 1.73012, -0.35226)
+>>>>>>> parent of a71481b (backend + i^2 = -1)
 =======
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30819, 1.73012, -0.35226)
 >>>>>>> parent of a71481b (backend + i^2 = -1)
@@ -92,6 +100,7 @@ shape = SubResource("BoxShape3D_fxc4m")
 speed = 0.55
 
 [node name="startPos" parent="cameraZone2/cameraZoneBehavior" index="0"]
+<<<<<<< HEAD
 <<<<<<< HEAD
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2446, 7.42826, 2.95255)
 
@@ -114,6 +123,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.87582, 6.83786, 5.62945)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4903, 7.42826, 7.98977)
 
 >>>>>>> parent of a71481b (backend + i^2 = -1)
+=======
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4903, 7.42826, 7.98977)
+
+>>>>>>> parent of a71481b (backend + i^2 = -1)
 [node name="cameraZone" parent="." node_paths=PackedStringArray("collider", "behavior") instance=ExtResource("4_n3ol1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.077902, 0, 0)
 collider = NodePath("CameraZoneCollider")
@@ -128,7 +141,11 @@ speed = 0.55
 
 [node name="startPos" parent="cameraZone/cameraZoneBehavior" index="0"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.137074, 7.24422)
+=======
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37868, 6.81074)
+>>>>>>> parent of a71481b (backend + i^2 = -1)
 =======
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37868, 6.81074)
 >>>>>>> parent of a71481b (backend + i^2 = -1)
@@ -141,7 +158,10 @@ script = ExtResource("8_1od1t")
 
 [editable path="cameraZone2/cameraZoneBehavior"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [editable path="cameraZone3/cameraZoneBehavior"]
+=======
+>>>>>>> parent of a71481b (backend + i^2 = -1)
 =======
 >>>>>>> parent of a71481b (backend + i^2 = -1)
 [editable path="cameraZone/cameraZoneBehavior"]
