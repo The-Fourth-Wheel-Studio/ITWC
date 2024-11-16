@@ -1,3 +1,0 @@
-@tool
-extends pointComponent
-class_name cameraZoneBehaviorStartPos
