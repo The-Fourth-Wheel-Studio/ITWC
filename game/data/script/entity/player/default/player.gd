@@ -13,8 +13,8 @@ func execute(delta):
 	#move
 	abilitieManager.execute(delta)
 	#repulse handler to fix
-	for body in repulseHandler.getOtherBody():
-		velocityHandler.addVelocityXZ(repulseHandler.repulse(body,self))
+	#for body in repulseHandler.getOtherBody():
+		#velocityHandler.addVelocityXZ(repulseHandler.repulse(body,self))
 	velocity = velocityHandler.getFinalVelocity()
 	move_and_slide()
 		
