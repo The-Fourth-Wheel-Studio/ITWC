@@ -24,8 +24,8 @@ GameManager="*res://game/data/script/shared/gameManager.gd"
 
 [display]
 
-window/size/viewport_width=11520
-window/size/viewport_height=6480
+window/size/viewport_width=720
+window/size/viewport_height=405
 window/size/window_width_override=1440
 window/size/window_height_override=810
 window/stretch/mode="viewport"
@@ -90,3 +90,7 @@ left_click={
 3d_physics/layer_1="general"
 3d_physics/layer_2="player"
 3d_physics/layer_3="repulse"
+
+[rendering]
+
+renderer/rendering_method="mobile"
