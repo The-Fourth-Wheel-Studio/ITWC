@@ -1,2 +1,3 @@
-extends pointComponent
+@tool
+extends Marker3D
 class_name cameraZoneBehaviorStartPos
