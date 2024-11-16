@@ -7,7 +7,7 @@ func _ready():
 func _unhandled_input(event):
 	pass
 
-func execute(delta):
+func _process(delta):
 	#set velocity
 	velocityHandler.setCurrentVelocity(velocity)
 	#move
