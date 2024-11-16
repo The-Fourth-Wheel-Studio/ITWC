@@ -9,12 +9,10 @@ func doWhatever(delta):
 					player.speedVariation(),
 					player.playerAttributeVar.SPEED_VARIATION)
 		player.velocityHandler.setVelocityXZ(player.camera.getNewDir(player.inputhandler.direction) * speed)
-		print(speed)
-		if player.inputhandler.direction.length() > 0.1:
-			applyRotation()
+		applyRotation()
 
 func applyRotation():
 	var refVector : Vector2 = GameManager.currentCamera.getNewDir(player.inputhandler.direction)
-	player.model.rotation.y = lerp_angle(player.model.rotation.y,Common.getComplexArgument(refVector.x, refVector.y * -1),0.08)
+	player.model.rotation.y = lerp_angle(player.model.rotation.y,Common.getComplexArgument(refVector.x, refVector.y * -1),0.1)
 
 	
