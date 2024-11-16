@@ -8,8 +8,6 @@
 
 config_version=5
 
-show_default_buttons=false
-
 [application]
 
 config/name="IPWC"
@@ -90,7 +88,3 @@ left_click={
 3d_physics/layer_1="general"
 3d_physics/layer_2="player"
 3d_physics/layer_3="repulse"
-
-[rendering]
-
-renderer/rendering_method="mobile"

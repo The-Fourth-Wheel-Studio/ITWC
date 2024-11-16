@@ -1,4 +1,5 @@
 shader_type sky;
+#include "res://addons/ShaderLib/Artistic/Artistic.gdshaderinc"
 
 
 uniform float star_height = 1;
@@ -37,8 +38,7 @@ vec3 star_layer(vec2 uv)
 			float size = (rv.x + 0.5)/star_size;
 			float animated_size = size * (abs(sin(TIME * rv.y)) + 0.1);
 			float flare = abs(rv.x) * 3.0 * smoothstep((1.0 - flare_ratio) - 0.5 ,rv.x , 1);
-			//here to change
-			vec3 star_color = vec3(1.0,1.0,1.0);
+			vec3 star_color = hue(vec3(1,0,0), rv.y, 1);
 			star_color = vec3(star_color.r, star_color.r, star_color.r);
 			star_color *= vec3(0.06 * (size), 1.0, 0.08 * size);
 			if(size < 10.)
