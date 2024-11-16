@@ -1,4 +1,3 @@
-@icon("res://editor/assets/component/abilitiesComponent.png")
 extends Node3D
 class_name abilities
 
