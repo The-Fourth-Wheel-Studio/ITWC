@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ehr7mj2n6uju"]
+[gd_scene load_steps=19 format=3 uid="uid://ehr7mj2n6uju"]
 
 [ext_resource type="PackedScene" uid="uid://5j05ep0smgod" path="res://game/data/scene/entity/player/player.tscn" id="1_s4abd"]
 [ext_resource type="Script" path="res://game/data/script/start_up.gd" id="2_d2byt"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://v5xnjr7e8wj4" path="res://editor/component/camera_zone_behavior_component.tscn" id="6_y0o4e"]
 [ext_resource type="PackedScene" uid="uid://blwh5u2buoufm" path="res://editor/component/camera_zone_transition_component.tscn" id="7_mya0i"]
 [ext_resource type="PackedScene" uid="uid://dmcfnahvapei0" path="res://editor/component/cameraComponent/point/camera_zone_start_pos_component.tscn" id="8_2yboh"]
+[ext_resource type="PackedScene" uid="uid://cu2ab1ft468ui" path="res://editor/component/cameraComponent/cameraZoneBehavior/camera_zone_behavior_planar.tscn" id="8_bukdi"]
+[ext_resource type="PackedScene" uid="uid://3h6ebklv4eht" path="res://editor/component/cameraComponent/point/camera_zone_behavior_planar_point.tscn" id="9_s4r52"]
 [ext_resource type="PackedScene" uid="uid://c8y1p82jwg3bt" path="res://game/assets/model/props/stairs test.glb" id="10_be6r6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t013n"]
@@ -29,6 +31,9 @@ glow_enabled = true
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_thafs"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxc4m"]
+size = Vector3(41.4016, 6.14941, 30.6259)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qn060"]
 size = Vector3(21.0412, 3.31152, 33.1364)
@@ -69,8 +74,34 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="word/word/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_thafs")
 
+[node name="cameraZone2" parent="." node_paths=PackedStringArray("collider", "behavior", "transition") instance=ExtResource("4_n3ol1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3441, 0, 0)
+collider = NodePath("CameraZoneCollider")
+behavior = NodePath("cameraZoneBehavior")
+transition = NodePath("cameraZoneTransition")
+
+[node name="CameraZoneCollider" parent="cameraZone2" instance=ExtResource("5_7gukp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.59755, 1.98679, 0)
+shape = SubResource("BoxShape3D_fxc4m")
+
+[node name="cameraZoneTransition" parent="cameraZone2" node_paths=PackedStringArray("startPos") instance=ExtResource("7_mya0i")]
+startPos = NodePath("point")
+speed = 0.2
+
+[node name="point" parent="cameraZone2/cameraZoneTransition" instance=ExtResource("8_2yboh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 11)
+
+[node name="cameraZoneBehavior" parent="cameraZone2" node_paths=PackedStringArray("point") instance=ExtResource("8_bukdi")]
+transform = Transform3D(-0.999723, 0, 0.0235599, 0, 1, 0, -0.0235599, 0, -0.999723, 0, 6.83738, 3.58901)
+point = NodePath("point")
+x = Vector3(-5.13408, 6.34529, 0)
+y = Vector3(0, 6.34529, -10.3896)
+
+[node name="point" parent="cameraZone2/cameraZoneBehavior" instance=ExtResource("9_s4r52")]
+transform = Transform3D(1, 0, 8.56817e-08, 0, 1, 0, -8.56817e-08, 0, 1, 5.37743, 6.34529, 10.2658)
+
 [node name="cameraZone" parent="." node_paths=PackedStringArray("collider", "behavior", "transition") instance=ExtResource("4_n3ol1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86623, 0, -0.957875)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.125, 0, -0.957875)
 collider = NodePath("CameraZoneCollider")
 behavior = NodePath("cameraZoneBehavior")
 transition = NodePath("cameraZoneTransition")
@@ -91,5 +122,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 24)
 [node name="stairs test" parent="." instance=ExtResource("10_be6r6")]
 transform = Transform3D(0.70127, 0, 0.712896, 0, 1, 0, -0.712896, 0, 0.70127, -32.3725, 14.267, -5.60493)
 
+[editable path="cameraZone2/cameraZoneTransition"]
 [editable path="cameraZone/cameraZoneBehavior"]
 [editable path="cameraZone/cameraZoneTransition"]
