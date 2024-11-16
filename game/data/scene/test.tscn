@@ -44,6 +44,10 @@ script = ExtResource("2_d2byt")
 transform = Transform3D(0.999983, -0.0057421, 0, 0.0057421, 0.999983, 0, 0, 0, 1, 0, 0.939401, -0.40731)
 camera = NodePath("../Camera3D")
 
+[node name="player2" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_s4abd")]
+transform = Transform3D(0.999983, -0.0057421, 0, 0.0057421, 0.999983, 0, 0, 0, 1, 0, 0.952813, -0.40731)
+camera = NodePath("../Camera3D")
+
 [node name="Camera3D" parent="." instance=ExtResource("3_7nyrb")]
 transform = Transform3D(0.779032, 0.317587, -0.5406, 0, 0.862222, 0.506531, 0.626985, -0.394603, 0.671698, -8.85707, 6.1659, 6.17558)
 fov = 76.268
