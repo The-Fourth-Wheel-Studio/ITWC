@@ -23,8 +23,6 @@ static func pythagore(a, b):
 	
 static func getComplexArgument(a, b):
 	var module = pythagore(a,b)
-	if module == 0:
-		return 0.0
 	if b >= 0:
 		return acos(a/module)
 	else:
