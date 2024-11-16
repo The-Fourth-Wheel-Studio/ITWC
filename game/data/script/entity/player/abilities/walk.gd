@@ -8,7 +8,7 @@ func doWhatever(delta):
 		speed = lerp(speed, 
 					player.speedVariation(),
 					player.playerAttributeVar.SPEED_VARIATION)
-		player.velocityHandler.lerpVelocityXZ(player.camera.getNewDir(player.inputhandler.direction) * speed,0.2)
+		player.velocityHandler.setVelocityXZ(player.camera.getNewDir(player.inputhandler.direction) * speed)
 		print(speed)
 		if player.inputhandler.direction.length() > 0.1:
 			applyRotation()
