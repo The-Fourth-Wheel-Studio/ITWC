@@ -28,9 +28,3 @@ static func getComplexArgument(a, b):
 		return acos(a/module)
 	else:
 		return PI + PI - acos(a/module)
-
-static func vectorialProduct(u : Vector3, v : Vector3):
-	return Vector3(u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0])
-
-static func getNormalVectorOfAPlane(u : Vector3, v : Vector3):
-	return vectorialProduct(u,v).normalized()
