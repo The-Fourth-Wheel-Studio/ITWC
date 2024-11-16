@@ -9,8 +9,7 @@ func doWhatever(delta):
 					player.speedVariation(),
 					player.playerAttributeVar.SPEED_VARIATION)
 		player.velocityHandler.lerpVelocityXZ(player.camera.getNewDir(player.inputhandler.direction) * speed,0.2)
-		if player.inputhandler.direction.length():
-			applyRotation()
+		applyRotation()
 
 func applyRotation():
 	var refVector : Vector2 = GameManager.currentCamera.getNewDir(player.inputhandler.direction)
