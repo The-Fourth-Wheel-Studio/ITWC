@@ -10,7 +10,7 @@ func setCurrentVelocity(velocity):
 	PARAMETER velocity TYPE Vector3
 	RETURN None
 	'''
-	self.Velocity = velocity
+	Velocity = velocity
 
 func applyGravity(gravityForce : float, delta : float):
 	'''
@@ -18,7 +18,7 @@ func applyGravity(gravityForce : float, delta : float):
 	PARAMETER velocity TYPE vector3, gravityForce TYPE float, delta TYPE float
 	RETURN None
 	'''
-	self.Velocity.y -= gravityForce * delta
+	Velocity.y -= gravityForce * delta
 	
 func setVelocityX(velocityX : float):
 	'''
@@ -26,7 +26,7 @@ func setVelocityX(velocityX : float):
 	PARAMETER velocityX TYPE float
 	RETURN None
 	'''
-	self.Velocity.x = velocityX
+	Velocity.x = velocityX
 
 func setVelocityY(velocityY : float):
 	'''
@@ -34,7 +34,7 @@ func setVelocityY(velocityY : float):
 	PARAMETER velocityY TYPE float
 	RETURN None
 	'''
-	self.Velocity.y = velocityY
+	Velocity.y = velocityY
 
 func setVelocityZ(velocityZ : float):
 	'''
@@ -42,7 +42,7 @@ func setVelocityZ(velocityZ : float):
 	PARAMETER velocityZ TYPE float
 	RETURN None
 	'''
-	self.Velocity.z = velocityZ
+	Velocity.z = velocityZ
 
 func setVelocityXZ(velocityXZ : Vector2):
 	'''
@@ -50,11 +50,11 @@ func setVelocityXZ(velocityXZ : Vector2):
 	PARAMETER velocityXZ TYPE Vector2
 	RETURN None
 	'''
-	self.Velocity.x = velocityXZ[0]
-	self.Velocity.z = velocityXZ[1]
+	Velocity.x = velocityXZ[0]
+	Velocity.z = velocityXZ[1]
 
 func addVelocityXZ(velocityAdd : Vector2):
-	self.Velocity += Vector3(velocityAdd.x,0,velocityAdd.y)
+	Velocity += Vector3(velocityAdd.x,0,velocityAdd.y)
 	
 func getFinalVelocity():
 	'''
@@ -62,4 +62,4 @@ func getFinalVelocity():
 	PARAMETER none
 	RETURN Velocity TYPE Vector3
 	'''
-	return self.Velocity
+	return Velocity
