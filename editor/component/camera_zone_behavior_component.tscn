@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://v5xnjr7e8wj4"]
-
-[ext_resource type="Script" path="res://game/data/script/component/camera_zone_behavior_component.gd" id="1_7a1rx"]
-
-[node name="cameraZoneBehavior" type="Node3D"]
-script = ExtResource("1_7a1rx")
