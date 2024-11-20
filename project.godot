@@ -13,10 +13,10 @@ show_default_buttons=false
 [application]
 
 config/name="ITWC"
-run/main_scene="res://game/data/scene/test.tscn"
+config/tags=PackedStringArray("thefourthwheel")
+run/main_scene="res://bucher_test.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
-config/tags=PackedStringArray("thefourthwheel")
 
 [autoload]
 
