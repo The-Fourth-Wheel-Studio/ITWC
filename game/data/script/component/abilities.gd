@@ -12,7 +12,6 @@ func load():
 
 
 func execute(delta):
-	
 	for i in abilitiesList:
 		if i.active:
 			i.execute(delta)
