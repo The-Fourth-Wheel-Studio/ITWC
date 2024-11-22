@@ -38,10 +38,9 @@ environment = SubResource("Environment_xersf")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="theBestCameraEver" type="Camera3D" parent="." node_paths=PackedStringArray("currentCameraZone")]
+[node name="theBestCameraEver" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.861921, 0.507042, 0, -0.507042, 0.861921, 0, 2.49379, 7.77082)
 script = ExtResource("1_37kl0")
-currentCameraZone = NodePath("../cameraZone")
 metadata/_custom_type_script = ExtResource("1_37kl0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -57,6 +56,8 @@ shape = SubResource("ConcavePolygonShape3D_b0q6j")
 camera = NodePath("../theBestCameraEver")
 
 [node name="cameraZone" type="Area3D" parent="." node_paths=PackedStringArray("collider", "behavior", "transition")]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("3_ehkex")
 collider = NodePath("cameraZoneCollider")
 behavior = NodePath("cameraZoneBehavior")
@@ -82,3 +83,5 @@ metadata/_custom_type_script = ExtResource("6_77dp3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1613, 2.62968, 12.3328)
 script = ExtResource("7_5tkv4")
 metadata/_custom_type_script = ExtResource("7_5tkv4")
+
+[connection signal="body_entered" from="cameraZone" to="cameraZone" method="_on_body_entered"]
