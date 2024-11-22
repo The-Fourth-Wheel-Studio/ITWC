@@ -1,0 +1,84 @@
+[gd_scene load_steps=14 format=3 uid="uid://cvtydj8kqury4"]
+
+[ext_resource type="Script" path="res://game/data/script/component/camera_component.gd" id="1_37kl0"]
+[ext_resource type="PackedScene" uid="uid://dto8b77kggjk" path="res://game/data/scene/entity/player/default/player.tscn" id="2_vbegm"]
+[ext_resource type="Script" path="res://game/data/script/component/camera_zone_component.gd" id="3_ehkex"]
+[ext_resource type="Script" path="res://game/data/script/component/camera_zone_behavior_component.gd" id="4_xersf"]
+[ext_resource type="Script" path="res://game/data/script/component/camera_zone_collider.gd" id="5_00tp4"]
+[ext_resource type="Script" path="res://game/data/script/component/camera_zone_transition_component.gd" id="6_77dp3"]
+[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/point/camera_zone_behavior_planar_point.gd" id="7_5tkv4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vbegm"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ehkex"]
+sky_material = SubResource("ProceduralSkyMaterial_vbegm")
+
+[sub_resource type="Environment" id="Environment_xersf"]
+background_mode = 2
+sky = SubResource("Sky_ehkex")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0m0f1"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_b0q6j"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mhym6"]
+size = Vector3(20.1353, 3.18469, 9.90619)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xersf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="theBestCameraEver" type="Camera3D" parent="." node_paths=PackedStringArray("currentCameraZone")]
+transform = Transform3D(1, 0, 0, 0, 0.861921, 0.507042, 0, -0.507042, 0.861921, 0, 2.49379, 7.77082)
+script = ExtResource("1_37kl0")
+currentCameraZone = NodePath("../cameraZone")
+metadata/_custom_type_script = ExtResource("1_37kl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(29.5459, 0, 0, 0, 1, 0, 0, 0, 20.1978, 0, -0.548972, 0)
+mesh = SubResource("PlaneMesh_0m0f1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_b0q6j")
+
+[node name="CharacterBody3D" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_vbegm")]
+camera = NodePath("../theBestCameraEver")
+
+[node name="cameraZone" type="Area3D" parent="." node_paths=PackedStringArray("collider", "behavior", "transition")]
+script = ExtResource("3_ehkex")
+collider = NodePath("cameraZoneCollider")
+behavior = NodePath("cameraZoneBehavior")
+transition = NodePath("cameraZoneTransition")
+metadata/_custom_type_script = ExtResource("3_ehkex")
+
+[node name="cameraZoneBehavior" type="Node3D" parent="cameraZone"]
+script = ExtResource("4_xersf")
+metadata/_custom_type_script = ExtResource("4_xersf")
+
+[node name="cameraZoneCollider" type="CollisionShape3D" parent="cameraZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.45337, 1.09235, -0.388763)
+shape = SubResource("BoxShape3D_mhym6")
+script = ExtResource("5_00tp4")
+metadata/_custom_type_script = ExtResource("5_00tp4")
+
+[node name="cameraZoneTransition" type="Node3D" parent="cameraZone" node_paths=PackedStringArray("startPos")]
+script = ExtResource("6_77dp3")
+startPos = NodePath("cameraZoneBehaviorStartPos")
+metadata/_custom_type_script = ExtResource("6_77dp3")
+
+[node name="cameraZoneBehaviorStartPos" type="Marker3D" parent="cameraZone/cameraZoneTransition"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1613, 2.62968, 12.3328)
+script = ExtResource("7_5tkv4")
+metadata/_custom_type_script = ExtResource("7_5tkv4")

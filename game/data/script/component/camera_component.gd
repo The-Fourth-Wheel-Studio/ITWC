@@ -2,8 +2,8 @@
 extends Camera3D
 class_name theBestCameraEver
 
-@export var cameraRotation : float
-@export var references : Vector4 = Vector4.ZERO
+var cameraRotation : float
+var references : Vector4 = Vector4.ZERO
 @export var currentCameraZone : cameraZone
 var rng = RandomNumberGenerator.new()
 func _process(delta):
