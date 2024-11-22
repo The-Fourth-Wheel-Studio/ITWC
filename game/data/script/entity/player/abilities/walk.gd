@@ -3,7 +3,6 @@ extends abilities
 var speed : float = 0.0
 
 func doWhatever(delta):
-	print("aaaaa")
 	if player.isAbleToMove:
 		
 		speed = lerp(speed, 

@@ -24,10 +24,11 @@ func transitioned():
 	return transition.transition()
 
 func execute():
-	isSetup = false
-	setup = true
-	GameManager.currentCamera.currentCameraZone = self
-	MKUtil.print("Change camera angles to : " + str(self.name))
+	if GameManager.currentCamera.currentCameraZone != self:
+		isSetup = false
+		setup = true
+		GameManager.currentCamera.currentCameraZone = self
+		MKUtil.print("Change camera angles to : " + str(self.name))
 
 func behave():
 	behavior.behave()
