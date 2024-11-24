@@ -12,11 +12,15 @@ var plan : Plan
 
 func _ready() -> void:
 	plan = Plan.new(x,y,self.position + self.get_parent().position)
+
+func setup():
+	GameManager.currentCamera.rotation = Common.getVector3Rotation(plan.normal)
 	
 func behave():
 	GameManager.currentCamera.position = plan.getOrthogonalProjection(GameManager.player.position)
 	GameManager.currentCamera.getNewReference()
-	GameManager.currentCamera.look_at(GameManager.player.position)
+	print(Common.getVector3Rotation(plan.normal))
+	GameManager.currentCamera.rotation = Common.getVector3Rotation(plan.normal)
 
 func _process(delta):
 	setXY()

@@ -6,3 +6,6 @@ func behave():
 	
 	GameManager.currentCamera.getNewReference()
 	GameManager.currentCamera.look_at(GameManager.player.position)
+
+func setup():
+	pass

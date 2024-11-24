@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvtydj8kqury4"]
+[gd_scene load_steps=15 format=3 uid="uid://cvtydj8kqury4"]
 
 [ext_resource type="Script" path="res://game/data/script/component/camera_component.gd" id="1_37kl0"]
 [ext_resource type="PackedScene" uid="uid://dto8b77kggjk" path="res://game/data/scene/entity/player/default/player.tscn" id="2_vbegm"]
 [ext_resource type="Script" path="res://game/data/script/component/camera_zone_component.gd" id="3_ehkex"]
-[ext_resource type="Script" path="res://game/data/script/component/camera_zone_behavior_component.gd" id="4_xersf"]
 [ext_resource type="Script" path="res://game/data/script/component/camera_zone_collider.gd" id="5_00tp4"]
 [ext_resource type="Script" path="res://game/data/script/component/camera_zone_transition_component.gd" id="6_77dp3"]
 [ext_resource type="Script" path="res://game/data/script/component/cameraComponent/point/camera_zone_behavior_planar_point.gd" id="7_5tkv4"]
+[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_planar.gd" id="7_u75k5"]
+[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/point/camera_zone_behavior_start_pos_component.gd" id="8_xmay6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vbegm"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -60,13 +61,9 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_ehkex")
 collider = NodePath("cameraZoneCollider")
-behavior = NodePath("cameraZoneBehavior")
+behavior = NodePath("cameraZoneBehaviorPlanar")
 transition = NodePath("cameraZoneTransition")
 metadata/_custom_type_script = ExtResource("3_ehkex")
-
-[node name="cameraZoneBehavior" type="Node3D" parent="cameraZone"]
-script = ExtResource("4_xersf")
-metadata/_custom_type_script = ExtResource("4_xersf")
 
 [node name="cameraZoneCollider" type="CollisionShape3D" parent="cameraZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.45337, 1.09235, -0.388763)
@@ -83,5 +80,16 @@ metadata/_custom_type_script = ExtResource("6_77dp3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1613, 2.62968, 12.3328)
 script = ExtResource("7_5tkv4")
 metadata/_custom_type_script = ExtResource("7_5tkv4")
+
+[node name="cameraZoneBehaviorPlanar" type="Node3D" parent="cameraZone" node_paths=PackedStringArray("point")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23063, 5.57356, 4.55221)
+script = ExtResource("7_u75k5")
+point = NodePath("cameraZoneBehaviorPlanarPoint")
+x = Vector3(-6.05087, 0, 0)
+y = Vector3(0, 0, -6.3809)
+
+[node name="cameraZoneBehaviorPlanarPoint" type="Marker3D" parent="cameraZone/cameraZoneBehaviorPlanar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.05087, 0, -6.3809)
+script = ExtResource("8_xmay6")
 
 [connection signal="body_entered" from="cameraZone" to="cameraZone" method="_on_body_entered"]

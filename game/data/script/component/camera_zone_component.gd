@@ -16,6 +16,7 @@ func run():
 			setup = transitioned()
 		else:
 			GameManager.currentCamera.getNewReference()
+			setupBehavior()
 			setup = true
 	else:
 		behave()
@@ -30,6 +31,9 @@ func execute():
 		GameManager.currentCamera.currentCameraZone = self
 		MKUtil.print("Change camera angles to : " + str(self.name))
 
+func setupBehavior():
+	behavior.setup()
+	
 func behave():
 	behavior.behave()
 	
