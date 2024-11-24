@@ -99,4 +99,4 @@ metadata/_custom_type_script = ExtResource("9_bgfw6")
 
 [node name="isOnFloorComponent" parent="." node_paths=PackedStringArray("NodeToCheck") instance=ExtResource("8_m6t41")]
 NodeToCheck = NodePath("..")
-lenght = 0.05
+lenght = 0.5

@@ -9,7 +9,6 @@ func _unhandled_input(event):
 
 func execute(delta):
 	#set velocity
-	inputhandler.gather()
 	velocityHandler.setCurrentVelocity(velocity)
 	#move
 	abilitieManager.execute(delta)
