@@ -82,7 +82,7 @@ script = ExtResource("7_5tkv4")
 metadata/_custom_type_script = ExtResource("7_5tkv4")
 
 [node name="cameraZoneBehaviorPlanar" type="Node3D" parent="cameraZone" node_paths=PackedStringArray("point")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23063, 5.57356, 4.55221)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23063, 5.34823, 4.55221)
 script = ExtResource("7_u75k5")
 point = NodePath("cameraZoneBehaviorPlanarPoint")
 x = Vector3(-6.05087, 0, 0)
