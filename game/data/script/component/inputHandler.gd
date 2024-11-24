@@ -8,14 +8,8 @@ class_name inputHandler
 @export var leftClick : bool = false
 @export var isCrouch : bool = false
 @export var constraint : Dictionary
-
-func _process(delta: float) -> void:
-	_gather()
 	
-func _gather():
-	if not is_multiplayer_authority():
-		return
-	
+func gather():
 	asJump = Input.is_action_pressed("jump")
 	isSprinting = Input.is_action_pressed("sprint")
 	direction = Input.get_vector("left", "right", "up", "down")
