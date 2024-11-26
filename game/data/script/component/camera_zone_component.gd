@@ -2,9 +2,13 @@
 extends Area3D
 class_name cameraZone
 
+@export_category("Camera Zone Component")
 @export var collider : cameraZoneCollider
 @export var behavior : cameraZoneBehavior
 @export var transition : cameraZoneTransition
+@export var reference : cameraZoneReference
+
+@export_category("Gizmo stuff")
 @export var color : Color = Color(1.0,1.0,0.3,1.0)
 
 var setup : bool = false
@@ -12,14 +16,14 @@ var isSetup : bool = false
 
 func run():
 	if setup:
-		if not isSetup:
-			setup = transitioned()
-		else:
+		if transitioned():
 			GameManager.currentCamera.getNewReference()
 			setupBehavior()
+			setupReference()
 			setup = true
 	else:
 		behave()
+		referenceBehave()
 
 func transitioned():
 	return transition.transition()
@@ -33,6 +37,12 @@ func execute():
 
 func setupBehavior():
 	behavior.setup()
+
+func setupReference():
+	reference.setup()
+
+func referenceBehave():
+	reference.changeReference()
 	
 func behave():
 	behavior.behave()

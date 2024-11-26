@@ -3,9 +3,7 @@ extends Node3D
 class_name cameraZoneBehavior
 
 func behave():
-	
-	GameManager.currentCamera.getNewReference()
-	GameManager.currentCamera.look_at(GameManager.player.position)
+	pass
 
 func setup():
 	pass

@@ -11,7 +11,7 @@ func _process(delta):
 	if currentCameraZone:
 		currentCameraZone.run()
 	GameManager.player.execute(delta)
-	print(self.rotation_degrees)
+
 
 func getNewReference():
 	cameraRotation = self.rotation_degrees.y

@@ -13,16 +13,11 @@ var plan : Plan
 func _ready() -> void:
 	plan = Plan.new(x,y,self.position + self.get_parent().position)
 
-func setup():
-	GameManager.currentCamera.rotation = Common.getVector3Rotation(plan.normal)
-	
 func behave():
 	GameManager.currentCamera.position = plan.getOrthogonalProjection(GameManager.player.position)
-	GameManager.currentCamera.getNewReference()
-	print(Common.getVector3Rotation(plan.normal))
-	GameManager.currentCamera.rotation = Common.getVector3Rotation(plan.normal)
 
 func _process(delta):
+	#wtf is this line titruc ????
 	setXY()
 
 func setXY():

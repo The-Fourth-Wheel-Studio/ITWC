@@ -6,8 +6,8 @@
 [ext_resource type="Script" path="res://game/data/script/component/camera_zone_collider.gd" id="5_00tp4"]
 [ext_resource type="Script" path="res://game/data/script/component/camera_zone_transition_component.gd" id="6_77dp3"]
 [ext_resource type="Script" path="res://game/data/script/component/cameraComponent/point/camera_zone_behavior_planar_point.gd" id="7_5tkv4"]
-[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_planar.gd" id="7_u75k5"]
-[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/point/camera_zone_behavior_start_pos_component.gd" id="8_xmay6"]
+[ext_resource type="Script" path="res://game/data/script/component/camera_zone_behavior_component.gd" id="8_m2l7g"]
+[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/reference/camera_zone_reference_follow_player.gd" id="9_r4j6u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vbegm"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -56,13 +56,14 @@ shape = SubResource("ConcavePolygonShape3D_b0q6j")
 [node name="CharacterBody3D" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_vbegm")]
 camera = NodePath("../theBestCameraEver")
 
-[node name="cameraZone" type="Area3D" parent="." node_paths=PackedStringArray("collider", "behavior", "transition")]
+[node name="cameraZone" type="Area3D" parent="." node_paths=PackedStringArray("collider", "behavior", "transition", "reference")]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_ehkex")
 collider = NodePath("cameraZoneCollider")
-behavior = NodePath("cameraZoneBehaviorPlanar")
+behavior = NodePath("cameraZoneBehavior")
 transition = NodePath("cameraZoneTransition")
+reference = NodePath("cameraZoneReferenceMoais")
 metadata/_custom_type_script = ExtResource("3_ehkex")
 
 [node name="cameraZoneCollider" type="CollisionShape3D" parent="cameraZone"]
@@ -81,15 +82,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1613, 2.62968, 12.3328)
 script = ExtResource("7_5tkv4")
 metadata/_custom_type_script = ExtResource("7_5tkv4")
 
-[node name="cameraZoneBehaviorPlanar" type="Node3D" parent="cameraZone" node_paths=PackedStringArray("point")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23063, 5.34823, 4.55221)
-script = ExtResource("7_u75k5")
-point = NodePath("cameraZoneBehaviorPlanarPoint")
-x = Vector3(-6.05087, 0, 0)
-y = Vector3(0, 0, -6.3809)
+[node name="cameraZoneBehavior" type="Node3D" parent="cameraZone"]
+script = ExtResource("8_m2l7g")
 
-[node name="cameraZoneBehaviorPlanarPoint" type="Marker3D" parent="cameraZone/cameraZoneBehaviorPlanar"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.05087, 0, -6.3809)
-script = ExtResource("8_xmay6")
+[node name="cameraZoneReferenceMoais" type="Node3D" parent="cameraZone"]
+transform = Transform3D(1, 0, 0, 0, 0.421621, -0.906772, 0, 0.906772, 0.421622, 0, 0, 0)
+script = ExtResource("9_r4j6u")
 
 [connection signal="body_entered" from="cameraZone" to="cameraZone" method="_on_body_entered"]
