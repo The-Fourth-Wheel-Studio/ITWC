@@ -44,3 +44,7 @@ static func getSign(i : int) -> int:
 		return -1
 	else:
 		return 1
+
+static func lerpRotation(from : Vector3, to : Vector3, weigth : float):
+	return Vector3(lerp_angle(from.x,to.x,weigth),lerp_angle(from.y,to.y,weigth),lerp_angle(from.z,to.z,weigth))
+	
