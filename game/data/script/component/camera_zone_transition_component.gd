@@ -16,6 +16,6 @@ func transition():
 	asTransitionnedOnRotation = rotationTransition.doSomething(rotationSpeed)
 	asTransitionnedOnPosition = positionTransition.doSomething(speed)
 	if (asTransitionnedOnPosition and asTransitionnedOnRotation):
-		return false
-	else:
 		return true
+	else:
+		return false

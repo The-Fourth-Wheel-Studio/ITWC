@@ -13,3 +13,6 @@ func setup():
 func setCameraPosition(position):
 	cameraPosition = position
 	GameManager.currentCamera.position = cameraPosition
+
+func getCameraPosition(position):
+	cameraPosition = position
