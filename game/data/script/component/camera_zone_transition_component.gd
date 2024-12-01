@@ -11,7 +11,6 @@ var asTransitionnedOnPosition : bool = false
 func transition():
 	asTransitionnedOnRotation = rotationTransition.doSomething()
 	asTransitionnedOnPosition = positionTransition.doSomething()
-	print(asTransitionnedOnPosition)
 	if (asTransitionnedOnPosition and asTransitionnedOnRotation):
 		return false
 	else:
