@@ -7,5 +7,8 @@ func getAngle():
 	return angle3D
 
 func doSomething():
-	GameManager.currentCamera.rotation = Common.lerpRotation(GameManager.currentCamera.rotation, cameraZoneVar.reference.rot, 0.1)
-	
+	if abs(GameManager.currentCamera.rotation - cameraZoneVar.reference.rot) > Vector3(0.01,0.01,0.01):
+		GameManager.currentCamera.rotation = Common.lerpRotation(GameManager.currentCamera.rotation, cameraZoneVar.reference.rot, 0.1)
+		return false
+	else:
+		return true

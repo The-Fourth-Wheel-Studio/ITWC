@@ -10,8 +10,7 @@ func _ready():
 	pos = self.global_position
 
 func transition():
-	if (pos.distance_to(GameManager.currentCamera.position) < 0.6):
+	if (rotationTransition.doSomething() and pos.distance_to(GameManager.currentCamera.position) < 0.6):
 		return false
 	else:
-		rotationTransition.doSomething()
 		return true

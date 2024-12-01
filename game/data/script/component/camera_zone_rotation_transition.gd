@@ -11,4 +11,4 @@ func getAngle():
 	pass
 
 func doSomething():
-	pass
+	return true
