@@ -16,11 +16,13 @@ var isSetup : bool = false
 
 func run():
 	if setup:
+		if not isSetup:
+			setupBehavior()
+			setupReference()
+			isSetup = false
 		applyTransition()
 		if transitioned():
 			GameManager.currentCamera.getNewReference()
-			setupBehavior()
-			setupReference()
 			setup = false
 	else:
 		behave()
