@@ -14,10 +14,11 @@ func _ready() -> void:
 	plan = Plan.new(x,y,self.position + self.get_parent().position)
 
 func behave():
-	GameManager.currentCamera.position = plan.getOrthogonalProjection(GameManager.player.position)
+	setCameraPosition(plan.getOrthogonalProjection(GameManager.player.position))
 
 func _process(delta):
 	#wtf is this line titruc ????
+	#ok i've figure it out, this is to set the planar vector, but in process so in the editor i can change it TODO : repear your shit
 	setXY()
 
 func setXY():

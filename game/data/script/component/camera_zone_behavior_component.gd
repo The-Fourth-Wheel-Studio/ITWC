@@ -2,8 +2,14 @@
 extends Node3D
 class_name cameraZoneBehavior
 
+var cameraPosition : Vector3 = Vector3.ZERO
+
 func behave():
 	pass
 
 func setup():
-	pass
+	cameraPosition = self.global_position
+
+func setCameraPosition(position):
+	cameraPosition = position
+	GameManager.currentCamera.position = cameraPosition
