@@ -5,7 +5,6 @@ class_name theBestCameraEver
 var cameraRotation : float
 var references : Vector4 = Vector4.ZERO
 @export var currentCameraZone : cameraZone
-var rng = RandomNumberGenerator.new()
 func _process(delta):
 	cameraRotation = self.rotation_degrees.y
 	if currentCameraZone:

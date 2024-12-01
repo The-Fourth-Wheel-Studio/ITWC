@@ -14,5 +14,8 @@ func setCameraPosition(position):
 	cameraPosition = position
 	GameManager.currentCamera.position = cameraPosition
 
-func getCameraPosition(position):
-	cameraPosition = position
+func getCameraPosition():
+	return Vector3.ZERO
+
+func behaveInTransition():
+	cameraPosition = getCameraPosition()

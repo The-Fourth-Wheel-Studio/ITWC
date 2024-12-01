@@ -14,7 +14,7 @@ func _ready() -> void:
 	plan = Plan.new(x,y,self.position + self.get_parent().position)
 
 func behave():
-	setCameraPosition(plan.getOrthogonalProjection(GameManager.player.position))
+	setCameraPosition(getCameraPosition())
 
 func _process(delta):
 	#wtf is this line titruc ????
@@ -24,3 +24,6 @@ func _process(delta):
 func setXY():
 	x = Vector3(point.global_position.x - self.global_position.x,point.global_position.y - self.global_position.y,0)
 	y = Vector3(0 ,point.global_position.y - self.global_position.y,point.global_position.z - self.global_position.z)
+
+func getCameraPosition():
+	return plan.getOrthogonalProjection(GameManager.player.position)

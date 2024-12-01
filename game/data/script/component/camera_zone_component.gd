@@ -16,6 +16,7 @@ var isSetup : bool = false
 
 func run():
 	if setup:
+		applyTransition()
 		if transitioned():
 			GameManager.currentCamera.getNewReference()
 			setupBehavior()
@@ -49,3 +50,6 @@ func behave():
 	
 func _on_body_entered(body):
 	execute()
+
+func applyTransition():
+	behavior.behaveInTransition()
