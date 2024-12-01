@@ -11,5 +11,5 @@ func _ready():
 func setup():
 	pass
 	
-func doSomething():
+func doSomething(speed : float = 1.0):
 	return true

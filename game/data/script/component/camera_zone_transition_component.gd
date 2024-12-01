@@ -2,6 +2,10 @@
 extends Node3D
 class_name cameraZoneTransition
 
+@export_category("transition attribute")
+@export var speed : float = 0.3
+@export var rotationSpeed : float = 0.1
+@export_category("Transition behave")
 @export var rotationTransition : cameraZoneRotationTransition
 @export var positionTransition : cameraZonePositionTransition
 
@@ -9,8 +13,8 @@ var asTransitionnedOnRotation : bool = false
 var asTransitionnedOnPosition : bool = false
 
 func transition():
-	asTransitionnedOnRotation = rotationTransition.doSomething()
-	asTransitionnedOnPosition = positionTransition.doSomething()
+	asTransitionnedOnRotation = rotationTransition.doSomething(rotationSpeed)
+	asTransitionnedOnPosition = positionTransition.doSomething(speed)
 	if (asTransitionnedOnPosition and asTransitionnedOnRotation):
 		return false
 	else:
