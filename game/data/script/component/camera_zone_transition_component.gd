@@ -3,14 +3,16 @@ extends Node3D
 class_name cameraZoneTransition
 
 @export var rotationTransition : cameraZoneRotationTransition
+@export var positionTransition : cameraZonePositionTransition
 
-var pos : Vector3 
-
-func _ready():
-	pos = self.global_position
+var asTransitionnedOnRotation : bool = false
+var asTransitionnedOnPosition : bool = false
 
 func transition():
-	if (rotationTransition.doSomething() and pos.distance_to(GameManager.currentCamera.position) < 0.6):
+	asTransitionnedOnRotation = rotationTransition.doSomething()
+	asTransitionnedOnPosition = positionTransition.doSomething()
+	print(asTransitionnedOnPosition)
+	if (asTransitionnedOnPosition and asTransitionnedOnRotation):
 		return false
 	else:
 		return true
