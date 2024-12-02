@@ -1,3 +1,4 @@
+@icon("res://editor/assets/component/cameraZonePositionTransitionComponent.png")
 extends Node3D
 class_name cameraZonePositionTransition
 

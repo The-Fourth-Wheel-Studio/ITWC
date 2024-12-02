@@ -1,3 +1,4 @@
+@icon("res://editor/assets/component/cameraZonereferenceComponent.png")
 extends cameraZoneReference
 class_name cameraZoneReferenceMoais
 
