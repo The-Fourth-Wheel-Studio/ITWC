@@ -77,7 +77,7 @@ metadata/_custom_type_script = ExtResource("5_00tp4")
 [node name="cameraZoneTransition" type="Node3D" parent="cameraZone" node_paths=PackedStringArray("rotationTransition", "positionTransition")]
 script = ExtResource("6_77dp3")
 speed = 0.1
-rotationSpeed = 0.2
+rotationSpeed = 0.02
 rotationTransition = NodePath("cameraZoneRotationTransitionConstant")
 positionTransition = NodePath("cameraZonePositionTansitionMovingWithBehave")
 metadata/_custom_type_script = ExtResource("6_77dp3")
