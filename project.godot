@@ -22,6 +22,10 @@ GameManager="*res://game/data/script/shared/gameManager.gd"
 
 project/assembly_name="ITWCReborn"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ITWCdt/plugin.cfg")
+
 [input]
 
 jump={

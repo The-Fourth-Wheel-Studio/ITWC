@@ -76,7 +76,7 @@ metadata/_custom_type_script = ExtResource("5_00tp4")
 
 [node name="cameraZoneTransition" type="Node3D" parent="cameraZone" node_paths=PackedStringArray("rotationTransition", "positionTransition")]
 script = ExtResource("6_77dp3")
-speed = 0.6
+speed = 0.1
 rotationSpeed = 0.2
 rotationTransition = NodePath("cameraZoneRotationTransitionConstant")
 positionTransition = NodePath("cameraZonePositionTansitionMovingWithBehave")
@@ -91,20 +91,20 @@ script = ExtResource("7_00tp4")
 metadata/_custom_type_script = ExtResource("7_00tp4")
 
 [node name="cameraZoneReferenceMoais" type="Node3D" parent="cameraZone"]
-transform = Transform3D(1, 0, 0, 0, 0.821119, 0.570757, 0, -0.570757, 0.821119, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 script = ExtResource("8_ehkex")
 metadata/_custom_type_script = ExtResource("8_ehkex")
 
 [node name="cameraZoneBehaviorPlanar" type="Node3D" parent="cameraZone" node_paths=PackedStringArray("point")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03784, 7.64269)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.83331, 4.31622, 1.77842)
 script = ExtResource("9_00tp4")
 point = NodePath("cameraZoneBehaviorPlanarPoint")
-x = Vector3(-6.19076, 2.61342, 0)
-y = Vector3(0, 2.61342, -2.43072)
+x = Vector3(-6.191, 0, 0)
+y = Vector3(0, 0, -2.431)
 metadata/_custom_type_script = ExtResource("9_00tp4")
 
 [node name="cameraZoneBehaviorPlanarPoint" type="Marker3D" parent="cameraZone/cameraZoneBehaviorPlanar"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.19076, 2.61342, -2.43072)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.191, 0, -2.431)
 script = ExtResource("10_77dp3")
 metadata/_custom_type_script = ExtResource("10_77dp3")
 
