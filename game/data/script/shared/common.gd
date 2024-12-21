@@ -34,7 +34,7 @@ static func vectorialProduct(u : Vector3, v : Vector3):
 	return Vector3(u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0])
 
 static func getNormalVectorOfAPlane(u : Vector3, v : Vector3):
-	return vectorialProduct(u,v).normalized()
+	return vectorialProduct(u,v)
 
 static func getVector3Rotation(u : Vector3):
 	return Vector3(u.angle_to(Vector3(1,0,0)) * getSign(u.y),u.angle_to(Vector3(0,1,0)) * getSign(u.z), u.angle_to(Vector3(0,0,1))* getSign(u.x))

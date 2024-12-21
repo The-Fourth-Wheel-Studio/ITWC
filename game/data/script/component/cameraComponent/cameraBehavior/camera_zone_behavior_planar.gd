@@ -11,7 +11,7 @@ class_name cameraZoneBehaviorPlanar
 var plan : Plan
 
 func _ready() -> void:
-	plan = Plan.new(x,y,self.position + self.get_parent().position)
+	plan = Plan.new(x,y,self.global_position)
 
 func behave():
 	setCameraPosition(getCameraPosition())
