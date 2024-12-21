@@ -1,5 +1,6 @@
 extends Node
 
+#player and camera stuff
 @export var currentCamera : theBestCameraEver
 @export var player : CharacterBody3D
 
@@ -8,3 +9,6 @@ func setCurrentCamera(cam : theBestCameraEver):
 	
 func setCurrentPlayer(play : CharacterBody3D):
 	player = play
+	
+#physics
+@export var invDelta : float = 1.0
