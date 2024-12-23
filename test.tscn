@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cvtydj8kqury4"]
+[gd_scene load_steps=21 format=3 uid="uid://cvtydj8kqury4"]
 
 [ext_resource type="Script" path="res://game/data/script/component/camera_component.gd" id="1_37kl0"]
 [ext_resource type="PackedScene" uid="uid://dto8b77kggjk" path="res://game/data/scene/entity/player/default/player.tscn" id="2_vbegm"]
@@ -31,6 +31,18 @@ data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mhym6"]
 size = Vector3(9.66677, 3.18469, 9.90619)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00tp4"]
+albedo_color = Color(1, 0.176471, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_77dp3"]
+material = SubResource("StandardMaterial3D_00tp4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5tkv4"]
+albedo_color = Color(0.183733, 0.565, 0.919595, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0m0f1"]
+material = SubResource("StandardMaterial3D_5tkv4")
 
 [node name="Node3D" type="Node3D"]
 
@@ -91,12 +103,12 @@ script = ExtResource("7_00tp4")
 metadata/_custom_type_script = ExtResource("7_00tp4")
 
 [node name="cameraZoneReferenceMoais" type="Node3D" parent="cameraZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
 script = ExtResource("8_ehkex")
 metadata/_custom_type_script = ExtResource("8_ehkex")
 
 [node name="cameraZoneBehaviorPlanar" type="Node3D" parent="cameraZone" node_paths=PackedStringArray("point")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.83331, 4.31622, 1.77842)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.73904, 0)
 script = ExtResource("9_00tp4")
 point = NodePath("cameraZoneBehaviorPlanarPoint")
 x = Vector3(1, 1, 0)
@@ -107,5 +119,13 @@ metadata/_custom_type_script = ExtResource("9_00tp4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1)
 script = ExtResource("10_77dp3")
 metadata/_custom_type_script = ExtResource("10_77dp3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 7.45376, 0, 0, 0, 20.485, 4.60909, 1.79571, 0)
+mesh = SubResource("BoxMesh_77dp3")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 20.485, 0, 7.45376, 0, -1, 0, -8.95429e-07, -4.8138, 1.79571, -11.0557)
+mesh = SubResource("BoxMesh_0m0f1")
 
 [connection signal="body_entered" from="cameraZone" to="cameraZone" method="_on_body_entered"]

@@ -26,4 +26,4 @@ func setXY():
 	y = Vector3(0 ,point.global_position.y - self.global_position.y,point.global_position.z - self.global_position.z)
 
 func getCameraPosition():
-	return plan.getOrthogonalProjection(GameManager.player.position)
+	return plan.getOrthogonalProjection(GameManager.player.global_position)

@@ -11,6 +11,7 @@ func _process(delta):
 	if currentCameraZone:
 		currentCameraZone.run()
 	GameManager.player.execute(delta)
+	print(references)
 
 
 func getNewReference():

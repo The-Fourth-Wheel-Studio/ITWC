@@ -31,7 +31,7 @@ func getOrthogonalProjection(point: Vector3) -> Vector3:
 	var projected_z = point.z + lambda * c
 	
 	# Retourner le point projeté
-	return Vector3(projected_x, projected_y, projected_z)
+	return Vector3(projected_x, -projected_y, projected_z)
 
 func getLambda(point: Vector3) -> float:
 	# Récupérer les coefficients de l'équation cartésienne du plan
