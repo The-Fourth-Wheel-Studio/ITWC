@@ -20,10 +20,11 @@ func _process(delta):
 	#wtf is this line titruc ????
 	#ok i've figure it out, this is to set the planar vector, but in process so in the editor i can change it TODO : repear your shit
 	setXY()
+	print(plan.getOrthogonalProjection(Vector3(0,1,1)))
 
 func setXY():
 	x = Vector3(point.global_position.x - self.global_position.x,point.global_position.y - self.global_position.y,0)
 	y = Vector3(0 ,point.global_position.y - self.global_position.y,point.global_position.z - self.global_position.z)
-
+	plan = Plan.new(x,y,self.global_position)
 func getCameraPosition():
 	return plan.getOrthogonalProjection(GameManager.player.global_position)
