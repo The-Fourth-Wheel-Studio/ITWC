@@ -28,4 +28,5 @@ func setXY():
 	plan = Plan.new(x,y,self.global_position)
 	
 func getCameraPosition():
-	return self.global_position + plan.getProjection(GameManager.player.global_position, GameManager.currentCamera.currentCameraZone.reference.getLookVector())
+	return self.global_position + plan.getProjection(GameManager.player.global_position,GameManager.currentCamera.currentCameraZone.reference.getLookVector())
+	

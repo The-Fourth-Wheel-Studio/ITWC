@@ -17,10 +17,10 @@ func _init(node:cameraZoneBehaviorPlanar):
 	
 func _redraw():
 	clear()
-	add_lines(PackedVector3Array([Vector3(0.0,0.0,0.0),Vector3(self.node.point.position.x,self.node.point.position.y,0)]),redMat)
-	add_lines(PackedVector3Array([Vector3(0,0,self.node.point.position.z),Vector3(self.node.point.position.x,self.node.point.position.y,self.node.point.position.z)]),redMat)
-	add_lines(PackedVector3Array([Vector3(0.0,0.0,0.0),Vector3(0,0,self.node.point.position.z)]),greenMat)
-	add_lines(PackedVector3Array([Vector3(self.node.point.position.x,self.node.point.position.y,0),Vector3(self.node.point.position.x,self.node.point.position.y,self.node.point.position.z)]),greenMat)
+	add_lines(PackedVector3Array([Vector3(0.0,0.0,0.0),Vector3(self.node.point1.position.x,self.node.point1.position.y,0)]),redMat)
+	add_lines(PackedVector3Array([Vector3(0,0,self.node.point1.position.z),Vector3(self.node.point1.position.x,self.node.point1.position.y,self.node.point1.position.z)]),redMat)
+	add_lines(PackedVector3Array([Vector3(0.0,0.0,0.0),Vector3(0,0,self.node.point2.position.z)]),greenMat)
+	add_lines(PackedVector3Array([Vector3(self.node.point2.position.x,self.node.point2.position.y,0),Vector3(self.node.point2.position.x,self.node.point2.position.y,self.node.point2.position.z)]),greenMat)
 	
 	#var boxmesh : BoxMesh = BoxMesh.new()
 	#boxmesh.size = self.node.shape.size
