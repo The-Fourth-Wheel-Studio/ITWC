@@ -36,9 +36,11 @@ static func vectorialProduct(u : Vector3, v : Vector3):
 static func getNormalVectorOfAPlane(u : Vector3, v : Vector3):
 	return vectorialProduct(u,v)
 
-static func getVector3Rotation(u : Vector3):
-	return Vector3(u.angle_to(Vector3(1,0,0)) * getSign(u.y),u.angle_to(Vector3(0,1,0)) * getSign(u.z), u.angle_to(Vector3(0,0,1))* getSign(u.x))
-
+static func getVector3Rotation(u: Vector3) -> Vector3:
+	if u.length() == 0:
+		return Vector3.ZERO  # Pas de direction, pas de rotation.
+	return Vector3(atan2(u.y, u.z), atan2(u.z, u.x), atan2(u.x, u.y))
+	
 static func getSign(i : int) -> int:
 	if i<0:
 		return -1
@@ -51,3 +53,12 @@ static func lerpRotation(from : Vector3, to : Vector3, weigth : float):
 static func lerpVector3(from : Vector3, to : Vector3, weigth : float):
 	return Vector3(lerp(from.x,to.x,weigth),lerp(from.y,to.y,weigth),lerp(from.z,to.z,weigth))
 	
+static func get_rotation_towards(from_position: Vector3, to_position: Vector3, up: Vector3 = Vector3.UP) -> Vector3:
+	var direction = (to_position - from_position).normalized()
+	if direction == Vector3.ZERO:
+		return Vector3.ZERO
+
+	var right = up.cross(direction).normalized()
+	var recalculated_up = direction.cross(right).normalized()
+	var basis = Basis(right, recalculated_up, -direction)
+	return basis.get_euler()

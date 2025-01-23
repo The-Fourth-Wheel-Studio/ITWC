@@ -7,4 +7,7 @@ func setup():
 	pass
 	
 func justRotate():
-	pass
+	GameManager.currentCamera.rotation = getCameraRotation()
+
+func getCameraRotation():
+	return Vector3.ZERO
