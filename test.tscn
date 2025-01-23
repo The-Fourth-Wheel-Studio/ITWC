@@ -103,26 +103,26 @@ script = ExtResource("7_00tp4")
 metadata/_custom_type_script = ExtResource("7_00tp4")
 
 [node name="cameraZoneReferenceMoais" type="Node3D" parent="cameraZone"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 4, 0)
 script = ExtResource("8_ehkex")
 metadata/_custom_type_script = ExtResource("8_ehkex")
 
 [node name="cameraZoneBehaviorPlanar" type="Node3D" parent="cameraZone" node_paths=PackedStringArray("point1", "point2")]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 7.73904, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 script = ExtResource("9_00tp4")
 point1 = NodePath("cameraZoneBehaviorPlanarPoint")
 point2 = NodePath("cameraZoneBehaviorPlanarPoint2")
-x = Vector3(4.37114e-08, 0.5, 0.866025)
-y = Vector3(-1, 0, 3.78552e-08)
+x = Vector3(0, 0, -1)
+y = Vector3(-1, 0, -1)
 metadata/_custom_type_script = ExtResource("9_00tp4")
 
 [node name="cameraZoneBehaviorPlanarPoint" type="Marker3D" parent="cameraZone/cameraZoneBehaviorPlanar"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.37114e-08, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 script = ExtResource("10_77dp3")
 metadata/_custom_type_script = ExtResource("10_77dp3")
 
 [node name="cameraZoneBehaviorPlanarPoint2" type="Marker3D" parent="cameraZone/cameraZoneBehaviorPlanar"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 4.37114e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
 script = ExtResource("10_77dp3")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]

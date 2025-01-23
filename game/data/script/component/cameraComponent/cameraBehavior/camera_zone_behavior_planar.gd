@@ -12,20 +12,19 @@ class_name cameraZoneBehaviorPlanar
 var plan : Plan
 
 func _ready() -> void:
-	plan = Plan.new(x,y,self.global_position)
+	plan = Plan.new(x, y, self.global_position)
 
 func behave():
 	setCameraPosition(getCameraPosition())
 
 func _process(delta):
-	#wtf is this line titruc ????
-	#ok i've figure it out, this is to set the planar vector, but in process so in the editor i can change it TODO : repear your shit
 	setXY()
 
 func setXY():
 	x = point1.global_position - self.global_position
 	y = point2.global_position - self.global_position
-	plan = Plan.new(x,y,self.global_position)
+	plan = Plan.new(x, y, self.global_position)
+	print(plan.getProjection(Vector3(0, 1, 2), GameManager.currentCamera.currentCameraZone.reference.getLookVector()))
 	
 func getCameraPosition():
-	return self.global_position + plan.getProjection(GameManager.player.global_position, GameManager.currentCamera.currentCameraZone.reference.getLookVector())
+	return plan.getProjection(GameManager.player.global_position, GameManager.currentCamera.currentCameraZone.reference.getLookVector())
