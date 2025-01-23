@@ -8,3 +8,6 @@ func setup():
 
 func changeReference():
 	pass
+
+func getLookVector():
+	return -transform.basis.z.normalized()

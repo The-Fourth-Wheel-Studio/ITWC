@@ -108,12 +108,12 @@ script = ExtResource("8_ehkex")
 metadata/_custom_type_script = ExtResource("8_ehkex")
 
 [node name="cameraZoneBehaviorPlanar" type="Node3D" parent="cameraZone" node_paths=PackedStringArray("point1", "point2")]
-transform = Transform3D(-3.19989e-08, 4.37114e-08, 1, 0.5, 0.866025, -2.18557e-08, -0.866025, 0.5, -4.95676e-08, 0, 7.73904, 0)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 7.73904, 0)
 script = ExtResource("9_00tp4")
 point1 = NodePath("cameraZoneBehaviorPlanarPoint")
 point2 = NodePath("cameraZoneBehaviorPlanarPoint2")
-x = Vector3(1, 0, -8.74228e-08)
-y = Vector3(7.57103e-08, -0.5, 0.866025)
+x = Vector3(4.37114e-08, 0.5, 0.866025)
+y = Vector3(-1, 0, 3.78552e-08)
 metadata/_custom_type_script = ExtResource("9_00tp4")
 
 [node name="cameraZoneBehaviorPlanarPoint" type="Marker3D" parent="cameraZone/cameraZoneBehaviorPlanar"]
