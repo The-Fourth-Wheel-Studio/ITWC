@@ -1,5 +1,5 @@
 extends cameraZoneRotationTransition
-class_name cameraZoneRotationTransitionConstant
+class_name cameraZoneRotationTransitionMoveWithCameraRotation
 
 func doSomething(speed : float = 1.0):
 	if abs(GameManager.currentCamera.rotation - cameraZoneVar.cameraTurner.getCameraRotation()) > Vector3(speed * 0.0001,speed * 0.0001,speed * 0.0001):

@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://game/data/script/component/camera_zone_collider.gd" id="5_00tp4"]
 [ext_resource type="Script" path="res://game/data/script/component/camera_zone_transition_component.gd" id="6_77dp3"]
 [ext_resource type="Script" path="res://game/data/script/component/cameraComponent/positionTransition/camera_zone_position_transition_moving_with_behave.gd" id="7_00tp4"]
-[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/rotationTransition/camera_zone_rotation_transition_constant.gd" id="7_y765b"]
+[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/rotationTransition/camera_zone_rotation_transition_move_with_camera_rotation.gd" id="7_y765b"]
 [ext_resource type="Script" path="res://game/data/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_travelling.gd" id="9_mnhmi"]
 [ext_resource type="Script" path="res://game/data/script/component/cameraComponent/reference/camera_zone_reference_moais.gd" id="10_8i3od"]
 [ext_resource type="Script" path="res://game/data/script/component/cameraComponent/point/camera_zone_behavior_start_pos_component.gd" id="10_77dp3"]
@@ -79,7 +79,7 @@ collider = NodePath("cameraZoneCollider")
 behavior = NodePath("cameraZoneBehaviorTravelling")
 transition = NodePath("cameraZoneTransition")
 reference = NodePath("cameraZoneReferenceFollowPlayer")
-cameraTurner = NodePath("cameraRotationLookAtPlayer")
+cameraTurner = NodePath("")
 metadata/_custom_type_script = ExtResource("3_ehkex")
 
 [node name="cameraZoneCollider" type="CollisionShape3D" parent="cameraZone"]
