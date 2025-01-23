@@ -24,7 +24,6 @@ func setXY():
 	x = point1.global_position - self.global_position
 	y = point2.global_position - self.global_position
 	plan = Plan.new(x, y, self.global_position)
-	print(plan.getProjection(Vector3(0, 1, 2), GameManager.currentCamera.currentCameraZone.reference.getLookVector()))
-	
+
 func getCameraPosition():
 	return plan.getProjection(GameManager.player.global_position, GameManager.currentCamera.currentCameraZone.reference.getLookVector())
