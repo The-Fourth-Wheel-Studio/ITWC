@@ -7,6 +7,7 @@ class_name cameraZone
 @export var behavior : cameraZoneBehavior
 @export var transition : cameraZoneTransition
 @export var reference : cameraZoneReference
+@export var cameraTurner : cameraRotation
 
 @export_category("Gizmo stuff")
 @export var color : Color = Color(1.0,1.0,0.3,1.0)
@@ -19,6 +20,7 @@ func run():
 		if not isSetup:
 			setupBehavior()
 			setupReference()
+			setupCameraRotation()
 			isSetup = false
 		applyTransition()
 		if transitioned():
@@ -27,6 +29,7 @@ func run():
 	else:
 		behave()
 		referenceBehave()
+		cameraRotationBehave()
 
 func transitioned():
 	return transition.transition()
@@ -44,8 +47,14 @@ func setupBehavior():
 func setupReference():
 	reference.setup()
 
+func setupCameraRotation():
+	cameraTurner.setup()
+
 func referenceBehave():
 	reference.changeReference()
+
+func cameraRotationBehave():
+	cameraTurner.justRotate()
 	
 func behave():
 	behavior.behave()
