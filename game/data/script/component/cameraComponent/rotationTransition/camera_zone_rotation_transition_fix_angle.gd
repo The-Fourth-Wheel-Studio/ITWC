@@ -1,9 +1,9 @@
 extends cameraZoneRotationTransition
-class_name cameraZoneRotationTransitionConstant
+class_name cameraZoneRotationTransitionLookAtPlayer
 
 func doSomething(speed : float = 1.0):
-	if abs(GameManager.currentCamera.rotation - cameraZoneVar.reference.rot) > Vector3(speed * 0.0001,speed * 0.0001,speed * 0.0001):
-		GameManager.currentCamera.rotation = Common.lerpRotation(GameManager.currentCamera.rotation, cameraZoneVar.reference.rot, speed * GameManager.invDelta)
+	if not GameManager.currentCamera.currentCameraZone.transition.asTransitionnedOnPosition:
+		GameManager.currentCamera.look_at(GameManager.player.global_position)
 		return false
 	else:
 		return true

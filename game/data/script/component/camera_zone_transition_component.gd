@@ -13,8 +13,8 @@ var asTransitionnedOnRotation : bool = false
 var asTransitionnedOnPosition : bool = false
 
 func transition():
-	asTransitionnedOnRotation = rotationTransition.doSomething(rotationSpeed)
 	asTransitionnedOnPosition = positionTransition.doSomething(speed)
+	asTransitionnedOnRotation = rotationTransition.doSomething(rotationSpeed)
 	if (asTransitionnedOnPosition and asTransitionnedOnRotation):
 		return true
 	else:
