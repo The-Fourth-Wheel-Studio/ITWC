@@ -3,7 +3,8 @@
 extends cameraZoneBehavior
 class_name cameraZoneBehaviorPlanar
 
-@export var point : cameraZoneBehaviorPlanarPoint
+@export var point1 : cameraZoneBehaviorPlanarPoint
+@export var point2 : cameraZoneBehaviorPlanarPoint
 
 @export var x : Vector3
 @export var y : Vector3
@@ -20,11 +21,11 @@ func _process(delta):
 	#wtf is this line titruc ????
 	#ok i've figure it out, this is to set the planar vector, but in process so in the editor i can change it TODO : repear your shit
 	setXY()
-	print(plan.y)
+	print(plan.x)
 
 func setXY():
-	x = Vector3(point.global_position.x - self.global_position.x,0,0)
-	y = Vector3(0 ,point.global_position.y - self.global_position.y,point.global_position.z - self.global_position.z)
+	x = point1.global_position - self.global_position
+	y = point2.global_position - self.global_position
 	plan = Plan.new(x,y,self.global_position)
 	
 func getCameraPosition():

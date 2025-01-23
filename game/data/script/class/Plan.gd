@@ -26,7 +26,7 @@ func getOrthogonalProjection(point: Vector3) -> Vector3:
 	var projected_x = point.x - lambda * a
 	var projected_y = point.y - lambda * b
 	var projected_z = point.z - lambda * c
-	return Vector3(projected_x, -projected_y, projected_z)
+	return Vector3(projected_x, projected_y, projected_z)
 
 func getLambda(point: Vector3) -> float:
 
