@@ -3,7 +3,7 @@
 extends cameraZoneBehavior
 class_name cameraZoneBehaviorTravelling
 
-@export var point : cameraZoneBehaviorPlanarPoint
+@export var point : pointComponent
 
 
 @export var x : Vector3
