@@ -27,7 +27,7 @@ func speedVariation():
 		speed = playerAttributeVar.CROUCH_SPEED
 	else :
 		speed = playerAttributeVar.WALK_SPEED
-	return speed 
+	return speed
 
 	
 func _headbob(time) -> Vector3:
