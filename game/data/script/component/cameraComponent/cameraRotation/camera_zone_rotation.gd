@@ -1,3 +1,4 @@
+@icon("res://editor/assets/component/cameraZoneRotationComponent.png")
 extends Node3D
 class_name cameraRotation
 

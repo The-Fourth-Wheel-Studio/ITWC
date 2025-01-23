@@ -79,7 +79,7 @@ collider = NodePath("cameraZoneCollider")
 behavior = NodePath("cameraZoneBehaviorTravelling")
 transition = NodePath("cameraZoneTransition")
 reference = NodePath("cameraZoneReferenceFollowPlayer")
-cameraTurner = NodePath("")
+cameraTurner = NodePath("cameraRotationLookAtPlayer")
 metadata/_custom_type_script = ExtResource("3_ehkex")
 
 [node name="cameraZoneCollider" type="CollisionShape3D" parent="cameraZone"]
