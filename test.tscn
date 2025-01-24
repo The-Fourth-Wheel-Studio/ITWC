@@ -7,9 +7,9 @@
 [ext_resource type="Script" path="res://game/data/script/component/camera_zone_transition_component.gd" id="6_77dp3"]
 [ext_resource type="Script" path="res://game/data/script/component/cameraComponent/positionTransition/camera_zone_position_transition_moving_with_behave.gd" id="7_00tp4"]
 [ext_resource type="Script" path="res://game/data/script/component/cameraComponent/rotationTransition/camera_zone_rotation_transition_move_with_camera_rotation.gd" id="7_y765b"]
-[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_travelling.gd" id="9_mnhmi"]
-[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/reference/camera_zone_reference_moais.gd" id="10_8i3od"]
-[ext_resource type="Script" path="res://game/data/script/component/point_component.gd" id="11_essrk"]
+[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_planar.gd" id="8_5tkv4"]
+[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/point/camera_zone_behavior_start_pos_component.gd" id="9_0m0f1"]
+[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/reference/camera_zone_reference_follow_player.gd" id="11_5tkv4"]
 [ext_resource type="Script" path="res://game/data/script/component/cameraComponent/cameraRotation/camera_zone_rotation_moais.gd" id="11_s2xmi"]
 [ext_resource type="PackedScene" uid="uid://bxulgh12blnbe" path="res://game/asset/model/environement/test.glb" id="12_5tkv4"]
 
@@ -100,9 +100,9 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_ehkex")
 collider = NodePath("cameraZoneCollider")
-behavior = NodePath("cameraZoneBehaviorTravelling")
+behavior = NodePath("cameraZoneBehaviorPlanar")
 transition = NodePath("cameraZoneTransition")
-reference = NodePath("cameraZoneReferenceFollowPlayer")
+reference = NodePath("cameraZoneReferenceMoais")
 cameraTurner = NodePath("cameraRotationMoais")
 metadata/_custom_type_script = ExtResource("3_ehkex")
 
@@ -127,22 +127,33 @@ metadata/_custom_type_script = ExtResource("7_00tp4")
 [node name="cameraZoneRotationTransitionConstant" type="Node3D" parent="word/cameraZone/cameraZone/cameraZoneTransition"]
 script = ExtResource("7_y765b")
 
-[node name="cameraZoneBehaviorTravelling" type="Node3D" parent="word/cameraZone/cameraZone" node_paths=PackedStringArray("point")]
-transform = Transform3D(0.700237, 0, -0.713911, 0, 1, 0, 0.713911, 0, 0.700237, 0, 14, 0)
-script = ExtResource("9_mnhmi")
-point = NodePath("pointComponent")
-
-[node name="pointComponent" type="Marker3D" parent="word/cameraZone/cameraZone/cameraZoneBehaviorTravelling"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
-script = ExtResource("11_essrk")
-
 [node name="cameraRotationMoais" type="Node3D" parent="word/cameraZone/cameraZone"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6, 0)
+transform = Transform3D(0.383441, -4.03703e-08, 0.923565, -0.923565, -1.67607e-08, 0.383441, 0, -1, -4.37114e-08, 0, 6, 0)
 script = ExtResource("11_s2xmi")
 
-[node name="cameraZoneReferenceFollowPlayer" type="Node3D" parent="word/cameraZone/cameraZone"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.180962, 0.118489, 0)
-script = ExtResource("10_8i3od")
+[node name="cameraZoneReferenceMoais" type="Node3D" parent="word/cameraZone/cameraZone"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 4.92348, 0)
+script = ExtResource("11_5tkv4")
+metadata/_custom_type_script = ExtResource("11_5tkv4")
+
+[node name="cameraZoneBehaviorPlanar" type="Node3D" parent="word/cameraZone/cameraZone" node_paths=PackedStringArray("point1", "point2")]
+transform = Transform3D(0.77821, 0.628004, 0, -0.628004, 0.77821, 0, 0, 0, 1, 3.68107, 3.99348, 0)
+script = ExtResource("8_5tkv4")
+point1 = NodePath("cameraZoneBehaviorPlanarPoint")
+point2 = NodePath("cameraZoneBehaviorPlanarPoint2")
+x = Vector3(0, 0, 1)
+y = Vector3(0.77821, -0.628004, 0)
+metadata/_custom_type_script = ExtResource("8_5tkv4")
+
+[node name="cameraZoneBehaviorPlanarPoint" type="Marker3D" parent="word/cameraZone/cameraZone/cameraZoneBehaviorPlanar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+script = ExtResource("9_0m0f1")
+metadata/_custom_type_script = ExtResource("9_0m0f1")
+
+[node name="cameraZoneBehaviorPlanarPoint2" type="Marker3D" parent="word/cameraZone/cameraZone/cameraZoneBehaviorPlanar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+script = ExtResource("9_0m0f1")
+metadata/_custom_type_script = ExtResource("9_0m0f1")
 
 [node name="test" parent="word" instance=ExtResource("12_5tkv4")]
 transform = Transform3D(2.37883, 0, 0, 0, 2.37883, 0, 0, 0, 2.37883, 0, 0, 0)
