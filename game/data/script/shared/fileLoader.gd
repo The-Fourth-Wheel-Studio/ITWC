@@ -19,5 +19,5 @@ static func loadJsonToRead(filePath : String):
 	json.parse(loadFileToRead(filePath).get_as_text())
 	return json
 
-static func readJsonData(json : JSON, data : String):
-	return json.data[data]
+static func JsonToDict(json : JSON):
+	return json.data
