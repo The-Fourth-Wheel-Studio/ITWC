@@ -134,7 +134,7 @@ metadata/_custom_type_script = ExtResource("7_00tp4")
 script = ExtResource("7_y765b")
 
 [node name="cameraZoneReferenceMoais" type="Node3D" parent="game/word/cameraZone/cameraZone"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.92348, 0)
+transform = Transform3D(-3.76827e-08, -0.506771, 0.862081, -2.21517e-08, 0.862081, 0.506771, -1, 0, -4.37114e-08, 0, 4.92348, 0)
 script = ExtResource("11_5tkv4")
 metadata/_custom_type_script = ExtResource("11_5tkv4")
 
