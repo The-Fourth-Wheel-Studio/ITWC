@@ -1,3 +1,4 @@
+@icon("res://editor/assets/component/martin.png")
 extends Node
 class_name gameHead
 
