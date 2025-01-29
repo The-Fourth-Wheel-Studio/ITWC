@@ -238,7 +238,7 @@ shape = SubResource("ConcavePolygonShape3D_dwqlq")
 shape = SubResource("ConcavePolygonShape3D_15c7i")
 
 [node name="speechBubble" type="Node3D" parent="game/word" node_paths=PackedStringArray("bubble")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8599, -1.80417)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.70815, 3.5487)
 script = ExtResource("14_fg0k5")
 bubble = NodePath("2D/TextEdit")
 
