@@ -1,12 +1,12 @@
 class_name Common
 #Welcome in Titruc's hell !
 
-static func banUnallowedChar(unAllowedChar : Array[String], string : String):
-	var newString : String = ""
-	for i in string:
+static func banUnallowedChar(unAllowedChar : Array[String], array : Array):
+	var newArray : Array = []
+	for i in array:
 		if i not in unAllowedChar:
-			newString += i
-	return newString
+			newArray.append(i)
+	return newArray
 
 static func xor(bool1 : bool, bool2 : bool):
 	if bool1 and bool2:
@@ -62,3 +62,6 @@ static func get_rotation_towards(from_position: Vector3, to_position: Vector3, u
 	var recalculated_up = direction.cross(right).normalized()
 	var basis = Basis(right, recalculated_up, -direction)
 	return basis.get_euler()
+
+static func getTextSize(text : String, font : Font, pixelSize : float = 0.005):
+	return font.get_string_size(text) * pixelSize
