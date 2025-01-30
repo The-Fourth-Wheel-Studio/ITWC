@@ -3,14 +3,14 @@ extends Node3D
 @export var bubble : Control
 
 func _ready() -> void:
-	setVisible()
+	pass
 
 func _process(delta: float) -> void:
-	isActive(delta)
+	pass
 
 func isActive(delta : float):
 	bubble.position = get2DPos(GameManager.currentCamera)
-	bubble.size = Vector2(1000,1000) * 1/getDistanceFromCam(GameManager.currentCamera)
+	bubble.size = Vector2(3000,1500) * 1/getDistanceFromCam(GameManager.currentCamera)
 	print(getDistanceFromCam(GameManager.currentCamera))
 	
 func setVisible():
