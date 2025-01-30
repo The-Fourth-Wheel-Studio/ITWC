@@ -18,7 +18,9 @@ func behave():
 	setCameraPosition(getCameraPosition())
 
 func _process(delta):
-	setXY()
+	if Engine.is_editor_hint():
+		setXY()
+	pass
 
 func setXY():
 	x = point1.global_position - self.global_position
