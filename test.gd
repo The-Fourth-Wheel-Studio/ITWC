@@ -16,10 +16,7 @@ func isActive(delta : float):
 	setBubblePos()
 
 func setBubblePos():
-	
-	var textArray : PackedStringArray = getLineText()
-	print(textArray[getMaxCharInList(textArray)])
-	bubbleUpperPart.scale.x = Common.getTextSize(textArray[getMaxCharInList(textArray)], text.font).x + 0.2
+	bubbleUpperPart.scale.x = Common.getTextSize(getLineText()[-1], text.font).x + 0.2
 	bubbleUpperPart.position.y = Common.getTextSize(text.text, text.font).y * getNumberOfLine()
 	
 func setVisible():
@@ -28,6 +25,12 @@ func setVisible():
 func setInvisible():
 	bubbleUpperPart.visible = false
 
+func get2DPos(cam : theBestCameraEver):
+	return cam.unproject_position(self.global_position)
+
+func getDistanceFromCam(cam : theBestCameraEver):
+	return (self.global_position - cam.global_position).length()
+
 func getLineText():
 	var arr : PackedStringArray = text.text.split("\n", true)
 	arr.sort()
@@ -35,10 +38,3 @@ func getLineText():
 
 func getNumberOfLine():
 	return len(Common.banUnallowedChar([""],getLineText()))
-
-func getMaxCharInList(array : Array):
-	var index : int = 0
-	for i in range(len(array)):
-		if len(array[index]) < len(array[i]):
-			index = i
-	return index
