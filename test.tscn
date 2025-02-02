@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cvtydj8kqury4"]
+[gd_scene load_steps=33 format=3 uid="uid://cvtydj8kqury4"]
 
 [ext_resource type="Script" path="res://game/data/script/component/camera_component.gd" id="1_37kl0"]
 [ext_resource type="PackedScene" uid="uid://dto8b77kggjk" path="res://game/data/scene/entity/player/default/player.tscn" id="2_vbegm"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" path="res://game/data/script/component/cameraComponent/cameraRotation/camera_zone_rotation_look_at_player.gd" id="12_xh77s"]
 [ext_resource type="Script" path="res://game/data/script/misc/game_head.gd" id="13_0m0f1"]
 [ext_resource type="Script" path="res://test.gd" id="14_fg0k5"]
-[ext_resource type="Texture2D" uid="uid://cxoj2qk1kf2ha" path="res://game/asset/texture/speechBubble/temp.png" id="15_33a5t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vbegm"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -241,18 +240,23 @@ shape = SubResource("ConcavePolygonShape3D_15c7i")
 [node name="speechBubble" type="Node3D" parent="game/word" node_paths=PackedStringArray("bubble")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.70815, 3.5487)
 script = ExtResource("14_fg0k5")
-bubble = NodePath("")
+bubble = NodePath("2D/TextEdit")
 
-[node name="Sprite3D" type="Sprite3D" parent="game/word/speechBubble"]
-transform = Transform3D(49, 0, 0, 0, 11.9, 0, 0, 0, 1, 0, 0, 0)
-layers = 2
-billboard = 1
-texture = ExtResource("15_33a5t")
+[node name="2D" type="Control" parent="game/word/speechBubble"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Label3D" type="Label3D" parent="game/word/speechBubble/Sprite3D"]
-transform = Transform3D(0.0206403, 0, 0, 0, 0.0849895, 0, 0, 0, 1.01137, 0, 0, 0)
-billboard = 1
-text = "aaaaaaaaa"
+[node name="TextEdit" type="TextEdit" parent="game/word/speechBubble/2D"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 316.0
+offset_top = 144.0
+offset_right = 519.0
+offset_bottom = 276.0
+text = "et bas alors ??"
+editable = false
 
 [connection signal="body_entered" from="game/word/cameraZone/cameraZone" to="game/word/cameraZone/cameraZone" method="_on_body_entered"]
 
