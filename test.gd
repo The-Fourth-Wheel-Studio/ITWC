@@ -1,35 +1,26 @@
-@tool
 extends Node3D
 
-@export var bubbleUpperPart : Sprite3D
-@export var text : Label3D
-
-const PIXELSIZE = 0.005
+@export var bubble : Control
 
 func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	isActive(delta)
+	pass
 
 func isActive(delta : float):
-	setBubblePos()
-
-func setBubblePos():
-	bubbleUpperPart.scale.x = getTextSize().x
-	bubbleUpperPart.position.y = getTextSize().y
+	bubble.position = get2DPos(GameManager.currentCamera)
+	bubble.size = Vector2(3000,1500) * 1/getDistanceFromCam(GameManager.currentCamera)
+	print(getDistanceFromCam(GameManager.currentCamera))
 	
 func setVisible():
-	bubbleUpperPart.visible = true
+	bubble.visible = true
 
 func setInvisible():
-	bubbleUpperPart.visible = false
+	bubble.visible = false
 
 func get2DPos(cam : theBestCameraEver):
 	return cam.unproject_position(self.global_position)
 
 func getDistanceFromCam(cam : theBestCameraEver):
 	return (self.global_position - cam.global_position).length()
-
-func getTextSize():
-	return text.font.get_string_size(text.text) * PIXELSIZE
