@@ -22,9 +22,18 @@ font_size = 64
 font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_5mgjl"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_6xdsm"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(0, -167.333, 0, 197, 167.333, 0),
+"format": 34393292801,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 3,
+"vertex_data": PackedByteArray(0, 0, 69, 67, 0, 0, 88, 194, 0, 0, 224, 66, 85, 85, 39, 195, 0, 0, 0, 0, 0, 0, 0, 0)
+}]
 
-[node name="speechBubble" type="Control" node_paths=PackedStringArray("textLabel", "timer", "display", "base")]
+[node name="speechBubble" type="Control" node_paths=PackedStringArray("textLabel", "timer", "display", "base", "pike")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -34,24 +43,27 @@ textLabel = NodePath("speechBalloon/base/display/textBox/Label")
 timer = NodePath("speechBalloon/base/display/letterTimer")
 display = NodePath("speechBalloon/base/display")
 base = NodePath("speechBalloon/base")
+pike = NodePath("pike/MeshInstance2D")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 
 [node name="speechBalloon" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 112.0
+offset_top = -54.0
+offset_right = 152.0
+offset_bottom = -14.0
 
 [node name="base" type="Control" parent="speechBalloon"]
 anchors_preset = 0
-offset_top = -172.333
+offset_top = -340.0
 offset_right = 40.0
-offset_bottom = -132.333
+offset_bottom = -300.0
 
 [node name="display" type="MarginContainer" parent="speechBalloon/base"]
 layout_mode = 0
-offset_top = -517.0
-offset_right = 1291.0
+offset_right = 340.0
+offset_bottom = 340.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="speechBalloon/base/display"]
 layout_mode = 2
@@ -73,13 +85,6 @@ theme_override_constants/margin_bottom = 32
 
 [node name="Label" type="Label" parent="speechBalloon/base/display/textBox"]
 layout_mode = 2
-text = "bonjour ! c'est moi ! la bulle de merde ! eee
-
-
-iiii
-ppp
-pppp
-ppp"
 label_settings = SubResource("LabelSettings_2vms1")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -87,6 +92,11 @@ vertical_alignment = 1
 [node name="letterTimer" type="Timer" parent="speechBalloon/base/display"]
 one_shot = true
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="speechBalloon"]
-mesh = SubResource("ArrayMesh_5mgjl")
+[node name="pike" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="pike"]
+mesh = SubResource("ArrayMesh_6xdsm")
 texture = ExtResource("3_2uum1")
