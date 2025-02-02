@@ -22,8 +22,8 @@ func _process(delta: float) -> void:
 
 func setPike():
 	var vertices = PackedVector2Array()
-	vertices.push_back(Vector2(base.get_parent().position.x + (display.size.x/4), base.get_parent().position.y))
-	vertices.push_back(Vector2(base.get_parent().position.x, base.get_parent().position.y+ (-display.size.y/4)))
+	vertices.push_back(Vector2(getPikeOrigin().x,getPikeOrigin().y))
+	vertices.push_back(Vector2(getPikeOrigin().z,getPikeOrigin().w))
 	vertices.push_back(Vector2(0, 0))
 
 	# Initialize the ArrayMesh.
@@ -35,3 +35,9 @@ func setPike():
 	# Create the Mesh.
 	arr_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 	pike.mesh = arr_mesh
+
+func getPikeOrigin() -> Vector4:
+	var vec : Vector2 = (base.get_parent().position + Vector2(display.size.x,-display.size.y)/2)
+	var vecDir = Vector2(-vec.y,vec.x).normalized() * 100
+	var speechBallon : Vector2 = base.get_parent().position
+	return Vector4(vec.x + vecDir.x,vec.y + vecDir.y,vec.x - vecDir.x,vec.y - vecDir.y)

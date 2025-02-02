@@ -4,6 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://dtp8sn6isgpew" path="res://game/asset/texture/ui/speechBubble/base.png" id="2_uxrap"]
 [ext_resource type="Texture2D" uid="uid://c3dd4nnr1qt55" path="res://game/asset/texture/ui/speechBubble/color.png" id="3_2uum1"]
 
+[sub_resource type="ArrayMesh" id="ArrayMesh_cedu6"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(0, -330.646, 0, 310.554, 330.646, 0),
+"format": 34393292801,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 3,
+"vertex_data": PackedByteArray(222, 70, 155, 67, 130, 90, 69, 195, 67, 114, 33, 67, 191, 82, 165, 195, 0, 0, 0, 0, 0, 0, 0, 0)
+}]
+
 [sub_resource type="FontFile" id="FontFile_a0gjk"]
 cache/0/64/0/ascent = 0.0
 cache/0/64/0/descent = 0.0
@@ -22,17 +33,6 @@ font_size = 64
 font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_6xdsm"]
-_surfaces = [{
-"2d": true,
-"aabb": AABB(0, -167.333, 0, 197, 167.333, 0),
-"format": 34393292801,
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 3,
-"vertex_data": PackedByteArray(0, 0, 69, 67, 0, 0, 88, 194, 0, 0, 224, 66, 85, 85, 39, 195, 0, 0, 0, 0, 0, 0, 0, 0)
-}]
-
 [node name="speechBubble" type="Control" node_paths=PackedStringArray("textLabel", "timer", "display", "base", "pike")]
 layout_mode = 3
 anchors_preset = 0
@@ -47,12 +47,21 @@ pike = NodePath("pike/MeshInstance2D")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 
+[node name="pike" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="pike"]
+mesh = SubResource("ArrayMesh_cedu6")
+texture = ExtResource("3_2uum1")
+
 [node name="speechBalloon" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 112.0
-offset_top = -54.0
-offset_right = 152.0
-offset_bottom = -14.0
+offset_left = 66.0
+offset_top = -94.0
+offset_right = 106.0
+offset_bottom = -54.0
 
 [node name="base" type="Control" parent="speechBalloon"]
 anchors_preset = 0
@@ -91,12 +100,3 @@ vertical_alignment = 1
 
 [node name="letterTimer" type="Timer" parent="speechBalloon/base/display"]
 one_shot = true
-
-[node name="pike" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="pike"]
-mesh = SubResource("ArrayMesh_6xdsm")
-texture = ExtResource("3_2uum1")
