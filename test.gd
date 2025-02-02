@@ -1,12 +1,11 @@
 extends Node3D
 
-@export var bubble : Control
-
+@export var panel : Control
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	pass # Replace with function body.
 
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	bubble.position = get2DPos(GameManager.currentCamera)
-
-func get2DPos(cam : theBestCameraEver):
-	return cam.unproject_position(self.position)
+	panel.position = GameManager.currentCamera.unproject_position(self.position)
