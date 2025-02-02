@@ -238,22 +238,21 @@ shape = SubResource("ConcavePolygonShape3D_dwqlq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="game/word/test/Cube_009/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_15c7i")
 
-[node name="speechBubble" type="Node3D" parent="game/word"]
+[node name="speechBubble" type="Node3D" parent="game/word" node_paths=PackedStringArray("bubble")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.70815, 3.5487)
 script = ExtResource("14_fg0k5")
+bubble = NodePath("")
 
-[node name="Label3D" type="Label3D" parent="game/word/speechBubble"]
-transform = Transform3D(6.36759, 0, 0, 0, 6.36759, 0, 0, 0, 6.36756, 0, 0, 0)
-billboard = 1
-render_priority = 2
-text = "aaaaaaaaa"
-
-[node name="Sprite3D" type="Sprite3D" parent="game/word/speechBubble/Label3D"]
-transform = Transform3D(48.4489, 0, 0, 0, 11.7662, 0, 0, 0, 0.988758, 0, 0, 0)
+[node name="Sprite3D" type="Sprite3D" parent="game/word/speechBubble"]
+transform = Transform3D(49, 0, 0, 0, 11.9, 0, 0, 0, 1, 0, 0, 0)
 layers = 2
 billboard = 1
-render_priority = -3
 texture = ExtResource("15_33a5t")
+
+[node name="Label3D" type="Label3D" parent="game/word/speechBubble/Sprite3D"]
+transform = Transform3D(0.0206403, 0, 0, 0, 0.0849895, 0, 0, 0, 1.01137, 0, 0, 0)
+billboard = 1
+text = "aaaaaaaaa"
 
 [connection signal="body_entered" from="game/word/cameraZone/cameraZone" to="game/word/cameraZone/cameraZone" method="_on_body_entered"]
 
