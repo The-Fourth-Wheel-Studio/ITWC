@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbeulmlguf020"]
+
+[ext_resource type="Script" path="res://game/data/script/component/speech_bubble_component.gd" id="1_fglwb"]
+[ext_resource type="Texture2D" uid="uid://dtp8sn6isgpew" path="res://game/asset/texture/ui/speechBubble/base.png" id="2_uxrap"]
+
+[sub_resource type="FontFile" id="FontFile_a0gjk"]
+cache/0/64/0/ascent = 0.0
+cache/0/64/0/descent = 0.0
+cache/0/64/0/underline_position = 0.0
+cache/0/64/0/underline_thickness = 0.0
+cache/0/64/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_2vms1"]
+font = SubResource("FontFile_a0gjk")
+font_size = 64
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[node name="speechBubble" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_fglwb")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="speechBalloon" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="display" type="MarginContainer" parent="speechBalloon"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="speechBalloon/display"]
+layout_mode = 2
+texture = ExtResource("2_uxrap")
+region_rect = Rect2(0, 0, 512, 512)
+patch_margin_left = 170
+patch_margin_top = 170
+patch_margin_right = 170
+patch_margin_bottom = 170
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="textBox" type="MarginContainer" parent="speechBalloon/display"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Label" type="Label" parent="speechBalloon/display/textBox"]
+layout_mode = 2
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aa
+a
+a
+a
+a
+a"
+label_settings = SubResource("LabelSettings_2vms1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="letterTimer" type="Timer" parent="speechBalloon/display"]
+one_shot = true
