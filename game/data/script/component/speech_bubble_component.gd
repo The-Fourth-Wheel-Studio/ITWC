@@ -14,30 +14,33 @@ class_name speechBubble
 
 signal asFinishDisplay()
 
-func setPosition():
-	base.position = Vector2(0, -display.size.y)
 
-func _ready():
-	asFinishDisplay.connect(Callable(displayLetterByLetterCoroutine).bind("Maxime Jtm <3"))
-	displayLetterByLetterCoroutine("mouhahaha")
+
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		setPike()
 		setPosition()
 	pass
 
-func displayLetterByLetter(textToDisplay : String):
-	await displayLetterByLetter(textToDisplay)
-	
-func displayLetterByLetterCoroutine(textToDisplay : String):
-	var textSoFar : String = ""
+func setPosition():
+	base.position = Vector2(0, -display.size.y)
+
+func displayLetterByLetter(textToDisplay : String, textFromStart : String = ""):
+	var textSoFar : String = textFromStart
 	textLabel.text = textSoFar
 	for i in textToDisplay:
 		textSoFar += i
-		textLabel.text= textSoFar
-		timer.start(letterTime)
-		await timer.timeout
+		if asToBreak():
+			textLabel.text= textSoFar
+			timer.start(letterTime)
+			await timer.timeout
+		else:
+			textLabel.text= textToDisplay
+			break
 	asFinishDisplay.emit()
+
+func asToBreak() -> bool:
+	return false
 
 func setPike():
 	var vertices = PackedVector2Array()
