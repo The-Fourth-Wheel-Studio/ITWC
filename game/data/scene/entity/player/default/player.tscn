@@ -1,10 +1,10 @@
 [gd_scene load_steps=18 format=3 uid="uid://dto8b77kggjk"]
 
 [ext_resource type="Script" path="res://game/data/script/entity/player/default/player.gd" id="1_4frpd"]
-[ext_resource type="Script" path="res://game/data/script/component/velocityComponent.gd" id="2_c74cp"]
+[ext_resource type="Script" path="res://game/data/script/component/velocity_component.gd" id="2_c74cp"]
 [ext_resource type="Script" path="res://game/data/script/ressources/player/playerAttribute.gd" id="2_m6t41"]
-[ext_resource type="Script" path="res://game/data/script/component/inputHandler.gd" id="3_m6t41"]
-[ext_resource type="Script" path="res://game/data/script/component/repulseHandler.gd" id="5_jlecv"]
+[ext_resource type="Script" path="res://game/data/script/component/input_handler.gd" id="3_m6t41"]
+[ext_resource type="Script" path="res://game/data/script/component/repulse_handler.gd" id="5_jlecv"]
 [ext_resource type="Script" path="res://game/data/script/component/repusle_handler_zone.gd" id="6_v0sds"]
 [ext_resource type="Script" path="res://game/data/script/component/abilities.gd" id="7_ka88k"]
 [ext_resource type="Script" path="res://game/data/script/entity/player/abilities/gravity.gd" id="8_ievqu"]

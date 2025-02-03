@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2lnpbautae5d"]
+
+[ext_resource type="Script" path="res://game/data/script/component/speech_bubble_component.gd" id="1_fglwb"]
+[ext_resource type="Texture2D" path="res://game/asset/texture/ui/speechBubble/base.png" id="2_uxrap"]
+[ext_resource type="Texture2D" path="res://game/asset/texture/ui/speechBubble/color.png" id="3_2uum1"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uxrap"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(0, -270.363, 0, 284.859, 270.363, 0),
+"format": 34393292801,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 3,
+"vertex_data": PackedByteArray(236, 109, 142, 67, 250, 69, 243, 194, 40, 36, 23, 67, 130, 46, 135, 195, 0, 0, 0, 0, 0, 0, 0, 0)
+}]
+
+[sub_resource type="FontFile" id="FontFile_a0gjk"]
+cache/0/64/0/ascent = 0.0
+cache/0/64/0/descent = 0.0
+cache/0/64/0/underline_position = 0.0
+cache/0/64/0/underline_thickness = 0.0
+cache/0/64/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_2vms1"]
+font = SubResource("FontFile_a0gjk")
+font_size = 64
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[node name="speechBubble" type="Control" node_paths=PackedStringArray("textLabel", "timer", "display", "base", "pike")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_fglwb")
+textLabel = NodePath("speechBalloon/base/display/textBox/Label")
+timer = NodePath("speechBalloon/base/display/letterTimer")
+display = NodePath("speechBalloon/base/display")
+base = NodePath("speechBalloon/base")
+pike = NodePath("pike/MeshInstance2D")
+letterTime = 0.05
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="pike" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="pike"]
+mesh = SubResource("ArrayMesh_uxrap")
+texture = ExtResource("3_2uum1")
+
+[node name="speechBalloon" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 48.0
+offset_top = -26.0
+offset_right = 88.0
+offset_bottom = 14.0
+
+[node name="base" type="Control" parent="speechBalloon"]
+anchors_preset = 0
+offset_top = -340.0
+offset_right = 40.0
+offset_bottom = -300.0
+
+[node name="display" type="MarginContainer" parent="speechBalloon/base"]
+layout_mode = 0
+offset_right = 340.0
+offset_bottom = 340.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="speechBalloon/base/display"]
+layout_mode = 2
+texture = ExtResource("2_uxrap")
+region_rect = Rect2(0, 0, 512, 512)
+patch_margin_left = 170
+patch_margin_top = 170
+patch_margin_right = 170
+patch_margin_bottom = 170
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="textBox" type="MarginContainer" parent="speechBalloon/base/display"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Label" type="Label" parent="speechBalloon/base/display/textBox"]
+layout_mode = 2
+text = "Maxime"
+label_settings = SubResource("LabelSettings_2vms1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="letterTimer" type="Timer" parent="speechBalloon/base/display"]
+wait_time = 0.05
+one_shot = true

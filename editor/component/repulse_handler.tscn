@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cmvb2bhw5jycr"]
 
-[ext_resource type="Script" path="res://game/data/script/component/repulseHandler.gd" id="1_y8c1y"]
+[ext_resource type="Script" path="res://game/data/script/component/repulse_handler.gd" id="1_y8c1y"]
 
 [node name="repulseHandler" type="Node3D"]
 script = ExtResource("1_y8c1y")
