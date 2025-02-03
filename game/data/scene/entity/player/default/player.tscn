@@ -60,8 +60,10 @@ metadata/_custom_type_script = ExtResource("2_c74cp")
 script = ExtResource("3_m6t41")
 metadata/_custom_type_script = ExtResource("3_m6t41")
 
-[node name="repulseHandler" type="Node3D" parent="."]
+[node name="repulseHandler" type="Node3D" parent="." node_paths=PackedStringArray("collider")]
 script = ExtResource("5_jlecv")
+force = 0.387
+collider = NodePath("Area3D/repulseHandlerZone")
 metadata/_custom_type_script = ExtResource("5_jlecv")
 
 [node name="Area3D" type="Area3D" parent="repulseHandler"]
