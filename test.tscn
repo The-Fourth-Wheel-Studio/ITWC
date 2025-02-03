@@ -254,10 +254,13 @@ shape = SubResource("ConcavePolygonShape3D_15c7i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82617, -9.34938)
 mesh = SubResource("CylinderMesh_i35tj")
 
-[node name="repulseHandler" type="Node3D" parent="game/word/pnj/test/MeshInstance3D"]
+[node name="repulseHandler" type="Node3D" parent="game/word/pnj/test/MeshInstance3D" node_paths=PackedStringArray("collider")]
 script = ExtResource("14_s8aft")
+collider = NodePath("Area3D/repulseHandlerZone")
 
 [node name="Area3D" type="Area3D" parent="game/word/pnj/test/MeshInstance3D/repulseHandler"]
+collision_layer = 4
+collision_mask = 0
 
 [node name="repulseHandlerZone" type="CollisionShape3D" parent="game/word/pnj/test/MeshInstance3D/repulseHandler/Area3D"]
 shape = SubResource("CylinderShape3D_okbse")
