@@ -15,6 +15,9 @@ class_name speechBubble
 
 signal asFinishDisplay
 
+func _ready():
+	setInactive()
+	
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		setPike()
@@ -60,3 +63,12 @@ func getPikeOrigin() -> Vector4:
 	var vecDir = Vector2(-vec.y,vec.x).normalized() * 100
 	var speechBallon : Vector2 = base.get_parent().position
 	return Vector4(vec.x + vecDir.x,vec.y + vecDir.y,vec.x - vecDir.x,vec.y - vecDir.y)
+	
+func getPositionOnScreen(origin : Vector3, camera : theBestCameraEver) -> Vector2:
+	return camera.unproject_position(origin)
+
+func setActive():
+	self.visible = true
+
+func setInactive():
+	self.visible = true
