@@ -13,6 +13,8 @@ class_name speechBubble
 @export_category("Text Display Variables")
 @export var letterTime = 0.03
 
+var active : bool = false
+
 signal asFinishDisplay
 
 func _ready():
@@ -22,7 +24,11 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		setPike()
 		setPosition()
-	pass
+	if active:
+		isActive()
+
+func isActive():
+	self.position = getPositionOnScreen(self.get_parent().global_position, GameManager.currentCamera)
 
 func setPosition():
 	base.position = Vector2(0, -display.size.y)
@@ -68,7 +74,9 @@ func getPositionOnScreen(origin : Vector3, camera : theBestCameraEver) -> Vector
 	return camera.unproject_position(origin)
 
 func setActive():
+	active = true
 	self.visible = true
 
 func setInactive():
+	active = false
 	self.visible = true
