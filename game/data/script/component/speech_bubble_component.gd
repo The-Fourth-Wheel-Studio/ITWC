@@ -1,3 +1,4 @@
+@icon("res://editor/assets/component/speechBubbleComponent.png")
 @tool
 extends Control
 class_name speechBubble
@@ -12,9 +13,7 @@ class_name speechBubble
 @export_category("Text Display Variables")
 @export var letterTime = 0.03
 
-signal asFinishDisplay()
-
-
+signal asFinishDisplay
 
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -36,6 +35,7 @@ func displayLetterByLetter(textToDisplay : String, textFromStart : String = ""):
 			await timer.timeout
 		else:
 			textLabel.text= textToDisplay
+			#this is where i'm dead
 			break
 	asFinishDisplay.emit()
 
@@ -43,18 +43,15 @@ func asToBreak() -> bool:
 	return false
 
 func setPike():
+	#https://docs.godotengine.org/fr/4.x/classes/class_arraymesh.html
 	var vertices = PackedVector2Array()
 	vertices.push_back(Vector2(getPikeOrigin().x,getPikeOrigin().y))
 	vertices.push_back(Vector2(getPikeOrigin().z,getPikeOrigin().w))
 	vertices.push_back(Vector2(0, 0))
-
-	# Initialize the ArrayMesh.
 	var arr_mesh = ArrayMesh.new()
 	var arrays = []
 	arrays.resize(Mesh.ARRAY_MAX)
 	arrays[Mesh.ARRAY_VERTEX] = vertices
-
-	# Create the Mesh.
 	arr_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 	pike.mesh = arr_mesh
 
