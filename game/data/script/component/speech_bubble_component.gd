@@ -2,23 +2,42 @@
 extends Control
 class_name speechBubble
 
+@export_category("Needed Children")
 @export var textLabel : Label
 @export var timer : Timer
 @export var display : MarginContainer
 @export var base : Control
 @export var pike : MeshInstance2D
 
-var text : String = ""
-var letterIndex : int = 0
+@export_category("Text Display Variables")
+@export var letterTime = 0.03
 
-var letterTime = 0.03
+signal asFinishDisplay()
 
 func setPosition():
 	base.position = Vector2(0, -display.size.y)
 
+func _ready():
+	asFinishDisplay.connect(Callable(displayLetterByLetterCoroutine).bind("Maxime Jtm <3"))
+	displayLetterByLetterCoroutine("mouhahaha")
 func _process(delta: float) -> void:
-	setPike()
-	setPosition()
+	if Engine.is_editor_hint():
+		setPike()
+		setPosition()
+	pass
+
+func displayLetterByLetter(textToDisplay : String):
+	await displayLetterByLetter(textToDisplay)
+	
+func displayLetterByLetterCoroutine(textToDisplay : String):
+	var textSoFar : String = ""
+	textLabel.text = textSoFar
+	for i in textToDisplay:
+		textSoFar += i
+		textLabel.text= textSoFar
+		timer.start(letterTime)
+		await timer.timeout
+	asFinishDisplay.emit()
 
 func setPike():
 	var vertices = PackedVector2Array()

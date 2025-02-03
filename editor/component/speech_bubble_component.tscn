@@ -4,15 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://dtp8sn6isgpew" path="res://game/asset/texture/ui/speechBubble/base.png" id="2_uxrap"]
 [ext_resource type="Texture2D" uid="uid://c3dd4nnr1qt55" path="res://game/asset/texture/ui/speechBubble/color.png" id="3_2uum1"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_cedu6"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_uxrap"]
 _surfaces = [{
 "2d": true,
-"aabb": AABB(0, -330.646, 0, 310.554, 330.646, 0),
+"aabb": AABB(0, -298.375, 0, 353.997, 298.375, 0),
 "format": 34393292801,
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 3,
-"vertex_data": PackedByteArray(222, 70, 155, 67, 130, 90, 69, 195, 67, 114, 33, 67, 191, 82, 165, 195, 0, 0, 0, 0, 0, 0, 0, 0)
+"vertex_data": PackedByteArray(146, 255, 176, 67, 252, 159, 9, 195, 220, 0, 107, 67, 2, 48, 149, 195, 0, 0, 0, 0, 0, 0, 0, 0)
 }]
 
 [sub_resource type="FontFile" id="FontFile_a0gjk"]
@@ -53,15 +53,15 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="pike"]
-mesh = SubResource("ArrayMesh_cedu6")
+mesh = SubResource("ArrayMesh_uxrap")
 texture = ExtResource("3_2uum1")
 
 [node name="speechBalloon" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 66.0
-offset_top = -94.0
-offset_right = 106.0
-offset_bottom = -54.0
+offset_left = 44.0
+offset_top = -48.0
+offset_right = 84.0
+offset_bottom = -8.0
 
 [node name="base" type="Control" parent="speechBalloon"]
 anchors_preset = 0
@@ -94,9 +94,11 @@ theme_override_constants/margin_bottom = 32
 
 [node name="Label" type="Label" parent="speechBalloon/base/display/textBox"]
 layout_mode = 2
+text = "M"
 label_settings = SubResource("LabelSettings_2vms1")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="letterTimer" type="Timer" parent="speechBalloon/base/display"]
+wait_time = 0.03
 one_shot = true
