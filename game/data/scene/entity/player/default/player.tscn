@@ -67,7 +67,7 @@ collider = NodePath("Area3D/repulseHandlerZone")
 metadata/_custom_type_script = ExtResource("5_jlecv")
 
 [node name="Area3D" type="Area3D" parent="repulseHandler"]
-collision_layer = 4
+collision_layer = 0
 collision_mask = 4
 
 [node name="repulseHandlerZone" type="CollisionShape3D" parent="repulseHandler/Area3D"]
