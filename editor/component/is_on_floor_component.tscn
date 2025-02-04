@@ -2,9 +2,15 @@
 
 [ext_resource type="Script" path="res://game/data/script/component/is_on_floor_component.gd" id="1_1f236"]
 
-[node name="isOnFloorComponent" type="Node3D"]
+[node name="isOnFloorComponent" type="Node3D" node_paths=PackedStringArray("raycast", "coyoteTimer")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.760665, 0)
 script = ExtResource("1_1f236")
+raycast = NodePath("floorDetection")
+coyoteTimer = NodePath("coyoteTime")
+coyoteTime = 0.15
 
 [node name="floorDetection" type="RayCast3D" parent="."]
 target_position = Vector3(0, -0.57, 0)
+
+[node name="coyoteTime" type="Timer" parent="."]
+one_shot = true

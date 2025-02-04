@@ -20,13 +20,13 @@ WALK_SPEED = 5.0
 SPRINT_SPEED = 7.5
 CROUCH_SPEED = 2.5
 SPEED_VARIATION = 0.5
-JUMP_VELOCITY = 4.5
+JUMP_VELOCITY = 5.4
 SENSITIVITY = 0.005
 FOV = 75
 FOV_VARIATION = 20.0
 BOB_FREQUENTY = 2.0
 BOB_AMPLITUDE = 0.06
-GRAVITY = 9.81
+GRAVITY = 13.08
 metadata/_custom_type_script = ExtResource("2_m6t41")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ok0mv"]
@@ -102,3 +102,4 @@ metadata/_custom_type_script = ExtResource("9_bgfw6")
 [node name="isOnFloorComponent" parent="." node_paths=PackedStringArray("NodeToCheck") instance=ExtResource("8_m6t41")]
 NodeToCheck = NodePath("..")
 lenght = 0.05
+coyoteTime = 0.15
