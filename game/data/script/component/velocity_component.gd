@@ -59,6 +59,9 @@ func lerpVelocityXZ(velocityXZ : Vector2, speed : float):
 
 func addVelocityXZ(velocityAdd : Vector2):
 	self.Velocity += Vector3(velocityAdd.x,0,velocityAdd.y)
+
+func addVelocityY(velocityAdd : float):
+	self.Velocity += Vector3(0,velocityAdd,0)
 	
 func getFinalVelocity():
 	'''

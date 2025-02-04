@@ -21,11 +21,8 @@ SPRINT_SPEED = 7.5
 CROUCH_SPEED = 2.5
 SPEED_VARIATION = 0.5
 JUMP_VELOCITY = 5.4
-SENSITIVITY = 0.005
-FOV = 75
-FOV_VARIATION = 20.0
-BOB_FREQUENTY = 2.0
-BOB_AMPLITUDE = 0.06
+JUMP_FORCE = 0.01
+JUMP_TIME = 0.3
 GRAVITY = 13.08
 metadata/_custom_type_script = ExtResource("2_m6t41")
 
@@ -84,10 +81,13 @@ script = ExtResource("8_ievqu")
 active = true
 metadata/_custom_type_script = ExtResource("9_bgfw6")
 
-[node name="jump" type="Node3D" parent="abilitiesManager"]
+[node name="jump" type="Node3D" parent="abilitiesManager" node_paths=PackedStringArray("bufferTimer")]
 script = ExtResource("10_fq3mc")
+bufferTimer = NodePath("Timer")
 active = true
 metadata/_custom_type_script = ExtResource("9_bgfw6")
+
+[node name="Timer" type="Timer" parent="abilitiesManager/jump"]
 
 [node name="walk" type="Node3D" parent="abilitiesManager"]
 script = ExtResource("11_6ggbf")
@@ -101,5 +101,4 @@ metadata/_custom_type_script = ExtResource("9_bgfw6")
 
 [node name="isOnFloorComponent" parent="." node_paths=PackedStringArray("NodeToCheck") instance=ExtResource("8_m6t41")]
 NodeToCheck = NodePath("..")
-lenght = 0.05
-coyoteTime = 0.15
+lenght = 0.5

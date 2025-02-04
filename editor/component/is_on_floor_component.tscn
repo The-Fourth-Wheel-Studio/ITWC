@@ -5,6 +5,7 @@
 [node name="isOnFloorComponent" type="Node3D" node_paths=PackedStringArray("raycast", "coyoteTimer")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.760665, 0)
 script = ExtResource("1_1f236")
+lenght = 0.01
 raycast = NodePath("floorDetection")
 coyoteTimer = NodePath("coyoteTime")
 coyoteTime = 0.15
