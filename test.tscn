@@ -14,8 +14,8 @@
 [ext_resource type="Script" path="res://game/data/script/component/cameraComponent/cameraRotation/camera_zone_rotation_look_at_player.gd" id="12_xh77s"]
 [ext_resource type="Script" path="res://game/data/script/misc/game_head.gd" id="13_0m0f1"]
 [ext_resource type="Script" path="res://game/testFolder/pnjTest.gd" id="14_q8dov"]
-[ext_resource type="Script" path="res://game/data/script/component/repulseHandler.gd" id="14_s8aft"]
 [ext_resource type="Script" path="res://game/data/script/component/repusle_handler_zone.gd" id="15_6h4sg"]
+[ext_resource type="Script" path="res://game/data/script/component/repulse_handler.gd" id="15_ir6wf"]
 [ext_resource type="PackedScene" uid="uid://cbeulmlguf020" path="res://editor/component/speech_bubble_component.tscn" id="16_cfikr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vbegm"]
@@ -258,9 +258,8 @@ speech = NodePath("speechBubble")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="game/word/pnj/test"]
 mesh = SubResource("CylinderMesh_i35tj")
 
-[node name="repulseHandler" type="Node3D" parent="game/word/pnj/test/MeshInstance3D" node_paths=PackedStringArray("collider")]
-script = ExtResource("14_s8aft")
-collider = NodePath("Area3D/repulseHandlerZone")
+[node name="repulseHandler" type="Node3D" parent="game/word/pnj/test/MeshInstance3D"]
+script = ExtResource("15_ir6wf")
 
 [node name="Area3D" type="Area3D" parent="game/word/pnj/test/MeshInstance3D/repulseHandler"]
 collision_layer = 4
