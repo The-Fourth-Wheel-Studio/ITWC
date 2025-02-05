@@ -22,15 +22,21 @@ func _ready():
 	
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
-		setPike()
-		setPosition()
+		setApparence()
 	if active:
 		isActive()
 
-func isActive():
-	self.position = getPositionOnScreen(self.get_parent().global_position, GameManager.currentCamera)
+func setApparence():
+	setPike()
+	setBasePosition()
 
-func setPosition():
+func isActive():
+	pass
+
+func setGlobalPosition(pos : Vector3):
+	self.position = getPositionOnScreen(pos, GameManager.currentCamera)
+
+func setBasePosition():
 	base.position = Vector2(0, -display.size.y)
 
 func displayLetterByLetter(textToDisplay : String, textFromStart : String = ""):
