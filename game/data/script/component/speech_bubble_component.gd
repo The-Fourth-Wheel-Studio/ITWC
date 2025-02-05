@@ -33,8 +33,8 @@ func setApparence():
 func isActive():
 	pass
 
-func setGlobalPosition(pos : Vector3):
-	self.position = getPositionOnScreen(pos, GameManager.currentCamera)
+func setGlobalPosition(pos : Vector2):
+	self.position = pos
 
 func setBasePosition():
 	base.position = Vector2(0, -display.size.y)

@@ -8,4 +8,8 @@ class_name pnjHead
 @export var distanceFromHead : Marker3D
 @export var distanceFromBase : Marker3D
 
-func 
+func isActive():
+	pass
+
+func setBubblePosition(camera : theBestCameraEver):
+	speech.setGlobalPosition(speech.getPositionOnScreen(self.position,camera) + Vector2(Vector2(distanceFromHead.x,distanceFromHead.y).length(),distanceFromHead.y))
