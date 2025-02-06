@@ -9,6 +9,7 @@ class_name speechBubble
 @export var display : MarginContainer
 @export var base : Control
 @export var pike : MeshInstance2D
+@export var speechBallonWithoutPike : Control
 
 @export_category("Text Display Variables")
 @export var letterTime = 0.03
@@ -56,6 +57,10 @@ func displayLetterByLetter(textToDisplay : String, textFromStart : String = ""):
 
 func asToBreak() -> bool:
 	return false
+
+func setSpeechBalloonPos(pos : Vector2):
+	speechBallonWithoutPike.position = pos
+	
 
 func setPike():
 	#https://docs.godotengine.org/fr/4.x/classes/class_arraymesh.html

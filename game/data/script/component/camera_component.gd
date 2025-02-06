@@ -49,3 +49,6 @@ func moveFromVect3(vec : Vector3):
 
 func rotateFromDegrees(deg : Vector3):
 	self.rotation += deg
+
+func getVectorToPoint(pos : Vector3) -> Vector3:
+	return self.global_position - pos

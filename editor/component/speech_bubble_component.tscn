@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dtp8sn6isgpew" path="res://game/asset/texture/ui/speechBubble/base.png" id="2_uxrap"]
 [ext_resource type="Texture2D" uid="uid://c3dd4nnr1qt55" path="res://game/asset/texture/ui/speechBubble/color.png" id="3_2uum1"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_uxrap"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_tms38"]
 _surfaces = [{
 "2d": true,
 "aabb": AABB(0, -267.569, 0, 282.629, 267.569, 0),
@@ -36,7 +36,7 @@ font_size = 64
 font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 
-[node name="speechBubble" type="Control" node_paths=PackedStringArray("textLabel", "timer", "display", "base", "pike")]
+[node name="speechBubble" type="Control" node_paths=PackedStringArray("textLabel", "timer", "display", "base", "pike", "speechBallonWithoutPike")]
 layout_mode = 3
 anchors_preset = 0
 scale = Vector2(0.2, 0.2)
@@ -46,6 +46,7 @@ timer = NodePath("speechBalloon/base/display/letterTimer")
 display = NodePath("speechBalloon/base/display")
 base = NodePath("speechBalloon/base")
 pike = NodePath("pike/MeshInstance2D")
+speechBallonWithoutPike = NodePath("speechBalloon")
 letterTime = 0.05
 
 [node name="pike" type="Control" parent="."]
@@ -55,7 +56,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="pike"]
-mesh = SubResource("ArrayMesh_uxrap")
+mesh = SubResource("ArrayMesh_tms38")
 texture = ExtResource("3_2uum1")
 
 [node name="speechBalloon" type="Control" parent="."]

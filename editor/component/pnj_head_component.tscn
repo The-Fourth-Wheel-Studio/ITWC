@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyj3x228qh471"]
-
-[ext_resource type="Script" path="res://game/data/script/component/pnj_head_component.gd" id="1_a2l3w"]
-
-[node name="PnjHead" type="Node3D"]
-script = ExtResource("1_a2l3w")

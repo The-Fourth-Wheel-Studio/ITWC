@@ -62,3 +62,6 @@ static func get_rotation_towards(from_position: Vector3, to_position: Vector3, u
 	var recalculated_up = direction.cross(right).normalized()
 	var basis = Basis(right, recalculated_up, -direction)
 	return basis.get_euler()
+
+static func getPerpendicularVector(vec1 : Vector3) -> Vector3:
+	return vec1.cross(Vector3(0, 1, 0)).normalized()
