@@ -22,5 +22,8 @@ func isActive():
 func setBubblePosition(camera : theBestCameraEver):
 	var offsetXZ : Vector3 = -Vector2(distanceFromHead.position.x,distanceFromHead.position.z).length() * Common.getPerpendicularVector(camera.getVectorToPoint(self.global_position))
 	var offsetY : Vector3 = Vector3(0, distanceFromHead.position.y, 0)
+	var baseVec : Vector3 = distanceFromBase.position - distanceFromHead.position
+	var baseOffset : Vector2 = Vector2(Vector2(baseVec.x,baseVec.z).length(),-baseVec.y)
 	speech.setGlobalPosition(speech.getPositionOnScreen(self.global_position + offsetXZ + offsetY,camera))
+	speech.setSpeechBalloonPos(baseOffset * 100)
 	speech.setApparence()

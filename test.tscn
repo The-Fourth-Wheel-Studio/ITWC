@@ -351,8 +351,10 @@ active = true
 [node name="speechBubble" parent="game/word/pnj/PnjDialogueManager" instance=ExtResource("16_cfikr")]
 
 [node name="Marker3D" type="Marker3D" parent="game/word/pnj/PnjDialogueManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.21662, 0)
 
 [node name="Marker3D2" type="Marker3D" parent="game/word/pnj/PnjDialogueManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38173, 1.51469, 0)
 
 [connection signal="body_entered" from="game/word/cameraZone/cameraZone" to="game/word/cameraZone/cameraZone" method="_on_body_entered"]
 
