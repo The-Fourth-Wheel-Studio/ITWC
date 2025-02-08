@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://cvtydj8kqury4"]
+[gd_scene load_steps=47 format=4 uid="uid://cvtydj8kqury4"]
 
 [ext_resource type="Script" path="res://game/data/script/component/camera_component.gd" id="1_37kl0"]
 [ext_resource type="PackedScene" uid="uid://dto8b77kggjk" path="res://game/data/scene/entity/player/default/player.tscn" id="2_vbegm"]
@@ -150,6 +150,12 @@ albedo_color = Color(0.514944, 0.211991, 0.944677, 1)
 material = SubResource("StandardMaterial3D_6xet6")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_okbse"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_45l4g"]
+inner_radius = 5.296
+outer_radius = 3.652
+rings = 498
+ring_segments = 3
 
 [node name="Root" type="Node3D"]
 
@@ -354,7 +360,10 @@ active = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.21662, 0)
 
 [node name="Marker3D2" type="Marker3D" parent="game/word/pnj/PnjDialogueManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38173, 1.51469, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61172, 1.51469, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_45l4g")
 
 [connection signal="body_entered" from="game/word/cameraZone/cameraZone" to="game/word/cameraZone/cameraZone" method="_on_body_entered"]
 
