@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvtydj8kqury4"]
+
+[ext_resource type="PackedScene" uid="uid://bb233vuu2jb18" path="res://game/testFolder/game.tscn" id="2_e2o6t"]
+[ext_resource type="Script" path="res://game/data/script/misc/game_head.gd" id="13_0m0f1"]
+
+[node name="Root" type="Node3D"]
+
+[node name="gameHead" type="Node" parent="."]
+script = ExtResource("13_0m0f1")
+
+[node name="game" parent="." instance=ExtResource("2_e2o6t")]
+
+[node name="cameraZoneBehaviorPlanar" parent="game/word/cameraZone/cameraZone" index="3" node_paths=PackedStringArray("point1", "point2")]
+point1 = NodePath("cameraZoneBehaviorPlanarPoint")
+point2 = NodePath("cameraZoneBehaviorPlanarPoint2")
+y = Vector3(0.77821, -0.628004, 0)
+
+[editable path="game"]
+[editable path="game/word/test"]

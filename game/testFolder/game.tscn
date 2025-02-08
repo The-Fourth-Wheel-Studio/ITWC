@@ -1,23 +1,22 @@
-[gd_scene load_steps=46 format=4 uid="uid://cvtydj8kqury4"]
+[gd_scene load_steps=45 format=4 uid="uid://bb233vuu2jb18"]
 
-[ext_resource type="Script" path="res://game/data/script/component/camera_component.gd" id="1_37kl0"]
-[ext_resource type="PackedScene" uid="uid://dto8b77kggjk" path="res://game/data/scene/entity/player/default/player.tscn" id="2_vbegm"]
-[ext_resource type="Script" path="res://game/data/script/component/camera_zone_component.gd" id="3_ehkex"]
-[ext_resource type="Script" path="res://game/data/script/component/camera_zone_collider.gd" id="5_00tp4"]
-[ext_resource type="Script" path="res://game/data/script/component/camera_zone_transition_component.gd" id="6_77dp3"]
-[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/positionTransition/camera_zone_position_transition_moving_with_behave.gd" id="7_00tp4"]
-[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/rotationTransition/camera_zone_rotation_transition_move_with_camera_rotation.gd" id="7_y765b"]
-[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_planar.gd" id="8_5tkv4"]
-[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/point/camera_zone_behavior_start_pos_component.gd" id="9_0m0f1"]
-[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/reference/camera_zone_reference_follow_player.gd" id="11_5tkv4"]
-[ext_resource type="PackedScene" uid="uid://bxulgh12blnbe" path="res://game/asset/model/environement/test.glb" id="12_5tkv4"]
-[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/cameraRotation/camera_zone_rotation_look_at_player.gd" id="12_xh77s"]
-[ext_resource type="Script" path="res://game/data/script/misc/game_head.gd" id="13_0m0f1"]
-[ext_resource type="Script" path="res://game/testFolder/pnjTest.gd" id="14_q8dov"]
-[ext_resource type="Script" path="res://game/data/script/component/repusle_handler_zone.gd" id="15_6h4sg"]
-[ext_resource type="Script" path="res://game/data/script/component/repulse_handler.gd" id="15_ir6wf"]
-[ext_resource type="PackedScene" uid="uid://cbeulmlguf020" path="res://editor/component/speech_bubble_component.tscn" id="16_cfikr"]
-[ext_resource type="PackedScene" uid="uid://dyj3x228qh471" path="res://editor/component/pnj_dialogue_manager_component.tscn" id="17_bxc3a"]
+[ext_resource type="Script" path="res://game/data/script/component/camera_component.gd" id="1_55sp0"]
+[ext_resource type="PackedScene" uid="uid://dto8b77kggjk" path="res://game/data/scene/entity/player/default/player.tscn" id="2_n8iwq"]
+[ext_resource type="Script" path="res://game/data/script/component/camera_zone_component.gd" id="3_qed6b"]
+[ext_resource type="Script" path="res://game/data/script/component/camera_zone_collider.gd" id="4_tq5xs"]
+[ext_resource type="Script" path="res://game/data/script/component/camera_zone_transition_component.gd" id="5_p138i"]
+[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/positionTransition/camera_zone_position_transition_moving_with_behave.gd" id="6_b5ywy"]
+[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/rotationTransition/camera_zone_rotation_transition_move_with_camera_rotation.gd" id="7_d6qei"]
+[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/reference/camera_zone_reference_follow_player.gd" id="8_dpglx"]
+[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_planar.gd" id="9_n3r66"]
+[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/point/camera_zone_behavior_start_pos_component.gd" id="10_m1ua0"]
+[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/cameraRotation/camera_zone_rotation_look_at_player.gd" id="11_tjpi1"]
+[ext_resource type="PackedScene" uid="uid://bxulgh12blnbe" path="res://game/asset/model/environement/test.glb" id="12_lvybj"]
+[ext_resource type="Script" path="res://game/testFolder/pnjTest.gd" id="13_eau2w"]
+[ext_resource type="Script" path="res://game/data/script/component/repulse_handler.gd" id="14_lev3s"]
+[ext_resource type="Script" path="res://game/data/script/component/repusle_handler_zone.gd" id="15_q1asg"]
+[ext_resource type="PackedScene" uid="uid://dyj3x228qh471" path="res://editor/component/pnj_dialogue_manager_component.tscn" id="16_21ma4"]
+[ext_resource type="PackedScene" uid="uid://cbeulmlguf020" path="res://editor/component/speech_bubble_component.tscn" id="17_ddgpi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vbegm"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -151,211 +150,204 @@ material = SubResource("StandardMaterial3D_6xet6")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_okbse"]
 
-[node name="Root" type="Node3D"]
+[node name="game" type="Node3D"]
 
-[node name="gameHead" type="Node" parent="."]
-script = ExtResource("13_0m0f1")
-
-[node name="game" type="Node3D" parent="."]
-
-[node name="theBestCameraEver" type="Camera3D" parent="game"]
+[node name="theBestCameraEver" type="Camera3D" parent="."]
 transform = Transform3D(0.996902, -0.0398792, 0.0677907, 4.09748e-08, 0.861921, 0.507042, -0.0786507, -0.505471, 0.859251, 0, 2.949, 9.755)
-script = ExtResource("1_37kl0")
-metadata/_custom_type_script = ExtResource("1_37kl0")
+script = ExtResource("1_55sp0")
+metadata/_custom_type_script = ExtResource("1_55sp0")
 
-[node name="player" parent="game" node_paths=PackedStringArray("camera") instance=ExtResource("2_vbegm")]
+[node name="player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_n8iwq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.18055, 0)
 camera = NodePath("../theBestCameraEver")
 
-[node name="word" type="Node3D" parent="game"]
+[node name="word" type="Node3D" parent="."]
 
-[node name="environement" type="Node3D" parent="game/word"]
+[node name="environement" type="Node3D" parent="word"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="game/word/environement"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="word/environement"]
 environment = SubResource("Environment_xersf")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="game/word/environement"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="word/environement"]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="cameraZone" type="Node3D" parent="game/word"]
+[node name="cameraZone" type="Node3D" parent="word"]
 
-[node name="cameraZone" type="Area3D" parent="game/word/cameraZone" node_paths=PackedStringArray("collider", "behavior", "transition", "reference", "cameraTurner")]
+[node name="cameraZone" type="Area3D" parent="word/cameraZone" node_paths=PackedStringArray("collider", "behavior", "transition", "reference", "cameraTurner")]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("3_ehkex")
+script = ExtResource("3_qed6b")
 collider = NodePath("cameraZoneCollider")
 behavior = NodePath("cameraZoneBehaviorPlanar")
 transition = NodePath("cameraZoneTransition")
 reference = NodePath("cameraZoneReferenceMoais")
 cameraTurner = NodePath("cameraRotationLookAtPlayer")
-metadata/_custom_type_script = ExtResource("3_ehkex")
+metadata/_custom_type_script = ExtResource("3_qed6b")
 
-[node name="cameraZoneCollider" type="CollisionShape3D" parent="game/word/cameraZone/cameraZone"]
+[node name="cameraZoneCollider" type="CollisionShape3D" parent="word/cameraZone/cameraZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.86245, 1.09235, -0.388763)
 shape = SubResource("BoxShape3D_mhym6")
-script = ExtResource("5_00tp4")
-metadata/_custom_type_script = ExtResource("5_00tp4")
+script = ExtResource("4_tq5xs")
+metadata/_custom_type_script = ExtResource("4_tq5xs")
 
-[node name="cameraZoneTransition" type="Node3D" parent="game/word/cameraZone/cameraZone" node_paths=PackedStringArray("rotationTransition", "positionTransition")]
-script = ExtResource("6_77dp3")
+[node name="cameraZoneTransition" type="Node3D" parent="word/cameraZone/cameraZone" node_paths=PackedStringArray("rotationTransition", "positionTransition")]
+script = ExtResource("5_p138i")
 speed = 0.1
 rotationSpeed = 0.05
 rotationTransition = NodePath("cameraZoneRotationTransitionConstant")
 positionTransition = NodePath("cameraZonePositionTansitionMovingWithBehave")
-metadata/_custom_type_script = ExtResource("6_77dp3")
+metadata/_custom_type_script = ExtResource("5_p138i")
 
-[node name="cameraZonePositionTansitionMovingWithBehave" type="Node3D" parent="game/word/cameraZone/cameraZone/cameraZoneTransition"]
-script = ExtResource("7_00tp4")
-metadata/_custom_type_script = ExtResource("7_00tp4")
+[node name="cameraZonePositionTansitionMovingWithBehave" type="Node3D" parent="word/cameraZone/cameraZone/cameraZoneTransition"]
+script = ExtResource("6_b5ywy")
+metadata/_custom_type_script = ExtResource("6_b5ywy")
 
-[node name="cameraZoneRotationTransitionConstant" type="Node3D" parent="game/word/cameraZone/cameraZone/cameraZoneTransition"]
-script = ExtResource("7_y765b")
+[node name="cameraZoneRotationTransitionConstant" type="Node3D" parent="word/cameraZone/cameraZone/cameraZoneTransition"]
+script = ExtResource("7_d6qei")
 
-[node name="cameraZoneReferenceMoais" type="Node3D" parent="game/word/cameraZone/cameraZone"]
+[node name="cameraZoneReferenceMoais" type="Node3D" parent="word/cameraZone/cameraZone"]
 transform = Transform3D(-3.76827e-08, -0.506771, 0.862081, -2.21517e-08, 0.862081, 0.506771, -1, 0, -4.37114e-08, 0, 4.92348, 0)
-script = ExtResource("11_5tkv4")
-metadata/_custom_type_script = ExtResource("11_5tkv4")
+script = ExtResource("8_dpglx")
+metadata/_custom_type_script = ExtResource("8_dpglx")
 
-[node name="cameraZoneBehaviorPlanar" type="Node3D" parent="game/word/cameraZone/cameraZone" node_paths=PackedStringArray("point1", "point2")]
+[node name="cameraZoneBehaviorPlanar" type="Node3D" parent="word/cameraZone/cameraZone"]
 transform = Transform3D(0.77821, 0.628004, 0, -0.628004, 0.77821, 0, 0, 0, 1, 5.68107, 6.99348, 0)
-script = ExtResource("8_5tkv4")
-point1 = NodePath("cameraZoneBehaviorPlanarPoint")
-point2 = NodePath("cameraZoneBehaviorPlanarPoint2")
+script = ExtResource("9_n3r66")
 x = Vector3(0, 0, 1)
 y = Vector3(0.77821, -0.628004, 0)
-metadata/_custom_type_script = ExtResource("8_5tkv4")
+metadata/_custom_type_script = ExtResource("9_n3r66")
 
-[node name="cameraZoneBehaviorPlanarPoint" type="Marker3D" parent="game/word/cameraZone/cameraZone/cameraZoneBehaviorPlanar"]
+[node name="cameraZoneBehaviorPlanarPoint" type="Marker3D" parent="word/cameraZone/cameraZone/cameraZoneBehaviorPlanar"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
-script = ExtResource("9_0m0f1")
-metadata/_custom_type_script = ExtResource("9_0m0f1")
+script = ExtResource("10_m1ua0")
+metadata/_custom_type_script = ExtResource("10_m1ua0")
 
-[node name="cameraZoneBehaviorPlanarPoint2" type="Marker3D" parent="game/word/cameraZone/cameraZone/cameraZoneBehaviorPlanar"]
+[node name="cameraZoneBehaviorPlanarPoint2" type="Marker3D" parent="word/cameraZone/cameraZone/cameraZoneBehaviorPlanar"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-script = ExtResource("9_0m0f1")
-metadata/_custom_type_script = ExtResource("9_0m0f1")
+script = ExtResource("10_m1ua0")
+metadata/_custom_type_script = ExtResource("10_m1ua0")
 
-[node name="cameraRotationLookAtPlayer" type="Node3D" parent="game/word/cameraZone/cameraZone"]
-script = ExtResource("12_xh77s")
+[node name="cameraRotationLookAtPlayer" type="Node3D" parent="word/cameraZone/cameraZone"]
+script = ExtResource("11_tjpi1")
 
-[node name="test" parent="game/word" instance=ExtResource("12_5tkv4")]
+[node name="test" parent="word" instance=ExtResource("12_lvybj")]
 transform = Transform3D(2.37883, 0, 0, 0, 2.37883, 0, 0, 0, 2.37883, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="game/word/test/Cube" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="word/test/Cube" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game/word/test/Cube/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="word/test/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_5tkv4")
 
-[node name="Plane" parent="game/word/test" index="1"]
+[node name="Plane" parent="word/test" index="1"]
 mesh = SubResource("ArrayMesh_nyf4n")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="game/word/test/Plane" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="word/test/Plane" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game/word/test/Plane/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="word/test/Plane/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_0m0f1")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="game/word/test/Cube_001" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="word/test/Cube_001" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game/word/test/Cube_001/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="word/test/Cube_001/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_b0q6j")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="game/word/test/Cube_002" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="word/test/Cube_002" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game/word/test/Cube_002/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="word/test/Cube_002/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_mhym6")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="game/word/test/Cube_003" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="word/test/Cube_003" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game/word/test/Cube_003/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="word/test/Cube_003/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_a3se8")
 
-[node name="Cube_004" parent="game/word/test" index="5"]
+[node name="Cube_004" parent="word/test" index="5"]
 mesh = SubResource("ArrayMesh_4f681")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="game/word/test/Cube_004" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="word/test/Cube_004" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game/word/test/Cube_004/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="word/test/Cube_004/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_uty7l")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="game/word/test/Cylinder" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="word/test/Cylinder" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game/word/test/Cylinder/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="word/test/Cylinder/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_45l4g")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="game/word/test/Cylinder_001" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="word/test/Cylinder_001" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game/word/test/Cylinder_001/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="word/test/Cylinder_001/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_4uo0j")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="game/word/test/Cylinder_002" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="word/test/Cylinder_002" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game/word/test/Cylinder_002/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="word/test/Cylinder_002/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_vxl6d")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="game/word/test/Cube_005" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="word/test/Cube_005" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game/word/test/Cube_005/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="word/test/Cube_005/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_eski5")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="game/word/test/Cube_006" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="word/test/Cube_006" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game/word/test/Cube_006/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="word/test/Cube_006/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_pdf00")
 
-[node name="Cube_007" parent="game/word/test" index="11"]
+[node name="Cube_007" parent="word/test" index="11"]
 transform = Transform3D(0.507867, 0, 0, 0, 0.0529713, 0, 0, 0, 0.507867, 1.34044, 2.10232, 2.36499)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="game/word/test/Cube_007" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="word/test/Cube_007" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game/word/test/Cube_007/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="word/test/Cube_007/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_a6gra")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="game/word/test/Cube_008" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="word/test/Cube_008" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game/word/test/Cube_008/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="word/test/Cube_008/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_dwqlq")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="game/word/test/Cube_009" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="word/test/Cube_009" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="game/word/test/Cube_009/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="word/test/Cube_009/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_15c7i")
 
-[node name="pnj" type="Node3D" parent="game/word"]
+[node name="pnj" type="Node3D" parent="word"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85445, -10.1988)
 
-[node name="test" type="Node3D" parent="game/word/pnj" node_paths=PackedStringArray("speech")]
-script = ExtResource("14_q8dov")
+[node name="test" type="Node3D" parent="word/pnj" node_paths=PackedStringArray("speech")]
+script = ExtResource("13_eau2w")
 speech = NodePath("../PnjDialogueManager/speechBubble")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="game/word/pnj/test"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="word/pnj/test"]
 mesh = SubResource("CylinderMesh_i35tj")
 
-[node name="repulseHandler" type="Node3D" parent="game/word/pnj/test/MeshInstance3D"]
-script = ExtResource("15_ir6wf")
+[node name="repulseHandler" type="Node3D" parent="word/pnj/test/MeshInstance3D"]
+script = ExtResource("14_lev3s")
 
-[node name="Area3D" type="Area3D" parent="game/word/pnj/test/MeshInstance3D/repulseHandler"]
+[node name="Area3D" type="Area3D" parent="word/pnj/test/MeshInstance3D/repulseHandler"]
 collision_layer = 4
 collision_mask = 0
 
-[node name="repulseHandlerZone" type="CollisionShape3D" parent="game/word/pnj/test/MeshInstance3D/repulseHandler/Area3D"]
+[node name="repulseHandlerZone" type="CollisionShape3D" parent="word/pnj/test/MeshInstance3D/repulseHandler/Area3D"]
 shape = SubResource("CylinderShape3D_okbse")
-script = ExtResource("15_6h4sg")
+script = ExtResource("15_q1asg")
 
-[node name="PnjDialogueManager" parent="game/word/pnj" node_paths=PackedStringArray("speech", "distanceFromHead", "distanceFromBase") instance=ExtResource("17_bxc3a")]
+[node name="PnjDialogueManager" parent="word/pnj" node_paths=PackedStringArray("speech", "distanceFromHead", "distanceFromBase") instance=ExtResource("16_21ma4")]
 speech = NodePath("speechBubble")
 distanceFromHead = NodePath("Marker3D")
 distanceFromBase = NodePath("Marker3D2")
 active = true
 
-[node name="speechBubble" parent="game/word/pnj/PnjDialogueManager" instance=ExtResource("16_cfikr")]
+[node name="speechBubble" parent="word/pnj/PnjDialogueManager" instance=ExtResource("17_ddgpi")]
 
-[node name="Marker3D" type="Marker3D" parent="game/word/pnj/PnjDialogueManager"]
+[node name="Marker3D" type="Marker3D" parent="word/pnj/PnjDialogueManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.21662, 0)
 
-[node name="Marker3D2" type="Marker3D" parent="game/word/pnj/PnjDialogueManager"]
+[node name="Marker3D2" type="Marker3D" parent="word/pnj/PnjDialogueManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61172, 1.51469, 0)
 
-[connection signal="body_entered" from="game/word/cameraZone/cameraZone" to="game/word/cameraZone/cameraZone" method="_on_body_entered"]
+[connection signal="body_entered" from="word/cameraZone/cameraZone" to="word/cameraZone/cameraZone" method="_on_body_entered"]
 
-[editable path="game/word/test"]
+[editable path="word/test"]

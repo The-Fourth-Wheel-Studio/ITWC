@@ -3,6 +3,8 @@ extends Node
 class_name gameHead
 
 func _ready():
+	#first thing first
+	GameManager.rootScene = self.get_parent()
 	#load parameter
 	Option.loadParameter()
 	#load language
