@@ -16,12 +16,14 @@ func _process(delta):
 func getNewReference():
 	cameraRotation = self.rotation_degrees.y
 	references = getNewreference(cameraRotation)
-	
+
+func _enter_tree():
+	GameManager.setCurrentCamera(self)
+
 func _ready():
 	cameraRotation = self.rotation_degrees.y
 	references = getNewreference(cameraRotation)
-	GameManager.setCurrentCamera(self)
-
+	
 func getProjectionVector(curVec : Vector2, angle : float) -> Vector2:
 	var angleRad = deg_to_rad(angle)
 

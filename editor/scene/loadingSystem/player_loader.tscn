@@ -5,3 +5,5 @@
 [node name="playerLoader" type="Node3D"]
 script = ExtResource("1_pc1k4")
 id = 0
+playerScene = null
+cameraScene = null

@@ -1,10 +1,9 @@
 @icon("res://editor/assets/component/martin.png")
-extends Node
+extends Node3D
 class_name gameHead
 
-func _ready():
+func _enter_tree():
 	#first thing first
-	GameManager.rootScene = self.get_parent()
 	GameManager.head = self
 	#load parameter
 	Option.loadParameter()

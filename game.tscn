@@ -4,8 +4,6 @@
 [ext_resource type="Script" path="res://game/data/script/misc/game_head.gd" id="13_0m0f1"]
 
 [node name="Root" type="Node3D"]
-
-[node name="gameHead" type="Node" parent="."]
 script = ExtResource("13_0m0f1")
 
 [node name="mainMenu" parent="." instance=ExtResource("2_e2o6t")]
