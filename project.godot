@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 
 GameManager="*res://game/data/script/shared/gameManager.gd"
 Option="*res://game/data/script/shared/Option.gd"
+EventObserver="*res://game/data/script/shared/eventObserver.gd"
 
 [dotnet]
 
