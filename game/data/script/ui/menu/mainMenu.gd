@@ -8,4 +8,5 @@ func _ready():
 
 func _on_button_pressed():
 	GameManager.head.loadSave(saveSelector.get_selected_id())
+	hide()
 	

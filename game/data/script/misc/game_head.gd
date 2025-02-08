@@ -18,7 +18,7 @@ func _enter_tree():
 func loadSave(saveId : int):
 	#load eventObserver
 	EventObserver.loadEventObserverData("res://data/saves/"+FileLoader.getAllFile(Option.option["save_path"])[saveId])
-	GameManager.switchScene("res://game/testFolder/game.tscn")
+	GameManager.loadScene("res://game/testFolder/game.tscn")
 
 func test():
 	print(GameManager.lang["test"])

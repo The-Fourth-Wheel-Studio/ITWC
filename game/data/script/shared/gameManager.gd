@@ -12,19 +12,15 @@ func setCurrentCamera(cam : theBestCameraEver):
 func setCurrentPlayer(play : CharacterBody3D):
 	player = play
 
-func switchScene(scene:String, loadingScene = null):
+func loadScene(scene:String, loadingScene = null):
 	#MKhomer code thanks yoshman
 	if loadingScene != null:
 		loadingScene.visible = true
 	#MultiplayerAPI.get_default_interface().
-	if head != null:
-		remove_child(head)
-		head.queue_free()
 
 	MKUtil.print(str("Switching scene to ", scene))
-	head = ResourceLoader.load(scene).instantiate()
-	head.name = "Scene"
-	call_deferred("add_child", head)
+	var sceneToInstantiate = ResourceLoader.load(scene).instantiate()
+	head.add_child(sceneToInstantiate)
 	if loadingScene != null:
 		loadingScene.visible = false
 
