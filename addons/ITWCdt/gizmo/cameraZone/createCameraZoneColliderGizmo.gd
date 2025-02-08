@@ -8,7 +8,7 @@ const cameraZoneColliderType = preload("res://game/data/script/component/camera_
 func _init():
 	pass
 func _get_gizmo_name():
-	return "- ITWC Gizmos - CameraZoneCOllider"
+	return "- ITWC Gizmos - CameraZoneCollider"
 
 func _create_gizmo(node):
 	if node is cameraZoneColliderType:

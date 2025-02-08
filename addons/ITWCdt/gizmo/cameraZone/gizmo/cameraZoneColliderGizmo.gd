@@ -19,6 +19,4 @@ func _redraw():
 	add_lines(PackedVector3Array([Vector3(0.0,0.0,0.0),Vector3(10.0,0.0,0.0)]),mat)
 	var boxmesh : BoxMesh = BoxMesh.new()
 	boxmesh.size = self.node.shape.size
-	var surface : SurfaceTool = SurfaceTool.new()
-	surface.create_from(boxmesh,0)
-	add_mesh(surface.commit(),mat)
+	add_mesh(boxmesh,mat)
