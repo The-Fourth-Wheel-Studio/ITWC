@@ -1,3 +1,4 @@
 {
-	"language" : "fr_fr.json"
+	"language" : "fr_fr.json",
+	"save_path" : "res://data/saves/"
 }
