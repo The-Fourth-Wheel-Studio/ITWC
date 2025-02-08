@@ -5,6 +5,7 @@ extends Node
 @export var player : CharacterBody3D
 @export var lang : Dictionary
 @export var rootScene : Node3D
+@export var head : gameHead
 
 func setCurrentCamera(cam : theBestCameraEver):
 	currentCamera = cam

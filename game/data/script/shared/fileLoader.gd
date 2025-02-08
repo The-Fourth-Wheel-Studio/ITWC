@@ -1,5 +1,8 @@
 class_name FileLoader
 
+static func getAllFile(folderPath : String):
+	return DirAccess.get_files_at(folderPath)
+	
 static func loadFileToRead(filePath : String):
 	return FileLoader.openFile(filePath, FileAccess.READ)
 
