@@ -3,8 +3,14 @@ extends Node
 #player and camera stuff
 @export var currentCamera : theBestCameraEver
 @export var player : CharacterBody3D
-@export var lang : Dictionary
+
+#global game stuff
 @export var head : gameHead
+
+#build relatead stuff
+@export var lang : Dictionary
+@export var gamePath : String
+
 
 func setCurrentCamera(cam : theBestCameraEver):
 	currentCamera = cam

@@ -10,17 +10,30 @@ static func loadFileToWrite(filePath):
 	return FileLoader.openFile(filePath, FileAccess.WRITE)
 
 static func openFile(filePath : String, flag : FileAccess.ModeFlags):
-	if FileAccess.file_exists(filePath):
+	var absolutePath : String = GameManager.gamePath.path_join(filePath)
+	if Engine.is_editor_hint():
+		absolutePath = "res://".path_join(filePath)
+	if FileAccess.file_exists(absolutePath):
 		MKUtil.print("'"+filePath+"' correctly loaded")
-		return FileAccess.open(filePath,flag)
+		return FileAccess.open(absolutePath,flag)
 	else:
 		MKUtil.print("Error : the file '" + str(filePath) + "' doesn't exist")
 		return null
 
 static func loadJsonToRead(filePath : String):
 	var json : JSON = JSON.new()
-	json.parse(loadFileToRead(filePath).get_as_text())
+	var loadedFileAsText = loadFileToRead(GameManager.gamePath.path_join(filePath))
+	print("loadedFileAsText : ",loadedFileAsText)
+	if loadedFileAsText != null:
+		json.parse(loadedFileAsText.get_as_text())
+	else:
+		MKUtil.print("Error : cannot load the json file :'" + str(filePath) + "'")
+		return null
 	return json
 
 static func JsonToDict(json : JSON):
-	return json.data
+	if json != null:
+		return json.data
+	else:
+		MKUtil.print("ERROR : enable to convert JSON")
+	return null

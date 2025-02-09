@@ -5,10 +5,12 @@ class_name gameHead
 func _enter_tree():
 	#first thing first
 	GameManager.head = self
+	GameManager.gamePath = OS.get_executable_path().get_base_dir()
+	print(GameManager.gamePath)
 	#load parameter
 	Option.loadParameter()
 	#load language
-	GameManager.lang = FileLoader.JsonToDict(FileLoader.loadJsonToRead("res://data/asset/lang/"+Option.option["language"]))["translation"]
+	GameManager.lang = FileLoader.JsonToDict(FileLoader.loadJsonToRead("data/asset/lang/"+Option.option["language"]))["translation"]
 	#everything is loaded
 	MKUtil.print("The game is loaded")
 	

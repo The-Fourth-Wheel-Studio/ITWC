@@ -2,7 +2,8 @@ extends Control
 
 @export var saveSelector : OptionButton
 
-func _ready():
+func _enter_tree():
+	MKUtil.print(FileLoader.getAllFile("res://data/saves/"))
 	for i in FileLoader.getAllFile("res://data/saves/"):
 		saveSelector.add_item(i)
 
