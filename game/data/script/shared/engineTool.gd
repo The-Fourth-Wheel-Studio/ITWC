@@ -12,3 +12,10 @@ static func loadScene(nodeWhereToLoad : Node, scenePath:String, loadingScene = n
 	nodeWhereToLoad.add_child(sceneToInstantiate)
 	if loadingScene != null:
 		loadingScene.visible = false
+
+static func MKprintArray(arrayName : String = "Unknow", array : Array = [null]):
+	var s : String = arrayName + " : "
+	for i in range(len(array)-1):
+		s += (str(array[i]) + ", ")
+	s += str(array[-1])
+	MKUtil.print(s)
