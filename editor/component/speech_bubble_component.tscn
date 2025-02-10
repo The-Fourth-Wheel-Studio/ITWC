@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dtp8sn6isgpew" path="res://game/asset/texture/ui/speechBubble/base.png" id="2_uxrap"]
 [ext_resource type="Texture2D" uid="uid://c3dd4nnr1qt55" path="res://game/asset/texture/ui/speechBubble/color.png" id="3_2uum1"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_uxrap"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_t8je8"]
 _surfaces = [{
 "2d": true,
 "aabb": AABB(0, -267.569, 0, 282.629, 267.569, 0),
@@ -56,7 +56,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="pike"]
-mesh = SubResource("ArrayMesh_uxrap")
+mesh = SubResource("ArrayMesh_t8je8")
 texture = ExtResource("3_2uum1")
 
 [node name="speechBalloon" type="Control" parent="."]

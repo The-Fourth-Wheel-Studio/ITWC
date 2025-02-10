@@ -211,9 +211,11 @@ transform = Transform3D(-3.76827e-08, -0.506771, 0.862081, -2.21517e-08, 0.86208
 script = ExtResource("8_dpglx")
 metadata/_custom_type_script = ExtResource("8_dpglx")
 
-[node name="cameraZoneBehaviorPlanar" type="Node3D" parent="word/cameraZone/cameraZone"]
+[node name="cameraZoneBehaviorPlanar" type="Node3D" parent="word/cameraZone/cameraZone" node_paths=PackedStringArray("point1", "point2")]
 transform = Transform3D(0.77821, 0.628004, 0, -0.628004, 0.77821, 0, 0, 0, 1, 5.68107, 6.99348, 0)
 script = ExtResource("9_n3r66")
+point1 = NodePath("cameraZoneBehaviorPlanarPoint")
+point2 = NodePath("cameraZoneBehaviorPlanarPoint2")
 x = Vector3(0, 0, 1)
 y = Vector3(0.77821, -0.628004, 0)
 metadata/_custom_type_script = ExtResource("9_n3r66")

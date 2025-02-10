@@ -2,17 +2,17 @@ class_name FileLoader
 
 static func getAllFile(folderPath : String):
 	var absolutePath : String = GameManager.gamePath.path_join(folderPath)
-	if FileAccess.file_exists(absolutePath):
-		print(absolutePath)
-		return DirAccess.get_files_at(absolutePath)
-	elif FileAccess.file_exists("res://".path_join(folderPath)):
+	var fileGet : Array
+	fileGet = DirAccess.get_files_at(absolutePath)
+	if fileGet == []:
 		absolutePath = "res://".path_join(folderPath)
-		return DirAccess.get_files_at(absolutePath)
-	else:
-		MKUtil.print("Error : cannot load the folder :'" + str(absolutePath) + "'")
-		return null
+		fileGet = DirAccess.get_files_at(absolutePath)
+	return fileGet
 		
-		
+static func addFileDirectory(path : String, fileName : String):
+	if path[-1] == "/":
+		return path.path_join(fileName)
+	return path + "/" + fileName
 	
 static func loadFileToRead(filePath : String):
 	return FileLoader.openFile(filePath, FileAccess.READ)

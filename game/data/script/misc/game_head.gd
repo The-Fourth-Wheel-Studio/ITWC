@@ -19,7 +19,7 @@ func _enter_tree():
 
 func loadSave(saveId : int):
 	#load eventObserver
-	EventObserver.loadEventObserverData(Option.option["save_path"]+FileLoader.getAllFile(Option.option["save_path"])[saveId])
+	EventObserver.loadEventObserverData(Option.option["save_path"]+"/"+FileLoader.getAllFile(Option.option["save_path"])[saveId])
 	EngineTool.loadScene(self, "res://game/testFolder/game.tscn")
 
 func getAllSaveFiles():
