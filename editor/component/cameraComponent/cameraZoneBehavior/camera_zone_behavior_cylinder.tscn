@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b021rcd1nb0ly"]
 
 [ext_resource type="PackedScene" uid="uid://v5xnjr7e8wj4" path="res://editor/component/camera_zone_behavior_component.tscn" id="1_at56u"]
-[ext_resource type="Script" path="res://game/data/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_cylinder.gd" id="2_e8737"]
+[ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_cylinder.gd" id="2_e8737"]
 
 [node name="cameraZoneBehavior" instance=ExtResource("1_at56u")]
 script = ExtResource("2_e8737")
