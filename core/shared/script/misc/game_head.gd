@@ -3,6 +3,10 @@ extends Node3D
 class_name gameHead
 
 func _enter_tree():
+	MKUtil.print("Loading Game")
+	Settings.load()
+	'''
+	#old code
 	#first thing first
 	GameManager.head = self
 	GameManager.gamePath = OS.get_executable_path().get_base_dir()
@@ -15,10 +19,10 @@ func _enter_tree():
 	
 	MKUtil.print("assert like Martelet does")
 	test()
-
+	
 func loadSave(saveId : int):
 	#load eventObserver
-	EventObserver.loadEventObserverData(Option.option["save_path"].path_join(FileLoader.getAllFile(Option.option["save_path"])[saveId]))
+	#EventObserver.loadEventObserverData(Option.option["save_path"].path_join(FileLoader.getAllFile(Option.option["save_path"])[saveId]))
 	
 	#TEMP !!!!!!!!!!!!!!!!
 	EngineTool.loadScene(self, "res://editor/testFolder/game.tscn")
@@ -31,3 +35,4 @@ func getAllSaveFiles():
 func test():
 	print(GameManager.lang["test"])
 	EventObserver.createEvent("test","")
+	'''
