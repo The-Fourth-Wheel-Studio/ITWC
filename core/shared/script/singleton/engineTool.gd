@@ -14,8 +14,11 @@ static func loadScene(nodeWhereToLoad : Node, scenePath:String, loadingScene = n
 		loadingScene.visible = false
 
 static func MKprintArray(arrayName : String = "Unknow", array : Array = [null]):
-	var s : String = arrayName + " : "
-	for i in range(len(array)-1):
-		s += (str(array[i]) + ", ")
-	s += str(array[-1])
-	MKUtil.print(s)
+	if len(array) > 0:
+		var s : String = arrayName + " : "
+		for i in range(len(array)-1):
+			s += (str(array[i]) + ", ")
+		s += str(array[-1])
+		MKUtil.print(s)
+	else:
+		MKUtil.print("the array is empty")
