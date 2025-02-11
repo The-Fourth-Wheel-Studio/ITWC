@@ -21,7 +21,7 @@ signal asFinishDisplay
 func _ready():
 	setInactive()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		setApparence()
 	if active:
@@ -78,7 +78,6 @@ func setPike():
 func getPikeOrigin() -> Vector4:
 	var vec : Vector2 = (base.get_parent().position + Vector2(display.size.x,-display.size.y)/2)
 	var vecDir = Vector2(-vec.y,vec.x).normalized() * 100
-	var speechBallon : Vector2 = base.get_parent().position
 	return Vector4(vec.x + vecDir.x,vec.y + vecDir.y,vec.x - vecDir.x,vec.y - vecDir.y)
 	
 func getPositionOnScreen(origin : Vector3, camera : theBestCameraEver) -> Vector2:

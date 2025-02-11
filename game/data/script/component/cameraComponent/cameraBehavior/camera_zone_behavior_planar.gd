@@ -17,7 +17,7 @@ func _ready() -> void:
 func behave():
 	setCameraPosition(getCameraPosition())
 
-func _process(delta):
+func _process(_delta):
 	if Engine.is_editor_hint():
 		setXY()
 	pass

@@ -2,27 +2,27 @@
 extends Camera3D
 class_name theBestCameraEver
 
-var cameraRotation : float
+var cameraRot : float
 var references : Vector4 = Vector4.ZERO
 @export var currentCameraZone : cameraZone
 func _process(delta):
 	GameManager.invDelta = (1-delta)
-	cameraRotation = self.rotation_degrees.y
+	cameraRot = self.rotation_degrees.y
 	if currentCameraZone:
 		currentCameraZone.run()
 	GameManager.player.execute(delta)
 
 
 func getNewReference():
-	cameraRotation = self.rotation_degrees.y
-	references = getNewreference(cameraRotation)
+	cameraRot = self.rotation_degrees.y
+	references = getNewreference(cameraRot)
 
 func _enter_tree():
 	GameManager.setCurrentCamera(self)
 
 func _ready():
-	cameraRotation = self.rotation_degrees.y
-	references = getNewreference(cameraRotation)
+	cameraRot = self.rotation_degrees.y
+	references = getNewreference(cameraRot)
 	
 func getProjectionVector(curVec : Vector2, angle : float) -> Vector2:
 	var angleRad = deg_to_rad(angle)

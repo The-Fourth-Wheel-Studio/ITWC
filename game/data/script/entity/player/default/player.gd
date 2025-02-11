@@ -4,7 +4,7 @@ func _enter_tree():
 	GameManager.setCurrentPlayer(self)
 	abilitieManager.load()
 	
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	pass
 
 func execute(delta):

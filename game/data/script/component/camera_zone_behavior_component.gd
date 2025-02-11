@@ -10,9 +10,8 @@ func behave():
 func setup():
 	cameraPosition = self.global_position
 
-func setCameraPosition(position):
-	cameraPosition = position
-	GameManager.currentCamera.position = cameraPosition
+func setCameraPosition(pos):
+	GameManager.currentCamera.position = pos
 
 func getCameraPosition():
 	return Vector3.ZERO

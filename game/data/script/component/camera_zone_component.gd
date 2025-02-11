@@ -59,7 +59,7 @@ func cameraRotationBehave():
 func behave():
 	behavior.behave()
 	
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	execute()
 
 func applyTransition():

@@ -14,5 +14,5 @@ class_name Player
 @export_category("player Variables")
 @export var isAbleToMove : bool = true
 
-func execute(delta):
+func execute(_delta):
 	pass

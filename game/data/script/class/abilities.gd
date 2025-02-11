@@ -8,7 +8,7 @@ var player : CharacterBody3D
 func setActive(b : bool):
 	self.active = b
 
-func doWhatever(delta):
+func doWhatever(_delta):
 	pass
 
 func execute(delta):

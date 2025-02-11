@@ -1,7 +1,7 @@
 extends abilities
 
 
-func doWhatever(delta):
+func doWhatever(_delta):
 	if player.isAbleToMove:
 			# Handle Jump.
 			if player.inputhandler.asJump :

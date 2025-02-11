@@ -11,7 +11,7 @@ class_name pnjDialogueManager
 @export_category("other thing idk")
 @export var active : bool = false
 
-func _process(delta : float):
+func _process(_delta : float):
 	if active:
 		isActive()
 	return
