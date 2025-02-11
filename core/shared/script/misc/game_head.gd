@@ -6,7 +6,6 @@ func _enter_tree():
 	#first thing first
 	GameManager.head = self
 	GameManager.gamePath = OS.get_executable_path().get_base_dir()
-	print(GameManager.gamePath)
 	#load parameter
 	Option.loadParameter()
 	#load language
@@ -20,6 +19,8 @@ func _enter_tree():
 func loadSave(saveId : int):
 	#load eventObserver
 	EventObserver.loadEventObserverData(Option.option["save_path"].path_join(FileLoader.getAllFile(Option.option["save_path"])[saveId]))
+	
+	#TEMP !!!!!!!!!!!!!!!!
 	EngineTool.loadScene(self, "res://editor/testFolder/game.tscn")
 
 func getAllSaveFiles():
