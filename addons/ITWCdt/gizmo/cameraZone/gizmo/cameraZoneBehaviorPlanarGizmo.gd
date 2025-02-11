@@ -1,9 +1,6 @@
 @tool
 extends EditorNode3DGizmo
 
-const cameraZoneBehaviorPlanarComponent = preload("res://editor/component/cameraComponent/cameraZoneBehavior/camera_zone_behavior_planar.tscn")
-
-
 var node:cameraZoneBehaviorPlanar = null
 var mat : StandardMaterial3D = StandardMaterial3D.new()
 var redMat : StandardMaterial3D = StandardMaterial3D.new()

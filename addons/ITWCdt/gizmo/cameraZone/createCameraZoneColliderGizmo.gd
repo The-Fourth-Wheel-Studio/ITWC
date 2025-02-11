@@ -2,7 +2,7 @@
 extends EditorNode3DGizmoPlugin
 
 const cameraZoneColliderGizmo = preload("res://addons/ITWCdt/gizmo/cameraZone/gizmo/cameraZoneColliderGizmo.gd")
-const cameraZoneColliderType = preload("res://game/data/script/component/camera_zone_collider.gd")
+const cameraZoneColliderType = preload("res://core/shared/script/component/camera_zone_collider.gd")
 
 
 func _init():

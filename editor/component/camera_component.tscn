@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://chtj5oaqp0etm"]
 
-[ext_resource type="Script" path="res://game/data/script/component/camera_component.gd" id="1_odmr5"]
+[ext_resource type="Script" path="res://core/shared/script/component/camera_component.gd" id="1_odmr5"]
 
 [node name="Camera3D" type="Camera3D"]
 fov = 37.3503

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://mhr0qi18vj7c"]
 
-[ext_resource type="Script" path="res://game/data/script/component/repusle_handler_zone.gd" id="1_8hpfc"]
+[ext_resource type="Script" path="res://core/shared/script/component/repusle_handler_zone.gd" id="1_8hpfc"]
 
 [node name="repusleZone" type="CollisionShape3D"]
 script = ExtResource("1_8hpfc")

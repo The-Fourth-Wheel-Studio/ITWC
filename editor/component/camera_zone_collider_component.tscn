@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c4r56iwnkjfmu"]
 
-[ext_resource type="Script" path="res://game/data/script/component/camera_zone_collider.gd" id="1_eggek"]
+[ext_resource type="Script" path="res://core/shared/script/component/camera_zone_collider.gd" id="1_eggek"]
 
 [node name="CameraZoneCollider" type="CollisionShape3D"]
 script = ExtResource("1_eggek")
