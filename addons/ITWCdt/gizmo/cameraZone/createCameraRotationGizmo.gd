@@ -2,7 +2,7 @@
 extends EditorNode3DGizmoPlugin
 
 const cameraRotationGizmo = preload("res://addons/ITWCdt/gizmo/cameraZone/gizmo/cameraZoneRotationMoaisGizmo.gd")
-const cameraRotationType = preload("res://game/data/script/component/cameraComponent/cameraRotation/camera_zone_rotation_moais.gd")
+const cameraRotationType = preload("res://core/shared/script/component/cameraComponent/cameraRotation/camera_zone_rotation_moais.gd")
 
 
 func _init():

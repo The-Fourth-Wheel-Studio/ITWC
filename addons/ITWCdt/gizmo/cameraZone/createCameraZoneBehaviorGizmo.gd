@@ -2,9 +2,9 @@
 extends EditorNode3DGizmoPlugin
 
 const cameraZoneBehaviorPlanarGizmo = preload("res://addons/ITWCdt/gizmo/cameraZone/gizmo/cameraZoneBehaviorPlanarGizmo.gd")
-const cameraZoneBehaviorPlanarType = preload("res://game/data/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_planar.gd")
+const cameraZoneBehaviorPlanarType = preload("res://core/shared/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_planar.gd")
 const cameraZoneBehaviorTravellingGizmo = preload("res://addons/ITWCdt/gizmo/cameraZone/gizmo/cameraZoneBehaviorTravellingGizmo.gd")
-const cameraZoneBehaviorTravellingType = preload("res://game/data/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_travelling.gd")
+const cameraZoneBehaviorTravellingType = preload("res://core/shared/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_travelling.gd")
 
 
 func _init():

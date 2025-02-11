@@ -1,8 +1,6 @@
 @tool
 extends EditorNode3DGizmo
 
-const cameraZoneColliderComponent = preload("res://editor/component/camera_zone_collider_component.tscn")
-
 var node:cameraZoneCollider = null
 var mat : StandardMaterial3D = StandardMaterial3D.new()
 

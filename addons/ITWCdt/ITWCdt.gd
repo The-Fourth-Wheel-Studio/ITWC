@@ -5,7 +5,7 @@ var cameraZoneColliderGizmos = preload("res://addons/ITWCdt/gizmo/cameraZone/cre
 var cameraZoneBehaviorGizmos = preload("res://addons/ITWCdt/gizmo/cameraZone/createCameraZoneBehaviorGizmo.gd").new()
 var cameraRotationGizmos = preload("res://addons/ITWCdt/gizmo/cameraZone/createCameraRotationGizmo.gd").new()
 var cameraReferenceGizmos = preload("res://addons/ITWCdt/gizmo/cameraZone/createCameraReferenceGizmo.gd").new()
-var pnjDialogueManagerGizmo = preload("res://addons/ITWCdt/gizmo/cameraZone/createPnjDialogueManagerGizmo.gd").new()
+var pnjDialogueManagerGizmo = preload("res://addons/ITWCdt/gizmo/pnj/createPnjDialogueManagerGizmo.gd").new()
 
 func _enter_tree():
 	add_node_3d_gizmo_plugin(cameraZoneColliderGizmos)
