@@ -4,6 +4,7 @@ class_name gameHead
 
 func _enter_tree():
 	MKUtil.print("Loading Game")
+	GameManager.gamePath = FileLoader.getAbsolutePath()
 	Settings.load()
 	'''
 	#old code

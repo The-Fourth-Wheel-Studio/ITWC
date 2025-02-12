@@ -50,3 +50,6 @@ static func JsonToDict(json : JSON):
 	else:
 		MKUtil.print("ERROR : enable to convert JSON")
 	return null
+
+static func getAbsolutePath():
+	return OS.get_executable_path().get_base_dir()
