@@ -53,3 +53,9 @@ static func JsonToDict(json : JSON):
 
 static func getAbsolutePath():
 	return OS.get_executable_path().get_base_dir()
+	
+static func createFolder(path : String):
+	var dir = DirAccess.open(FileLoader.getAbsolutePath())
+	if !dir.dir_exists(path):
+		dir.make_dir_recursive(path)
+		
