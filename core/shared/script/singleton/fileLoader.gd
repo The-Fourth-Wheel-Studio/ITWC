@@ -22,14 +22,14 @@ static func loadFileToWrite(filePath):
 
 static func openFile(filePath : String, flag : FileAccess.ModeFlags):
 	var absolutePath : String = GameManager.gamePath.path_join(filePath)
-	MKUtil.print("path to load : "+absolutePath)
+	MKUtil.print("path to load : " + absolutePath)
 	if FileAccess.file_exists(absolutePath):
-		MKUtil.print("'"+absolutePath+"' correctly loaded")
-		return FileAccess.open(absolutePath,flag)
+		MKUtil.print("'" + absolutePath + "' correctly loaded")
+		return FileAccess.open(absolutePath, flag)
 	elif FileAccess.file_exists("res://".path_join(filePath)):
 		absolutePath = "res://".path_join(filePath)
-		MKUtil.print("'"+absolutePath+"' correctly loaded")
-		return FileAccess.open(absolutePath,flag)
+		MKUtil.print("'" + absolutePath + "' correctly loaded")
+		return FileAccess.open(absolutePath, flag)
 	else:
 		MKUtil.print("Error : the file '" + str(filePath) + "' doesn't exist")
 		return null
@@ -40,7 +40,7 @@ static func loadJsonToRead(filePath : String):
 	if loadedFileAsText != null:
 		json.parse(loadedFileAsText.get_as_text())
 	else:
-		MKUtil.print("Error : cannot load the json file :'" + str(filePath) + "'")
+		MKUtil.print("Error : cannot load the json file : '" + str(filePath) + "'")
 		return null
 	return json
 
@@ -48,14 +48,24 @@ static func JsonToDict(json : JSON):
 	if json != null:
 		return json.data
 	else:
-		MKUtil.print("ERROR : enable to convert JSON")
+		MKUtil.print("ERROR : unable to convert JSON")
 	return null
 
 static func getAbsolutePath():
 	return OS.get_executable_path().get_base_dir()
 	
+static func getGameDataPath():
+	return "user://"
+
 static func createFolder(path : String):
-	var dir = DirAccess.open(FileLoader.getAbsolutePath())
-	if !dir.dir_exists(path):
-		dir.make_dir_recursive(path)
-		
+	if !DirAccess.dir_exists_absolute(path):
+		var err = DirAccess.make_dir_recursive_absolute(path)
+		if err != OK:
+			MKUtil.print("Unable to create folder: " + path + " Error: " + str(err))
+
+static func saveConfigFile(config_file: ConfigFile, file_path: String):
+	var folder_path = file_path.get_base_dir()
+	createFolder(folder_path)
+	var err = config_file.save(file_path)
+	if err != OK:
+		MKUtil.print("Unable to create config file: " + file_path + " Error: " + str(err))

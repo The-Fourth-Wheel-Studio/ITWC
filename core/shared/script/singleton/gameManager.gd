@@ -18,9 +18,5 @@ func setCurrentCamera(cam : theBestCameraEver):
 func setCurrentPlayer(play : CharacterBody3D):
 	player = play
 
-
-
-	
-	
 #physics
 @export var invDelta : float = 1.0

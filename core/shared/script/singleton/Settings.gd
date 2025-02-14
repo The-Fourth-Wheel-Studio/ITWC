@@ -6,10 +6,8 @@ var setting : ConfigFile = ConfigFile.new()
 @export var gameConfig : Dictionary = {}
 @export var lang : String = ""
 
-var CONFIG_FILE_PATH = FileLoader.getAbsolutePath().path_join("data/game/settings/config.ini")
-var SETTINGS_FILE_PATH = FileLoader.getAbsolutePath().path_join("data/game/settings/setting.ini")
-
-
+var CONFIG_FILE_PATH = FileLoader.getGameDataPath().path_join("data/game/settings/config.ini")
+var SETTINGS_FILE_PATH = FileLoader.getGameDataPath().path_join("data/game/settings/setting.ini")
 
 func load():
 	loadConfigFile()
@@ -39,12 +37,10 @@ func loadSetting():
 func setDefaultConfig():
 	config.set_value("game_config", "save_path", "data/game/saves")
 	config.set_value("game_config", "language", "fr_fr.json")
-	
-	config.save(CONFIG_FILE_PATH)
-	MKUtil.print("default config file created at : "+ CONFIG_FILE_PATH)
+	FileLoader.saveConfigFile(config, CONFIG_FILE_PATH)
+	MKUtil.print("default config file created at: " + CONFIG_FILE_PATH)
 
 func setDefaultSetting():
 	setting.set_value("general", "language", "fr_fr.json")
-	
-	setting.save(SETTINGS_FILE_PATH)
-	MKUtil.print("default setting file created at : " + SETTINGS_FILE_PATH)
+	FileLoader.saveConfigFile(setting, SETTINGS_FILE_PATH)
+	MKUtil.print("default setting file created at: " + SETTINGS_FILE_PATH)

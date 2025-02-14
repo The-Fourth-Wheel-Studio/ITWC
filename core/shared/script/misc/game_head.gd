@@ -4,6 +4,7 @@ class_name gameHead
 
 func _enter_tree():
 	MKUtil.print("Loading Game")
+	FileLoader.createFolder(FileLoader.getGameDataPath().path_join("data/game/settings"))
 	GameManager.gamePath = FileLoader.getAbsolutePath()
 	Settings.load()
 	'''
