@@ -19,7 +19,7 @@ func load(path: String, original_path: String, use_sub_threads: bool, cache_mode
 		var json = JSON.new()
 		var error = json.parse(json_text)
 		if error == OK:
-			var resource = ITWCDataResource.new()
+			var resource = ITWCdata.new()
 			resource.data = json.get_data()
 			return resource
 		else:
