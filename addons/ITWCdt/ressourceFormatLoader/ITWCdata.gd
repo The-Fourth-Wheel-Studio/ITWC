@@ -1,5 +1,5 @@
 extends ResourceFormatLoader
-class_name CustomResourceLoader
+class_name ITWCResourceLoader
 
 func _get_recognized_extensions() -> PackedStringArray:
 	return ["ITWCdata"]
