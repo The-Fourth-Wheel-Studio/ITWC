@@ -9,6 +9,8 @@ func _enter_tree():
 	#load parameter
 	Settings.load()
 	#load language
+	var my_resource = ResourceLoader.load("res://core/ITWC/test.ITWCdata")
+	print(my_resource)
 	'''
 	#old code
 	#first thing first

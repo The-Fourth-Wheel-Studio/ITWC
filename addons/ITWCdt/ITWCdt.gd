@@ -16,25 +16,9 @@ func _enter_tree():
 	add_node_3d_gizmo_plugin(cameraReferenceGizmos)
 	add_node_3d_gizmo_plugin(pnjDialogueManagerGizmo)
 
-	var editorPlugin = EditorPlugin.new()
-	editorPlugin.add_autoload_singleton("ITWCdataLoader", "res://addons/ITWCdt/ressourceFormatLoader/loadITWCdata.gd")
-
-	if not resourceLoaderInstance:
-		resourceLoaderInstance = load("res://addons/ITWCdt/ressourceFormatLoader/loadITWCdata.gd").new()
-		ResourceLoader.add_resource_format_loader(resourceLoaderInstance)
-		print("ResourceFormatLoader added")
-
 func _exit_tree():
 	remove_node_3d_gizmo_plugin(cameraZoneColliderGizmos)
 	remove_node_3d_gizmo_plugin(cameraZoneBehaviorGizmos)
 	remove_node_3d_gizmo_plugin(cameraRotationGizmos)
 	remove_node_3d_gizmo_plugin(cameraReferenceGizmos)
 	remove_node_3d_gizmo_plugin(pnjDialogueManagerGizmo)
-
-	var editorPlugin = EditorPlugin.new()
-	editorPlugin.remove_autoload_singleton("ITWCdataLoader")
-
-	if resourceLoaderInstance:
-		ResourceLoader.remove_resource_format_loader(resourceLoaderInstance)
-		print("ResourceFormatLoader removed")
-		resourceLoaderInstance = null
