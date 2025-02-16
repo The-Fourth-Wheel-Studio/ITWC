@@ -1,3 +1,4 @@
+@tool
 @icon("res://editor/assets/component/martin.png")
 extends Node3D
 class_name gameHead
@@ -11,7 +12,6 @@ func _enter_tree():
 	#load language
 	var my_resource = ResourceLoader.load("res://core/ITWC/test.ITWCdata")
 	print(FileLoader.JsonToDict(FileLoader.loadJsonToRead("core/ITWC/test.ITWCdata")))
-
 	'''
 	#old code
 	#first thing first
@@ -43,3 +43,5 @@ func test():
 	print(GameManager.lang["test"])
 	EventObserver.createEvent("test","")
 	'''
+func _process(delta):
+	pass
