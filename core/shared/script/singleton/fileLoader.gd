@@ -69,3 +69,13 @@ static func saveConfigFile(config_file: ConfigFile, file_path: String):
 	var err = config_file.save(file_path)
 	if err != OK:
 		MKUtil.print("Unable to create config file: " + file_path + " Error: " + str(err))
+
+static func loadITWCdataToRead(filePath : String):
+	var ITWCData : ITWCdata = ITWCdata.new()
+	var loadedFileAsText = loadFileToRead(filePath)
+	if loadedFileAsText != null:
+		ITWCData.parse(loadedFileAsText.get_as_text())
+	else:
+		MKUtil.print("Error : cannot load the ITWCdata file : '" + str(filePath) + "'")
+		return null
+	return ITWCData
