@@ -10,7 +10,9 @@ func _enter_tree():
 	#load parameter
 	Settings.load()
 	#load language
-	print(FileLoader.loadITWCdataToRead("core/ITWC/test.ITWCdata").getLine(3))
+	var a: ITWCdata = ITWCdata.new()
+	a.load("res://core/ITWC/test.ITWCdata")
+	print(a)
 	'''
 	#old code
 	#first thing first
