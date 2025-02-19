@@ -12,7 +12,9 @@ func _enter_tree():
 	#load language
 	var a: ITWCdata = ITWCdata.new()
 	a.load("res://core/ITWC/test.ITWCdata")
+	
 	print(a)
+	print(GameLoader.getModFile())
 	'''
 	#old code
 	#first thing first

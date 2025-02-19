@@ -36,6 +36,7 @@ func loadSetting():
 
 func setDefaultConfig():
 	config.set_value("game_config", "save_path", "data/game/saves")
+	config.set_value("game_config", "mod_path", "core/mods")
 	FileLoader.saveConfigFile(config, CONFIG_FILE_PATH)
 	MKUtil.print("default config file created at: " + CONFIG_FILE_PATH)
 

@@ -3,10 +3,10 @@ class_name FileLoader
 static func getAllFile(folderPath : String):
 	var absolutePath : String = GameManager.gamePath.path_join(folderPath)
 	var fileGet : Array
-	fileGet = DirAccess.get_files_at(absolutePath)
+	fileGet = DirAccess.get_directories_at(absolutePath)
 	if fileGet == []:
 		absolutePath = "res://".path_join(folderPath)
-		fileGet = DirAccess.get_files_at(absolutePath)
+		fileGet = DirAccess.get_directories_at(absolutePath)
 	return fileGet
 		
 static func addFileDirectory(path : String, fileName : String):
@@ -79,3 +79,12 @@ static func loadITWCdataToRead(filePath : String):
 		MKUtil.print("Error : cannot load the ITWCdata file : '" + str(filePath) + "'")
 		return null
 	return ITWCData
+
+static func loadITWCdata(path : String):
+	var absolutePath : String = GameManager.gamePath.path_join(path)
+	var data : ITWCdata = ITWCdata.new()
+	data.load(absolutePath)
+	if data == null:
+		absolutePath = "res://".path_join(path)
+		data.load(absolutePath)
+	return data

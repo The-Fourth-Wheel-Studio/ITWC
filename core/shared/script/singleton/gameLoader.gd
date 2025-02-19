@@ -1,10 +1,12 @@
+class_name GameLoader
+
 static func getGameFile():
-	var data : ITWCdata = ITWCdata.new()
-	data.load("res://core/ITWC/pack.ITWCdata")
-	var arr : Array
-	for i in data.get_section_keys("game_config"):
-		arr.append(data.get_value("game_config", i))
-	return arr
+	return FileLoader.loadITWCdata("core/ITWC/pack.ITWCdata")
 	
 static func getModFile():
-	pass
+	var arr : Array = []
+	for i in FileLoader.getAllFile(Settings.gameConfig["mod_path"]):
+		var path : String = Settings.gameConfig["mod_path"].path_join(i).path_join("pack.ITWCdata")
+		if FileAccess.file_exists(path):
+			arr.append(FileLoader.loadITWCdata(path))
+	return arr
