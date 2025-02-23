@@ -8,7 +8,7 @@ var cameraRotationGizmos = preload("res://addons/ITWCdt/gizmo/cameraZone/createC
 var cameraReferenceGizmos = preload("res://addons/ITWCdt/gizmo/cameraZone/createCameraReferenceGizmo.gd").new()
 var pnjDialogueManagerGizmo = preload("res://addons/ITWCdt/gizmo/pnj/createPnjDialogueManagerGizmo.gd").new()
 
-var dataLoaderManagerControl = preload("res://addons/ITWCdt/editorControl/dataLoaderManager.tscn").instantiate()
+var dataLoaderManagerControl = preload("res://addons/ITWCdt/editorControl/data_loader_manager_main.tscn").instantiate()
 
 func _enter_tree():
 	add_control_to_dock(EditorPlugin.DOCK_SLOT_LEFT_UR, dataLoaderManagerControl)
