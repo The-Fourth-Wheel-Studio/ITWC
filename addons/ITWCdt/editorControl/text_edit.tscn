@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/ITWCdt/editorControl/text_edit.gd" id="1_ykaj2"]
 
-[node name="text" type="PanelContainer" node_paths=PackedStringArray("text")]
+[node name="text" type="PanelContainer" node_paths=PackedStringArray("textEdit")]
 custom_minimum_size = Vector2(0, 50)
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,7 +10,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ykaj2")
-text = NodePath("TextEdit")
+textEdit = NodePath("TextEdit")
 
 [node name="TextEdit" type="TextEdit" parent="."]
 layout_mode = 2
+editable = false

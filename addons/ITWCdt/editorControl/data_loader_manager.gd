@@ -25,7 +25,7 @@ static func init(txt : String, path : String):
 
 func _ready():
 	nameLabel.text = labelName
-	loadContainer.add_child(TEXT_SCENE.instantiate())
+	loadContainer.add_child(ITWCdt_textEdit.init("grrr"))
 
 func _on_game_load_button_pressed():
 	print(FileLoader.getAllFile(mod_path))
