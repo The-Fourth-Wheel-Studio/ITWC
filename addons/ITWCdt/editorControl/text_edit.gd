@@ -1,5 +1,3 @@
-extends TextEdit
+extends PanelContainer
 
-
-func _init(txt : String):
-	self.text = txt
+@export var text : TextEdit

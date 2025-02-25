@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/ITWCdt/editorControl/data_loader_manager.gd" id="1_3q0k1"]
 
-[node name="dataLoaderManager" type="VBoxContainer" node_paths=PackedStringArray("nameLabel")]
+[node name="dataLoaderManager" type="VBoxContainer" node_paths=PackedStringArray("nameLabel", "loadContainer")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -10,6 +10,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3q0k1")
 nameLabel = NodePath("PanelContainer/Label")
+loadContainer = NodePath("loadContainer")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -47,6 +48,9 @@ layout_mode = 2
 [node name="Button" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = "+"
+
+[node name="loadContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 2
