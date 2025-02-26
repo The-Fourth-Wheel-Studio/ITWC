@@ -1,17 +1,23 @@
 @tool
-extends PanelContainer
+extends HBoxContainer
 class_name ITWCdt_textEdit
 
 const SELF_SCENE : PackedScene = preload("res://addons/ITWCdt/editorControl/text_edit.tscn")
 
 
-@export var textEdit : TextEdit
-static var textData : String = "do you like what you see ? because you shouldn't"
+@export var textEdit1 : TextEdit
+@export var textEdit2 : TextEdit
 
-static func init(txt : String):
+static var text1Data : String = "do you like what you see ? because you shouldn't"
+static var text2Data : String = "do you like what you see ? because you shouldn't"
+
+
+static func init(txt : String,txt2 : String):
 	var scene = SELF_SCENE.instantiate()
-	scene.textData = txt
+	scene.text1Data = txt
+	scene.text2Data = txt2
 	return scene
 
 func _ready():
-	textEdit.text = textData
+	textEdit1.text = text1Data
+	textEdit2.text = text2Data
