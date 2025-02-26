@@ -30,6 +30,11 @@ static var filePath : String = "core/ITWC"
 @export var gameKey : TextEdit
 @export var gameValue : TextEdit
 
+#quest
+@export var questLoadContainer : VBoxContainer
+@export var questKey : TextEdit
+@export var questValue : TextEdit
+
 
 var file : ITWCdata
 
@@ -68,6 +73,14 @@ func _on_game_button_pressed() -> void:
 	else:
 		MKUtil.print("enable to set value")
 
+func _on_quest_button_pressed() -> void:
+	var txt0 : String = questKey.text
+	var txt1 : String = questValue.text
+	if(txt0 != "" and txt1 != ""):
+		setFileValue("Quest",txt0,txt1)
+	else:
+		MKUtil.print("enable to set value")
+
 func loadITWCdata():
 	var file = ITWCdata.new()
 	file = FileLoader.loadITWCdata(filePath)
@@ -77,6 +90,7 @@ func refresh():
 	EngineTool.removeAllChildren(loadContainer)
 	EngineTool.removeAllChildren(menueLoadContainer)
 	EngineTool.removeAllChildren(gameLoadContainer)
+	EngineTool.removeAllChildren(questLoadContainer)
 	if file.has_section("OnLoad"):
 		for i in file.get_section_keys("OnLoad"):
 			loadContainer.add_child(ITWCdt_textEdit.init(i,file.get_value("OnLoad",i)))
@@ -86,6 +100,9 @@ func refresh():
 	if file.has_section("Game"):
 		for i in file.get_section_keys("Game"):
 			gameLoadContainer.add_child(ITWCdt_textEdit.init(i,file.get_value("Game",i)))
+	if file.has_section("Quest"):
+		for i in file.get_section_keys("Quest"):
+			questLoadContainer.add_child(ITWCdt_textEdit.init(i,file.get_value("Quest",i)))
 
 func setFileValue(category : String, key : String, value : String):
 	file.set_value(category,key,value)
