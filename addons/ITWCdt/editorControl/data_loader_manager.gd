@@ -16,6 +16,7 @@ static var filePath : String = "core/ITWC"
 @export var nameLabel : Label
 @export var loadContainer : VBoxContainer
 
+var file : ITWCdata
 
 static func init(txt : String, path : String):
 	var scene : ITWCdt_VBoxContainer = SELF_SCENE.instantiate()
@@ -26,9 +27,15 @@ static func init(txt : String, path : String):
 func _ready():
 	nameLabel.text = labelName
 	loadContainer.add_child(ITWCdt_textEdit.init("grrr","miam"))
-
+	file = loadITWCdata()
+	
 func _on_game_load_button_pressed():
-	print(FileLoader.getAllFile(mod_path))
+	print(file)
+
+func loadITWCdata():
+	var file = ITWCdata.new()
+	file = FileLoader.loadITWCdata(filePath)
+	return file
 
 func refresh():
 	pass

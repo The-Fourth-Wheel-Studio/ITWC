@@ -70,21 +70,19 @@ static func saveConfigFile(config_file: ConfigFile, file_path: String):
 	if err != OK:
 		MKUtil.print("Unable to create config file: " + file_path + " Error: " + str(err))
 
-static func loadITWCdataToRead(filePath : String):
+static func loadITWCdata(filePath : String):
 	var ITWCData : ITWCdata = ITWCdata.new()
-	var loadedFileAsText = loadFileToRead(filePath)
-	if loadedFileAsText != null:
-		ITWCData.parse(loadedFileAsText.get_as_text())
+	var absolutePath : String = GameManager.gamePath.path_join(filePath)
+	MKUtil.print("path to load [absolutePath : " + absolutePath +", local : " + "res://".path_join(filePath)+"]")
+	if FileAccess.file_exists(absolutePath):
+		MKUtil.print("ITWCdata at path : '" + absolutePath + "' correctly loaded")
+		ITWCData.load(absolutePath)
+		return ITWCData
+	elif FileAccess.file_exists("res://".path_join(filePath)):
+		absolutePath = "res://".path_join(filePath)
+		MKUtil.print("ITWCdata at path :  '" + absolutePath + "' correctly loaded")
+		ITWCData.load(absolutePath)
+		return ITWCData
 	else:
-		MKUtil.print("Error : cannot load the ITWCdata file : '" + str(filePath) + "'")
+		MKUtil.print("Error : the ITWCdata file at '" + str(filePath) + "' doesn't exist")
 		return null
-	return ITWCData
-
-static func loadITWCdata(path : String):
-	var absolutePath : String = GameManager.gamePath.path_join(path)
-	var data : ITWCdata = ITWCdata.new()
-	data.load(absolutePath)
-	if data == null:
-		absolutePath = "res://".path_join(path)
-		data.load(absolutePath)
-	return data
