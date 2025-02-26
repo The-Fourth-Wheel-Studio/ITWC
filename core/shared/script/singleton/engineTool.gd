@@ -22,3 +22,8 @@ static func MKprintArray(arrayName : String = "Unknow", array : Array = [null]):
 		MKUtil.print(s)
 	else:
 		MKUtil.print("the array is empty")
+
+static func removeAllChildren(node : Node):
+	for n in node.get_children():
+		node.remove_child(n)
+		n.queue_free()

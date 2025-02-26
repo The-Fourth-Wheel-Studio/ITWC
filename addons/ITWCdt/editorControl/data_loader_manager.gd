@@ -39,6 +39,7 @@ func _on_game_load_button_pressed():
 	if(txt0 != "" and txt1 != ""):
 		file.set_value("OnLoad",txt0,txt1)
 		file.save(filePath)
+		refresh()
 	else:
 		MKUtil.print("enable to set value")
 
@@ -48,4 +49,6 @@ func loadITWCdata():
 	return file
 
 func refresh():
-	pass
+	EngineTool.removeAllChildren(loadContainer)
+	for i in file.get_section_keys("OnLoad"):
+		loadContainer.add_child(ITWCdt_textEdit.init(i,file.get_value("OnLoad",i)))
