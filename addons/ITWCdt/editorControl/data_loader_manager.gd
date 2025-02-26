@@ -16,6 +16,10 @@ static var filePath : String = "core/ITWC"
 @export var nameLabel : Label
 @export var loadContainer : VBoxContainer
 
+#onload
+@export var onLoadKey : TextEdit
+@export var onLoadValue : TextEdit
+
 var file : ITWCdata
 
 static func init(txt : String, path : String):
@@ -30,7 +34,13 @@ func _ready():
 	file = loadITWCdata()
 	
 func _on_game_load_button_pressed():
-	print(file)
+	var txt0 : String = onLoadKey.text
+	var txt1 : String = onLoadValue.text
+	if(txt0 != "" and txt1 != ""):
+		file.set_value("OnLoad",txt0,txt1)
+		file.save(filePath)
+	else:
+		MKUtil.print("enable to set value")
 
 func loadITWCdata():
 	var file = ITWCdata.new()
