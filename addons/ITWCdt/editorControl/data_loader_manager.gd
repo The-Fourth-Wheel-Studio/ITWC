@@ -32,14 +32,13 @@ func _ready():
 	nameLabel.text = labelName
 	loadContainer.add_child(ITWCdt_textEdit.init("grrr","miam"))
 	file = loadITWCdata()
+	refresh()
 	
 func _on_game_load_button_pressed():
 	var txt0 : String = onLoadKey.text
 	var txt1 : String = onLoadValue.text
 	if(txt0 != "" and txt1 != ""):
-		file.set_value("OnLoad",txt0,txt1)
-		file.save(filePath)
-		refresh()
+		setFileValue("OnLoad",txt0,txt1)
 	else:
 		MKUtil.print("enable to set value")
 
@@ -52,3 +51,13 @@ func refresh():
 	EngineTool.removeAllChildren(loadContainer)
 	for i in file.get_section_keys("OnLoad"):
 		loadContainer.add_child(ITWCdt_textEdit.init(i,file.get_value("OnLoad",i)))
+
+func setFileValue(category : String, key : String, value : String):
+	file.set_value(category,key,value)
+	file.save(filePath)
+	refresh()
+
+func removeFileValue(category : String, key : String):
+	file.erase_section_key(category, key)
+	file.save(filePath)
+	refresh()

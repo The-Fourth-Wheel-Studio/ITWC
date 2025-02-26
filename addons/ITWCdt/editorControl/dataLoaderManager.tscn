@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2k4jk4mj0vu3"]
+[gd_scene load_steps=3 format=3 uid="uid://c2k4jk4mj0vu3"]
 
 [ext_resource type="Script" path="res://addons/ITWCdt/editorControl/data_loader_manager.gd" id="1_3q0k1"]
+[ext_resource type="Script" path="res://addons/ITWCdt/editorControl/load_container.gd" id="2_taoyh"]
 
 [node name="dataLoaderManager" type="VBoxContainer" node_paths=PackedStringArray("nameLabel", "loadContainer", "onLoadKey", "onLoadValue")]
 anchors_preset = 15
@@ -59,47 +60,11 @@ layout_mode = 2
 layout_mode = 2
 text = "+"
 
-[node name="loadContainer" type="VBoxContainer" parent="."]
+[node name="loadContainer" type="VBoxContainer" parent="." node_paths=PackedStringArray("parent")]
 layout_mode = 2
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 2
-text = "Menue"
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer3"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextEdit" type="TextEdit" parent="HBoxContainer3/PanelContainer2"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="HBoxContainer3"]
-layout_mode = 2
-text = "+"
-
-[node name="Label3" type="Label" parent="."]
-layout_mode = 2
-text = "Game
-"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer2"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextEdit" type="TextEdit" parent="HBoxContainer2/PanelContainer2"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="HBoxContainer2"]
-layout_mode = 2
-text = "+"
+script = ExtResource("2_taoyh")
+category = "OnLoad"
+parent = NodePath("..")
 
 [node name="HSeparator" type="HSeparator" parent="."]
 layout_mode = 2
