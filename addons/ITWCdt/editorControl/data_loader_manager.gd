@@ -49,8 +49,9 @@ func loadITWCdata():
 
 func refresh():
 	EngineTool.removeAllChildren(loadContainer)
-	for i in file.get_section_keys("OnLoad"):
-		loadContainer.add_child(ITWCdt_textEdit.init(i,file.get_value("OnLoad",i)))
+	if file.has_section("OnLoad"):
+		for i in file.get_section_keys("OnLoad"):
+			loadContainer.add_child(ITWCdt_textEdit.init(i,file.get_value("OnLoad",i)))
 
 func setFileValue(category : String, key : String, value : String):
 	file.set_value(category,key,value)
