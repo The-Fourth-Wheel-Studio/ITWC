@@ -10,8 +10,8 @@ const mod_path = "core/mods"
 const GAME_PATH = "core/ITWC"
 
 #init var
-static var labelName : String = "you shoudn't be able to see this"
-static var filePath : String = "core/ITWC"
+var labelName : String = "you shoudn't be able to see this"
+var filePath : String = "core/ITWC"
 
 @export var nameLabel : Label
 
@@ -38,17 +38,15 @@ static var filePath : String = "core/ITWC"
 
 var file : ITWCdata
 
-static func init(txt : String, path : String):
-	var scene : ITWCdt_VBoxContainer = SELF_SCENE.instantiate()
-	scene.labelName = txt
-	scene.filePath = path
-	return scene
+func init(txt: String, path: String):
+	self.labelName = txt
+	self.filePath = path
 
 func _ready():
 	nameLabel.text = labelName
 	file = loadITWCdata()
 	refresh()
-	
+
 func _on_game_load_button_pressed():
 	var txt0 : String = onLoadKey.text
 	var txt1 : String = onLoadValue.text
