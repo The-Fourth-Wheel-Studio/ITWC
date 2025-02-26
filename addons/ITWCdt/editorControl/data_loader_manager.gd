@@ -14,11 +14,16 @@ static var labelName : String = "you shoudn't be able to see this"
 static var filePath : String = "core/ITWC"
 
 @export var nameLabel : Label
-@export var loadContainer : VBoxContainer
 
 #onload
+@export var loadContainer : VBoxContainer
 @export var onLoadKey : TextEdit
 @export var onLoadValue : TextEdit
+
+#menue
+@export var menueLoadContainer : VBoxContainer
+@export var menueKey : TextEdit
+@export var menueValue : TextEdit
 
 var file : ITWCdata
 
@@ -30,7 +35,6 @@ static func init(txt : String, path : String):
 
 func _ready():
 	nameLabel.text = labelName
-	loadContainer.add_child(ITWCdt_textEdit.init("grrr","miam"))
 	file = loadITWCdata()
 	refresh()
 	
@@ -42,6 +46,14 @@ func _on_game_load_button_pressed():
 	else:
 		MKUtil.print("enable to set value")
 
+func _on_menue_button_pressed() -> void:
+	var txt0 : String = menueKey.text
+	var txt1 : String = menueValue.text
+	if(txt0 != "" and txt1 != ""):
+		setFileValue("Menue",txt0,txt1)
+	else:
+		MKUtil.print("enable to set value")
+	
 func loadITWCdata():
 	var file = ITWCdata.new()
 	file = FileLoader.loadITWCdata(filePath)
@@ -49,9 +61,13 @@ func loadITWCdata():
 
 func refresh():
 	EngineTool.removeAllChildren(loadContainer)
+	EngineTool.removeAllChildren(menueLoadContainer)
 	if file.has_section("OnLoad"):
 		for i in file.get_section_keys("OnLoad"):
 			loadContainer.add_child(ITWCdt_textEdit.init(i,file.get_value("OnLoad",i)))
+	if file.has_section("Menue"):
+		for i in file.get_section_keys("Menue"):
+			menueLoadContainer.add_child(ITWCdt_textEdit.init(i,file.get_value("Menue",i)))
 
 func setFileValue(category : String, key : String, value : String):
 	file.set_value(category,key,value)
