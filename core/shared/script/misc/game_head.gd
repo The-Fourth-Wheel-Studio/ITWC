@@ -10,27 +10,72 @@ func _enter_tree():
 	#load game
 	onLoad()
 
-func onLoad():
-	loadDefaultFile()
-	loadMods()
-	finalizeLoad()
-	MKUtil.print("game file correctly loaded :  " + str(GameManager.loadedScene))
-
 func loadHead():
 	GameManager.head = self
 	GameManager.gamePath = FileLoader.getAbsolutePath()
 	Settings.loadConfigFile()
 	GameManager.modsPath = Settings.gameConfig["mod_path"]
 
-func loadDefaultFile():
-	loadScene("core/ITWC/")
-	
+
+
+
+
+
+
+
+
+
+
+#hello
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#OK DON'T LOOK THIS IS VERY BIZARRE
+#all loading ITWC/mods handle here
+func onLoad():
+	'''
+	function called to load every file
+	'''
+	loadDefaultFile()
+	loadMods()
+	finalizeLoad()
+	MKUtil.print("game file correctly loaded :  " + str(GameManager.loadedScene))
+
 func finalizeLoad():
+	'''
+	function to remove useless key in the final dictionnary
+	'''
 	for i in GameManager.loadedScene.keys():
 		if GameManager.loadedScene[i] == {}:
 			GameManager.loadedScene.erase(i)
 
+func loadDefaultFile():
+	'''
+	load default ITWCdata in core/ITWC/pack.ITWCdata basicly all the default game file
+	'''
+	loadScene("core/ITWC/")
+
 func loadMods():
+	'''
+	this is where it get interesting, this is where mod loading is handle
+	'''
 	if DirAccess.dir_exists_absolute(GameManager.modsPath):
 		MKUtil.print("Loading " + str(len(FileLoader.getAllFile(GameManager.modsPath))) + " Mods")
 		for i in FileLoader.getAllFile(GameManager.modsPath):
@@ -39,6 +84,9 @@ func loadMods():
 		MKUtil.print("no mods to load :(")
 		
 func loadScene(path : String):
+	'''
+	ths func load all json store in the itwcdata file, the dict is created following the different loading mode
+	'''
 	var JSONdict : Dictionary = {}
 	var loadDict : Dictionary = {}
 	if FileAccess.file_exists(path.path_join("pack.ITWCdata")):
@@ -49,6 +97,9 @@ func loadScene(path : String):
 				handleMode(j, k, JSONdict)
 
 func handleMode(categorie : String, key : String, json : Dictionary):
+	'''
+	handle all different mode for loading, add just add the value to the dict, remove remove the value and replace replace the value
+	'''
 	if (json.has("mode") and json.has("scene")):
 		if json["mode"] == "add":
 			handleAddMode(categorie, key, json["scene"])
@@ -72,10 +123,16 @@ func handleRemoveMode(categorie : String, key : String, value : Array):
 		GameManager.loadedScene[categorie].erase(key)
 		
 func modeInit(categorie : String):
+	'''
+	just to make sure the key exist so it doesn't crash
+	'''
 	if not GameManager.loadedScene.has(categorie):
 		GameManager.loadedScene[categorie] = {}
 
 func loadITWCdata(path : String) -> Dictionary:
+	'''
+	load ITWCdata info into a dict so it's easier to read it
+	'''
 	var file : ITWCdata = ITWCdata.new()
 	file = FileLoader.loadITWCdata(path)
 	var tempDict : Dictionary = {}
