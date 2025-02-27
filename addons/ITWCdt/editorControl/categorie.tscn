@@ -57,3 +57,4 @@ category = "OnLoad"
 parent = NodePath("..")
 
 [connection signal="button_down" from="HBoxContainer/remove" to="." method="_on_remove_button_down"]
+[connection signal="button_down" from="onLoadContainer/Button" to="." method="_on_game_load_button_pressed"]
