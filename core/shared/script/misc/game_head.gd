@@ -4,13 +4,17 @@ class_name gameHead
 
 func _enter_tree():
 	MKUtil.print("Loading Game Files")
-	
 	MKUtil.print("Loading Game")
 	loadHead()
-	#load parameter
-	#Settings.load()
+
+	#load game
+	onLoad()
+	print(GameManager.loadedScene)
+
+func onLoad():
+	loadDefaultFile()
 	loadMods()
-	print("fini : ", GameManager.loadedScene)
+	finalizeLoad()
 
 func loadHead():
 	GameManager.head = self
@@ -18,6 +22,13 @@ func loadHead():
 	Settings.loadConfigFile()
 	GameManager.modsPath = Settings.gameConfig["mod_path"]
 
+func loadDefaultFile():
+	loadScene("res://core/ITWC/")
+	
+func finalizeLoad():
+	for i in GameManager.loadedScene.keys():
+		if GameManager.loadedScene[i] == {}:
+			GameManager.loadedScene.erase(i)
 
 func loadMods():
 	for i in FileLoader.getAllFile(GameManager.modsPath):
@@ -27,13 +38,10 @@ func loadScene(path : String):
 	var JSONdict : Dictionary = {}
 	var loadDict : Dictionary = {}
 	if FileAccess.file_exists(path.path_join("pack.ITWCdata")):
-			loadDict = loadITWCdata(path.path_join("pack.ITWCdata"))
-			print(loadDict)
-			for j in loadDict.keys():
-				print(j)
-				for k in loadDict[j].keys():
-					JSONdict = FileLoader.JsonToDict(FileLoader.loadJsonToRead(loadDict[j][k]))
-					handleMode(j, k, JSONdict)
+		for j in loadDict.keys():
+			for k in loadDict[j].keys():
+				JSONdict = FileLoader.JsonToDict(FileLoader.loadJsonToRead(loadDict[j][k]))
+				handleMode(j, k, JSONdict)
 
 func handleMode(categorie : String, key : String, json : Dictionary):
 	if (json.has("mode") and json.has("scene")):
@@ -72,9 +80,6 @@ func loadITWCdata(path : String) -> Dictionary:
 		for j in file.get_section_keys(i):
 			tempDict[i][j] = file.get_value(i,j)
 	return tempDict
-	
-func readLoaderFile():
-	
 
 	'''
 	#old code
