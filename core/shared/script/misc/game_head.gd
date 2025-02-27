@@ -16,7 +16,6 @@ func loadHead():
 	GameManager.gamePath = FileLoader.getAbsolutePath()
 	Settings.loadConfigFile()
 	GameManager.modsPath = Settings.gameConfig["mod_path"]
-	loadMods()
 
 func loadScene():
 	pass
@@ -29,7 +28,7 @@ func loadMods():
 			for j in loadDict.keys():
 				for k in loadDict[j]:
 					print(k)
-
+					
 func handleAddMode():
 	GameManager.loader
 
