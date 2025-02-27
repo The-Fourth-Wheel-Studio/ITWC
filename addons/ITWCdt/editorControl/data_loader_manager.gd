@@ -50,3 +50,8 @@ func removeFileValue(category : String, key : String):
 	file.erase_section_key(category, key)
 	file.save(filePath)
 	refresh()
+
+func removeCategory(category : String):
+	file.erase_section(category)
+	file.save(filePath)
+	refresh()

@@ -12,12 +12,20 @@ grow_vertical = 2
 size_flags_horizontal = 3
 alignment = 1
 script = ExtResource("1_sliv6")
-labelName = NodePath("Label")
+labelName = NodePath("HBoxContainer/Label")
 
-[node name="Label" type="Label" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 text = "do you like what you see ? because you shouldn't"
 horizontal_alignment = 1
+
+[node name="remove" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "-"
 
 [node name="onLoadContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -46,3 +54,5 @@ text = "+"
 layout_mode = 2
 script = ExtResource("1_gey31")
 category = "OnLoad"
+
+[connection signal="button_down" from="HBoxContainer/remove" to="." method="_on_remove_button_down"]

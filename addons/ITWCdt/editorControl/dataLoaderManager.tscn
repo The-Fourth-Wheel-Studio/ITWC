@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2k4jk4mj0vu3"]
+[gd_scene load_steps=3 format=3 uid="uid://c2k4jk4mj0vu3"]
 
 [ext_resource type="Script" path="res://addons/ITWCdt/editorControl/data_loader_manager.gd" id="1_3q0k1"]
+[ext_resource type="Script" path="res://addons/ITWCdt/editorControl/category_container.gd" id="2_rr2oq"]
 
 [node name="dataLoaderManager" type="VBoxContainer" node_paths=PackedStringArray("nameLabel", "categorie")]
 anchors_preset = 15
@@ -30,8 +31,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="category" type="VBoxContainer" parent="."]
+[node name="category" type="VBoxContainer" parent="." node_paths=PackedStringArray("root")]
 layout_mode = 2
+script = ExtResource("2_rr2oq")
+root = NodePath("..")
 
 [node name="HSeparator3" type="HSeparator" parent="."]
 layout_mode = 2
