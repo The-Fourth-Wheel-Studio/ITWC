@@ -20,6 +20,13 @@ static func init(txt : String,txt2 : String):
 func _ready():
 	labelName.text = text1Data
 
+func _on_game_load_button_pressed():
+	var txt0 : String = onLoadKey.text
+	var txt1 : String = onLoadValue.text
+	if(txt0 != "" and txt1 != ""):
+		setFileValue("OnLoad",txt0,txt1)
+	else:
+		MKUtil.print("enable to set value")
 
 func _on_remove_button_down() -> void:
 	parent.removeCategory(categoryName)
