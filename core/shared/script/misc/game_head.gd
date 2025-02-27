@@ -9,12 +9,12 @@ func _enter_tree():
 
 	#load game
 	onLoad()
-	print(GameManager.loadedScene)
 
 func onLoad():
 	loadDefaultFile()
 	loadMods()
 	finalizeLoad()
+	MKUtil.print("game file correctly loaded :  " + str(GameManager.loadedScene))
 
 func loadHead():
 	GameManager.head = self
@@ -23,7 +23,7 @@ func loadHead():
 	GameManager.modsPath = Settings.gameConfig["mod_path"]
 
 func loadDefaultFile():
-	loadScene("res://core/ITWC/")
+	loadScene("core/ITWC/")
 	
 func finalizeLoad():
 	for i in GameManager.loadedScene.keys():
@@ -31,13 +31,18 @@ func finalizeLoad():
 			GameManager.loadedScene.erase(i)
 
 func loadMods():
-	for i in FileLoader.getAllFile(GameManager.modsPath):
-		loadScene(GameManager.modsPath.path_join(i))
+	if DirAccess.dir_exists_absolute(GameManager.modsPath):
+		MKUtil.print("Loading " + str(len(FileLoader.getAllFile(GameManager.modsPath))) + " Mods")
+		for i in FileLoader.getAllFile(GameManager.modsPath):
+			loadScene(GameManager.modsPath.path_join(i))
+	else:
+		MKUtil.print("no mods to load :(")
 		
 func loadScene(path : String):
 	var JSONdict : Dictionary = {}
 	var loadDict : Dictionary = {}
 	if FileAccess.file_exists(path.path_join("pack.ITWCdata")):
+		loadDict = loadITWCdata(path.path_join("pack.ITWCdata"))
 		for j in loadDict.keys():
 			for k in loadDict[j].keys():
 				JSONdict = FileLoader.JsonToDict(FileLoader.loadJsonToRead(loadDict[j][k]))
@@ -50,7 +55,6 @@ func handleMode(categorie : String, key : String, json : Dictionary):
 		elif json["mode"] == "replace":
 			handleReplaceMode(categorie, key, json["scene"])
 		elif json["mode"] == "remove":
-			print(categorie, key)
 			handleRemoveMode(categorie, key, json["scene"])
 					
 func handleAddMode(categorie : String, key : String, value : Array):
