@@ -1,7 +1,3 @@
 [OnLoad]
 
-a="a"
-
-[Menue]
-
-b="b"
+a="core/mods/New folder/test.json"

@@ -17,20 +17,30 @@ func loadHead():
 	Settings.loadConfigFile()
 	GameManager.modsPath = Settings.gameConfig["mod_path"]
 
-func loadScene():
-	pass
+
 
 func loadMods():
-	var loadDict : Dictionary = {}
 	for i in FileLoader.getAllFile(GameManager.modsPath):
-		if FileAccess.file_exists(GameManager.modsPath.path_join(i).path_join("pack.ITWCdata")):
-			loadDict = loadITWCdata(GameManager.modsPath.path_join(i).path_join("pack.ITWCdata"))
+		loadScene(GameManager.modsPath.path_join(i))
+		
+func loadScene(path : String):
+	var JSONdict : Dictionary = {}
+	var loadDict : Dictionary = {}
+	if FileAccess.file_exists(path.path_join("pack.ITWCdata")):
+			loadDict = loadITWCdata(path.path_join("pack.ITWCdata"))
+			print(loadDict)
 			for j in loadDict.keys():
-				for k in loadDict[j]:
-					print(k)
+				print(j)
+				for k in loadDict[j].keys():
+					JSONdict = FileLoader.JsonToDict(FileLoader.loadJsonToRead(loadDict[j][k]))
+					handleMode(JSONdict)
+
+func handleMode(json : Dictionary):
+	if json["mode"] == "add":
+		handleAddMode(json)
 					
-func handleAddMode():
-	GameManager.loader
+func handleAddMode(json : Dictionary):
+	print(json)
 
 func loadITWCdata(path : String) -> Dictionary:
 	var file : ITWCdata = ITWCdata.new()
