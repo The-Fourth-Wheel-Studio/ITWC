@@ -6,28 +6,53 @@ func _enter_tree():
 	print("-----------------------------------------------------------------------")
 	MKUtil.print("Load Game Head")
 	loadHead()
+	MKUtil.print("Loading Game Files")
+	#load game files
+	onLoad()
 	MKUtil.print("Loading Game")
 	#load game
-	onLoad()
+	loadOnLoad()
+	loadMenue()
+	
 	MKUtil.print("game fully loaded")
 	print("-----------------------------------------------------------------------")
 
 func loadHead():
 	GameManager.head = self
 	GameManager.gamePath = FileLoader.getAbsolutePath()
-	Settings.loadConfigFile()
-	GameManager.modsPath = Settings.gameConfig["mod_path"]
+	Config.loadConfigFile()
+	GameManager.modsPath = Config.gameConfig["mod_path"]
 
+func loadOnLoad():
+	var newNode : Node = Node.new()
+	newNode.set_name("OnLoad")
+	self.add_child(newNode)
+	if GameManager.loadedScene.has("OnLoad"):
+		for i in GameManager.loadedScene["OnLoad"].keys():
+			for j in GameManager.loadedScene["OnLoad"][i]:
+				EngineTool.addChildfromPath(newNode, j)
 
+func loadMenue():
+	var newNode : Node = Node.new()
+	newNode.set_name("Menue")
+	self.add_child(newNode)
+	if GameManager.loadedScene.has("Menue"):
+		for i in GameManager.loadedScene["Menue"].keys():
+			for j in GameManager.loadedScene["Menue"][i]:
+				EngineTool.addChildfromPath(newNode, j)
 
+#save
+func loadSave(saveId : int):
+	#load eventObserver
+	#EventObserver.loadEventObserverData(Option.option["save_path"].path_join(FileLoader.getAllFile(Option.option["save_path"])[saveId]))
+	
+	#TEMP !!!!!!!!!!!!!!!!
+	EngineTool.loadScene(self, "res://editor/testFolder/game.tscn")
 
-
-
-
-
-
-
-
+func getAllSaveFiles():
+	var saveFiles : Array = FileLoader.getAllFile(Config.gameConfig["save_path"])
+	EngineTool.MKprintArray("Save Files", saveFiles)
+	return saveFiles
 #hello
 
 

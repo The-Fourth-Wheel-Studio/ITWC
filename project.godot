@@ -17,8 +17,8 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 [autoload]
 
 GameManager="*res://core/shared/script/singleton/gameManager.gd"
-Settings="*res://core/shared/script/singleton/Settings.gd"
 EventObserver="*res://core/shared/script/singleton/eventObserver.gd"
+Setting="*res://core/shared/script/singleton/Settings.gd"
 
 [dotnet]
 

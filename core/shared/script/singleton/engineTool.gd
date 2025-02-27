@@ -27,3 +27,16 @@ static func removeAllChildren(node : Node):
 	for n in node.get_children():
 		node.remove_child(n)
 		n.queue_free()
+
+static func addChildfromPath(parent : Node, path : String):
+	var absolutePath : String = GameManager.gamePath.path_join(path)
+	MKUtil.print(absolutePath + "res://".path_join(path))
+	if FileAccess.file_exists(absolutePath):
+		MKUtil.print("'" + absolutePath + "' correctly instanciate")
+		parent.add_child(load(absolutePath).instantiate())
+	elif FileAccess.file_exists("res://".path_join(path)):
+		MKUtil.print("'" + absolutePath + "' correctly instanciate")
+		absolutePath = "res://".path_join(path)
+		parent.add_child(load(absolutePath).instantiate())
+	else:
+		MKUtil.print("enable to instanciate child")
