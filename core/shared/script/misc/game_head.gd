@@ -10,13 +10,13 @@ func _enter_tree():
 	#load parameter
 	#Settings.load()
 	loadMods()
+	print("fini : ", GameManager.loadedScene)
 
 func loadHead():
 	GameManager.head = self
 	GameManager.gamePath = FileLoader.getAbsolutePath()
 	Settings.loadConfigFile()
 	GameManager.modsPath = Settings.gameConfig["mod_path"]
-
 
 
 func loadMods():
@@ -33,14 +33,35 @@ func loadScene(path : String):
 				print(j)
 				for k in loadDict[j].keys():
 					JSONdict = FileLoader.JsonToDict(FileLoader.loadJsonToRead(loadDict[j][k]))
-					handleMode(JSONdict)
+					handleMode(j, k, JSONdict)
 
-func handleMode(json : Dictionary):
-	if json["mode"] == "add":
-		handleAddMode(json)
+func handleMode(categorie : String, key : String, json : Dictionary):
+	if (json.has("mode") and json.has("scene")):
+		if json["mode"] == "add":
+			handleAddMode(categorie, key, json["scene"])
+		elif json["mode"] == "replace":
+			handleReplaceMode(categorie, key, json["scene"])
+		elif json["mode"] == "remove":
+			print(categorie, key)
+			handleRemoveMode(categorie, key, json["scene"])
 					
-func handleAddMode(json : Dictionary):
-	print(json)
+func handleAddMode(categorie : String, key : String, value : Array):
+	modeInit(categorie)
+	if not GameManager.loadedScene[categorie].has(key):
+		GameManager.loadedScene[categorie][key] = value
+
+func handleReplaceMode(categorie : String, key : String, value : Array):
+	modeInit(categorie)
+	GameManager.loadedScene[categorie][key] = value
+		
+func handleRemoveMode(categorie : String, key : String, value : Array):
+	modeInit(categorie)
+	if GameManager.loadedScene[categorie].has(key):
+		GameManager.loadedScene[categorie].erase(key)
+		
+func modeInit(categorie : String):
+	if not GameManager.loadedScene.has(categorie):
+		GameManager.loadedScene[categorie] = {}
 
 func loadITWCdata(path : String) -> Dictionary:
 	var file : ITWCdata = ITWCdata.new()
