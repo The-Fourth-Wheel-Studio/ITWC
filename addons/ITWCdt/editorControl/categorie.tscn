@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://addons/ITWCdt/editorControl/load_container.gd" id="1_gey31"]
 [ext_resource type="Script" path="res://addons/ITWCdt/editorControl/categorie.gd" id="1_sliv6"]
 
-[node name="VBoxContainer" type="VBoxContainer" node_paths=PackedStringArray("labelName")]
+[node name="VBoxContainer" type="VBoxContainer" node_paths=PackedStringArray("labelName", "key", "value")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,6 +13,8 @@ size_flags_horizontal = 3
 alignment = 1
 script = ExtResource("1_sliv6")
 labelName = NodePath("HBoxContainer/Label")
+key = NodePath("onLoadContainer/keyPanel/key")
+value = NodePath("onLoadContainer/valuePanel/value")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
