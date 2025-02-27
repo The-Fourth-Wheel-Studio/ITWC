@@ -22,7 +22,6 @@ static func loadFileToWrite(filePath):
 
 static func openFile(filePath : String, flag : FileAccess.ModeFlags):
 	var absolutePath : String = GameManager.gamePath.path_join(filePath)
-	MKUtil.print("path to load [absolutePath : " + absolutePath +", local : " + "res://".path_join(filePath)+"]")
 	if FileAccess.file_exists(absolutePath):
 		MKUtil.print("'" + absolutePath + "' correctly loaded")
 		return FileAccess.open(absolutePath, flag)
@@ -73,7 +72,6 @@ static func saveConfigFile(config_file: ConfigFile, file_path: String):
 static func loadITWCdata(filePath : String):
 	var ITWCData : ITWCdata = ITWCdata.new()
 	var absolutePath : String = GameManager.gamePath.path_join(filePath)
-	MKUtil.print("path to load [absolutePath : " + absolutePath +", local : " + "res://".path_join(filePath)+"]")
 	if FileAccess.file_exists(absolutePath):
 		MKUtil.print("ITWCdata at path : '" + absolutePath + "' correctly loaded")
 		ITWCData.load(absolutePath)

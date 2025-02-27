@@ -2,8 +2,6 @@
 extends Node3D
 class_name gameHead
 
-var loadedScene : Dictionary = {}
-
 func _enter_tree():
 	MKUtil.print("Loading Game Files")
 	
@@ -11,17 +9,29 @@ func _enter_tree():
 	loadHead()
 	#load parameter
 	#Settings.load()
-	print(loadITWCdata("core/ITWC/pack.ITWCdata"))
+	loadMods()
 
 func loadHead():
 	GameManager.head = self
 	GameManager.gamePath = FileLoader.getAbsolutePath()
+	Settings.loadConfigFile()
+	GameManager.modsPath = Settings.gameConfig["mod_path"]
+	loadMods()
 
 func loadScene():
 	pass
 
 func loadMods():
-	pass
+	var loadDict : Dictionary = {}
+	for i in FileLoader.getAllFile(GameManager.modsPath):
+		if FileAccess.file_exists(GameManager.modsPath.path_join(i).path_join("pack.ITWCdata")):
+			loadDict = loadITWCdata(GameManager.modsPath.path_join(i).path_join("pack.ITWCdata"))
+			for j in loadDict.keys():
+				for k in loadDict[j]:
+					print(k)
+
+func handleAddMode():
+	GameManager.loader
 
 func loadITWCdata(path : String) -> Dictionary:
 	var file : ITWCdata = ITWCdata.new()
