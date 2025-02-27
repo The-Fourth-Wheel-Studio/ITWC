@@ -5,6 +5,9 @@ class_name ITWCdt_categorie
 const SELF_SCENE : PackedScene = preload("res://addons/ITWCdt/editorControl/categorie.tscn")
 
 @export var labelName : Label
+@export var key : TextEdit
+@export var value : TextEdit
+
 
 @onready var parent = self.get_parent().root
 
@@ -21,10 +24,10 @@ func _ready():
 	labelName.text = text1Data
 
 func _on_game_load_button_pressed():
-	var txt0 : String = onLoadKey.text
-	var txt1 : String = onLoadValue.text
+	var txt0 : String = key.text
+	var txt1 : String = value.text
 	if(txt0 != "" and txt1 != ""):
-		setFileValue("OnLoad",txt0,txt1)
+		parent.setFileValue(categoryName,txt0,txt1)
 	else:
 		MKUtil.print("enable to set value")
 
