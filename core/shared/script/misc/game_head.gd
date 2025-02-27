@@ -1,20 +1,41 @@
-@tool
 @icon("res://editor/assets/component/martin.png")
 extends Node3D
 class_name gameHead
 
+var loadedScene : Dictionary = {}
+
 func _enter_tree():
+	MKUtil.print("Loading Game Files")
+	
 	MKUtil.print("Loading Game")
+	loadHead()
+	#load parameter
+	#Settings.load()
+	print(loadITWCdata("core/ITWC/pack.ITWCdata"))
+
+func loadHead():
 	GameManager.head = self
 	GameManager.gamePath = FileLoader.getAbsolutePath()
-	#load parameter
-	Settings.load()
-	#load language
-	var a: ITWCdata = ITWCdata.new()
-	a.load("res://core/ITWC/test.ITWCdata")
+
+func loadScene():
+	pass
+
+func loadMods():
+	pass
+
+func loadITWCdata(path : String) -> Dictionary:
+	var file : ITWCdata = ITWCdata.new()
+	file = FileLoader.loadITWCdata(path)
+	var tempDict : Dictionary = {}
+	for i in file.get_sections():
+		tempDict[i] = {}
+		for j in file.get_section_keys(i):
+			tempDict[i][j] = file.get_value(i,j)
+	return tempDict
 	
-	print(a)
-	print(GameLoader.getModFile())
+func readLoaderFile():
+	
+
 	'''
 	#old code
 	#first thing first
@@ -46,5 +67,3 @@ func test():
 	print(GameManager.lang["test"])
 	EventObserver.createEvent("test","")
 	'''
-func _process(delta):
-	pass

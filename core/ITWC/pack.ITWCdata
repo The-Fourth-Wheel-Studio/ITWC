@@ -1,17 +1,3 @@
 [OnLoad]
 
-a="a"
-
-[Menue]
-
-b="b"
-v="b"
-
-[Game]
-
-b="b"
-c="c"
-
-[Quest]
-
-cv="c"
+settings="core/ITWC/data/onLoad/settings.json"
