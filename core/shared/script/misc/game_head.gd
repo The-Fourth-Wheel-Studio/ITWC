@@ -3,12 +3,14 @@ extends Node3D
 class_name gameHead
 
 func _enter_tree():
-	MKUtil.print("Loading Game Files")
-	MKUtil.print("Loading Game")
+	print("-----------------------------------------------------------------------")
+	MKUtil.print("Load Game Head")
 	loadHead()
-
+	MKUtil.print("Loading Game")
 	#load game
 	onLoad()
+	MKUtil.print("game fully loaded")
+	print("-----------------------------------------------------------------------")
 
 func loadHead():
 	GameManager.head = self
@@ -76,7 +78,7 @@ func loadMods():
 	'''
 	this is where it get interesting, this is where mod loading is handle
 	'''
-	if DirAccess.dir_exists_absolute(GameManager.modsPath):
+	if DirAccess.dir_exists_absolute(GameManager.modsPath) and not len(FileLoader.getAllFile(GameManager.modsPath)) == 0:
 		MKUtil.print("Loading " + str(len(FileLoader.getAllFile(GameManager.modsPath))) + " Mods")
 		for i in FileLoader.getAllFile(GameManager.modsPath):
 			loadScene(GameManager.modsPath.path_join(i))
