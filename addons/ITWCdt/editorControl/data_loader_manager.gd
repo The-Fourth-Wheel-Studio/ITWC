@@ -52,6 +52,7 @@ func removeFileValue(category : String, key : String):
 	refresh()
 
 func removeCategory(category : String):
-	file.erase_section(category)
-	file.save(filePath)
-	refresh()
+	if file.has_section(category):
+		file.erase_section(category)
+		file.save(filePath)
+		refresh()

@@ -25,4 +25,4 @@ func _ready():
 	textEdit2.text = text2Data
 
 func _on_button_button_down() -> void:
-	loadContainer.parent.removeFileValue(loadContainer.category,textEdit1.text)
+	loadContainer.parent.parent.removeFileValue(loadContainer.category,textEdit1.text)

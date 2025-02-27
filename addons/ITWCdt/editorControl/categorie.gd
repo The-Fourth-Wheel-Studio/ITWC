@@ -6,6 +6,8 @@ const SELF_SCENE : PackedScene = preload("res://addons/ITWCdt/editorControl/cate
 
 @export var labelName : Label
 
+@onready var parent = self.get_parent().root
+
 static var text1Data : String = "do you like what you see ? because you shouldn't"
 static var categoryName : String
 
@@ -20,4 +22,4 @@ func _ready():
 
 
 func _on_remove_button_down() -> void:
-	self.get_parent().root.removeCategory(categoryName)
+	parent.removeCategory(categoryName)
