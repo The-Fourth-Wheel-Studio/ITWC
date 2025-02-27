@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0gifduxh5ilc"]
+
+[ext_resource type="Script" path="res://addons/ITWCdt/editorControl/load_container.gd" id="1_gey31"]
+[ext_resource type="Script" path="res://addons/ITWCdt/editorControl/categorie.gd" id="1_sliv6"]
+
+[node name="VBoxContainer" type="VBoxContainer" node_paths=PackedStringArray("labelName")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+alignment = 1
+script = ExtResource("1_sliv6")
+labelName = NodePath("Label")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "do you like what you see ? because you shouldn't"
+horizontal_alignment = 1
+
+[node name="onLoadContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="keyPanel" type="PanelContainer" parent="onLoadContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="key" type="TextEdit" parent="onLoadContainer/keyPanel"]
+layout_mode = 2
+
+[node name="valuePanel" type="PanelContainer" parent="onLoadContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="value" type="TextEdit" parent="onLoadContainer/valuePanel"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="onLoadContainer"]
+layout_mode = 2
+text = "+"
+
+[node name="loadContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+script = ExtResource("1_gey31")
+category = "OnLoad"

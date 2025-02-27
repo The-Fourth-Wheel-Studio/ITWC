@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2k4jk4mj0vu3"]
+[gd_scene load_steps=2 format=3 uid="uid://c2k4jk4mj0vu3"]
 
 [ext_resource type="Script" path="res://addons/ITWCdt/editorControl/data_loader_manager.gd" id="1_3q0k1"]
-[ext_resource type="Script" path="res://addons/ITWCdt/editorControl/load_container.gd" id="2_taoyh"]
 
-[node name="dataLoaderManager" type="VBoxContainer" node_paths=PackedStringArray("nameLabel", "loadContainer", "onLoadKey", "onLoadValue", "menueLoadContainer", "menueKey", "menueValue", "gameLoadContainer", "gameKey", "gameValue", "questLoadContainer", "questKey", "questValue")]
+[node name="dataLoaderManager" type="VBoxContainer" node_paths=PackedStringArray("nameLabel", "categorie")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -11,18 +10,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3q0k1")
 nameLabel = NodePath("PanelContainer/Label")
-loadContainer = NodePath("VBoxContainer/loadContainer")
-onLoadKey = NodePath("VBoxContainer/onLoadContainer/keyPanel/key")
-onLoadValue = NodePath("VBoxContainer/onLoadContainer/valuePanel/value")
-menueLoadContainer = NodePath("VBoxContainer2/loadContainer")
-menueKey = NodePath("VBoxContainer2/onLoadContainer/keyPanel/key")
-menueValue = NodePath("VBoxContainer2/onLoadContainer/valuePanel/value")
-gameLoadContainer = NodePath("VBoxContainer3/loadContainer")
-gameKey = NodePath("VBoxContainer3/onLoadContainer/keyPanel/key")
-gameValue = NodePath("VBoxContainer3/onLoadContainer/valuePanel/value")
-questLoadContainer = NodePath("VBoxContainer4/loadContainer")
-questKey = NodePath("VBoxContainer4/onLoadContainer/keyPanel/key")
-questValue = NodePath("VBoxContainer4/onLoadContainer/valuePanel/value")
+categorie = NodePath("category")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -42,161 +30,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="category" type="VBoxContainer" parent="."]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "On Load"
-
-[node name="onLoadContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="keyPanel" type="PanelContainer" parent="VBoxContainer/onLoadContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="key" type="TextEdit" parent="VBoxContainer/onLoadContainer/keyPanel"]
-layout_mode = 2
-
-[node name="valuePanel" type="PanelContainer" parent="VBoxContainer/onLoadContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="value" type="TextEdit" parent="VBoxContainer/onLoadContainer/valuePanel"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="VBoxContainer/onLoadContainer"]
-layout_mode = 2
-text = "+"
-
-[node name="loadContainer" type="VBoxContainer" parent="VBoxContainer" node_paths=PackedStringArray("parent")]
-layout_mode = 2
-script = ExtResource("2_taoyh")
-category = "OnLoad"
-parent = NodePath("../..")
-
-[node name="HSeparator2" type="HSeparator" parent="."]
-layout_mode = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer2"]
-layout_mode = 2
-text = "Menue
-"
-
-[node name="onLoadContainer" type="HBoxContainer" parent="VBoxContainer2"]
-layout_mode = 2
-
-[node name="keyPanel" type="PanelContainer" parent="VBoxContainer2/onLoadContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="key" type="TextEdit" parent="VBoxContainer2/onLoadContainer/keyPanel"]
-layout_mode = 2
-
-[node name="valuePanel" type="PanelContainer" parent="VBoxContainer2/onLoadContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="value" type="TextEdit" parent="VBoxContainer2/onLoadContainer/valuePanel"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="VBoxContainer2/onLoadContainer"]
-layout_mode = 2
-text = "+"
-
-[node name="loadContainer" type="VBoxContainer" parent="VBoxContainer2" node_paths=PackedStringArray("parent")]
-layout_mode = 2
-script = ExtResource("2_taoyh")
-category = "Menue"
-parent = NodePath("../..")
-
-[node name="HSeparator" type="HSeparator" parent="."]
-layout_mode = 2
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer3"]
-layout_mode = 2
-text = "Game"
-
-[node name="onLoadContainer" type="HBoxContainer" parent="VBoxContainer3"]
-layout_mode = 2
-
-[node name="keyPanel" type="PanelContainer" parent="VBoxContainer3/onLoadContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="key" type="TextEdit" parent="VBoxContainer3/onLoadContainer/keyPanel"]
-layout_mode = 2
-
-[node name="valuePanel" type="PanelContainer" parent="VBoxContainer3/onLoadContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="value" type="TextEdit" parent="VBoxContainer3/onLoadContainer/valuePanel"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="VBoxContainer3/onLoadContainer"]
-layout_mode = 2
-text = "+"
-
-[node name="loadContainer" type="VBoxContainer" parent="VBoxContainer3" node_paths=PackedStringArray("parent")]
-layout_mode = 2
-script = ExtResource("2_taoyh")
-category = "Game"
-parent = NodePath("../..")
-
-[node name="VBoxContainer4" type="VBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer4"]
-layout_mode = 2
-text = "Quest"
-
-[node name="onLoadContainer" type="HBoxContainer" parent="VBoxContainer4"]
-layout_mode = 2
-
-[node name="keyPanel" type="PanelContainer" parent="VBoxContainer4/onLoadContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="key" type="TextEdit" parent="VBoxContainer4/onLoadContainer/keyPanel"]
-layout_mode = 2
-
-[node name="valuePanel" type="PanelContainer" parent="VBoxContainer4/onLoadContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="value" type="TextEdit" parent="VBoxContainer4/onLoadContainer/valuePanel"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="VBoxContainer4/onLoadContainer"]
-layout_mode = 2
-text = "+"
-
-[node name="loadContainer" type="VBoxContainer" parent="VBoxContainer4" node_paths=PackedStringArray("parent")]
-layout_mode = 2
-script = ExtResource("2_taoyh")
-category = "Quest"
-parent = NodePath("../..")
 
 [node name="HSeparator3" type="HSeparator" parent="."]
 layout_mode = 2
-
-[connection signal="pressed" from="VBoxContainer/onLoadContainer/Button" to="." method="_on_game_load_button_pressed"]
-[connection signal="pressed" from="VBoxContainer2/onLoadContainer/Button" to="." method="_on_menue_button_pressed"]
-[connection signal="pressed" from="VBoxContainer3/onLoadContainer/Button" to="." method="_on_game_button_pressed"]
-[connection signal="pressed" from="VBoxContainer4/onLoadContainer/Button" to="." method="_on_quest_button_pressed"]
