@@ -3,7 +3,6 @@ extends VBoxContainer
 class_name ITWCdt_VBoxContainer
 
 const SELF_SCENE : PackedScene = preload("res://addons/ITWCdt/editorControl/dataLoaderManager.tscn")
-const TEXT_SCENE : PackedScene = preload("res://addons/ITWCdt/editorControl/text_edit.tscn")
 const CATEGORIE_SCENE : PackedScene = preload("res://addons/ITWCdt/editorControl/categorie.tscn")
 
 

@@ -26,3 +26,4 @@ func _ready():
 
 func _on_button_button_down() -> void:
 	loadContainer.parent.parent.removeFileValue(loadContainer.category,textEdit1.text)
+	loadContainer.parent.refresh()

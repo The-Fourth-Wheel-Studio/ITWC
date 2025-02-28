@@ -8,4 +8,4 @@ settings="core/ITWC/data/onLoad/settings.json"
 
 [test]
 
-a="a"
+b="a"
