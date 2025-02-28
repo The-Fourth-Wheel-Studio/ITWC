@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://addons/ITWCdt/editorControl/data_loader_manager.gd" id="1_3q0k1"]
 [ext_resource type="Script" path="res://addons/ITWCdt/editorControl/category_container.gd" id="2_rr2oq"]
 
-[node name="dataLoaderManager" type="VBoxContainer" node_paths=PackedStringArray("nameLabel", "categorie")]
+[node name="dataLoaderManager" type="VBoxContainer" node_paths=PackedStringArray("nameLabel", "categorie", "categoryName")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_3q0k1")
 nameLabel = NodePath("PanelContainer/Label")
 categorie = NodePath("category")
+categoryName = NodePath("add/PanelContainer/TextEdit")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -31,6 +32,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="add" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="add"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextEdit" type="TextEdit" parent="add/PanelContainer"]
+layout_mode = 2
+
+[node name="add" type="Button" parent="add"]
+layout_mode = 2
+text = "+"
+
 [node name="category" type="VBoxContainer" parent="." node_paths=PackedStringArray("root")]
 layout_mode = 2
 script = ExtResource("2_rr2oq")
@@ -38,3 +53,5 @@ root = NodePath("..")
 
 [node name="HSeparator3" type="HSeparator" parent="."]
 layout_mode = 2
+
+[connection signal="button_down" from="add/add" to="." method="_on_add_button_down"]
