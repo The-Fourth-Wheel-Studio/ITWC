@@ -140,6 +140,9 @@ func handleAddMode(categorie : String, key : String, value : Array):
 	modeInit(categorie)
 	if not GameManager.loadedScene[categorie].has(key):
 		GameManager.loadedScene[categorie][key] = value
+	else:
+		GameManager.loadedScene[categorie][key] = GameManager.loadedScene[categorie][key] + value
+		
 
 func handleReplaceMode(categorie : String, key : String, value : Array):
 	modeInit(categorie)
