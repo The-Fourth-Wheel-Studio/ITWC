@@ -23,23 +23,24 @@ func loadHead():
 	Config.loadConfigFile()
 	GameManager.modsPath = Config.gameConfig["mod_path"]
 
+func loadCategory(node : Node, catName : String):
+	if GameManager.loadedScene.has(catName):
+		for i in GameManager.loadedScene[catName].keys():
+			for j in GameManager.loadedScene[catName][i]:
+				EngineTool.addChildfromPath(node, j)
+
 func loadOnLoad():
 	var newNode : Node = Node.new()
 	newNode.set_name("OnLoad")
 	self.add_child(newNode)
-	if GameManager.loadedScene.has("OnLoad"):
-		for i in GameManager.loadedScene["OnLoad"].keys():
-			for j in GameManager.loadedScene["OnLoad"][i]:
-				EngineTool.addChildfromPath(newNode, j)
+	loadCategory(newNode, "OnLoad")
+	EngineTool.removeChild(self, newNode)
 
 func loadMenue():
 	var newNode : Node = Node.new()
 	newNode.set_name("Menue")
 	self.add_child(newNode)
-	if GameManager.loadedScene.has("Menue"):
-		for i in GameManager.loadedScene["Menue"].keys():
-			for j in GameManager.loadedScene["Menue"][i]:
-				EngineTool.addChildfromPath(newNode, j)
+	loadCategory(newNode, "Menue")
 
 #save
 func loadSave(saveId : int):
