@@ -11,8 +11,6 @@ var teta : float = 0.0
 func behave():
 	teta = (Common.getComplexArgument(GameManager.player.position.x - self.position.x, GameManager.player.position.z - self.position.z))
 	setCameraPosition(getCameraPosition())
-	GameManager.currentCamera.look_at(GameManager.player.position)
-	GameManager.currentCamera.getNewReference()
 
 func getCameraPosition():
 	return (self.position + Common.convertCylindricalToCartisia(radius,teta,GameManager.player.position.y + yOffset))
