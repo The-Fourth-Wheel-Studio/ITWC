@@ -13,12 +13,11 @@ var line : Vector3
 
 func _ready() -> void:
 	line = point.global_position - self.global_position
-
-func behave():
-	setCameraPosition(getCameraPosition())
-
+	
 func _process(delta):
-	setXY()
+	if Engine.is_editor_hint():
+		setXY()
+	pass
 
 func setXY():
 	line = point.global_position - self.global_position

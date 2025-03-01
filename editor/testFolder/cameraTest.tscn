@@ -169,6 +169,7 @@ script = ExtResource("7_uk3ym")
 
 [node name="cameraZoneReferenceMoais" type="Node3D" parent="cameraZone3"]
 transform = Transform3D(1, 2.21517e-08, 6.02864e-09, -2.21517e-08, 0.862081, 0.506771, 6.02869e-09, -0.506771, 0.862081, 0, 4.92348, 0)
+visible = false
 script = ExtResource("8_2pdfk")
 metadata/_custom_type_script = ExtResource("8_2pdfk")
 

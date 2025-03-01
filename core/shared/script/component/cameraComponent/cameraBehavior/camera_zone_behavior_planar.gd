@@ -14,9 +14,6 @@ var plan : Plan
 func _ready() -> void:
 	plan = Plan.new(x, y, self.global_position)
 
-func behave():
-	setCameraPosition(getCameraPosition())
-
 func _process(_delta):
 	if Engine.is_editor_hint():
 		setXY()

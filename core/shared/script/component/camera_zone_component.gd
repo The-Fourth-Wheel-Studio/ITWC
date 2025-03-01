@@ -27,10 +27,14 @@ func run():
 			GameManager.currentCamera.getNewReference()
 			setup = false
 	else:
-		behave()
+		behaveBehavior()
 		referenceBehave()
 		cameraRotationBehave()
 
+func behaveBehavior():
+	behave()
+	behavior.setCameraPosition(behavior.getCameraPosition())
+	
 func transitioned():
 	return transition.transition()
 
