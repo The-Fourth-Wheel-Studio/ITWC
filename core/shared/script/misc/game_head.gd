@@ -12,7 +12,9 @@ func _enter_tree():
 	MKUtil.print("Loading Game")
 	#load game
 	loadOnLoad()
+	loadGlobal()
 	loadMenue()
+	loadGame()
 	
 	MKUtil.print("game fully loaded")
 	print("-----------------------------------------------------------------------")
@@ -36,11 +38,23 @@ func loadOnLoad():
 	loadCategory(newNode, "OnLoad")
 	EngineTool.removeChild(self, newNode)
 
+func loadGlobal():
+	var newNode : Node = Node.new()
+	newNode.set_name("Global")
+	self.add_child(newNode)
+	loadCategory(newNode, "Global")
+
 func loadMenue():
 	var newNode : Node = Node.new()
 	newNode.set_name("Menue")
 	self.add_child(newNode)
 	loadCategory(newNode, "Menue")
+
+func loadGame():
+	var newNode : Node3D = Node3D.new()
+	newNode.set_name("Game")
+	self.add_child(newNode)
+	loadCategory(newNode, "Game")
 
 #save
 func loadSave(saveId : int):

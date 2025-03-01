@@ -1,7 +1,3 @@
 [OnLoad]
 
 settings="core/ITWC/data/onLoad/settings.json"
-
-[Menue]
-
-main="core/ITWC/data/menue/main_menue.json"
