@@ -56,6 +56,9 @@ func loadGame():
 	self.add_child(newNode)
 	loadCategory(newNode, "Game")
 
+func loadAccess(parent : Node, value : String):
+	EngineTool.addChildfromPath(parent, GameManager.loadedScene["Access"][value])
+
 #save
 func loadSave(saveId : int):
 	#load eventObserver
