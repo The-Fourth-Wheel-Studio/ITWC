@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://5prsvwyxk8my"]
+[gd_scene load_steps=26 format=3 uid="uid://5prsvwyxk8my"]
 
 [ext_resource type="PackedScene" uid="uid://dto8b77kggjk" path="res://core/shared/scene/player/default/player.tscn" id="1_y54sx"]
 [ext_resource type="Script" path="res://core/shared/script/component/camera_component.gd" id="2_515yx"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_cylinder.gd" id="12_hky2r"]
 [ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/reference/camera_zone_reference_follow_player.gd" id="13_3ur3a"]
 [ext_resource type="Script" path="res://core/shared/script/component/point_component.gd" id="13_hky2r"]
+[ext_resource type="PackedScene" uid="uid://b6hqyg8jmhar8" path="res://editor/testFolder/fpscounter.tscn" id="16_ijngx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y54sx"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -82,7 +83,6 @@ behavior = NodePath("cameraZoneBehaviorPlanar")
 transition = NodePath("cameraZoneTransition")
 reference = NodePath("cameraZoneReferenceMoais")
 cameraTurner = NodePath("cameraRotationLookAtPlayer")
-color = null
 metadata/_custom_type_script = ExtResource("3_85l6k")
 
 [node name="cameraZoneCollider" type="CollisionShape3D" parent="cameraZone"]
@@ -238,6 +238,8 @@ metadata/_custom_type_script = ExtResource("13_hky2r")
 [node name="cameraZoneReferenceMoais" type="Node3D" parent="cameraZone2"]
 script = ExtResource("11_3ur3a")
 metadata/_custom_type_script = ExtResource("11_3ur3a")
+
+[node name="Label" parent="." instance=ExtResource("16_ijngx")]
 
 [connection signal="body_entered" from="cameraZone" to="cameraZone" method="_on_body_entered"]
 [connection signal="body_entered" from="cameraZone3" to="cameraZone3" method="_on_body_entered"]

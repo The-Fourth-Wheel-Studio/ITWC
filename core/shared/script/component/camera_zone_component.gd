@@ -25,7 +25,6 @@ func run(delta):
 		if transitioned(delta):
 			GameManager.currentCamera.getNewReference()
 			setup = false
-		print(behavior.getCameraPosition())
 	else:
 		behaveBehavior()
 		referenceBehave()

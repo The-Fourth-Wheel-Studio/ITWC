@@ -183,7 +183,6 @@ behavior = NodePath("cameraZoneBehaviorPlanar")
 transition = NodePath("cameraZoneTransition")
 reference = NodePath("cameraZoneReferenceMoais")
 cameraTurner = NodePath("cameraRotationLookAtPlayer")
-color = null
 metadata/_custom_type_script = ExtResource("3_qed6b")
 
 [node name="cameraZoneCollider" type="CollisionShape3D" parent="word/cameraZone/cameraZone"]
