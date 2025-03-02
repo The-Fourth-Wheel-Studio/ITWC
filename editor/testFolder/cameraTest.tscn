@@ -72,6 +72,7 @@ camera = NodePath("../theBestCameraEver")
 
 [node name="theBestCameraEver" type="Camera3D" parent="."]
 script = ExtResource("2_515yx")
+deadZoneCoordinates = Vector4(0.3, 0.7, 0.3, 0.7)
 metadata/_custom_type_script = ExtResource("2_515yx")
 
 [node name="cameraZone" type="Area3D" parent="." node_paths=PackedStringArray("collider", "behavior", "transition", "reference", "cameraTurner")]
