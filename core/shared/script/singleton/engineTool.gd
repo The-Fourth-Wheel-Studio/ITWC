@@ -40,3 +40,10 @@ static func addChildfromPath(parent : Node, path : String):
 		parent.add_child(load(absolutePath).instantiate())
 	else:
 		MKUtil.print("enable to instanciate child")
+
+static func passFunc():
+	pass
+
+static func removeChild(parent : Node, child : Node):
+	parent.remove_child(child)
+	child.queue_free()

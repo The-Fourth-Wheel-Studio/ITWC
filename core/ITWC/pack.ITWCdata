@@ -1,11 +1,3 @@
 [OnLoad]
 
 settings="core/ITWC/data/onLoad/settings.json"
-
-[Menue]
-
-"m	ain"="core/ITWC/data/menue/main_menue.json"
-
-[test]
-
-a="a"

@@ -12,7 +12,9 @@ func _enter_tree():
 	MKUtil.print("Loading Game")
 	#load game
 	loadOnLoad()
+	loadGlobal()
 	loadMenue()
+	loadGame()
 	
 	MKUtil.print("game fully loaded")
 	print("-----------------------------------------------------------------------")
@@ -23,23 +25,39 @@ func loadHead():
 	Config.loadConfigFile()
 	GameManager.modsPath = Config.gameConfig["mod_path"]
 
+func loadCategory(node : Node, catName : String):
+	if GameManager.loadedScene.has(catName):
+		for i in GameManager.loadedScene[catName].keys():
+			for j in GameManager.loadedScene[catName][i]:
+				EngineTool.addChildfromPath(node, j)
+
 func loadOnLoad():
 	var newNode : Node = Node.new()
 	newNode.set_name("OnLoad")
 	self.add_child(newNode)
-	if GameManager.loadedScene.has("OnLoad"):
-		for i in GameManager.loadedScene["OnLoad"].keys():
-			for j in GameManager.loadedScene["OnLoad"][i]:
-				EngineTool.addChildfromPath(newNode, j)
+	loadCategory(newNode, "OnLoad")
+	EngineTool.removeChild(self, newNode)
+
+func loadGlobal():
+	var newNode : Node = Node.new()
+	newNode.set_name("Global")
+	self.add_child(newNode)
+	loadCategory(newNode, "Global")
 
 func loadMenue():
 	var newNode : Node = Node.new()
 	newNode.set_name("Menue")
 	self.add_child(newNode)
-	if GameManager.loadedScene.has("Menue"):
-		for i in GameManager.loadedScene["Menue"].keys():
-			for j in GameManager.loadedScene["Menue"][i]:
-				EngineTool.addChildfromPath(newNode, j)
+	loadCategory(newNode, "Menue")
+
+func loadGame():
+	var newNode : Node3D = Node3D.new()
+	newNode.set_name("Game")
+	self.add_child(newNode)
+	loadCategory(newNode, "Game")
+
+func loadAccess(parent : Node, value : String):
+	EngineTool.addChildfromPath(parent, GameManager.loadedScene["Access"][value])
 
 #save
 func loadSave(saveId : int):
@@ -139,6 +157,9 @@ func handleAddMode(categorie : String, key : String, value : Array):
 	modeInit(categorie)
 	if not GameManager.loadedScene[categorie].has(key):
 		GameManager.loadedScene[categorie][key] = value
+	else:
+		GameManager.loadedScene[categorie][key] = GameManager.loadedScene[categorie][key] + value
+		
 
 func handleReplaceMode(categorie : String, key : String, value : Array):
 	modeInit(categorie)
