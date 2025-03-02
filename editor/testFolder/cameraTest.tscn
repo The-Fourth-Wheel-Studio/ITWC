@@ -39,13 +39,13 @@ material = SubResource("StandardMaterial3D_y0vdg")
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1hx2k"]
-size = Vector3(23.9103, 3.18469, 52.2405)
+size = Vector3(76.3653, 3.18469, 52.2405)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ur3a"]
 size = Vector3(81.669, 3.18469, 52.2405)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_85l6k"]
-size = Vector3(31.6127, 3.18469, 52.9683)
+size = Vector3(79.3367, 3.18469, 52.9683)
 
 [node name="Node3D" type="Node3D"]
 
@@ -85,7 +85,7 @@ cameraTurner = NodePath("cameraRotationLookAtPlayer")
 metadata/_custom_type_script = ExtResource("3_85l6k")
 
 [node name="cameraZoneCollider" type="CollisionShape3D" parent="cameraZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25931, 1.09235, -0.1157)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478078, 1.09235, -0.1157)
 shape = SubResource("BoxShape3D_1hx2k")
 disabled = true
 script = ExtResource("4_hky2r")
@@ -130,6 +130,7 @@ metadata/_custom_type_script = ExtResource("10_ca4ky")
 script = ExtResource("11_g2pwk")
 
 [node name="cameraZoneReferenceMoais" type="Node3D" parent="cameraZone"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0)
 script = ExtResource("11_3ur3a")
 metadata/_custom_type_script = ExtResource("11_3ur3a")
 
@@ -149,6 +150,7 @@ metadata/_custom_type_script = ExtResource("3_85l6k")
 [node name="cameraZoneCollider" type="CollisionShape3D" parent="cameraZone3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.62, 1.09235, -0.1157)
 shape = SubResource("BoxShape3D_3ur3a")
+disabled = true
 script = ExtResource("4_hky2r")
 metadata/_custom_type_script = ExtResource("4_hky2r")
 
@@ -191,15 +193,14 @@ script = ExtResource("3_85l6k")
 collider = NodePath("cameraZoneCollider")
 behavior = NodePath("cameraZoneBehaviorTravelling")
 transition = NodePath("cameraZoneTransition")
-reference = NodePath("")
+reference = NodePath("cameraZoneReferenceMoais")
 cameraTurner = NodePath("cameraRotationLookAtPlayer")
 color = Color(0.211765, 1, 0.301961, 1)
 metadata/_custom_type_script = ExtResource("3_85l6k")
 
 [node name="cameraZoneCollider" type="CollisionShape3D" parent="cameraZone2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8354, 1.09235, -0.337639)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0266, 1.09235, -0.337639)
 shape = SubResource("BoxShape3D_85l6k")
-disabled = true
 script = ExtResource("4_hky2r")
 metadata/_custom_type_script = ExtResource("4_hky2r")
 

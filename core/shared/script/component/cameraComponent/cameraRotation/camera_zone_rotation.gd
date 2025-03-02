@@ -12,3 +12,6 @@ func justRotate():
 
 func getCameraRotation():
 	return Vector3.ZERO
+
+func getLookVector():
+	return -transform.basis.z.normalized()
