@@ -48,6 +48,9 @@ func getNewDirY(curDir : Vector2) -> Vector2:
 func moveFromVect3(vec : Vector3):
 	self.position += vec
 
+func moveToPos(pos : Vector3, speed):
+	self.position = self.position.move_toward(pos, speed)
+
 func rotateFromDegrees(deg : Vector3):
 	self.rotation += deg
 
