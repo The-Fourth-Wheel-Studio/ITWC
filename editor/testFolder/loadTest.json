@@ -1,0 +1,5 @@
+{
+	"mode" : "add",
+	"scene" : ["editor/testFolder/cameraTest.tscn"]
+	
+}

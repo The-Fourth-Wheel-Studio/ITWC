@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/rotationTransition/camera_zone_rotation_transition_move_with_camera_rotation.gd" id="7_d6qei"]
 [ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_planar.gd" id="9_n3r66"]
 [ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/point/camera_zone_behavior_start_pos_component.gd" id="10_m1ua0"]
-[ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/reference/camera_zone_reference_Moais.gd" id="11_4botw"]
+[ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/reference/camera_zone_reference_const.gd" id="11_4botw"]
 [ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/cameraRotation/camera_zone_rotation_look_at_player.gd" id="11_tjpi1"]
 [ext_resource type="PackedScene" uid="uid://bxulgh12blnbe" path="res://core/ITWC/asset/model/environement/test.glb" id="12_lvybj"]
 [ext_resource type="Script" path="res://editor/testFolder/pnjTest.gd" id="13_eau2w"]
@@ -181,7 +181,7 @@ script = ExtResource("3_qed6b")
 collider = NodePath("cameraZoneCollider")
 behavior = NodePath("cameraZoneBehaviorPlanar")
 transition = NodePath("cameraZoneTransition")
-reference = NodePath("cameraZoneReferenceMoais")
+reference = NodePath("cameraZoneReferenceConst")
 cameraTurner = NodePath("cameraRotationLookAtPlayer")
 metadata/_custom_type_script = ExtResource("3_qed6b")
 
@@ -228,7 +228,7 @@ metadata/_custom_type_script = ExtResource("10_m1ua0")
 [node name="cameraRotationLookAtPlayer" type="Node3D" parent="word/cameraZone/cameraZone"]
 script = ExtResource("11_tjpi1")
 
-[node name="cameraZoneReferenceMoais" type="Node3D" parent="word/cameraZone/cameraZone"]
+[node name="cameraZoneReferenceConst" type="Node3D" parent="word/cameraZone/cameraZone"]
 script = ExtResource("11_4botw")
 metadata/_custom_type_script = ExtResource("11_4botw")
 

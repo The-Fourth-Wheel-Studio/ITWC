@@ -1,5 +1,5 @@
 extends cameraZoneReference
-class_name cameraZoneReferenceConst
+class_name cameraZoneReferenceMoais
 
 func setup():
 	GameManager.currentCamera.getNewReference()
