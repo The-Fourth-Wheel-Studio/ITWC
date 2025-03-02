@@ -15,14 +15,14 @@ class_name cameraZone
 var setup : bool = false
 var isSetup : bool = false
 
-func run():
+func run(delta):
 	if setup:
 		if not isSetup:
 			setupBehavior()
 			setupReference()
 			setupCameraRotation()
 			isSetup = false
-		if transitioned():
+		if transitioned(delta):
 			GameManager.currentCamera.getNewReference()
 			setup = false
 		print(behavior.getCameraPosition())
@@ -35,8 +35,8 @@ func behaveBehavior():
 	behavior.setCameraPosition(behavior.getCameraPosition())
 	
 	
-func transitioned():
-	return transition.transition()
+func transitioned(delta):
+	return transition.transition(delta)
 
 func execute():
 	if GameManager.currentCamera.currentCameraZone != self:

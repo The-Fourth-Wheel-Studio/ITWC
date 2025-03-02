@@ -6,10 +6,9 @@ var cameraRot : float
 var references : Vector4 = Vector4.ZERO
 @export var currentCameraZone : cameraZone
 func _process(delta):
-	GameManager.invDelta = (1-delta)
 	cameraRot = self.rotation_degrees.y
 	if currentCameraZone:
-		currentCameraZone.run()
+		currentCameraZone.run(delta)
 	GameManager.player.execute(delta)
 
 
