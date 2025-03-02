@@ -34,6 +34,7 @@ func run():
 func behaveBehavior():
 	behave()
 	behavior.setCameraPosition(behavior.getCameraPosition())
+	print(behavior.getCameraPosition(), GameManager.currentCamera.position)
 	
 func transitioned():
 	return transition.transition()

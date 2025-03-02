@@ -7,9 +7,9 @@
 [ext_resource type="Script" path="res://core/shared/script/component/camera_zone_transition_component.gd" id="5_p138i"]
 [ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/positionTransition/camera_zone_position_transition_moving_with_behave.gd" id="6_b5ywy"]
 [ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/rotationTransition/camera_zone_rotation_transition_move_with_camera_rotation.gd" id="7_d6qei"]
-[ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/reference/camera_zone_reference_follow_player.gd" id="8_dpglx"]
 [ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_planar.gd" id="9_n3r66"]
 [ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/point/camera_zone_behavior_start_pos_component.gd" id="10_m1ua0"]
+[ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/reference/camera_zone_reference_Moais.gd" id="11_4botw"]
 [ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/cameraRotation/camera_zone_rotation_look_at_player.gd" id="11_tjpi1"]
 [ext_resource type="PackedScene" uid="uid://bxulgh12blnbe" path="res://core/ITWC/asset/model/environement/test.glb" id="12_lvybj"]
 [ext_resource type="Script" path="res://editor/testFolder/pnjTest.gd" id="13_eau2w"]
@@ -206,11 +206,6 @@ metadata/_custom_type_script = ExtResource("6_b5ywy")
 [node name="cameraZoneRotationTransitionConstant" type="Node3D" parent="word/cameraZone/cameraZone/cameraZoneTransition"]
 script = ExtResource("7_d6qei")
 
-[node name="cameraZoneReferenceMoais" type="Node3D" parent="word/cameraZone/cameraZone"]
-transform = Transform3D(-3.76827e-08, -0.506771, 0.862081, -2.21517e-08, 0.862081, 0.506771, -1, 0, -4.37114e-08, 0, 4.92348, 0)
-script = ExtResource("8_dpglx")
-metadata/_custom_type_script = ExtResource("8_dpglx")
-
 [node name="cameraZoneBehaviorPlanar" type="Node3D" parent="word/cameraZone/cameraZone" node_paths=PackedStringArray("point1", "point2")]
 transform = Transform3D(0.77821, 0.628004, 0, -0.628004, 0.77821, 0, 0, 0, 1, 5.68107, 6.99348, 0)
 script = ExtResource("9_n3r66")
@@ -232,6 +227,10 @@ metadata/_custom_type_script = ExtResource("10_m1ua0")
 
 [node name="cameraRotationLookAtPlayer" type="Node3D" parent="word/cameraZone/cameraZone"]
 script = ExtResource("11_tjpi1")
+
+[node name="cameraZoneReferenceMoais" type="Node3D" parent="word/cameraZone/cameraZone"]
+script = ExtResource("11_4botw")
+metadata/_custom_type_script = ExtResource("11_4botw")
 
 [node name="test" parent="word" instance=ExtResource("12_lvybj")]
 transform = Transform3D(2.37883, 0, 0, 0, 2.37883, 0, 0, 0, 2.37883, 0, 0, 0)

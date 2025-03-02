@@ -9,8 +9,8 @@ class_name cameraZoneBehaviorCylinder
 var teta : float = 0.0
 
 func behave():
-	teta = (Common.getComplexArgument(GameManager.player.position.x - self.position.x, GameManager.player.position.z - self.position.z))
+	teta = (Common.getComplexArgument(GameManager.player.global_position.x - self.global_position.x, GameManager.player.global_position.z - self.global_position.z))
 
 func getCameraPosition():
-	return (self.position + Common.convertCylindricalToCartisia(radius,teta,GameManager.player.position.y + yOffset))
+	return (self.global_position + Common.convertCylindricalToCartisia(radius,teta,GameManager.player.global_position.y + yOffset))
 	

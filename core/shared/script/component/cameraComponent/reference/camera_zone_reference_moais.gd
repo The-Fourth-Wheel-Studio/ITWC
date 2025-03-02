@@ -1,5 +1,5 @@
 extends cameraZoneReference
-class_name cameraZoneReferenceFollowPlayer
+class_name cameraZoneReferenceMoais
 
-func changeReference():
+func setup():
 	GameManager.currentCamera.getNewReference()
