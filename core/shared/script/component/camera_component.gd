@@ -6,6 +6,7 @@ class_name theBestCameraEver
 @export var currentCameraZone : cameraZone
 @export_category("Dead Zone")
 @export var deadZoneCoordinates : Vector4
+@export var cameraDeadZoneSpeed : float = 10
 
 var cameraRot : float
 var references : Vector4 = Vector4.ZERO
