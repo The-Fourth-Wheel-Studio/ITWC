@@ -26,10 +26,9 @@ func run(delta):
 			GameManager.currentCamera.getNewReference()
 			setup = false
 	else:
-		if not GameManager.currentCamera.ifObjectIsInDeadZone(GameManager.player):
-			behaveBehavior()
-			referenceBehave()
-			cameraRotationBehave()
+		behaveBehavior()
+		referenceBehave()
+		cameraRotationBehave()
 
 func behaveBehavior():
 	behavior.setCameraPosition(behavior.getCameraPosition())
