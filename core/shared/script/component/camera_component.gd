@@ -66,6 +66,9 @@ func moveFromVect3(vec : Vector3):
 func moveToPos(pos : Vector3, speed):
 	self.position = self.position.move_toward(pos, speed)
 
+func rotateToRotation(rot : Vector3, speed):
+	Common.rotateToward(self, rot, speed)
+
 func rotateFromDegrees(deg : Vector3):
 	self.rotation += deg
 

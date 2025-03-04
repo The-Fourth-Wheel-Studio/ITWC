@@ -65,3 +65,8 @@ static func get_rotation_towards(from_position: Vector3, to_position: Vector3, u
 
 static func getPerpendicularVector(vec1 : Vector3) -> Vector3:
 	return vec1.cross(Vector3(0, 1, 0)).normalized()
+
+static func rotateToward(from : Node3D, to : Vector3, speed : float):
+	from .rotation.x = rotate_toward(from.rotation.x, to.x, speed)
+	from .rotation.x = rotate_toward(from.rotation.y, to.y, speed)
+	from .rotation.x = rotate_toward(from.rotation.z, to.z, speed)
