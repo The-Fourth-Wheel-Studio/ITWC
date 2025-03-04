@@ -14,7 +14,6 @@ class_name cameraZone
 
 var setup : bool = false
 var isSetup : bool = false
-var haveToMove : bool = false
 
 func run(delta):
 	if setup:
@@ -27,16 +26,13 @@ func run(delta):
 			GameManager.currentCamera.getNewReference()
 			setup = false
 	else:
-		if not GameManager.currentCamera.ifObjectIsInDeadZone(GameManager.player):
-			haveToMove = true
-		
-		if haveToMove:
-			behaveBehavior(delta)
-			referenceBehave()
-			cameraRotationBehave(delta)
+		behaveBehavior()
+		referenceBehave()
+		cameraRotationBehave()
 
-func behaveBehavior(delta : float):
-	GameManager.currentCamera.moveToPos(behavior.getCameraPosition(),3 * delta)
+func behaveBehavior():
+	behavior.setCameraPosition(behavior.getCameraPosition())
+	
 	
 func transitioned(delta):
 	return transition.transition(delta)
@@ -60,8 +56,8 @@ func setupCameraRotation():
 func referenceBehave():
 	reference.changeReference()
 
-func cameraRotationBehave(delta : float):
-	GameManager.currentCamera.rotateToRotation(cameraTurner.getCameraRotation(),3 * delta)
+func cameraRotationBehave():
+	cameraTurner.justRotate()
 	
 func _on_body_entered(_body):
 	execute()

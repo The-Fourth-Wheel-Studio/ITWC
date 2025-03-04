@@ -6,7 +6,6 @@ class_name theBestCameraEver
 @export var currentCameraZone : cameraZone
 @export_category("Dead Zone")
 @export var deadZoneCoordinates : Vector4
-@export var cameraDeadZoneSpeed : float = 10
 
 var cameraRot : float
 var references : Vector4 = Vector4.ZERO
@@ -28,9 +27,6 @@ func ifObjectIsInDeadZone(object : Node3D):
 	var coord : Vector2 = getOnScreenObjectCoord(GameManager.player)/get_viewport().get_visible_rect().size
 	return coord.x > deadZoneCoordinates.x and coord.x < deadZoneCoordinates.y and coord.y > deadZoneCoordinates.z and coord.y < deadZoneCoordinates.w
 	
-func ifObjectIsCentered(object : Node3D):
-	var coord : Vector2 = getOnScreenObjectCoord(GameManager.player)/get_viewport().get_visible_rect().size
-	return abs(coord.x) < 0.501 and abs(coord.x) > 0.499 and abs(coord.y) < 0.501 and abs(coord.y) < 0.499
 
 func getOnScreenObjectCoord(object : Node3D):
 	return self.unproject_position(object.global_position)
