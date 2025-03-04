@@ -12,9 +12,9 @@ class_name cameraZoneTransition
 var asTransitionnedOnRotation : bool = false
 var asTransitionnedOnPosition : bool = false
 
-func transition():
-	asTransitionnedOnPosition = positionTransition.doSomething(speed)
-	asTransitionnedOnRotation = rotationTransition.doSomething(rotationSpeed)
+func transition(delta):
+	asTransitionnedOnPosition = positionTransition.doSomething(delta,speed)
+	asTransitionnedOnRotation = rotationTransition.doSomething(delta,rotationSpeed)
 	if (asTransitionnedOnPosition and asTransitionnedOnRotation):
 		return true
 	else:

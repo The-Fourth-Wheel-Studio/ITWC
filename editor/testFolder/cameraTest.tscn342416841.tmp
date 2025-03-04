@@ -1,0 +1,244 @@
+[gd_scene load_steps=26 format=3 uid="uid://5prsvwyxk8my"]
+
+[ext_resource type="PackedScene" uid="uid://dto8b77kggjk" path="res://core/shared/scene/player/default/player.tscn" id="1_y54sx"]
+[ext_resource type="Script" path="res://core/shared/script/component/camera_component.gd" id="2_515yx"]
+[ext_resource type="Script" path="res://core/shared/script/component/camera_zone_component.gd" id="3_85l6k"]
+[ext_resource type="Script" path="res://core/shared/script/component/camera_zone_collider.gd" id="4_hky2r"]
+[ext_resource type="Script" path="res://core/shared/script/component/camera_zone_transition_component.gd" id="5_3ur3a"]
+[ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/positionTransition/camera_zone_position_transition_moving_with_behave.gd" id="6_ijngx"]
+[ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/rotationTransition/camera_zone_rotation_transition_move_with_camera_rotation.gd" id="7_uk3ym"]
+[ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_planar.gd" id="9_sk4e2"]
+[ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/point/camera_zone_behavior_start_pos_component.gd" id="10_ca4ky"]
+[ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/reference/camera_zone_reference_Moais.gd" id="11_3ur3a"]
+[ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/cameraRotation/camera_zone_rotation_look_at_player.gd" id="11_g2pwk"]
+[ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_travelling.gd" id="12_85l6k"]
+[ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_cylinder.gd" id="12_hky2r"]
+[ext_resource type="Script" path="res://core/shared/script/component/cameraComponent/reference/camera_zone_reference_follow_player.gd" id="13_3ur3a"]
+[ext_resource type="Script" path="res://core/shared/script/component/point_component.gd" id="13_hky2r"]
+[ext_resource type="PackedScene" uid="uid://b6hqyg8jmhar8" path="res://editor/testFolder/fpscounter.tscn" id="16_ijngx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y54sx"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_515yx"]
+sky_material = SubResource("ProceduralSkyMaterial_y54sx")
+
+[sub_resource type="Environment" id="Environment_85l6k"]
+background_mode = 2
+sky = SubResource("Sky_515yx")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0vdg"]
+albedo_color = Color(0.768627, 1, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dfdvx"]
+material = SubResource("StandardMaterial3D_y0vdg")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_y54sx"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1hx2k"]
+size = Vector3(27.644, 3.18469, 52.2405)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ur3a"]
+size = Vector3(26.3686, 3.18469, 52.2405)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_85l6k"]
+size = Vector3(25.9618, 3.18469, 52.9683)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_85l6k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(39.8657, 0, 0, 0, 14.8058, 0, 0, 0, 27.049, 0.140354, 0.164168, -0.0748997)
+mesh = SubResource("PlaneMesh_dfdvx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_y54sx")
+
+[node name="CharacterBody3D" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_y54sx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0429602, 1.10842, -0.0411148)
+camera = NodePath("../theBestCameraEver")
+
+[node name="theBestCameraEver" type="Camera3D" parent="."]
+script = ExtResource("2_515yx")
+metadata/_custom_type_script = ExtResource("2_515yx")
+
+[node name="cameraZone" type="Area3D" parent="." node_paths=PackedStringArray("collider", "behavior", "transition", "reference", "cameraTurner")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_85l6k")
+collider = NodePath("cameraZoneCollider")
+behavior = NodePath("cameraZoneBehaviorPlanar")
+transition = NodePath("cameraZoneTransition")
+reference = NodePath("cameraZoneReferenceMoais")
+cameraTurner = NodePath("cameraRotationLookAtPlayer")
+metadata/_custom_type_script = ExtResource("3_85l6k")
+
+[node name="cameraZoneCollider" type="CollisionShape3D" parent="cameraZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34991, 1.09235, -0.1157)
+shape = SubResource("BoxShape3D_1hx2k")
+script = ExtResource("4_hky2r")
+metadata/_custom_type_script = ExtResource("4_hky2r")
+
+[node name="cameraZoneTransition" type="Node3D" parent="cameraZone" node_paths=PackedStringArray("rotationTransition", "positionTransition")]
+script = ExtResource("5_3ur3a")
+speed = 5.0
+rotationSpeed = 0.05
+rotationTransition = NodePath("cameraZoneRotationTransitionConstant")
+positionTransition = NodePath("cameraZonePositionTansitionMovingWithBehave")
+metadata/_custom_type_script = ExtResource("5_3ur3a")
+
+[node name="cameraZonePositionTansitionMovingWithBehave" type="Node3D" parent="cameraZone/cameraZoneTransition" node_paths=PackedStringArray("behavior")]
+script = ExtResource("6_ijngx")
+behavior = NodePath("../../cameraZoneBehaviorPlanar")
+metadata/_custom_type_script = ExtResource("6_ijngx")
+
+[node name="cameraZoneRotationTransitionConstant" type="Node3D" parent="cameraZone/cameraZoneTransition"]
+script = ExtResource("7_uk3ym")
+
+[node name="cameraZoneBehaviorPlanar" type="Node3D" parent="cameraZone" node_paths=PackedStringArray("point1", "point2")]
+transform = Transform3D(-3.40166e-08, -2.74509e-08, -1, -0.628004, 0.77821, -1.3027e-15, 0.77821, 0.628004, -4.37114e-08, 0.664267, 6.99348, 9.08073)
+script = ExtResource("9_sk4e2")
+point1 = NodePath("cameraZoneBehaviorPlanarPoint")
+point2 = NodePath("cameraZoneBehaviorPlanarPoint2")
+x = Vector3(-1, 0, 0)
+y = Vector3(-5.96046e-08, -0.628004, 0.77821)
+metadata/_custom_type_script = ExtResource("9_sk4e2")
+
+[node name="cameraZoneBehaviorPlanarPoint" type="Marker3D" parent="cameraZone/cameraZoneBehaviorPlanar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+script = ExtResource("10_ca4ky")
+metadata/_custom_type_script = ExtResource("10_ca4ky")
+
+[node name="cameraZoneBehaviorPlanarPoint2" type="Marker3D" parent="cameraZone/cameraZoneBehaviorPlanar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+script = ExtResource("10_ca4ky")
+metadata/_custom_type_script = ExtResource("10_ca4ky")
+
+[node name="cameraRotationLookAtPlayer" type="Node3D" parent="cameraZone"]
+script = ExtResource("11_g2pwk")
+
+[node name="cameraZoneReferenceMoais" type="Node3D" parent="cameraZone"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0)
+script = ExtResource("11_3ur3a")
+metadata/_custom_type_script = ExtResource("11_3ur3a")
+
+[node name="cameraZone3" type="Area3D" parent="." node_paths=PackedStringArray("collider", "behavior", "transition", "reference", "cameraTurner")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.2864, 0, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_85l6k")
+collider = NodePath("cameraZoneCollider")
+behavior = NodePath("cameraZoneBehaviorCylinder")
+transition = NodePath("cameraZoneTransition")
+reference = NodePath("cameraZoneReferenceFollowPlayer")
+cameraTurner = NodePath("cameraRotationLookAtPlayer")
+color = Color(1, 0.0235294, 0.301961, 1)
+metadata/_custom_type_script = ExtResource("3_85l6k")
+
+[node name="cameraZoneCollider" type="CollisionShape3D" parent="cameraZone3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.03022, 1.09235, -0.1157)
+shape = SubResource("BoxShape3D_3ur3a")
+script = ExtResource("4_hky2r")
+metadata/_custom_type_script = ExtResource("4_hky2r")
+
+[node name="cameraZoneTransition" type="Node3D" parent="cameraZone3" node_paths=PackedStringArray("rotationTransition", "positionTransition")]
+script = ExtResource("5_3ur3a")
+speed = 5.0
+rotationSpeed = 0.05
+rotationTransition = NodePath("cameraZoneRotationTransitionConstant")
+positionTransition = NodePath("cameraZonePositionTansitionMovingWithBehave")
+metadata/_custom_type_script = ExtResource("5_3ur3a")
+
+[node name="cameraZonePositionTansitionMovingWithBehave" type="Node3D" parent="cameraZone3/cameraZoneTransition" node_paths=PackedStringArray("behavior")]
+script = ExtResource("6_ijngx")
+behavior = NodePath("../../cameraZoneBehaviorCylinder")
+metadata/_custom_type_script = ExtResource("6_ijngx")
+
+[node name="cameraZoneRotationTransitionConstant" type="Node3D" parent="cameraZone3/cameraZoneTransition"]
+script = ExtResource("7_uk3ym")
+
+[node name="cameraRotationLookAtPlayer" type="Node3D" parent="cameraZone3"]
+script = ExtResource("11_g2pwk")
+
+[node name="cameraZoneBehaviorCylinder" type="Node3D" parent="cameraZone3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4408, 0, 0)
+script = ExtResource("12_hky2r")
+radius = 50.0
+yOffset = 7.0
+height = 10.0
+metadata/_custom_type_script = ExtResource("12_hky2r")
+
+[node name="cameraZoneReferenceFollowPlayer" type="Node3D" parent="cameraZone3"]
+script = ExtResource("13_3ur3a")
+metadata/_custom_type_script = ExtResource("13_3ur3a")
+
+[node name="cameraZone2" type="Area3D" parent="." node_paths=PackedStringArray("collider", "behavior", "transition", "reference", "cameraTurner")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7047, 0, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_85l6k")
+collider = NodePath("cameraZoneCollider")
+behavior = NodePath("cameraZoneBehaviorTravelling")
+transition = NodePath("cameraZoneTransition")
+reference = NodePath("cameraZoneReferenceMoais")
+cameraTurner = NodePath("cameraRotationLookAtPlayer")
+color = Color(0.211765, 1, 0.301961, 1)
+metadata/_custom_type_script = ExtResource("3_85l6k")
+
+[node name="cameraZoneCollider" type="CollisionShape3D" parent="cameraZone2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6608, 1.09235, -0.337639)
+shape = SubResource("BoxShape3D_85l6k")
+script = ExtResource("4_hky2r")
+metadata/_custom_type_script = ExtResource("4_hky2r")
+
+[node name="cameraZoneTransition" type="Node3D" parent="cameraZone2" node_paths=PackedStringArray("rotationTransition", "positionTransition")]
+script = ExtResource("5_3ur3a")
+speed = 5.0
+rotationSpeed = 1.0
+rotationTransition = NodePath("cameraZoneRotationTransitionConstant")
+positionTransition = NodePath("cameraZonePositionTansitionMovingWithBehave")
+metadata/_custom_type_script = ExtResource("5_3ur3a")
+
+[node name="cameraZonePositionTansitionMovingWithBehave" type="Node3D" parent="cameraZone2/cameraZoneTransition" node_paths=PackedStringArray("behavior")]
+script = ExtResource("6_ijngx")
+behavior = NodePath("../../cameraZoneBehaviorTravelling")
+metadata/_custom_type_script = ExtResource("6_ijngx")
+
+[node name="cameraZoneRotationTransitionConstant" type="Node3D" parent="cameraZone2/cameraZoneTransition"]
+script = ExtResource("7_uk3ym")
+
+[node name="cameraRotationLookAtPlayer" type="Node3D" parent="cameraZone2"]
+script = ExtResource("11_g2pwk")
+
+[node name="cameraZoneBehaviorTravelling" type="Node3D" parent="cameraZone2" node_paths=PackedStringArray("point")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148076, 5.07727, 0.772428)
+script = ExtResource("12_85l6k")
+point = NodePath("pointComponent")
+metadata/_custom_type_script = ExtResource("12_85l6k")
+
+[node name="pointComponent" type="Marker3D" parent="cameraZone2/cameraZoneBehaviorTravelling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.73806)
+script = ExtResource("13_hky2r")
+metadata/_custom_type_script = ExtResource("13_hky2r")
+
+[node name="cameraZoneReferenceMoais" type="Node3D" parent="cameraZone2"]
+script = ExtResource("11_3ur3a")
+metadata/_custom_type_script = ExtResource("11_3ur3a")
+
+[node name="Label" parent="." instance=ExtResource("16_ijngx")]
+
+[connection signal="body_entered" from="cameraZone" to="cameraZone" method="_on_body_entered"]
+[connection signal="body_entered" from="cameraZone3" to="cameraZone3" method="_on_body_entered"]
+[connection signal="body_entered" from="cameraZone2" to="cameraZone2" method="_on_body_entered"]

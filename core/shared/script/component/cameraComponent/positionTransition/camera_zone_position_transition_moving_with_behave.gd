@@ -6,10 +6,10 @@ class_name cameraZonePositionTansitionMovingWithBehave
 func setup():
 	behavior = cameraZoneVar.behavior
 	
-func doSomething(speed : float = 1.0):
-	position3D = behavior.cameraPosition
-	if(position3D.distance_to(GameManager.currentCamera.position) > (speed - speed/2)):
-		GameManager.currentCamera.moveFromVect3((position3D - GameManager.currentCamera.position).normalized() * speed * GameManager.invDelta)
+func doSomething(delta, speed : float = 1.0):
+	position3D = behavior.getCameraPosition()
+	if(position3D.distance_to(GameManager.currentCamera.position) > 0.0005):
+		GameManager.currentCamera.moveToPos(position3D, speed * delta)
 		return false
 	else:
 		return true

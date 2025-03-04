@@ -16,9 +16,9 @@
 
 [sub_resource type="Resource" id="Resource_rfusc"]
 script = ExtResource("2_m6t41")
-WALK_SPEED = 5.0
-SPRINT_SPEED = 7.5
-CROUCH_SPEED = 2.5
+WALK_SPEED = 500.0
+SPRINT_SPEED = 70.5
+CROUCH_SPEED = 20.5
 SPEED_VARIATION = 0.5
 JUMP_VELOCITY = 4.5
 SENSITIVITY = 0.005
