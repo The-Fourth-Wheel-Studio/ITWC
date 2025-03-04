@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbeulmlguf020"]
 
-[ext_resource type="Script" uid="uid://ch8obal54bejh" path="res://core/shared/script/component/speech_bubble_component.gd" id="1_fglwb"]
+[ext_resource type="Script" path="res://core/shared/script/component/speech_bubble_component.gd" id="1_fglwb"]
 [ext_resource type="Texture2D" uid="uid://dtp8sn6isgpew" path="res://core/ITWC/asset/texture/ui/speechBubble/base.png" id="2_uxrap"]
 [ext_resource type="Texture2D" uid="uid://c3dd4nnr1qt55" path="res://core/ITWC/asset/texture/ui/speechBubble/color.png" id="3_2uum1"]
 

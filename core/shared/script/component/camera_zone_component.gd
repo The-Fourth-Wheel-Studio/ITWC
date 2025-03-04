@@ -33,7 +33,7 @@ func run(delta):
 		if haveToMove:
 			behaveBehavior(delta)
 			referenceBehave()
-			cameraRotationBehave(delta)
+			cameraRotationBehave()
 
 func behaveBehavior(delta : float):
 	GameManager.currentCamera.moveToPos(behavior.getCameraPosition(),3 * delta)
@@ -60,8 +60,8 @@ func setupCameraRotation():
 func referenceBehave():
 	reference.changeReference()
 
-func cameraRotationBehave(delta : float):
-	GameManager.currentCamera.rotateToRotation(cameraTurner.getCameraRotation(),3 * delta)
+func cameraRotationBehave():
+	cameraTurner.justRotate()
 	
 func _on_body_entered(_body):
 	execute()
