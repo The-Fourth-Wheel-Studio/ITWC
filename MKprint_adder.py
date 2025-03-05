@@ -15,15 +15,14 @@ def process_gd_file(file_path):
     # Récupérer le nom du fichier
     script_name = os.path.basename(file_path)
 
-    # Trouver l'endroit où insérer la ligne après `class_name` et/ou `extends`
+    # Trouver l'endroit où insérer la ligne après `class_name` et `extends`
     insert_index = 0
     class_found = False
     for i, line in enumerate(lines):
         trimmed_line = line.strip()
-        if trimmed_line.startswith("class_name "):
+        if trimmed_line.startswith("class_name ") or trimmed_line.startswith("extends "):
+            insert_index = i + 1  # Insérer après la dernière occurrence de class_name ou extends
             class_found = True
-        if class_found and (trimmed_line.startswith("extends ") or trimmed_line.startswith("class_name ")):
-            insert_index = i + 1  # Insérer après la dernière occurrence trouvée
 
     # Vérification de l'héritage : si le script hérite d'une autre classe, on ne doit pas ajouter _scriptName
     parent_class = None
@@ -45,8 +44,9 @@ def process_gd_file(file_path):
                             return
 
         # Ajouter la ligne _scriptName si elle n'est pas déjà présente
-        lines.insert(insert_index, f'static var _scriptName : String = "{script_name}"\n')
-        print(f"Added _scriptName in {file_path}")
+        if insert_index > 0:
+            lines.insert(insert_index, f'static var _scriptName : String = "{script_name}"\n')
+            print(f"Added _scriptName in {file_path}")
 
     # Modifier les appels à MKUtil.print() pour inclure _scriptName comme second argument
     for i, line in enumerate(lines):
