@@ -5,13 +5,12 @@ def process_gd_file(file_path):
 	with open(file_path, 'r', encoding='utf-8') as f:
 		lines = f.readlines()
 
-	# Vérifier si _scriptName est déjà présent
+	# Vérifier si _scriptName est déjà présent dans le script
+	script_name_already_present = False
 	for line in lines:
-		if line.strip().startswith("var _scriptName : String ="):
+		if line.strip().startswith("static var _scriptName : String ="):
 			script_name_already_present = True
 			break
-	else:
-		script_name_already_present = False
 
 	# Récupérer le nom du fichier
 	script_name = os.path.basename(file_path)
@@ -23,8 +22,26 @@ def process_gd_file(file_path):
 		if trimmed_line.startswith("class_name ") or trimmed_line.startswith("extends "):
 			insert_index = i + 1  # Insérer après la dernière occurrence trouvée
 
-	# Ajouter la ligne _scriptName si elle n'est pas déjà présente
+	# Vérification de l'héritage : si le script hérite d'une autre classe, on ne doit pas ajouter _scriptName
+	parent_class = None
+	for line in lines:
+		if line.strip().startswith("extends "):
+			parent_class = line.strip().split(" ")[1]
+			break
+
 	if not script_name_already_present:
+		# Ajouter la ligne _scriptName si elle n'est pas déjà présente
+		if parent_class:
+			# Vérifier si _scriptName existe déjà dans la classe parente
+			parent_file = os.path.join(os.getcwd(), f"{parent_class}.gd")
+			if os.path.exists(parent_file):
+				with open(parent_file, 'r', encoding='utf-8') as parent_f:
+					parent_lines = parent_f.readlines()
+					for parent_line in parent_lines:
+						if "static var _scriptName" in parent_line:
+							print(f"The member '_scriptName' already exists in parent class {parent_class}")
+							return
+
 		lines.insert(insert_index, f'static var _scriptName : String = "{script_name}"\n')
 
 	# Modifier les appels à MKUtil.print() pour inclure _scriptName comme second argument
@@ -36,7 +53,6 @@ def process_gd_file(file_path):
 			# Vérifier si _scriptName est déjà un argument
 			if "_scriptName" not in args:
 				# Préparer une version propre des arguments pour ajouter _scriptName comme second argument
-				# Nous devons repérer correctement les concaténations et les arguments multiples
 				args_list = args.split(",")
 				args_list = [arg.strip() for arg in args_list]
 
@@ -45,8 +61,7 @@ def process_gd_file(file_path):
 					new_args = f'{args}, _scriptName'
 				else:
 					# Dans le cas où il y a une seule expression, on concatène "_scriptName" à la fin
-					# Vérifier si l'expression est une concaténation avec "+" et s'assurer que _scriptName soit ajouté correctement
-					new_args = f'" : " + {args}, _scriptName'
+					new_args = f'{args}, _scriptName'
 
 				# Remplacer l'ancien appel avec le nouveau format
 				lines[i] = line.replace(args, new_args)

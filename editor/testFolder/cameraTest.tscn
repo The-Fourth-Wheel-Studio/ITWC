@@ -69,6 +69,7 @@ shape = SubResource("ConcavePolygonShape3D_y54sx")
 [node name="CharacterBody3D" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_y54sx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0429602, 1.10842, -0.0411148)
 camera = NodePath("../theBestCameraEver")
+isAbleToMove = null
 
 [node name="theBestCameraEver" type="Camera3D" parent="."]
 script = ExtResource("2_515yx")
