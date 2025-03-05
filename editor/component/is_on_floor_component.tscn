@@ -1,10 +1,17 @@
 [gd_scene load_steps=2 format=3 uid="uid://3ogpjn5r5wfk"]
 
-[ext_resource type="Script" path="res://core/shared/script/component/is_on_floor_component.gd" id="1_1f236"]
+[ext_resource type="Script" uid="uid://dwixa77vr5va5" path="res://core/shared/script/component/is_on_floor_component.gd" id="1_1f236"]
 
-[node name="isOnFloorComponent" type="Node3D"]
+[node name="isOnFloorComponent" type="Node3D" node_paths=PackedStringArray("NodeToCheck", "raycast", "coyoteTimer")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.760665, 0)
 script = ExtResource("1_1f236")
+NodeToCheck = NodePath("coyoteTimer")
+lenght = 0.2
+raycast = NodePath("floorDetection")
+coyoteTimer = NodePath("coyoteTimer")
 
 [node name="floorDetection" type="RayCast3D" parent="."]
 target_position = Vector3(0, -0.57, 0)
+
+[node name="coyoteTimer" type="Timer" parent="."]
+wait_time = 0.1

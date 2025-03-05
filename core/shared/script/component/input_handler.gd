@@ -4,6 +4,7 @@ class_name inputHandler
 
 
 @export var asJump : bool = false
+@export var releaseJump : bool = false
 @export var isSprinting : bool = false
 @export var direction : Vector2 = Vector2(0, 0)
 @export var leftClick : bool = false
@@ -12,6 +13,7 @@ class_name inputHandler
 	
 func gather():
 	asJump = Input.is_action_pressed("jump")
+	releaseJump = Input.is_action_just_released("jump")
 	isSprinting = Input.is_action_pressed("sprint")
 	direction = Input.get_vector("left", "right", "up", "down")
 	leftClick = Input.is_action_pressed("left_click")

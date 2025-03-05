@@ -28,14 +28,16 @@ BOB_AMPLITUDE = 0.06
 GRAVITY = 9.81
 metadata/_custom_type_script = ExtResource("2_m6t41")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ok0mv"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0ba7k"]
+radius = 0.493172
+height = 0.986345
 
 [sub_resource type="BoxMesh" id="BoxMesh_c0cdi"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ievqu"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("velocityHandler", "inputhandler", "isOnFloor", "repulseHandlerComponent", "abilitieManager", "model")]
-collision_layer = 3
+collision_layer = 2
 script = ExtResource("1_4frpd")
 velocityHandler = NodePath("velocityComponent")
 inputhandler = NodePath("inputHandler")
@@ -46,7 +48,7 @@ model = NodePath("temp")
 playerAttributeVar = SubResource("Resource_rfusc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_ok0mv")
+shape = SubResource("CapsuleShape3D_0ba7k")
 
 [node name="temp" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_c0cdi")
@@ -99,5 +101,6 @@ active = true
 metadata/_custom_type_script = "uid://caao0praqc6t3"
 
 [node name="isOnFloorComponent" parent="." node_paths=PackedStringArray("NodeToCheck") instance=ExtResource("8_m6t41")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.525179, 0)
 NodeToCheck = NodePath("..")
 lenght = 0.05

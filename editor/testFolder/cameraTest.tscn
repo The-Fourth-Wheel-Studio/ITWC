@@ -84,7 +84,7 @@ behavior = NodePath("cameraZoneBehaviorPlanar")
 transition = NodePath("cameraZoneTransition")
 reference = NodePath("cameraZoneReferenceConst")
 cameraTurner = NodePath("cameraRotationLookAtPlayer")
-color = null
+color = Color(0.823529, 0.745098, 0, 0.247059)
 metadata/_custom_type_script = "uid://hrhosip3wd52"
 
 [node name="cameraZoneCollider" type="CollisionShape3D" parent="cameraZone"]
@@ -132,6 +132,7 @@ metadata/_custom_type_script = "uid://dreqqx71ctxds"
 script = ExtResource("11_g2pwk")
 
 [node name="cameraZoneReferenceConst" type="Node3D" parent="cameraZone"]
+transform = Transform3D(1, 0, 0, 0, 0.684445, 0.729064, 0, -0.729064, 0.684445, 0, 0.541385, 0)
 script = ExtResource("11_ijngx")
 metadata/_custom_type_script = "uid://bsqndnb8cisrj"
 
