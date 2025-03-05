@@ -29,7 +29,7 @@ def process_gd_file(file_path):
         lines.insert(insert_index, f'static var _scriptName : String = "{script_name}"\n')
         print(f"Added _scriptName in {file_path} after class_name or extends")
 
-    # Gérer les appels MKUtil.print() en ajoutant _scriptName avant la dernière parenthèse fermante
+    # Gérer les appels MKUtil.print() en ajoutant _scriptName comme dernier argument
     for i, line in enumerate(lines):
         # Chercher les lignes qui commencent par MKUtil.print
         if line.strip().startswith("MKUtil.print"):
@@ -52,13 +52,13 @@ def process_gd_file(file_path):
 
             # Vérifier si _scriptName est déjà un argument
             if "_scriptName" not in args:
-                # Ajouter _scriptName comme second argument juste avant la dernière parenthèse fermante
+                # Ajouter _scriptName comme dernier argument juste avant la dernière parenthèse fermante
                 if args:
                     new_args = f'{args}, _scriptName'
                 else:
                     new_args = '_scriptName'
 
-                # Construire la nouvelle ligne avec _scriptName ajouté
+                # Construire la nouvelle ligne avec _scriptName ajouté comme dernier argument
                 new_line = line[:start_idx] + new_args + line[end_idx:]
                 lines[i] = new_line
                 print(f"Updated MKUtil.print in {file_path}: {new_args}")
