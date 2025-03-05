@@ -25,7 +25,7 @@ def process_gd_file(file_path):
 
 	# Ajouter la ligne _scriptName si elle n'est pas déjà présente
 	if not script_name_already_present:
-		lines.insert(insert_index, f'var _scriptName : String = "{script_name}"\n')
+		lines.insert(insert_index, f'static var _scriptName : String = "{script_name}"\n')
 
 	# Modifier les appels à MKUtil.print() pour inclure _scriptName comme second argument
 	for i, line in enumerate(lines):
