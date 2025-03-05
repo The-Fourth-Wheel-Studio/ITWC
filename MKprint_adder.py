@@ -24,29 +24,34 @@ def process_gd_file(file_path):
             insert_index = i + 1  # Insérer après la dernière occurrence de class_name ou extends
             class_found = True
 
-    # Vérification de l'héritage : si le script hérite d'une autre classe, on ne doit pas ajouter _scriptName
+    # Vérification de l'héritage : si le script hérite d'une autre classe, on doit gérer _scriptName en conséquence
     parent_class = None
     for line in lines:
         if line.strip().startswith("extends "):
             parent_class = line.strip().split(" ")[1]
             break
 
-    if not script_name_already_present:
-        if parent_class:
-            # Vérifier si _scriptName existe déjà dans la classe parente
-            parent_file = os.path.join(os.getcwd(), f"{parent_class}.gd")
-            if os.path.exists(parent_file):
-                with open(parent_file, 'r', encoding='utf-8') as parent_f:
-                    parent_lines = parent_f.readlines()
-                    for parent_line in parent_lines:
-                        if "static var _scriptName" in parent_line:
-                            print(f"The member '_scriptName' already exists in parent class {parent_class}")
-                            return
+    if parent_class:
+        # Vérifier si _scriptName existe déjà dans la classe parente
+        parent_file = os.path.join(os.getcwd(), f"{parent_class}.gd")
+        if os.path.exists(parent_file):
+            with open(parent_file, 'r', encoding='utf-8') as parent_f:
+                parent_lines = parent_f.readlines()
+                parent_has_script_name = any("static var _scriptName" in parent_line for parent_line in parent_lines)
+                if parent_has_script_name:
+                    # Si la classe parente a _scriptName, ne pas ajouter dans l'enfant
+                    print(f"The member '_scriptName' already exists in parent class {parent_class}. Overriding in {file_path}.")
+                else:
+                    # Si la classe parente n'a pas _scriptName, on peut l'ajouter dans l'enfant
+                    if not script_name_already_present:
+                        lines.insert(insert_index, f'static var _scriptName : String = "{script_name}"\n')
+                        print(f"Added _scriptName in {file_path}")
+            return  # Nous avons déjà fait le travail pour la classe parente, pas besoin de continuer ici
 
-        # Ajouter la ligne _scriptName si elle n'est pas déjà présente
-        if insert_index > 0:
-            lines.insert(insert_index, f'static var _scriptName : String = "{script_name}"\n')
-            print(f"Added _scriptName in {file_path}")
+    # Ajouter la ligne _scriptName si elle n'est pas déjà présente dans ce script
+    if not script_name_already_present:
+        lines.insert(insert_index, f'static var _scriptName : String = "{script_name}"\n')
+        print(f"Added _scriptName in {file_path}")
 
     # Modifier les appels à MKUtil.print() pour inclure _scriptName comme second argument
     for i, line in enumerate(lines):
