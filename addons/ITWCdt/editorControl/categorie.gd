@@ -42,7 +42,6 @@ func _on_remove_button_down() -> void:
 func refresh():
 	EngineTool.removeAllChildren(loadContainer)
 	for i in parent.file.get_section_keys(categoryName):
-		print(i)
 		var text = TEXT_SCENE.instantiate()
 		loadContainer.add_child(text.init(i, parent.file.get_value(categoryName,i)))
 		

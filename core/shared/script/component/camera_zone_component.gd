@@ -31,7 +31,7 @@ func run(delta):
 		referenceBehave()
 		cameraRotationBehave()
 
-func behaveBehavior(delta : float):
+func behaveBehavior(_delta : float):
 	behavior.setCameraPosition(behavior.getCameraPosition())
 	
 func transitioned(delta):

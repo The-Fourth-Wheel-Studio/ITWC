@@ -152,7 +152,7 @@ func handleMode(categorie : String, key : String, json : Dictionary):
 		elif json["mode"] == "replace":
 			handleReplaceMode(categorie, key, json["scene"])
 		elif json["mode"] == "remove":
-			handleRemoveMode(categorie, key, json["scene"])
+			handleRemoveMode(categorie, key)
 					
 func handleAddMode(categorie : String, key : String, value : Array):
 	modeInit(categorie)
@@ -166,7 +166,7 @@ func handleReplaceMode(categorie : String, key : String, value : Array):
 	modeInit(categorie)
 	GameManager.loadedScene[categorie][key] = value
 		
-func handleRemoveMode(categorie : String, key : String, value : Array):
+func handleRemoveMode(categorie : String, key : String):
 	modeInit(categorie)
 	if GameManager.loadedScene[categorie].has(key):
 		GameManager.loadedScene[categorie].erase(key)

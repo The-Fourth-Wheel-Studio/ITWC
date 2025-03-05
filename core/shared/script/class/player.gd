@@ -6,7 +6,7 @@ class_name Player
 @export var velocityHandler : velocityComponent
 @export var inputhandler : inputHandler
 @export var isOnFloor : isOneFloorComponent
-@export var repulseHandler : repulseHandler
+@export var repulseHandlerComponent : repulseHandler
 @export var camera : theBestCameraEver
 @export var abilitieManager : abilitiesManager
 @export_category("player Attributes")

@@ -1,3 +1,5 @@
+#thanks to chatgpt i was lazy (don't use unless you are titruc this is broken and doesn't work the way you would expect)
+
 import os
 import re
 

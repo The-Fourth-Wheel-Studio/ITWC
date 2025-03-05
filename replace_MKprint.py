@@ -1,3 +1,5 @@
+#thanks to chatgpt i was lazy
+
 import os
 import re
 

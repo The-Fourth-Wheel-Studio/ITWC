@@ -8,10 +8,10 @@ var normal : Vector3
 var parametricEquation : Array
 var pos : Vector3
 
-func _init(x : Vector3, y : Vector3, a : Vector3):
-	self.x = x
-	self.y = y
-	self.normal = Common.getNormalVectorOfAPlane(x, y)
+func _init(_x : Vector3, _y : Vector3, a : Vector3):
+	self.x = _x
+	self.y = _y
+	self.normal = Common.getNormalVectorOfAPlane(_x, _y)
 	self.pos = a
 	var d = -self.normal.dot(a)
 	self.parametricEquation = [self.normal.x, self.normal.y, self.normal.z, d]

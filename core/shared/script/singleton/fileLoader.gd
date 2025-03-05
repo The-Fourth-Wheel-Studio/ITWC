@@ -4,10 +4,12 @@ const _scriptName : String = "fileLoader"
 static func getAllFile(folderPath : String):
 	var absolutePath : String = GameManager.gamePath.path_join(folderPath)
 	var fileGet : Array
-	fileGet = DirAccess.get_directories_at(absolutePath)
+	if DirAccess.dir_exists_absolute(absolutePath):
+		fileGet = DirAccess.get_directories_at(absolutePath)
 	if fileGet == []:
 		absolutePath = "res://".path_join(folderPath)
-		fileGet = DirAccess.get_directories_at(absolutePath)
+		if DirAccess.dir_exists_absolute(absolutePath):
+			fileGet = DirAccess.get_directories_at(absolutePath)
 	return fileGet
 		
 static func addFileDirectory(path : String, fileName : String):
