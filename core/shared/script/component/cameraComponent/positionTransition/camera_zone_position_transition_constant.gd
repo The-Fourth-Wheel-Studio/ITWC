@@ -1,6 +1,5 @@
 extends cameraZonePositionTransition
 class_name cameraZonePositionTansitionConstant
-static var _scriptName : String = "camera_zone_position_transition_constant"
 
 @export var posPoint : cameraZoneBehaviorStartPos
 

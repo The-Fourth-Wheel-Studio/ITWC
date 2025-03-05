@@ -42,7 +42,7 @@ func execute():
 		isSetup = false
 		setup = true
 		GameManager.currentCamera.currentCameraZone = self
-		MKUtil.print("Change camera angles to : " + str(self.name, _scriptName))
+		MKUtil.print("Change camera angles to : " + str(self.name), _scriptName)
 
 func setupBehavior():
 	behavior.setup()
