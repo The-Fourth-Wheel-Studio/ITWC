@@ -10,7 +10,7 @@ class_name Player
 @export var camera : theBestCameraEver
 @export var abilitieManager : abilitiesManager
 @export_category("player Attributes")
-@export var model : MeshInstance3D
+@export var model : Node3D
 @export var playerAttributeVar : playerAttribute
 @export_category("player Variables")
 @export var isAbleToMove : bool = true

@@ -13,6 +13,6 @@ func doWhatever(delta):
 
 func applyRotation(delta):
 	var refVector : Vector2 = GameManager.currentCamera.getNewDir(player.inputhandler.direction)
-	player.model.rotation.y = lerp_angle(player.model.rotation.y,Common.getComplexArgument(refVector.x, refVector.y * -1),0.08 * delta)
+	player.model.rotation.y = lerp_angle(player.model.rotation.y,Common.getComplexArgument(refVector.x, refVector.y * -1),10 * delta)
 
 	

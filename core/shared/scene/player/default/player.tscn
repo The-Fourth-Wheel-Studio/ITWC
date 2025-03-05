@@ -45,14 +45,17 @@ inputhandler = NodePath("inputHandler")
 isOnFloor = NodePath("isOnFloorComponent")
 repulseHandlerComponent = NodePath("repulseHandler")
 abilitieManager = NodePath("abilitiesManager")
-model = NodePath("temp")
+model = NodePath("body")
 playerAttributeVar = SubResource("Resource_rfusc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_0ba7k")
 
-[node name="temp" type="MeshInstance3D" parent="."]
+[node name="body" type="Node3D" parent="."]
+
+[node name="temp" type="MeshInstance3D" parent="body"]
 mesh = SubResource("BoxMesh_c0cdi")
+skeleton = NodePath("../..")
 
 [node name="velocityComponent" type="Node" parent="."]
 script = ExtResource("2_c74cp")
