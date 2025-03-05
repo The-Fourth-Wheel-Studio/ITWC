@@ -1,7 +1,7 @@
 @icon("res://editor/assets/component/cameraZoneTransitionComponent.png")
 extends Node3D
 class_name cameraZoneTransition
-static var _scriptName : String = "camera_zone_transition_component"
+
 
 @export_category("transition attribute")
 @export var speed : float = 0.3

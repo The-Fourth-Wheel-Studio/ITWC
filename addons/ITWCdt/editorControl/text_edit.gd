@@ -1,7 +1,7 @@
 @tool
 extends HBoxContainer
 class_name ITWCdt_textEdit
-static var _scriptName : String = "text_edit"
+
 
 const SELF_SCENE : PackedScene = preload("res://addons/ITWCdt/editorControl/text_edit.tscn")
 

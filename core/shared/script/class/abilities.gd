@@ -1,7 +1,7 @@
 @icon("res://editor/assets/component/abilitiesComponent.png")
 extends Node3D
 class_name abilities
-static var _scriptName : String = "abilities"
+
 
 @export var active : bool = false
 var player : CharacterBody3D

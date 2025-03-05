@@ -1,7 +1,7 @@
 @icon("res://editor/assets/component/cameraComponent.png")
 extends Camera3D
 class_name theBestCameraEver
-static var _scriptName : String = "camera_component"
+
 
 @export_category("Camera Zone")
 @export var currentCameraZone : cameraZone

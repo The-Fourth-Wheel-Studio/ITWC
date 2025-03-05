@@ -1,7 +1,7 @@
 @tool
 extends Node3D
 class_name playerLoader
-static var _scriptName : String = "player_loader"
+
 
 @export_category("don't touch unless you're Titruc")
 @export var id : int = -1

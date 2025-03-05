@@ -1,6 +1,6 @@
 class_name Common
 #Welcome in Titruc's hell !
-static var _scriptName : String = "common"
+
 
 static func banUnallowedChar(unAllowedChar : Array[String], string : String):
 	var newString : String = ""

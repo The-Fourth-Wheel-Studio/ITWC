@@ -1,6 +1,6 @@
 @tool
 extends EditorNode3DGizmoPlugin
-static var _scriptName : String = "createCameraReferenceGizmo"
+
 
 const cameraRotationGizmo = preload("res://addons/ITWCdt/gizmo/cameraZone/gizmo/cameraZoneReferenceMoaisGizmo.gd")
 const cameraRotationType = preload("res://core/shared/script/component/cameraComponent/reference/camera_zone_reference_const.gd")

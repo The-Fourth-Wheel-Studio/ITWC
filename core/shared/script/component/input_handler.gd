@@ -1,7 +1,7 @@
 @icon("res://editor/assets/component/inputHandler.png")
 extends Node
 class_name inputHandler
-static var _scriptName : String = "input_handler"
+
 
 @export var asJump : bool = false
 @export var isSprinting : bool = false

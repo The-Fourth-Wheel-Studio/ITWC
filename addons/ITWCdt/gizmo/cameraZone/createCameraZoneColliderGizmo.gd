@@ -1,6 +1,6 @@
 @tool
 extends EditorNode3DGizmoPlugin
-static var _scriptName : String = "createCameraZoneColliderGizmo"
+
 
 const cameraZoneColliderGizmo = preload("res://addons/ITWCdt/gizmo/cameraZone/gizmo/cameraZoneColliderGizmo.gd")
 const cameraZoneColliderType = preload("res://core/shared/script/component/camera_zone_collider.gd")

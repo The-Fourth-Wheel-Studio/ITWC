@@ -1,7 +1,7 @@
 @icon("res://editor/assets/component/repulseHandler.png")
 extends Node3D
 class_name repulseHandler
-static var _scriptName : String = "repulse_handler"
+
 
 @export_category("repulse Handler Attributes")
 @export_range(0, 1) var force : float = 1.0

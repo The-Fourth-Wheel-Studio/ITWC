@@ -5,7 +5,7 @@
 ##
 ## @tutorial: https://github.com/vaporvee/discord-rpc-godot/wiki
 extends Node
-static var _scriptName : String = "discord_autoload"
+
 
 func _ready() -> void:
 	pass

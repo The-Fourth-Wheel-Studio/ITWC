@@ -1,7 +1,7 @@
 @icon("res://editor/assets/component/cameraZoneBehaviorComponent.png")
 extends Node3D
 class_name cameraZoneBehavior
-static var _scriptName : String = "camera_zone_behavior_component"
+
 
 func setup():
 	pass

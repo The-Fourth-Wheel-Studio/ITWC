@@ -1,7 +1,7 @@
 @icon("res://editor/assets/component/cameraZoneComponent.png")
 extends Area3D
 class_name cameraZone
-static var _scriptName : String = "camera_zone_component"
+const _scriptName : String = "camera_zone_component"
 
 @export_category("Camera Zone Component")
 @export var collider : cameraZoneCollider

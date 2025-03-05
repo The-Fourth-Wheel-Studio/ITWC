@@ -1,6 +1,6 @@
 @tool
 extends EditorNode3DGizmo
-static var _scriptName : String = "cameraZoneReferenceMoaisGizmo"
+
 
 var node:cameraZoneReference = null
 var greenMat : StandardMaterial3D = StandardMaterial3D.new()

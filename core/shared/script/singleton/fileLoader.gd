@@ -1,5 +1,5 @@
 class_name FileLoader
-static var _scriptName : String = "fileLoader"
+const _scriptName : String = "fileLoader"
 
 static func getAllFile(folderPath : String):
 	var absolutePath : String = GameManager.gamePath.path_join(folderPath)

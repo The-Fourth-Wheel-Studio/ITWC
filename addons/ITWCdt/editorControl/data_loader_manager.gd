@@ -1,7 +1,7 @@
 @tool
 extends VBoxContainer
 class_name ITWCdt_VBoxContainer
-static var _scriptName : String = "data_loader_manager"
+
 
 const SELF_SCENE : PackedScene = preload("res://addons/ITWCdt/editorControl/dataLoaderManager.tscn")
 const CATEGORIE_SCENE : PackedScene = preload("res://addons/ITWCdt/editorControl/categorie.tscn")

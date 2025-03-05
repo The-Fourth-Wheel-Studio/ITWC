@@ -1,5 +1,5 @@
 extends Node
-static var _scriptName : String = "Settings"
+const _scriptName : String = "Settings"
 
 var setting : ConfigFile = ConfigFile.new()
 var lang : String = ""

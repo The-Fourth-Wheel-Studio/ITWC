@@ -1,6 +1,6 @@
 extends Resource
 class_name playerAttribute
-static var _scriptName : String = "playerAttribute"
+
 
 @export var WALK_SPEED : float = 5.0
 @export var SPRINT_SPEED : float = 7.5

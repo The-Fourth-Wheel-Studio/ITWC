@@ -1,5 +1,5 @@
 extends Node
-static var _scriptName : String = "eventObserver"
+
 
 var event : Dictionary = {}
 

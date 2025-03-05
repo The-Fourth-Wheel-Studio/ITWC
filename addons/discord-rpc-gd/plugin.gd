@@ -1,6 +1,6 @@
 @tool
 extends EditorPlugin
-static var _scriptName : String = "plugin"
+
 
 const DiscordRPCDebug = preload("res://addons/discord-rpc-gd/nodes/debug.gd")
 const DiscordRPCDebug_icon = preload("res://addons/discord-rpc-gd/Debug.svg")

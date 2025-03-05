@@ -1,6 +1,6 @@
 extends CharacterBody3D
 class_name Player
-static var _scriptName : String = "player"
+
 
 @export_category("Component")
 @export var velocityHandler : velocityComponent

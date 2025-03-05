@@ -1,5 +1,5 @@
 class_name MKUtil
-static var _scriptName : String = "MKUtils"
+
 
 static func to_num_string(number:int, length:int = 3) -> String:
 	var s = str(number)

@@ -1,6 +1,6 @@
 extends Node
 class_name EngineTool
-static var _scriptName : String = "engineTool"
+const _scriptName : String = "engineTool"
 
 static func loadScene(nodeWhereToLoad : Node, scenePath:String, loadingScene = null):
 	#MKhomer code thanks yoshman

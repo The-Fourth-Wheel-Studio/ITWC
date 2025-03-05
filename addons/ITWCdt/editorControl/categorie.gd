@@ -1,7 +1,7 @@
 @tool
 extends VBoxContainer
 class_name ITWCdt_categorie
-static var _scriptName : String = "categorie"
+const _scriptName : String = "categorie"
 
 const SELF_SCENE : PackedScene = preload("res://addons/ITWCdt/editorControl/categorie.tscn")
 const TEXT_SCENE : PackedScene = preload("res://addons/ITWCdt/editorControl/text_edit.tscn")

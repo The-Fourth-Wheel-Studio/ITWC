@@ -2,7 +2,7 @@
 @icon("res://editor/assets/component/animationHandler.png")
 @tool
 extends Node
-static var _scriptName : String = "animation_handler"
+
 
 class_name animationHandler
 @export var model : Node3D

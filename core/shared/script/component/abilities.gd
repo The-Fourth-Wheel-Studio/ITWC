@@ -1,7 +1,7 @@
 @icon("res://editor/assets/component/abilitiesManager.png")
 extends Node
 class_name abilitiesManager
-static var _scriptName : String = "abilities"
+const _scriptName : String = "abilities"
 
 var abilitiesList : Array[abilities]
 
