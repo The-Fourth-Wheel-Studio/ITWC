@@ -12,6 +12,7 @@ func _enter_tree():
 	onLoad()
 	MKUtil.print("Loading Game", _scriptName)
 	#load game
+	loadExternalRessource()
 	loadOnLoad()
 	loadGlobal()
 	loadMenue()
@@ -32,6 +33,11 @@ func loadCategory(node : Node, catName : String):
 			for j in GameManager.loadedScene[catName][i]:
 				EngineTool.addChildfromPath(node, j)
 
+func loadExternalRessource():
+	if GameManager.loadedScene.has("ExternalRessource"):
+		for i in GameManager.loadedScene["ExternalRessource"].keys():
+			FileLoader.loadPCKFromPath(GameManager.loadedScene["ExternalRessource"][i])
+		
 func loadOnLoad():
 	var newNode : Node = Node.new()
 	newNode.set_name("OnLoad")
@@ -57,8 +63,7 @@ func loadGame():
 	self.add_child(newNode)
 	loadCategory(newNode, "Game")
 
-func loadAccess(parent : Node, value : String):
-	EngineTool.addChildfromPath(parent, GameManager.loadedScene["Access"][value])
+
 
 #save
 func loadSave(saveId : int):

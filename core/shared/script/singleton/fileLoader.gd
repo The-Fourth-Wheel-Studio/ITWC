@@ -87,3 +87,16 @@ static func loadITWCdata(filePath : String):
 	else:
 		MKUtil.print("Error : the ITWCdata file at '" + str(filePath, _scriptName) + "' doesn't exist")
 		return null
+
+static func loadPCKFromPath(filePath : String):
+	var absolutePath : String = GameManager.gamePath.path_join(filePath)
+	if FileAccess.file_exists(absolutePath):
+		MKUtil.print("PCK at path : '" + absolutePath + "' correctly loaded", _scriptName)
+		ProjectSettings.load_resource_pack(absolutePath)
+	elif FileAccess.file_exists("res://".path_join(filePath)):
+		absolutePath = "res://".path_join(filePath)
+		MKUtil.print("PCK at path :  '" + absolutePath + "' correctly loaded", _scriptName)
+		ProjectSettings.load_resource_pack(absolutePath)
+	else:
+		MKUtil.print("Error : the PCK file at '" + str(filePath, _scriptName) + "' doesn't exist")
+		return null
