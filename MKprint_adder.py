@@ -5,10 +5,15 @@ def add_script_name_to_file(file_path):
         lines = file.readlines()
         script_name_added = False
         print_argument_added = False
+        class_name_found = False
 
         for i, line in enumerate(lines):
-            # Ajouter la variable _scriptName si elle n'est pas déjà présente
-            if not script_name_added:
+            # Vérifier si class_name a été trouvé pour un placement correct de _scriptName
+            if 'class_name' in line:
+                class_name_found = True
+
+            # Ajouter la variable _scriptName après extends ou class_name
+            if not script_name_added and (class_name_found or 'extends' in line):
                 if 'class_name' in line or 'extends' in line:
                     lines.insert(i + 1, f"static var _scriptName : String = \"{os.path.basename(file_path)}\"\n")
                     script_name_added = True
