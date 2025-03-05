@@ -2,6 +2,7 @@
 @tool
 extends Control
 class_name speechBubble
+static var _scriptName : String = "speech_bubble_component"
 
 @export_category("Needed Children")
 @export var textLabel : Label

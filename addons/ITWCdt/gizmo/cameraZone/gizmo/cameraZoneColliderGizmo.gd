@@ -1,5 +1,6 @@
 @tool
 extends EditorNode3DGizmo
+static var _scriptName : String = "cameraZoneColliderGizmo"
 
 var node:cameraZoneCollider = null
 var mat : StandardMaterial3D = StandardMaterial3D.new()

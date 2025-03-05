@@ -1,5 +1,6 @@
 @tool
 extends EditorPlugin
+static var _scriptName : String = "ITWCdt"
 
 #gizmo
 var cameraZoneColliderGizmos = preload("res://addons/ITWCdt/gizmo/cameraZone/createCameraZoneColliderGizmo.gd").new()

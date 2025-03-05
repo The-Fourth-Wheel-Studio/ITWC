@@ -1,4 +1,5 @@
 extends Node3D
+static var _scriptName : String = "pnjTest"
 
 @export var speech : speechBubble
 # Called when the node enters the scene tree for the first time.

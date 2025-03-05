@@ -1,5 +1,6 @@
 @tool
 extends EditorNode3DGizmo
+static var _scriptName : String = "pnjDialogueManagerGizmo"
 
 var node:pnjDialogueManager = null
 var greenMat : StandardMaterial3D = StandardMaterial3D.new()

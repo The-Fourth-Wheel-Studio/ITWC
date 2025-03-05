@@ -1,5 +1,6 @@
 extends Node
 class_name Config
+static var _scriptName : String = "Config"
 
 static var config : ConfigFile = ConfigFile.new()
 
@@ -11,7 +12,7 @@ static func loadConfigFile():
 	if !FileAccess.file_exists(CONFIG_FILE_PATH):
 		setDefaultConfig()
 	loadConfig()
-	MKUtil.print("game config correctly loaded")
+	MKUtil.print("game config correctly loaded", _scriptName)
 
 static func loadConfig():
 	config.load(CONFIG_FILE_PATH)
@@ -22,4 +23,4 @@ static func setDefaultConfig():
 	config.set_value("game_config", "save_path", "data/game/saves")
 	config.set_value("game_config", "mod_path", "core/mods")
 	FileLoader.saveConfigFile(config, CONFIG_FILE_PATH)
-	MKUtil.print("default config file created at: " + CONFIG_FILE_PATH)
+	MKUtil.print("default config file created at: " + CONFIG_FILE_PATH, _scriptName)

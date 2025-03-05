@@ -1,22 +1,23 @@
 @icon("res://editor/assets/component/martin.png")
 extends Node3D
 class_name gameHead
+static var _scriptName : String = "game_head"
 
 func _enter_tree():
 	print("-----------------------------------------------------------------------")
-	MKUtil.print("Load Game Head")
+	MKUtil.print("Load Game Head", _scriptName)
 	loadHead()
-	MKUtil.print("Loading Game Files")
+	MKUtil.print("Loading Game Files", _scriptName)
 	#load game files
 	onLoad()
-	MKUtil.print("Loading Game")
+	MKUtil.print("Loading Game", _scriptName)
 	#load game
 	loadOnLoad()
 	loadGlobal()
 	loadMenue()
 	loadGame()
 	
-	MKUtil.print("game fully loaded")
+	MKUtil.print("game fully loaded", _scriptName)
 	print("-----------------------------------------------------------------------")
 
 func loadHead():
@@ -101,7 +102,7 @@ func onLoad():
 	loadDefaultFile()
 	loadMods()
 	finalizeLoad()
-	MKUtil.print("game file correctly loaded :  " + str(GameManager.loadedScene))
+	MKUtil.print("game file correctly loaded :  " + str(GameManager.loadedScene, _scriptName))
 
 func finalizeLoad():
 	'''
@@ -122,11 +123,11 @@ func loadMods():
 	this is where it get interesting, this is where mod loading is handle
 	'''
 	if DirAccess.dir_exists_absolute(GameManager.modsPath) and not len(FileLoader.getAllFile(GameManager.modsPath)) == 0:
-		MKUtil.print("Loading " + str(len(FileLoader.getAllFile(GameManager.modsPath))) + " Mods")
+		MKUtil.print("Loading " + str(len(FileLoader.getAllFile(GameManager.modsPath))) + " Mods", _scriptName)
 		for i in FileLoader.getAllFile(GameManager.modsPath):
 			loadScene(GameManager.modsPath.path_join(i))
 	else:
-		MKUtil.print("no mods to load :(")
+		MKUtil.print("no mods to load :(", _scriptName)
 		
 func loadScene(path : String):
 	'''
@@ -200,9 +201,9 @@ func loadITWCdata(path : String) -> Dictionary:
 	#load language
 	GameManager.lang = FileLoader.JsonToDict(FileLoader.loadJsonToRead("data/asset/lang/"+Option.option["language"]))["translation"]
 	#everything is loaded
-	MKUtil.print("The game is loaded")
+	MKUtil.print("The game is loaded", _scriptName)
 	
-	MKUtil.print("assert like Martelet does")
+	MKUtil.print("assert like Martelet does", _scriptName)
 	test()
 	
 func loadSave(saveId : int):

@@ -1,41 +1,61 @@
 import os
+import re
 
-def add_script_name_to_file(file_path):
-    with open(file_path, 'r+') as file:
+def add_script_name_to_gd_file(file_path):
+    with open(file_path, 'r') as file:
         lines = file.readlines()
-        script_name_added = False
-        print_argument_added = False
-        class_name_found = False
 
-        for i, line in enumerate(lines):
-            # Vérifier si class_name a été trouvé pour un placement correct de _scriptName
-            if 'class_name' in line:
-                class_name_found = True
+    script_name = os.path.basename(file_path).replace('.gd', '')
 
-            # Ajouter la variable _scriptName après extends ou class_name
-            if not script_name_added and (class_name_found or 'extends' in line):
-                if 'class_name' in line or 'extends' in line:
-                    lines.insert(i + 1, f"static var _scriptName : String = \"{os.path.basename(file_path)}\"\n")
-                    script_name_added = True
+    # Vérifier si la ligne avec _scriptName existe déjà
+    script_name_line = f"static var _scriptName : String = \"{script_name}\""
+    if any(script_name_line in line for line in lines):
+        return
+
+    header_added = False
+    new_lines = []
+    header_end_index = -1
+
+    # Parcourir les lignes du fichier pour trouver le header et déterminer où insérer _scriptName
+    for i, line in enumerate(lines):
+        if not header_added:
+            stripped_line = line.strip()
             
-            # Ajouter _scriptName à MKUtil.print(v) s'il n'est pas déjà présent
-            if 'MKUtil.print(' in line and '_scriptName' not in line:
-                line = line.rstrip()  # Supprimer les espaces à la fin de la ligne
-                line = line.rstrip(')')  # Enlever la parenthèse fermante pour la modifier
-                line += f', _scriptName )\n'  # Ajouter _scriptName avant la parenthèse fermante
-                lines[i] = line
+            # Vérifier si l'une des composantes du header est présente
+            if stripped_line.startswith('@icon') or stripped_line.startswith('@tool') or stripped_line.startswith('extends') or stripped_line.startswith('class_name'):
+                new_lines.append(line)
+                header_end_index = i  # Garder une trace de la dernière ligne du header
+            elif stripped_line == "":
+                # Si une ligne vide est rencontrée après le header, ajouter _scriptName ici
+                if header_end_index != -1:
+                    new_lines.append(f"static var _scriptName : String = \"{script_name}\"\n")
+                    header_added = True
+                new_lines.append(line)
+            else:
+                new_lines.append(line)
+        else:
+            new_lines.append(line)
 
-        # Sauvegarder les modifications dans le fichier
-        file.seek(0)
-        file.writelines(lines)
+    # Si le header n'a pas été trouvé, ajouter _scriptName en haut
+    if not header_added:
+        new_lines.insert(0, f"static var _scriptName : String = \"{script_name}\"\n")
 
-def scan_directory_for_gd_files(directory):
-    for root, dirs, files in os.walk(directory):
+    # Modifier les appels MKUtil.print(v) pour y ajouter _scriptName
+    for i, line in enumerate(new_lines):
+        if 'MKUtil.print(' in line:
+            # Ajouter _scriptName avant la dernière parenthèse fermante
+            new_lines[i] = re.sub(r'(MKUtil\.print\([^\)]*)\)', r'\1, _scriptName)', line)
+
+    # Écrire les modifications dans le fichier
+    with open(file_path, 'w') as file:
+        file.writelines(new_lines)
+
+def scan_and_modify_files(root_dir):
+    for root, dirs, files in os.walk(root_dir):
         for file in files:
             if file.endswith('.gd'):
                 file_path = os.path.join(root, file)
-                add_script_name_to_file(file_path)
+                add_script_name_to_gd_file(file_path)
 
-if __name__ == '__main__':
-    current_directory = os.getcwd()
-    scan_directory_for_gd_files(current_directory)
+# Exécution du script sur le répertoire courant
+scan_and_modify_files(os.getcwd())

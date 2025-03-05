@@ -1,4 +1,5 @@
 extends Node
+static var _scriptName : String = "Settings"
 
 var setting : ConfigFile = ConfigFile.new()
 var lang : String = ""
@@ -9,7 +10,7 @@ func loadSettingFile():
 	if !FileAccess.file_exists(SETTINGS_FILE_PATH):
 		setDefaultSetting()
 	loadSetting()
-	MKUtil.print("game setting correctly loaded")
+	MKUtil.print("game setting correctly loaded", _scriptName)
 
 func loadSetting():
 	setting.load(SETTINGS_FILE_PATH)
@@ -18,4 +19,4 @@ func loadSetting():
 func setDefaultSetting():
 	setting.set_value("general", "language", "fr_fr.json")
 	FileLoader.saveConfigFile(setting, SETTINGS_FILE_PATH)
-	MKUtil.print("default setting file created at: " + SETTINGS_FILE_PATH)
+	MKUtil.print("default setting file created at: " + SETTINGS_FILE_PATH, _scriptName)

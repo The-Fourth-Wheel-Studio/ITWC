@@ -1,6 +1,7 @@
 @icon("res://editor/assets/component/isOnFloorComponent.png")
 extends Node3D
 class_name isOneFloorComponent
+static var _scriptName : String = "is_on_floor_component"
 
 @export var NodeToCheck : Node
 @export var lenght : float

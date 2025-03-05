@@ -1,5 +1,6 @@
 extends ResourceFormatLoader
 class_name ITWCResourceLoader
+static var _scriptName : String = "ITWCdata"
 
 func _get_recognized_extensions() -> PackedStringArray:
 	return ["ITWCdata"]

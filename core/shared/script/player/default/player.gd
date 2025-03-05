@@ -1,5 +1,5 @@
 extends Player
-	
+
 func _enter_tree():
 	GameManager.setCurrentPlayer(self)
 	abilitieManager.load()

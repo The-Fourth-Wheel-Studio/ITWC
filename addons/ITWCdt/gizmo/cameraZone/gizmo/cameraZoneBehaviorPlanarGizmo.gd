@@ -1,5 +1,6 @@
 @tool
 extends EditorNode3DGizmo
+static var _scriptName : String = "cameraZoneBehaviorPlanarGizmo"
 
 var node:cameraZoneBehaviorPlanar = null
 var mat : StandardMaterial3D = StandardMaterial3D.new()

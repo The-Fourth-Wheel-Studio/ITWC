@@ -1,4 +1,5 @@
 extends Node
+static var _scriptName : String = "gameManager"
 
 #player and camera stuff
 @export var currentCamera : theBestCameraEver

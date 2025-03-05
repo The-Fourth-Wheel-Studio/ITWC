@@ -1,5 +1,6 @@
 @tool
 extends ScrollContainer
+static var _scriptName : String = "data_loader_manager_main"
 
 @export var cont : VBoxContainer
 

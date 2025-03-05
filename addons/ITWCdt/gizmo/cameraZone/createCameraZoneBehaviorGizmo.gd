@@ -1,5 +1,6 @@
 @tool
 extends EditorNode3DGizmoPlugin
+static var _scriptName : String = "createCameraZoneBehaviorGizmo"
 
 const cameraZoneBehaviorPlanarGizmo = preload("res://addons/ITWCdt/gizmo/cameraZone/gizmo/cameraZoneBehaviorPlanarGizmo.gd")
 const cameraZoneBehaviorPlanarType = preload("res://core/shared/script/component/cameraComponent/cameraBehavior/camera_zone_behavior_planar.gd")

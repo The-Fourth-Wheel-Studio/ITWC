@@ -5,6 +5,7 @@
 ## @tutorial: https://github.com/vaporvee/discord-rpc-godot/wiki
 @tool
 extends Node
+static var _scriptName : String = "debug"
 
 func _ready() -> void:
 	const DebugNodeGroup: PackedScene = preload("res://addons/discord-rpc-gd/nodes/Debug.tscn")

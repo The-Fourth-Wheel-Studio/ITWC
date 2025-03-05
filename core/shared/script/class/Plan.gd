@@ -1,4 +1,5 @@
 class_name Plan
+static var _scriptName : String = "Plan"
 
 var x : Vector3
 var y : Vector3

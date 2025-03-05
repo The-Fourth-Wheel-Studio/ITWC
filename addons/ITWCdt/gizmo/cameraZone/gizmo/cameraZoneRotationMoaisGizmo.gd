@@ -1,5 +1,6 @@
 @tool
 extends EditorNode3DGizmo
+static var _scriptName : String = "cameraZoneRotationMoaisGizmo"
 
 var node:cameraRotation = null
 var greenMat : StandardMaterial3D = StandardMaterial3D.new()

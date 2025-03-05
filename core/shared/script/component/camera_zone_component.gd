@@ -1,6 +1,7 @@
 @icon("res://editor/assets/component/cameraZoneComponent.png")
 extends Area3D
 class_name cameraZone
+static var _scriptName : String = "camera_zone_component"
 
 @export_category("Camera Zone Component")
 @export var collider : cameraZoneCollider
@@ -41,7 +42,7 @@ func execute():
 		isSetup = false
 		setup = true
 		GameManager.currentCamera.currentCameraZone = self
-		MKUtil.print("Change camera angles to : " + str(self.name))
+		MKUtil.print("Change camera angles to : " + str(self.name, _scriptName))
 
 func setupBehavior():
 	behavior.setup()

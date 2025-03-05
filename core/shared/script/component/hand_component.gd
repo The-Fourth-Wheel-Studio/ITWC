@@ -1,6 +1,7 @@
 @icon("res://editor/assets/component/handComponent.png")
 extends Node3D
 class_name handComponent
+static var _scriptName : String = "hand_component"
 
 @onready var hand : RayCast3D = $hand
 @export var handLenght : Vector3

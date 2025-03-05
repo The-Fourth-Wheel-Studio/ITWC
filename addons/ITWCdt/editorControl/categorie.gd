@@ -1,6 +1,7 @@
 @tool
 extends VBoxContainer
 class_name ITWCdt_categorie
+static var _scriptName : String = "categorie"
 
 const SELF_SCENE : PackedScene = preload("res://addons/ITWCdt/editorControl/categorie.tscn")
 const TEXT_SCENE : PackedScene = preload("res://addons/ITWCdt/editorControl/text_edit.tscn")
@@ -32,7 +33,7 @@ func _on_game_load_button_pressed():
 	if(txt0 != "" and txt1 != ""):
 		parent.setFileValue(categoryName,txt0,txt1)
 	else:
-		MKUtil.print("enable to set value")
+		MKUtil.print("enable to set value", _scriptName)
 	refresh()
 
 func _on_remove_button_down() -> void:

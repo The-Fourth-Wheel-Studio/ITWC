@@ -1,6 +1,7 @@
 @icon("res://editor/assets/component/velocityComponent.png")
 extends Node
 class_name velocityComponent
+static var _scriptName : String = "velocity_component"
 
 var Velocity : Vector3 = Vector3(0, 0, 0)
 

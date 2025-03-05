@@ -1,5 +1,6 @@
 class_name DiscordRPCTutorial
 extends Node
+static var _scriptName : String = "example"
 
 ## 1. Put the addons/ folder in your Godot project[br]
 ## 2. Enable the addon in your Project Settings under "Plugins" and "DiscordRPC". [br](if it doesn't show up restart your project and try again)[br]

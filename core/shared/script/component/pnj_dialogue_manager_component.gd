@@ -1,5 +1,6 @@
 extends Node3D
 class_name pnjDialogueManager
+static var _scriptName : String = "pnj_dialogue_manager_component"
 
 @export_category("dialogue")
 @export var speech : speechBubble

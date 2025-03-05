@@ -1,4 +1,5 @@
 extends Control
+static var _scriptName : String = "mainMenu"
 
 @export var saveSelector : OptionButton
 
