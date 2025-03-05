@@ -75,8 +75,8 @@ static func applyBytes(bytes:PackedByteArray, apply:PackedByteArray, offset:int)
 static func remapToRange(v, s1, e1, s2, e2):
 	return s2 + ((v - s1) * ((e2 - s2) / (e1 - s1)))
 
-static func print(v):
-	file_print(str(v), get_stack())
+static func print(v, _scriptName : String = ""):
+	file_print(str(v), get_stack(), _scriptName)
 	
 static func file_print(text:String, stack, name:String = "", color:String = ""):
 	if name == "":
