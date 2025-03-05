@@ -102,7 +102,7 @@ func onLoad():
 	loadDefaultFile()
 	loadMods()
 	finalizeLoad()
-	MKUtil.print("game file correctly loaded :  " + str(GameManager.loadedScene, _scriptName))
+	MKUtil.print("game file correctly loaded :  " + str(GameManager.loadedScene), _scriptName)
 
 func finalizeLoad():
 	'''
