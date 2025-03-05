@@ -5,17 +5,11 @@ def process_gd_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         lines = f.readlines()
 
-    # Vérifier si _scriptName est déjà présent dans le script
+    # Vérification et ajout de _scriptName dans la déclaration (après extends et class_name)
     script_name_already_present = False
-    for line in lines:
-        if line.strip().startswith("static var _scriptName : String ="):
-            script_name_already_present = True
-            break
-
-    # Récupérer le nom du fichier
     script_name = os.path.basename(file_path)
 
-    # Trouver l'endroit où insérer la ligne après `class_name` et `extends`
+    # Trouver l'endroit où insérer la déclaration après `extends` ou `class_name`
     insert_index = 0
     class_found = False
     for i, line in enumerate(lines):
@@ -24,56 +18,49 @@ def process_gd_file(file_path):
             insert_index = i + 1  # Insérer après la dernière occurrence de class_name ou extends
             class_found = True
 
-    # Vérification de l'héritage : si le script hérite d'une autre classe, on doit gérer _scriptName en conséquence
-    parent_class = None
+    # Vérifier si _scriptName est déjà présent dans ce script
     for line in lines:
-        if line.strip().startswith("extends "):
-            parent_class = line.strip().split(" ")[1]
+        if line.strip().startswith("static var _scriptName : String ="):
+            script_name_already_present = True
             break
 
-    if parent_class:
-        # Vérifier si _scriptName existe déjà dans la classe parente
-        parent_file = os.path.join(os.getcwd(), f"{parent_class}.gd")
-        if os.path.exists(parent_file):
-            with open(parent_file, 'r', encoding='utf-8') as parent_f:
-                parent_lines = parent_f.readlines()
-                parent_has_script_name = any("static var _scriptName" in parent_line for parent_line in parent_lines)
-                if parent_has_script_name:
-                    # Si la classe parente a _scriptName, ne pas ajouter dans l'enfant
-                    print(f"The member '_scriptName' already exists in parent class {parent_class}. Overriding in {file_path}.")
-                else:
-                    # Si la classe parente n'a pas _scriptName, on peut l'ajouter dans l'enfant
-                    if not script_name_already_present:
-                        lines.insert(insert_index, f'static var _scriptName : String = "{script_name}"\n')
-                        print(f"Added _scriptName in {file_path}")
-            return  # Nous avons déjà fait le travail pour la classe parente, pas besoin de continuer ici
-
-    # Ajouter la ligne _scriptName si elle n'est pas déjà présente dans ce script
-    if not script_name_already_present:
+    # Ajouter _scriptName si il n'est pas déjà présent et qu'on a trouvé class_name ou extends
+    if not script_name_already_present and class_found:
         lines.insert(insert_index, f'static var _scriptName : String = "{script_name}"\n')
-        print(f"Added _scriptName in {file_path}")
+        print(f"Added _scriptName in {file_path} after class_name or extends")
 
-    # Modifier les appels à MKUtil.print() pour inclure _scriptName comme second argument
+    # Gérer les appels MKUtil.print() en ajoutant _scriptName avant la dernière parenthèse fermante
     for i, line in enumerate(lines):
-        match = re.search(r'MKUtil\.print\((.*?)\)', line)
-        if match:
-            args = match.group(1).strip()
+        # Chercher les lignes qui commencent par MKUtil.print
+        if line.strip().startswith("MKUtil.print"):
+            # Trouver l'index de la dernière parenthèse fermante
+            open_parentheses = 0
+            close_parentheses = 0
+            for idx, char in enumerate(line):
+                if char == '(':
+                    open_parentheses += 1
+                elif char == ')':
+                    close_parentheses += 1
+                if open_parentheses == close_parentheses:
+                    last_parenthesis_idx = idx
+                    break
+
+            # Extraire la partie entre les parenthèses
+            start_idx = line.index('(') + 1
+            end_idx = last_parenthesis_idx
+            args = line[start_idx:end_idx].strip()
 
             # Vérifier si _scriptName est déjà un argument
             if "_scriptName" not in args:
-                # Préparer une version propre des arguments pour ajouter _scriptName comme second argument
-                args_list = args.split(",")
-                args_list = [arg.strip() for arg in args_list]
-
-                # Si plus d'un argument est trouvé, on l'ajoute en tant que dernier argument
-                if len(args_list) > 1:
+                # Ajouter _scriptName comme second argument juste avant la dernière parenthèse fermante
+                if args:
                     new_args = f'{args}, _scriptName'
                 else:
-                    # Dans le cas où il y a une seule expression, on concatène "_scriptName" à la fin
-                    new_args = f'{args}, _scriptName'
+                    new_args = '_scriptName'
 
-                # Remplacer l'ancien appel avec le nouveau format
-                lines[i] = line.replace(args, new_args)
+                # Construire la nouvelle ligne avec _scriptName ajouté
+                new_line = line[:start_idx] + new_args + line[end_idx:]
+                lines[i] = new_line
                 print(f"Updated MKUtil.print in {file_path}: {new_args}")
 
     # Réécrire le fichier avec les modifications
