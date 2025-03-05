@@ -1,7 +1,7 @@
 @icon("res://editor/assets/component/martin.png")
 extends Node3D
 class_name gameHead
-const _scriptName : String = "game_head"
+const _scriptName : String = "game Head"
 
 func _enter_tree():
 	print("-----------------------------------------------------------------------")

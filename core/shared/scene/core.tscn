@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cvtydj8kqury4"]
 
-[ext_resource type="Script" uid="uid://cydod8kopp3ax" path="res://core/shared/script/misc/game_head.gd" id="13_0m0f1"]
+[ext_resource type="Script" uid="uid://cydod8kopp3ax" path="res://core/shared/script/misc/gameHead.gd" id="13_0m0f1"]
 
 [node name="Root" type="Node3D"]
 script = ExtResource("13_0m0f1")
