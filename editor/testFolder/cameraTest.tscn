@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://5prsvwyxk8my"]
+[gd_scene load_steps=27 format=3 uid="uid://5prsvwyxk8my"]
 
 [ext_resource type="PackedScene" uid="uid://dto8b77kggjk" path="res://core/shared/scene/player/default/player.tscn" id="1_y54sx"]
 [ext_resource type="Script" uid="uid://b3adqin2agi7g" path="res://core/shared/script/component/camera_component.gd" id="2_515yx"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://c0qakom2t7fq5" path="res://core/shared/script/component/cameraComponent/reference/camera_zone_reference_follow_player.gd" id="13_3ur3a"]
 [ext_resource type="Script" uid="uid://ccn7onn3pv1b5" path="res://core/shared/script/component/point_component.gd" id="13_hky2r"]
 [ext_resource type="PackedScene" uid="uid://b6hqyg8jmhar8" path="res://editor/testFolder/fpscounter.tscn" id="16_ijngx"]
+[ext_resource type="Script" uid="uid://cxi6eubihqfla" path="res://editor/testFolder/f3.gd" id="16_uk3ym"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y54sx"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -239,7 +240,65 @@ metadata/_custom_type_script = "uid://ccn7onn3pv1b5"
 script = ExtResource("11_ijngx")
 metadata/_custom_type_script = "uid://bsqndnb8cisrj"
 
-[node name="Label" parent="." instance=ExtResource("16_ijngx")]
+[node name="VBoxContainer" type="VBoxContainer" parent="." node_paths=PackedStringArray("fpsLabel", "isOnFloorLabel", "coyoteLabel", "coyoteTimeLabel")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("16_uk3ym")
+fpsLabel = NodePath("Label")
+isOnFloorLabel = NodePath("HBoxContainer/Label2")
+coyoteLabel = NodePath("HBoxContainer/Label3")
+coyoteTimeLabel = NodePath("HBoxContainer/Label6")
+
+[node name="Label" parent="VBoxContainer" instance=ExtResource("16_ijngx")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "is on floor : "
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "false"
+
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "coyote :"
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "false"
+
+[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "coyote time:"
+
+[node name="Label6" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "0.0"
 
 [connection signal="body_entered" from="cameraZone" to="cameraZone" method="_on_body_entered"]
 [connection signal="body_entered" from="cameraZone3" to="cameraZone3" method="_on_body_entered"]

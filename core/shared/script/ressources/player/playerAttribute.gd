@@ -7,6 +7,7 @@ class_name playerAttribute
 @export var CROUCH_SPEED : float = 2.5
 @export var SPEED_VARIATION :  float = 0.5
 @export var JUMP_VELOCITY : float = 4.5
+@export var COYOTE_TIME : float = 0.01
 @export var SENSITIVITY : float = 0.005
 @export var FOV : int = 75
 @export var FOV_VARIATION : float = 20.0
