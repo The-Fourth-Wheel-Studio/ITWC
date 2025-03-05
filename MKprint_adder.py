@@ -1,80 +1,36 @@
 import os
-import re
 
-def process_gd_file(file_path):
-    with open(file_path, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
+def add_script_name_to_file(file_path):
+    with open(file_path, 'r+') as file:
+        lines = file.readlines()
+        script_name_added = False
+        print_argument_added = False
 
-    # Vérification et ajout de _scriptName dans la déclaration (après extends et class_name)
-    script_name_already_present = False
-    script_name = os.path.basename(file_path)
+        for i, line in enumerate(lines):
+            # Ajouter la variable _scriptName si elle n'est pas déjà présente
+            if not script_name_added:
+                if 'class_name' in line or 'extends' in line:
+                    lines.insert(i + 1, f"static var _scriptName : String = \"{os.path.basename(file_path)}\"\n")
+                    script_name_added = True
+            
+            # Ajouter _scriptName à MKUtil.print(v) s'il n'est pas déjà présent
+            if 'MKUtil.print(' in line and '_scriptName' not in line:
+                line = line.rstrip()  # Supprimer les espaces à la fin de la ligne
+                line = line.rstrip(')')  # Enlever la parenthèse fermante pour la modifier
+                line += f', _scriptName )\n'  # Ajouter _scriptName avant la parenthèse fermante
+                lines[i] = line
 
-    # Trouver l'endroit où insérer la déclaration après `extends` ou `class_name`
-    insert_index = 0
-    class_found = False
-    for i, line in enumerate(lines):
-        trimmed_line = line.strip()
-        if trimmed_line.startswith("class_name ") or trimmed_line.startswith("extends "):
-            insert_index = i + 1  # Insérer après la dernière occurrence de class_name ou extends
-            class_found = True
+        # Sauvegarder les modifications dans le fichier
+        file.seek(0)
+        file.writelines(lines)
 
-    # Vérifier si _scriptName est déjà présent dans ce script
-    for line in lines:
-        if line.strip().startswith("static var _scriptName : String ="):
-            script_name_already_present = True
-            break
-
-    # Ajouter _scriptName si il n'est pas déjà présent et qu'on a trouvé class_name ou extends
-    if not script_name_already_present and class_found:
-        lines.insert(insert_index, f'static var _scriptName : String = "{script_name}"\n')
-        print(f"Added _scriptName in {file_path} after class_name or extends")
-
-    # Gérer les appels MKUtil.print() en ajoutant _scriptName comme dernier argument
-    for i, line in enumerate(lines):
-        # Chercher les lignes qui commencent par MKUtil.print
-        if line.strip().startswith("MKUtil.print"):
-            # Trouver l'index de la dernière parenthèse fermante
-            open_parentheses = 0
-            close_parentheses = 0
-            for idx, char in enumerate(line):
-                if char == '(':
-                    open_parentheses += 1
-                elif char == ')':
-                    close_parentheses += 1
-                if open_parentheses == close_parentheses:
-                    last_parenthesis_idx = idx
-                    break
-
-            # Extraire la partie entre les parenthèses
-            start_idx = line.index('(') + 1
-            end_idx = last_parenthesis_idx
-            args = line[start_idx:end_idx].strip()
-
-            # Vérifier si _scriptName est déjà un argument
-            if "_scriptName" not in args:
-                # Ajouter _scriptName comme dernier argument juste avant la dernière parenthèse fermante
-                if args:
-                    new_args = f'{args}, _scriptName'
-                else:
-                    new_args = '_scriptName'
-
-                # Construire la nouvelle ligne avec _scriptName ajouté comme dernier argument
-                new_line = line[:start_idx] + new_args + line[end_idx:]
-                lines[i] = new_line
-                print(f"Updated MKUtil.print in {file_path}: {new_args}")
-
-    # Réécrire le fichier avec les modifications
-    with open(file_path, 'w', encoding='utf-8') as f:
-        f.writelines(lines)
-        print(f"Written updated content to {file_path}")
-
-def scan_directory(directory):
-    for root, _, files in os.walk(directory):
+def scan_directory_for_gd_files(directory):
+    for root, dirs, files in os.walk(directory):
         for file in files:
-            if file.endswith(".gd"):
-                process_gd_file(os.path.join(root, file))
+            if file.endswith('.gd'):
+                file_path = os.path.join(root, file)
+                add_script_name_to_file(file_path)
 
-if __name__ == "__main__":
-    current_directory = os.getcwd()  # Utiliser le dossier courant
-    scan_directory(current_directory)
-    print("Modification terminée !")
+if __name__ == '__main__':
+    current_directory = os.getcwd()
+    scan_directory_for_gd_files(current_directory)
