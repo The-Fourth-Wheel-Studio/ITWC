@@ -30,3 +30,7 @@ func isCoyoteTime():
 
 func resetCoyote():
 	coyoteTimer.stop()
+
+func betterSnap():
+	if not isOnFloorImprove():
+		NodeToCheck.apply_floor_snap()

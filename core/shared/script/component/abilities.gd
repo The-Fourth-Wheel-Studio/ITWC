@@ -1,5 +1,5 @@
 @icon("res://editor/assets/component/abilitiesManager.png")
-extends Node
+extends Node3D
 class_name abilitiesManager
 const _scriptName : String = "abilities"
 
