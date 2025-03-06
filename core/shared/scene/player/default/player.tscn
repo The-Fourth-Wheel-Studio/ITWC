@@ -108,10 +108,14 @@ script = ExtResource("12_jv3bi")
 active = true
 metadata/_custom_type_script = "uid://caao0praqc6t3"
 
-[node name="downTheStairs" type="Node3D" parent="abilitiesManager" node_paths=PackedStringArray("playerFeet")]
+[node name="downTheStairs" type="Node3D" parent="abilitiesManager" node_paths=PackedStringArray("playerFeet", "isStair")]
 script = ExtResource("12_c817u")
 playerFeet = NodePath("feet")
+isStair = NodePath("isStair")
 active = true
 
 [node name="feet" type="Node3D" parent="abilitiesManager/downTheStairs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.533834, 0.62358)
+
+[node name="isStair" type="RayCast3D" parent="abilitiesManager/downTheStairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.528885, 0)

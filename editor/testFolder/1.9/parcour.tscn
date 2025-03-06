@@ -79,7 +79,7 @@ CROUCH_SPEED = 20.5
 SPEED_VARIATION = 0.5
 JUMP_VELOCITY = 4.5
 COYOTE_TIME = 0.01
-MAX_STAIR_SIZE = -10.0
+MAX_STAIR_SIZE = -0.5
 GRAVITY = 9.81
 metadata/_custom_type_script = ExtResource("3_1fos0")
 
