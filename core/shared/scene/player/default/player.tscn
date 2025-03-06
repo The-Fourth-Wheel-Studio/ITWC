@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dto8b77kggjk"]
+[gd_scene load_steps=18 format=3 uid="uid://dto8b77kggjk"]
 
 [ext_resource type="Script" uid="uid://cet2lj86kikdf" path="res://core/shared/script/player/default/player.gd" id="1_4frpd"]
 [ext_resource type="Script" uid="uid://bxryra8rjscb8" path="res://core/shared/script/component/velocity_component.gd" id="2_c74cp"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://3ogpjn5r5wfk" path="res://editor/component/is_on_floor_component.tscn" id="8_m6t41"]
 [ext_resource type="Script" uid="uid://bfrr1751ja3qh" path="res://core/shared/script/player/abilities/jump.gd" id="10_fq3mc"]
 [ext_resource type="Script" uid="uid://dm2yqq4xgi8sk" path="res://core/shared/script/player/abilities/walk.gd" id="11_6ggbf"]
+[ext_resource type="Script" uid="uid://jkaca2u234q6" path="res://core/shared/script/player/abilities/downTheStairs.gd" id="12_c817u"]
 [ext_resource type="Script" uid="uid://bajp8c8ckymew" path="res://core/shared/script/player/abilities/repulse.gd" id="12_jv3bi"]
 
 [sub_resource type="Resource" id="Resource_rfusc"]
@@ -103,6 +104,9 @@ metadata/_custom_type_script = "uid://caao0praqc6t3"
 script = ExtResource("12_jv3bi")
 active = true
 metadata/_custom_type_script = "uid://caao0praqc6t3"
+
+[node name="downTheStairs" type="Node3D" parent="abilitiesManager"]
+script = ExtResource("12_c817u")
 
 [node name="isOnFloorComponent" parent="." node_paths=PackedStringArray("NodeToCheck") instance=ExtResource("8_m6t41")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.525179, 0)

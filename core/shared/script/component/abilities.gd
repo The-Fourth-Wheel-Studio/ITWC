@@ -8,11 +8,11 @@ var abilitiesAfterPhysicsList : Array[abilitiesAfterPhysics]
 
 func load():
 	for i in self.get_children():
-		if i is abilities:
-			abilitiesList.append(i)
-			i.load()
-		elif i is abilitiesAfterPhysics:
+		if i is abilitiesAfterPhysics:
 			abilitiesAfterPhysicsList.append(i)
+			i.load()
+		elif i is abilities:
+			abilitiesList.append(i)
 			i.load()
 	MKUtil.print("successful loading of " + str(len(abilitiesList)) + " abilities and " + str(len(abilitiesAfterPhysicsList)) + " abilities after physics", _scriptName)
 
