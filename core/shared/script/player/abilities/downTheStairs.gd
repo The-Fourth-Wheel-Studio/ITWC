@@ -1,16 +1,30 @@
 extends abilitiesAfterPhysics
 
-@export var stairsRaycast : RayCast3D
+@export var playerFeet : Node3D
 
 func load():
 	self.player = GameManager.player
-	stairsRaycast.target_position.y = player.playerAttributeVar.MAX_STAIR_SIZE
-	stairsRaycast.add_exception(player)
-	stairsRaycast.add_exception(player)
 #fall stairs by Majikayo Games (https://www.youtube.com/watch?v=-WjM1uksPIk) 
-func doWhatever(delta):
-	if(player.isOnFloor.wasOnFloor and not player.isOnFloor.isOnFloorImprove() and player.velocity.y <= 0):
-		print("step")
-		if stairsRaycast.get_collider():
-			player.position.y = stairsRaycast.get_collision_point().y
+
+
+var _snapped_to_stairs_last_frame = false
+func _snap_down_to_stairs_check():
+	var did_snap = false
+	if player.isOnFloor.wasOnFloor and not player.isOnFloor.isOnFloorImprove() and player.velocity.y <= 0: #and $StairsBelowRayCast3D.is_colliding():
+		print("a")
+		var body_test_result = PhysicsTestMotionResult3D.new()
+		var params = PhysicsTestMotionParameters3D.new()
+		var max_step_down = -0.5
+		params.from = playerFeet.global_transform
+		params.motion = Vector3(0,max_step_down,0)
+		print(PhysicsServer3D.body_test_motion(player.get_rid(), params, body_test_result))
+		if PhysicsServer3D.body_test_motion(player.get_rid(), params, body_test_result):
+			print(body_test_result.get_travel().y)
+			var translate_y = body_test_result.get_travel().y
+			player.position.y -= translate_y
 			player.apply_floor_snap()
+			did_snap = true
+	_snapped_to_stairs_last_frame = did_snap
+
+func doWhatever(delta):
+	_snap_down_to_stairs_check()
