@@ -114,4 +114,4 @@ playerFeet = NodePath("feet")
 active = true
 
 [node name="feet" type="Node3D" parent="abilitiesManager/downTheStairs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.533834, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.533834, 0.62358)
