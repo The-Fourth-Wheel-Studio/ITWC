@@ -21,6 +21,7 @@ func execute(delta):
 	
 	velocity = velocityHandler.getFinalVelocity()
 	move_and_slide()
+	abilitieManager.executeAfterPhysics(delta)
 		
 func speedVariation():
 	var speed : float 
