@@ -12,11 +12,6 @@ static func getAllFile(folderPath : String):
 			fileGet = DirAccess.get_directories_at(absolutePath)
 	return fileGet
 		
-static func addFileDirectory(path : String, fileName : String):
-	if path[-1] == "/":
-		return path.path_join(fileName)
-	return path + "/" + fileName
-	
 static func loadFileToRead(filePath : String):
 	return FileLoader.openFile(filePath, FileAccess.READ)
 
@@ -44,6 +39,7 @@ static func loadJsonToRead(filePath : String):
 	else:
 		MKUtil.print("Error : cannot load the json file : '" + str(filePath, _scriptName) + "'")
 		return null
+	loadedFileAsText.close()
 	return json
 
 static func JsonToDict(json : JSON):
@@ -100,3 +96,18 @@ static func loadPCKFromPath(filePath : String):
 	else:
 		MKUtil.print("Error : the PCK file at '" + str(filePath, _scriptName) + "' doesn't exist")
 		return null
+
+static func saveSaveFile(filePath : String):
+	var absolutePath : String = GameManager.gamePath.path_join(filePath)
+	var file = loadFileToWrite(absolutePath)
+	file.store_var(EventObserver.event)
+	file.close()
+
+static func loadSaveFile(filePath : String):
+	var absolutePath : String = GameManager.gamePath.path_join(filePath)
+	if FileAccess.file_exists(absolutePath):
+		var file = loadFileToRead(absolutePath)
+		EventObserver.event = file.get_var(EventObserver.event)
+		file.close()
+	else:
+		MKUtil.print("Enable to load save at : " + absolutePath, _scriptName)
