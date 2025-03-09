@@ -96,21 +96,24 @@ static func loadPCKFromPath(filePath : String):
 	else:
 		MKUtil.print("Error : the PCK file at '" + str(filePath, _scriptName) + "' doesn't exist")
 		return null
-
-static func loadFileOrCreate(filePath : String):
-	var file =  FileAccess.open(filePath,FileAccess.WRITE_READ)
-	if FileAccess.get_open_error() != OK:
-		MKUtil.print("Failed to load or create file at : " + filePath + " return error " + str(FileAccess.get_open_error()))
-
+		
 static func saveSaveFile(filePath : String):
-	var absolutePath : String = GameManager.gamePath.path_join(filePath)
-	var file = loadFileToWrite(absolutePath)
-	file.store_var(EventObserver.event)
-	file.close()
+	var absolutePath : String = getGameDataPath().path_join(filePath)
+	var file = FileAccess.open(absolutePath,FileAccess.WRITE_READ)
+	if FileAccess.get_open_error() != OK:
+		MKUtil.print("Failed to save or create save file at : " + filePath + " return error " + str(FileAccess.get_open_error()))
+	else:
+		if file:
+			file.store_var(EventObserver.event)
+			file.close()
 
 static func loadSaveFile(filePath : String):
 	var absolutePath : String = getGameDataPath().path_join(filePath)
-	print(absolutePath)
-	var file =loadFileOrCreate(absolutePath)
-	#EventObserver.event = file.get_var()
-	file.close()
+	var file = FileAccess.open(absolutePath,FileAccess.WRITE_READ)
+	if FileAccess.get_open_error() != OK:
+		MKUtil.print("Failed to load or create save file at : " + filePath + " return error " + str(FileAccess.get_open_error()))
+	else:
+		if file:
+			print(file.get_var())
+			#EventObserver.event = file.get_var()
+		file.close()

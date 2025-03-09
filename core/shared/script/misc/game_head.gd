@@ -17,6 +17,7 @@ func _enter_tree():
 	loadGlobal()
 	loadMenue()
 	loadGame()
+	FileLoader.saveSaveFile("save.save")
 	FileLoader.loadSaveFile("save.save")
 	MKUtil.print("game fully loaded", _scriptName)
 	print("-----------------------------------------------------------------------")
