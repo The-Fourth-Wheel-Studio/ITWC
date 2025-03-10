@@ -1,6 +1,24 @@
 extends Node
 const _scriptName : String = "saveSystem"
 
+@export var instanceIDToSUUID : Dictionary = {}
+@export var SaveData : Dictionary = {}
+
+func save(savePath : String):
+	var dataToStore : Dictionary = {}
+	for i in SaveData.keys():
+		for j in dataToStore[i]:
+			dataToStore[i] = instance_from_id(instanceIDToSUUID[i]).get(j)
+	saveSaveFile(savePath, dataToStore)
+
+func addThingsToSave(instanceId : int, varNameToSave : String, scriptUUID : int):
+	if not instanceIDToSUUID.has(scriptUUID):
+		instanceIDToSUUID[scriptUUID] = instanceId
+	if not SaveData.has(scriptUUID):
+		SaveData[scriptUUID] = [varNameToSave]
+	else:
+		SaveData[scriptUUID].append(varNameToSave)
+
 static func saveSaveFile(filePath : String, toSave : Dictionary):
 	var absolutePath : String = FileLoader.getGameDataPath().path_join(filePath)
 	var file = FileAccess.open(absolutePath, FileAccess.WRITE)

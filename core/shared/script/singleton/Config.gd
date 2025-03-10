@@ -1,6 +1,6 @@
 extends Node
 class_name Config
-const _scriptName : String = "Config"
+const _scriptName : String = "config"
 
 static var config : ConfigFile = ConfigFile.new()
 

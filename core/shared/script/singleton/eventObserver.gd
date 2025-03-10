@@ -1,6 +1,5 @@
 extends Node
 
-
 var event : Dictionary = {}
 
 func createEvent(eventName : String, state):

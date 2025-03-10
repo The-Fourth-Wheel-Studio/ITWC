@@ -6,6 +6,9 @@ var lang : String = ""
 
 var SETTINGS_FILE_PATH = FileLoader.getGameDataPath().path_join("data/game/settings/setting.ini")
 
+func _enter_tree() -> void:
+	print(self.get_instance_id())
+
 func loadSettingFile():
 	if !FileAccess.file_exists(SETTINGS_FILE_PATH):
 		setDefaultSetting()

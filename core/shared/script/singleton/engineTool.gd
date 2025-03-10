@@ -14,7 +14,7 @@ static func loadScene(nodeWhereToLoad : Node, scenePath:String, loadingScene = n
 	if loadingScene != null:
 		loadingScene.visible = false
 
-static func MKprintArray(arrayName : String = "Unknow", array : Array = [null]):
+static func MKprintArray(arrayName : String = "Unknow", array : Array = [null], scriptName : String = _scriptName):
 	if len(array) > 0:
 		var s : String = arrayName + " : "
 		for i in range(len(array)-1):
