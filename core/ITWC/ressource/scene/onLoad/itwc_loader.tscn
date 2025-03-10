@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dpqiyax5cvu7g"]
 
-[ext_resource type="Script" path="res://core/ITWC/ressource/script/onLoad/itwc_loader.gd" id="1_ryqp4"]
+[ext_resource type="Script" uid="uid://corbvh855n76l" path="res://core/ITWC/ressource/script/onLoad/itwc_loader.gd" id="1_ryqp4"]
 
 [node name="ITWCLoad" type="Node"]
 script = ExtResource("1_ryqp4")

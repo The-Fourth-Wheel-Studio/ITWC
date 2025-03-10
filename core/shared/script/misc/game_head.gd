@@ -12,13 +12,12 @@ func _enter_tree():
 	onLoad()
 	MKUtil.print("Loading Game", _scriptName)
 	#load game
+	SaveSystem.saveSaveFile("save.dat", {})
 	loadExternalRessource()
 	loadOnLoad()
 	loadGlobal()
 	loadMenue()
 	loadGame()
-	FileLoader.saveSaveFile("save.save")
-	FileLoader.loadSaveFile("save.save")
 	MKUtil.print("game fully loaded", _scriptName)
 	print("-----------------------------------------------------------------------")
 
