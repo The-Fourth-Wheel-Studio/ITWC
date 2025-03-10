@@ -20,7 +20,11 @@ func _enter_tree():
 	loadGame()
 	MKUtil.print("game fully loaded", _scriptName)
 	print("-----------------------------------------------------------------------")
-
+	#test
+	EventObserver.addSaveData()
+	SaveSystem.save("save.dat")
+	print(SaveSystem.loadSaveFile("save.dat"))
+	
 func loadHead():
 	GameManager.head = self
 	GameManager.gamePath = FileLoader.getAbsolutePath()

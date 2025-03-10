@@ -7,7 +7,7 @@ const _scriptName : String = "saveSystem"
 func save(savePath : String):
 	var dataToStore : Dictionary = {}
 	for i in SaveData.keys():
-		for j in dataToStore[i]:
+		for j in SaveData[i]:
 			dataToStore[i] = instance_from_id(instanceIDToSUUID[i]).get(j)
 	saveSaveFile(savePath, dataToStore)
 
