@@ -10,13 +10,16 @@ var cameraReferenceGizmos = preload("res://addons/ITWCdt/gizmo/cameraZone/create
 var pnjDialogueManagerGizmo = preload("res://addons/ITWCdt/gizmo/pnj/createPnjDialogueManagerGizmo.gd").new()
 
 var dataLoaderManagerControl = preload("res://addons/ITWCdt/editorControl/data_loader_manager_main.tscn").instantiate()
+var SUUIDgenerator = preload("res://addons/ITWCdt/SUUID/suuidgetteur.tscn").instantiate()
 
 func _enter_tree():
 	add_control_to_dock(EditorPlugin.DOCK_SLOT_LEFT_UR, dataLoaderManagerControl)
+	add_control_to_dock(EditorPlugin.DOCK_SLOT_RIGHT_UL, SUUIDgenerator)
 	addGizmo()
 	
 func _exit_tree():
 	remove_control_from_docks(dataLoaderManagerControl)
+	remove_control_from_docks(SUUIDgenerator)
 	removeGizmo()
 	
 func addGizmo():
