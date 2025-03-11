@@ -4,4 +4,4 @@ settings="core/ITWC/data/onLoad/settings.json"
 
 [Start]
 
-cameraTest="editor/testFolder/loadTest.json"
+mainMenue="core/ITWC/data/menue/main_menue.json"

@@ -22,7 +22,7 @@ static func MKprintArray(arrayName : String = "Unknow", array : Array = [null], 
 		s += str(array[-1])
 		MKUtil.print(s, scriptName)
 	else:
-		MKUtil.print("the array is empty", scriptName)
+		MKUtil.print("the array '" + arrayName + "' is empty", scriptName)
 
 static func removeAllChildren(node : Node):
 	for n in node.get_children():

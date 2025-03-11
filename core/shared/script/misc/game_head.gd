@@ -66,11 +66,6 @@ func loadSave(saveId : int):
 	
 	#TEMP !!!!!!!!!!!!!!!!
 	EngineTool.loadScene(self, "res://editor/testFolder/game.tscn")
-
-func getAllSaveFiles():
-	var saveFiles : Array = FileLoader.getAllFile(Config.gameConfig["save_path"])
-	EngineTool.MKprintArray("Save Files", saveFiles)
-	return saveFiles
 #hello
 
 

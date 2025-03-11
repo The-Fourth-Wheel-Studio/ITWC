@@ -23,21 +23,21 @@ static func saveSaveFile(filePath : String, toSave : Dictionary):
 	var absolutePath : String = FileLoader.getGameDataPath().path_join(filePath)
 	var file = FileAccess.open(absolutePath, FileAccess.WRITE)
 	if FileAccess.get_open_error() != OK:
-		MKUtil.print("Failed to save or create save file at: " + filePath + " return error " + str(FileAccess.get_open_error()))
+		MKUtil.print("Failed to save or create save file at: " + absolutePath + " return error " + str(FileAccess.get_open_error()))
 	else:
 		file.store_var(toSave)
-		MKUtil.print("Game correcly saved at : " + filePath, _scriptName)
+		MKUtil.print("Game correcly saved at : " + absolutePath, _scriptName)
 		file.close()
 
 static func loadSaveFile(filePath : String) -> Variant:
 	var absolutePath : String = FileLoader.getGameDataPath().path_join(filePath)
 	if not FileAccess.file_exists(absolutePath):
-		MKUtil.print("Save file does not exist: " + filePath)
+		MKUtil.print("Save file does not exist: " + absolutePath)
 		return null
 	
 	var file = FileAccess.open(absolutePath, FileAccess.READ)
 	if FileAccess.get_open_error() != OK:
-		MKUtil.print("Failed to load save file at: " + filePath + " return error " + str(FileAccess.get_open_error()))
+		MKUtil.print("Failed to load save file at: " + absolutePath + " return error " + str(FileAccess.get_open_error()))
 		return null
 	else:
 		var data = file.get_var()
@@ -52,6 +52,6 @@ func getDataFromSUUID(savePath : String, SUUID : int):
 	return null
 
 func getAllSaveFiles():
-	var saveFiles : Array = FileLoader.getAllFile(GameManager.savePath)
+	var saveFiles : Array = FileLoader.getAllFile(FileLoader.getGameDataPath().path_join(GameManager.savePath))
 	EngineTool.MKprintArray("Save Files", saveFiles, _scriptName)
 	return saveFiles

@@ -2,14 +2,9 @@ class_name FileLoader
 const _scriptName : String = "fileLoader"
 
 static func getAllFile(folderPath : String):
-	var absolutePath : String = GameManager.gamePath.path_join(folderPath)
 	var fileGet : Array
-	if DirAccess.dir_exists_absolute(absolutePath):
-		fileGet = DirAccess.get_directories_at(absolutePath)
-	if fileGet == []:
-		absolutePath = "res://".path_join(folderPath)
-		if DirAccess.dir_exists_absolute(absolutePath):
-			fileGet = DirAccess.get_directories_at(absolutePath)
+	if DirAccess.dir_exists_absolute(folderPath):
+		fileGet = DirAccess.get_files_at(folderPath)
 	return fileGet
 		
 static func loadFileToRead(filePath : String):
@@ -59,14 +54,15 @@ static func createFolder(path : String):
 	if !DirAccess.dir_exists_absolute(path):
 		var err = DirAccess.make_dir_recursive_absolute(path)
 		if err != OK:
-			MKUtil.print("Unable to create folder: " + path + " Error: " + str(err, _scriptName))
-
+			MKUtil.print("Unable to create folder: " + path + " Error: " + str(err), _scriptName)
+	else:
+		MKUtil.print("the folder already exist at path : " + path, _scriptName)
 static func saveConfigFile(config_file: ConfigFile, file_path: String):
 	var folder_path = file_path.get_base_dir()
 	createFolder(folder_path)
 	var err = config_file.save(file_path)
 	if err != OK:
-		MKUtil.print("Unable to create config file: " + file_path + " Error: " + str(err, _scriptName))
+		MKUtil.print("Unable to create config file: " + file_path + " Error: " + str(err), _scriptName)
 
 static func loadITWCdata(filePath : String):
 	var ITWCData : ITWCdata = ITWCdata.new()
