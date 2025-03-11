@@ -50,3 +50,8 @@ func getDataFromSUUID(savePath : String, SUUID : int):
 	if loadedData.has(SUUID):
 		return loadedData[SUUID]
 	return null
+
+func getAllSaveFiles():
+	var saveFiles : Array = FileLoader.getAllFile(GameManager.savePath)
+	EngineTool.MKprintArray("Save Files", saveFiles, _scriptName)
+	return saveFiles

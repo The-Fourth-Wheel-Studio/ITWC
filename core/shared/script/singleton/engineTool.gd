@@ -20,9 +20,9 @@ static func MKprintArray(arrayName : String = "Unknow", array : Array = [null], 
 		for i in range(len(array)-1):
 			s += (str(array[i]) + ", ")
 		s += str(array[-1])
-		MKUtil.print(s, _scriptName)
+		MKUtil.print(s, scriptName)
 	else:
-		MKUtil.print("the array is empty", _scriptName)
+		MKUtil.print("the array is empty", scriptName)
 
 static func removeAllChildren(node : Node):
 	for n in node.get_children():

@@ -7,6 +7,7 @@ func _enter_tree():
 	print("-----------------------------------------------------------------------")
 	MKUtil.print("Load Game Head", _scriptName)
 	loadHead()
+	SaveSystem.getAllSaveFiles()
 	MKUtil.print("Loading Game Files", _scriptName)
 	#load game files
 	onLoad()
