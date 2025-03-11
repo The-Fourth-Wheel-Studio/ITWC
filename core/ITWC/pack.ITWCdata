@@ -2,6 +2,6 @@
 
 settings="core/ITWC/data/onLoad/settings.json"
 
-[Menue]
+[Start]
 
-test="editor/testFolder/loadTest.json"
+cameraTest="editor/testFolder/loadTest.json"

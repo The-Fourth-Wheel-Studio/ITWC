@@ -16,8 +16,7 @@ func _enter_tree():
 	loadExternalRessource()
 	loadOnLoad()
 	loadGlobal()
-	loadMenue()
-	loadGame()
+	loadStart()
 	MKUtil.print("game fully loaded", _scriptName)
 	print("-----------------------------------------------------------------------")
 	#test
@@ -54,19 +53,11 @@ func loadGlobal():
 	self.add_child(newNode)
 	loadCategory(newNode, "Global")
 
-func loadMenue():
+func loadStart():
 	var newNode : Node = Node.new()
-	newNode.set_name("Menue")
+	newNode.set_name("Start")
 	self.add_child(newNode)
-	loadCategory(newNode, "Menue")
-
-func loadGame():
-	var newNode : Node3D = Node3D.new()
-	newNode.set_name("Game")
-	self.add_child(newNode)
-	loadCategory(newNode, "Game")
-
-
+	loadCategory(newNode, "Start")
 
 #save
 func loadSave(saveId : int):
