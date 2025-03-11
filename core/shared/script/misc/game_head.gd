@@ -12,7 +12,6 @@ func _enter_tree():
 	onLoad()
 	MKUtil.print("Loading Game", _scriptName)
 	#load game
-	print(self.get_instance_id())
 	loadExternalRessource()
 	loadOnLoad()
 	loadGlobal()
@@ -21,15 +20,14 @@ func _enter_tree():
 	MKUtil.print("game fully loaded", _scriptName)
 	print("-----------------------------------------------------------------------")
 	#test
-	EventObserver.addSaveData()
-	SaveSystem.save("save.dat")
-	print(SaveSystem.loadSaveFile("save.dat"))
+
 	
 func loadHead():
 	GameManager.head = self
 	GameManager.gamePath = FileLoader.getAbsolutePath()
 	Config.loadConfigFile()
 	GameManager.modsPath = Config.gameConfig["mod_path"]
+	GameManager.savePath = Config.gameConfig["save_path"]
 
 func loadCategory(node : Node, catName : String):
 	if GameManager.loadedScene.has(catName):
@@ -230,4 +228,8 @@ func getAllSaveFiles():
 func test():
 	print(GameManager.lang["test"])
 	EventObserver.createEvent("test","")
+
+	EventObserver.addSaveData()
+	SaveSystem.save("save.dat")
+	print(SaveSystem.loadSaveFile("save.dat"))
 	'''

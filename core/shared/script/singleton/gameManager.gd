@@ -13,6 +13,7 @@ extends Node
 @export var lang : Dictionary
 @export var gamePath : String
 @export var modsPath : String
+@export var savePath : String
 
 
 func setCurrentCamera(cam : theBestCameraEver):

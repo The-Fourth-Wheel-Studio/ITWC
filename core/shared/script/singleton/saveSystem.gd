@@ -44,3 +44,9 @@ static func loadSaveFile(filePath : String) -> Variant:
 		file.close()
 		MKUtil.print("Save file : " + filePath + " correctly loaded", _scriptName)
 		return data
+		
+func getDataFromSUUID(savePath : String, SUUID : int):
+	var loadedData : Dictionary = loadSaveFile(savePath)
+	if loadedData.has(SUUID):
+		return loadedData[SUUID]
+	return null
