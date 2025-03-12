@@ -3,6 +3,7 @@ extends Node
 const _SUUID : int = 1486940497
 
 var event : Dictionary = {}
+var currentHandObject : String = ""
 
 func load():
 	addSaveData()
@@ -19,3 +20,6 @@ func getSavedData():
 	if temp != null:
 		return temp
 	return {}
+
+func setCurrentHandObject(handObject : String):
+	currentHandObject = handObject
