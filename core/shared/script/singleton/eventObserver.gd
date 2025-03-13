@@ -8,7 +8,7 @@ var currentHandObject : String = ""
 func load(savePath : String):
 	addSaveData()
 	event = getSavedData(savePath)
-
+	
 func createEvent(eventName : String, state):
 	event.get_or_add(eventName, state)
 	

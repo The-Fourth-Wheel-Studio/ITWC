@@ -20,6 +20,7 @@ GameManager="*res://core/shared/script/singleton/gameManager.gd"
 EventObserver="*res://core/shared/script/singleton/eventObserver.gd"
 Setting="*res://core/shared/script/singleton/settings.gd"
 SaveSystem="*res://core/shared/script/singleton/saveSystem.gd"
+GlobalDialogueManager="*res://core/shared/script/singleton/globalDialogueManager.gd"
 
 [dotnet]
 
