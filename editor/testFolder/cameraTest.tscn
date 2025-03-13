@@ -144,40 +144,40 @@ metadata/_custom_type_script = "uid://bsqndnb8cisrj"
 
 [node name="Label" parent="." instance=ExtResource("16_ijngx")]
 
-[node name="pnj" type="Node3D" parent="." node_paths=PackedStringArray("isPlayerIsNearby")]
+[node name="Quest" type="Node3D" parent="."]
+script = ExtResource("16_uk3ym")
+metadata/_custom_type_script = "uid://blyl88bltf4nu"
+
+[node name="pnj" type="Node3D" parent="Quest" node_paths=PackedStringArray("isPlayerIsNearby")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6959, 0, 0)
 script = ExtResource("13_85l6k")
 isPlayerIsNearby = NodePath("Area3D")
 metadata/_custom_type_script = "uid://diwalt1vc2rlg"
 
-[node name="Area3D" type="Area3D" parent="pnj"]
+[node name="Area3D" type="Area3D" parent="Quest/pnj"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="pnj/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest/pnj/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60681, 0)
 shape = SubResource("CylinderShape3D_uk3ym")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="pnj"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest/pnj"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.999231, 0)
 mesh = SubResource("CylinderMesh_sk4e2")
 
-[node name="repulseHandler" type="Node3D" parent="pnj" node_paths=PackedStringArray("collider")]
+[node name="repulseHandler" type="Node3D" parent="Quest/pnj" node_paths=PackedStringArray("collider")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.999047, 0)
 script = ExtResource("14_3ur3a")
 force = 0.42
 collider = NodePath("Area3D/repulseHandlerZone")
 metadata/_custom_type_script = "uid://by87bqllajpf5"
 
-[node name="Area3D" type="Area3D" parent="pnj/repulseHandler"]
+[node name="Area3D" type="Area3D" parent="Quest/pnj/repulseHandler"]
 collision_layer = 4
 collision_mask = 0
 
-[node name="repulseHandlerZone" type="CollisionShape3D" parent="pnj/repulseHandler/Area3D"]
+[node name="repulseHandlerZone" type="CollisionShape3D" parent="Quest/pnj/repulseHandler/Area3D"]
 shape = SubResource("CylinderShape3D_ca4ky")
 script = ExtResource("15_ijngx")
 metadata/_custom_type_script = "uid://bd5jdx213mojl"
-
-[node name="Quest" type="Node3D" parent="."]
-script = ExtResource("16_uk3ym")
-metadata/_custom_type_script = "uid://blyl88bltf4nu"
 
 [connection signal="body_entered" from="cameraZone" to="cameraZone" method="_on_body_entered"]
