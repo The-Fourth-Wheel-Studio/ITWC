@@ -15,12 +15,13 @@ func _init(node:pnj):
 	
 func _redraw():
 	clear()
-	var cylinder : TorusMesh = TorusMesh.new()
-	var distanceFromHead : float = Vector2(node.distanceFromHead.position.x,node.distanceFromHead.position.z).length()
-	var distanceFromBase : float = Vector2(node.distanceFromBase.position.x ,node.distanceFromBase.position.z).length()
-	cylinder.inner_radius= distanceFromHead
-	cylinder.outer_radius= distanceFromBase
-	cylinder.material = greenMat
-	var offset_transform = Transform3D(Basis(), Vector3(0, node.distanceFromBase.position.y, 0))
+	if node.speech:
+		var cylinder : TorusMesh = TorusMesh.new()
+		var distanceFromHead : float = Vector2(node.distanceFromHead.position.x,node.distanceFromHead.position.z).length()
+		var distanceFromBase : float = Vector2(node.distanceFromBase.position.x ,node.distanceFromBase.position.z).length()
+		cylinder.inner_radius= distanceFromHead
+		cylinder.outer_radius= distanceFromBase
+		cylinder.material = greenMat
+		var offset_transform = Transform3D(Basis(), Vector3(0, node.distanceFromBase.position.y, 0))
 
-	add_mesh(cylinder, greenMat,offset_transform)
+		add_mesh(cylinder, greenMat,offset_transform)
