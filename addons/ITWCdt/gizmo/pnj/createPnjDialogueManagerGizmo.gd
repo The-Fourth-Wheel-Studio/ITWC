@@ -3,7 +3,7 @@ extends EditorNode3DGizmoPlugin
 
 
 const pnjDialogueManagerGizmo = preload("res://addons/ITWCdt/gizmo/pnj/gizmo/pnjDialogueManagerGizmo.gd")
-const pnjDialogueManagerType = preload("res://core/shared/script/component/pnj_dialogue_manager_component.gd")
+const pnjDialogueManagerType = preload("res://core/shared/script/component/pnj.gd")
 
 
 func _init():

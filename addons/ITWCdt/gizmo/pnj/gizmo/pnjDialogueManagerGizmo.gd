@@ -2,10 +2,10 @@
 extends EditorNode3DGizmo
 
 
-var node:pnjDialogueManager = null
+var node:pnj = null
 var greenMat : StandardMaterial3D = StandardMaterial3D.new()
 
-func _init(node:pnjDialogueManager):
+func _init(node:pnj):
 	var plugin = get_plugin();
 	self.node = node
 	
