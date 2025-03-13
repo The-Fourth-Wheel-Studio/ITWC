@@ -12,7 +12,7 @@ func refresh():
 		saveSelector.add_item(i)
 
 func _on_button_pressed():
-	GameManager.head.loadSave(saveSelector.get_selected_id())
+	EventObserver.load(GameManager.savePath.path_join("save"+str(saveSelector.get_selected_id())+".dat"))
 	hide()
 
 func _on_button_pressed_2():

@@ -5,9 +5,9 @@ const _SUUID : int = 1486940497
 var event : Dictionary = {}
 var currentHandObject : String = ""
 
-func load():
+func load(savePath : String):
 	addSaveData()
-	event = getSavedData()
+	event = getSavedData(savePath)
 
 func createEvent(eventName : String, state):
 	event.get_or_add(eventName, state)
@@ -15,8 +15,8 @@ func createEvent(eventName : String, state):
 func addSaveData():
 	SaveSystem.addThingsToSave(self.get_instance_id(), "event", _SUUID)
 
-func getSavedData():
-	var temp : Dictionary = SaveSystem.getDataFromSUUID(GameManager.savePath, _SUUID)
+func getSavedData(savePath : String):
+	var temp = SaveSystem.getDataFromSUUID(savePath, _SUUID)
 	if temp != null:
 		return temp
 	return {}

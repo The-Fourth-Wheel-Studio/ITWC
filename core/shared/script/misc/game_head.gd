@@ -20,7 +20,7 @@ func _enter_tree():
 	MKUtil.print("game fully loaded", _scriptName)
 	print("-----------------------------------------------------------------------")
 	#test
-
+	
 	
 func loadHead():
 	GameManager.head = self
