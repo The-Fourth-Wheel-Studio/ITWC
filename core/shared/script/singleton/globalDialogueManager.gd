@@ -1,3 +1,9 @@
 extends Node
 
-signal triggerDialogue
+enum senderType
+{
+	PNJ,
+	OTHER
+}
+	
+signal triggerDialogue(sender : senderType, option : Variant)
