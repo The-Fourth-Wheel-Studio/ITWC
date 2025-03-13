@@ -1,5 +1,5 @@
 @icon("res://editor/assets/component/quest_component.png")
-extends Node
+extends Node3D
 class_name Quest
 
 func _ready() -> void:

@@ -1,5 +1,6 @@
+@icon("res://editor/assets/component/pnj.png")
 extends Node3D
-class_name pnjDialogueManager
+class_name pnj
 
 
 @export_category("dialogue")
