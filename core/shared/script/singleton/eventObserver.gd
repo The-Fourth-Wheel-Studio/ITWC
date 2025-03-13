@@ -8,8 +8,11 @@ var currentHandObject : String = ""
 func load(savePath : String):
 	addSaveData()
 	event = getSavedData(savePath)
-	
-func createEvent(eventName : String, state):
+
+func getEvent(eventName : String):
+	event.get_or_add(eventName, 0)
+
+func setEvent(eventName : String, state):
 	event.get_or_add(eventName, state)
 	
 func addSaveData():

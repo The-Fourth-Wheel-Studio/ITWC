@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://5prsvwyxk8my"]
+[gd_scene load_steps=30 format=3 uid="uid://5prsvwyxk8my"]
 
 [ext_resource type="PackedScene" uid="uid://dto8b77kggjk" path="res://core/shared/scene/player/default/player.tscn" id="1_y54sx"]
 [ext_resource type="Script" uid="uid://b3adqin2agi7g" path="res://core/shared/script/component/camera_component.gd" id="2_515yx"]
@@ -16,6 +16,8 @@
 [ext_resource type="Script" uid="uid://bd5jdx213mojl" path="res://core/shared/script/component/repusle_handler_zone.gd" id="15_ijngx"]
 [ext_resource type="PackedScene" uid="uid://b6hqyg8jmhar8" path="res://editor/testFolder/fpscounter.tscn" id="16_ijngx"]
 [ext_resource type="Script" uid="uid://blyl88bltf4nu" path="res://core/shared/script/component/quest_component.gd" id="16_uk3ym"]
+[ext_resource type="Script" uid="uid://b8vkkw2it1d4c" path="res://core/shared/script/component/dialogue_manager.gd" id="17_uk3ym"]
+[ext_resource type="Script" uid="uid://dphe2yd20nunf" path="res://core/shared/script/component/dialogue_group.gd" id="18_2pdfk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y54sx"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -144,8 +146,10 @@ metadata/_custom_type_script = "uid://bsqndnb8cisrj"
 
 [node name="Label" parent="." instance=ExtResource("16_ijngx")]
 
-[node name="Quest" type="Node3D" parent="."]
+[node name="Quest" type="Node3D" parent="." node_paths=PackedStringArray("dialogueManagerComponent")]
 script = ExtResource("16_uk3ym")
+questName = "test"
+dialogueManagerComponent = NodePath("dialogueManager")
 metadata/_custom_type_script = "uid://blyl88bltf4nu"
 
 [node name="pnj" type="Node3D" parent="Quest" node_paths=PackedStringArray("isPlayerIsNearby")]
@@ -179,5 +183,13 @@ collision_mask = 0
 shape = SubResource("CylinderShape3D_ca4ky")
 script = ExtResource("15_ijngx")
 metadata/_custom_type_script = "uid://bd5jdx213mojl"
+
+[node name="dialogueManager" type="Node3D" parent="Quest"]
+script = ExtResource("17_uk3ym")
+metadata/_custom_type_script = "uid://b8vkkw2it1d4c"
+
+[node name="dialogueGroup" type="Node3D" parent="Quest/dialogueManager"]
+script = ExtResource("18_2pdfk")
+metadata/_custom_type_script = "uid://dphe2yd20nunf"
 
 [connection signal="body_entered" from="cameraZone" to="cameraZone" method="_on_body_entered"]
