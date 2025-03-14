@@ -1,5 +1,5 @@
 @icon("res://editor/assets/component/pnj.png")
-extends Node3D
+extends dialogueActor
 class_name pnj
 
 @export_category("dialogue")

@@ -11,5 +11,6 @@ class_name Quest
 func _ready() -> void:
 	GlobalDialogueManager.triggerDialogue.connect(onDialogueTrigger)
 
-func onDialogueTrigger(sender, option):
-	EventObserver.getEvent(questName)
+func onDialogueTrigger(senderType : GlobalDialogueManager.senderType, sender : dialogueActor):
+	if sender.relatedQuest.name == questName:
+		EventObserver.getEvent(questName)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://5prsvwyxk8my"]
+[gd_scene load_steps=32 format=3 uid="uid://5prsvwyxk8my"]
 
 [ext_resource type="PackedScene" uid="uid://dto8b77kggjk" path="res://core/shared/scene/player/default/player.tscn" id="1_y54sx"]
 [ext_resource type="Script" uid="uid://b3adqin2agi7g" path="res://core/shared/script/component/camera_component.gd" id="2_515yx"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://blyl88bltf4nu" path="res://core/shared/script/component/quest_component.gd" id="16_uk3ym"]
 [ext_resource type="Script" uid="uid://b8vkkw2it1d4c" path="res://core/shared/script/component/dialogue_manager.gd" id="17_uk3ym"]
 [ext_resource type="Script" uid="uid://dphe2yd20nunf" path="res://core/shared/script/component/dialogue_group.gd" id="18_2pdfk"]
+[ext_resource type="Script" uid="uid://ct0wy5rwyjmhi" path="res://core/shared/script/component/dialogue_component.gd" id="19_ca4ky"]
 [ext_resource type="Script" uid="uid://xu6i4ab7dy4b" path="res://core/shared/script/component/dialogue_action_component.gd" id="19_sk4e2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y54sx"]
@@ -153,10 +154,11 @@ questName = "test"
 dialogueManagerComponent = NodePath("dialogueManager")
 metadata/_custom_type_script = "uid://blyl88bltf4nu"
 
-[node name="pnj" type="Node3D" parent="Quest" node_paths=PackedStringArray("isPlayerIsNearby")]
+[node name="pnj" type="Node3D" parent="Quest" node_paths=PackedStringArray("isPlayerIsNearby", "relatedQuest")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6959, 0, 0)
 script = ExtResource("13_85l6k")
 isPlayerIsNearby = NodePath("Area3D")
+relatedQuest = NodePath("..")
 metadata/_custom_type_script = "uid://diwalt1vc2rlg"
 
 [node name="Area3D" type="Area3D" parent="Quest/pnj"]
@@ -193,7 +195,11 @@ metadata/_custom_type_script = "uid://b8vkkw2it1d4c"
 script = ExtResource("18_2pdfk")
 metadata/_custom_type_script = "uid://dphe2yd20nunf"
 
-[node name="dialogueActionComponent" type="Node3D" parent="Quest/dialogueManager/dialogueGroup"]
+[node name="dialogue" type="Node3D" parent="Quest/dialogueManager/dialogueGroup"]
+script = ExtResource("19_ca4ky")
+metadata/_custom_type_script = "uid://ct0wy5rwyjmhi"
+
+[node name="dialogueActionComponent" type="Node3D" parent="Quest/dialogueManager/dialogueGroup/dialogue"]
 script = ExtResource("19_sk4e2")
 metadata/_custom_type_script = "uid://xu6i4ab7dy4b"
 

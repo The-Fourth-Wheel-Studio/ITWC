@@ -6,7 +6,8 @@ func _ready() -> void:
 	GlobalDialogueManager.actionFinished.connect(actionIsFinished)
 
 func actionIsFinished():
-	pass
+	self.get_parent().doNextAction()
+	
 
 func doTheAction(sender, optionnal):
 	pass

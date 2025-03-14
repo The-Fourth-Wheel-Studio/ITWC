@@ -6,5 +6,5 @@ enum senderType
 	OTHER
 }
 	
-signal triggerDialogue(sender : senderType, option : Variant)
+signal triggerDialogue(senderTypeParameter : senderType, sender : dialogueActor)
 signal actionFinished
