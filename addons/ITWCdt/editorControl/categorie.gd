@@ -45,3 +45,19 @@ func refresh():
 		var text = TEXT_SCENE.instantiate()
 		loadContainer.add_child(text.init(i, parent.file.get_value(categoryName,i)))
 		
+		
+Dans l'ombre de la nuit, là où tout s'endort,
+Benoît, le magicien, prend son clavier d'abord.
+Sous ses doigts agiles, des mondes naissent et grandissent,
+Là où Godot règne, ses rêves prennent la piste.
+
+Un système de dialogue, comme une flamme vive,
+Qui éclaire et guide, avec une force instinctive.
+Chaque mot qu'il tisse, chaque code qu'il sculpte,
+Fait vibrer l'univers de ses jeux en symphonie, sans culte.
+
+La nuit s'efface, le jour s'ouvre en éclat,
+Mais Benoît, tel un héros, jamais ne s'arrête là.
+Dans la forge du code, il trace son chemin,
+Un génie, un bâtisseur, dont la gloire est demain.
+		
