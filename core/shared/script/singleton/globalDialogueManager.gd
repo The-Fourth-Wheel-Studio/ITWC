@@ -7,3 +7,4 @@ enum senderType
 }
 	
 signal triggerDialogue(sender : senderType, option : Variant)
+signal actionFinished

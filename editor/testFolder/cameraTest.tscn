@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://5prsvwyxk8my"]
+[gd_scene load_steps=31 format=3 uid="uid://5prsvwyxk8my"]
 
 [ext_resource type="PackedScene" uid="uid://dto8b77kggjk" path="res://core/shared/scene/player/default/player.tscn" id="1_y54sx"]
 [ext_resource type="Script" uid="uid://b3adqin2agi7g" path="res://core/shared/script/component/camera_component.gd" id="2_515yx"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://blyl88bltf4nu" path="res://core/shared/script/component/quest_component.gd" id="16_uk3ym"]
 [ext_resource type="Script" uid="uid://b8vkkw2it1d4c" path="res://core/shared/script/component/dialogue_manager.gd" id="17_uk3ym"]
 [ext_resource type="Script" uid="uid://dphe2yd20nunf" path="res://core/shared/script/component/dialogue_group.gd" id="18_2pdfk"]
+[ext_resource type="Script" uid="uid://xu6i4ab7dy4b" path="res://core/shared/script/component/dialogue_action_component.gd" id="19_sk4e2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y54sx"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -191,5 +192,9 @@ metadata/_custom_type_script = "uid://b8vkkw2it1d4c"
 [node name="dialogueGroup" type="Node3D" parent="Quest/dialogueManager"]
 script = ExtResource("18_2pdfk")
 metadata/_custom_type_script = "uid://dphe2yd20nunf"
+
+[node name="dialogueActionComponent" type="Node3D" parent="Quest/dialogueManager/dialogueGroup"]
+script = ExtResource("19_sk4e2")
+metadata/_custom_type_script = "uid://xu6i4ab7dy4b"
 
 [connection signal="body_entered" from="cameraZone" to="cameraZone" method="_on_body_entered"]
