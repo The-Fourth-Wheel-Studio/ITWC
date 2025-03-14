@@ -7,3 +7,10 @@ class_name dialogueGroup
 
 @export_category("dialogue sorting")
 @export var dialogueSpeaker : Dictionary
+
+func _ready():
+	var dialogueManagervar : dialogueManager = self.get_parent()
+	if dialogueManagervar.dialogueGroupRelatedEventIndex.has(eventState):
+		dialogueManagervar.dialogueGroupRelatedEventIndex[eventState].append(self)
+	else:
+		dialogueManagervar.dialogueGroupRelatedEventIndex[eventState] = [self]

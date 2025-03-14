@@ -13,4 +13,4 @@ func _ready() -> void:
 
 func onDialogueTrigger(senderType : GlobalDialogueManager.senderType, sender : dialogueActor):
 	if sender.relatedQuest.name == questName:
-		dialogueManagerComponent.get_child(EventObserver.getEvent(questName))
+		dialogueManagerComponent.dialogueGroupRelatedEventIndex[EventObserver.getEvent(questName)]
