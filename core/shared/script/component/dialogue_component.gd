@@ -8,9 +8,8 @@ class_name dialogue
 var dialogueActionId : int = 0
 var isActive = false
 
-signal doNextAction
-
 func nextAction():
+	self.get_child(dialogueActionId).doTheAction()
 	dialogueActionId += 1
 
 func _ready():
