@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://dphe2yd20nunf" path="res://core/shared/script/component/dialogue_group.gd" id="18_2pdfk"]
 [ext_resource type="Script" uid="uid://ccn7onn3pv1b5" path="res://core/shared/script/component/point_component.gd" id="18_dfdvx"]
 [ext_resource type="Script" uid="uid://ct0wy5rwyjmhi" path="res://core/shared/script/component/dialogue_component.gd" id="19_ca4ky"]
-[ext_resource type="Script" uid="uid://xu6i4ab7dy4b" path="res://core/shared/script/component/dialogue_action_component.gd" id="19_sk4e2"]
+[ext_resource type="Script" uid="uid://bq7cndfbb0mx2" path="res://core/shared/script/component/dialogueComponent/dialogue_action_speech.gd" id="22_y0vdg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y54sx"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -225,8 +225,10 @@ script = ExtResource("19_ca4ky")
 actionMaker = [NodePath("../../../pnj")]
 metadata/_custom_type_script = "uid://ct0wy5rwyjmhi"
 
-[node name="dialogueActionComponent" type="Node3D" parent="Quest/dialogueManager/dialogueGroup/dialogue"]
-script = ExtResource("19_sk4e2")
-metadata/_custom_type_script = "uid://xu6i4ab7dy4b"
+[node name="dialogueActionComponentSpeech" type="Node3D" parent="Quest/dialogueManager/dialogueGroup/dialogue" node_paths=PackedStringArray("speech")]
+script = ExtResource("22_y0vdg")
+speech = NodePath("../../../../pnj/speech/speechBubble")
+currentActionText = "\"ceci est un text de test\""
+metadata/_custom_type_script = "uid://bq7cndfbb0mx2"
 
 [connection signal="body_entered" from="cameraZone" to="cameraZone" method="_on_body_entered"]

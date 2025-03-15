@@ -90,4 +90,4 @@ func setActive():
 
 func setInactive():
 	active = false
-	self.visible = true
+	self.visible = false

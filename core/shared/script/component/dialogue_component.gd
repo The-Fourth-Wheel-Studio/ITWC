@@ -20,4 +20,4 @@ func _ready():
 
 func doAction():
 	isActive = true
-	print("do the action")
+	nextAction()
