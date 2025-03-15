@@ -2,6 +2,9 @@
 extends Node3D
 class_name dialogueActionComponent
 
+@export_category("action dependancy")
+@export var speech : speechBubble
+
 func _ready() -> void:
 	connectAllSignal()
 

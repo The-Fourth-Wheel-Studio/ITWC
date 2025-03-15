@@ -52,7 +52,7 @@ func displayLetterByLetter(textToDisplay : String, textFromStart : String = ""):
 			await timer.timeout
 		else:
 			textLabel.text= textToDisplay
-			#this is where i'm dead
+			#this is where i'm dead (mr Entreprise gonna kill me)
 			break
 	asFinishDisplay.emit()
 
