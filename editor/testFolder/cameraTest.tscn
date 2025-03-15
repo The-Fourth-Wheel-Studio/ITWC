@@ -197,10 +197,12 @@ metadata/_custom_type_script = "uid://bd5jdx213mojl"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00257, 0)
 
 [node name="speechBubble" parent="Quest/pnj/speech" instance=ExtResource("17_y0vdg")]
+visible = false
 offset_left = 130.0
 offset_top = 134.0
 offset_right = 130.0
 offset_bottom = 134.0
+letterTime = 0.055
 
 [node name="pointComponent" type="Marker3D" parent="Quest/pnj/speech"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.167744, 0.732969)
@@ -229,6 +231,12 @@ metadata/_custom_type_script = "uid://ct0wy5rwyjmhi"
 script = ExtResource("22_y0vdg")
 speech = NodePath("../../../../pnj/speech/speechBubble")
 currentActionText = "\"ceci est un text de test\""
+metadata/_custom_type_script = "uid://bq7cndfbb0mx2"
+
+[node name="dialogueActionComponentSpeech2" type="Node3D" parent="Quest/dialogueManager/dialogueGroup/dialogue" node_paths=PackedStringArray("speech")]
+script = ExtResource("22_y0vdg")
+speech = NodePath("../../../../pnj/speech/speechBubble")
+currentActionText = "\"ceci est un deuxieme text de test\""
 metadata/_custom_type_script = "uid://bq7cndfbb0mx2"
 
 [connection signal="body_entered" from="cameraZone" to="cameraZone" method="_on_body_entered"]

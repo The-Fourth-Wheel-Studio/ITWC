@@ -13,5 +13,4 @@ func connectAllSignal():
 func doTheAction():
 	if not speech.active:
 		speech.setActive()
-		print(speech.active)
-	speech.displayLetterByLetter(currentActionText)
+	await speech.displayLetterByLetter(currentActionText)

@@ -5,12 +5,17 @@ class_name dialogue
 @export_category("action maker")
 @export var actionMaker : Array[dialogueActor]
 
-var dialogueActionId : int = 0
+var dialogueActionId : int = -1
 var isActive = false
 
 func nextAction():
-	self.get_child(dialogueActionId).doTheAction()
-	dialogueActionId += 1
+	print(dialogueActionId)
+	if dialogueActionId < self.get_child_count() -1:
+		dialogueActionId += 1
+		self.get_child(dialogueActionId).doTheAction()
+	else:
+		isActive = false
+		
 
 func _ready():
 	var dialogueGroupvar : dialogueGroup = self.get_parent()
@@ -19,5 +24,6 @@ func _ready():
 			dialogueGroupvar.dialogueSpeaker[i] = self
 
 func doAction():
+	print("aaaa")
 	isActive = true
 	nextAction()

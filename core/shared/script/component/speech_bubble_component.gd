@@ -46,7 +46,7 @@ func displayLetterByLetter(textToDisplay : String, textFromStart : String = ""):
 	textLabel.text = textSoFar
 	for i in textToDisplay:
 		textSoFar += i
-		if asToBreak():
+		if not asToBreak():
 			textLabel.text= textSoFar
 			timer.start(letterTime)
 			await timer.timeout
