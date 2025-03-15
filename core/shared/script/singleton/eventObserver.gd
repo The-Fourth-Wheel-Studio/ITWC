@@ -10,7 +10,7 @@ func load(savePath : String):
 	event = getSavedData(savePath)
 
 func getEvent(eventName : String):
-	event.get_or_add(eventName, 0)
+	return event.get_or_add(eventName, 0)
 
 func setEvent(eventName : String, state):
 	event.get_or_add(eventName, state)

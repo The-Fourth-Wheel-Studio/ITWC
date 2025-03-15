@@ -14,3 +14,7 @@ func _ready():
 		dialogueManagervar.dialogueGroupRelatedEventIndex[eventState].append(self)
 	else:
 		dialogueManagervar.dialogueGroupRelatedEventIndex[eventState] = [self]
+
+func doTheDialogue(senderType : GlobalDialogueManager.senderType, sender : dialogueActor):
+	if senderType == GlobalDialogueManager.senderType.PNJ:
+		dialogueSpeaker[sender].doAction()

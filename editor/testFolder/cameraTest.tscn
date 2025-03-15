@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://5prsvwyxk8my"]
+[gd_scene load_steps=34 format=3 uid="uid://5prsvwyxk8my"]
 
 [ext_resource type="PackedScene" uid="uid://dto8b77kggjk" path="res://core/shared/scene/player/default/player.tscn" id="1_y54sx"]
 [ext_resource type="Script" uid="uid://b3adqin2agi7g" path="res://core/shared/script/component/camera_component.gd" id="2_515yx"]
@@ -17,7 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://b6hqyg8jmhar8" path="res://editor/testFolder/fpscounter.tscn" id="16_ijngx"]
 [ext_resource type="Script" uid="uid://blyl88bltf4nu" path="res://core/shared/script/component/quest_component.gd" id="16_uk3ym"]
 [ext_resource type="Script" uid="uid://b8vkkw2it1d4c" path="res://core/shared/script/component/dialogue_manager.gd" id="17_uk3ym"]
+[ext_resource type="PackedScene" uid="uid://cbeulmlguf020" path="res://editor/component/speech_bubble_component.tscn" id="17_y0vdg"]
 [ext_resource type="Script" uid="uid://dphe2yd20nunf" path="res://core/shared/script/component/dialogue_group.gd" id="18_2pdfk"]
+[ext_resource type="Script" uid="uid://ccn7onn3pv1b5" path="res://core/shared/script/component/point_component.gd" id="18_dfdvx"]
 [ext_resource type="Script" uid="uid://ct0wy5rwyjmhi" path="res://core/shared/script/component/dialogue_component.gd" id="19_ca4ky"]
 [ext_resource type="Script" uid="uid://xu6i4ab7dy4b" path="res://core/shared/script/component/dialogue_action_component.gd" id="19_sk4e2"]
 
@@ -154,10 +156,14 @@ questName = "test"
 dialogueManagerComponent = NodePath("dialogueManager")
 metadata/_custom_type_script = "uid://blyl88bltf4nu"
 
-[node name="pnj" type="Node3D" parent="Quest" node_paths=PackedStringArray("isPlayerIsNearby", "relatedQuest")]
+[node name="pnj" type="Node3D" parent="Quest" node_paths=PackedStringArray("isPlayerIsNearby", "speech", "distanceFromHead", "distanceFromBase", "relatedQuest")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6959, 0, 0)
 script = ExtResource("13_85l6k")
 isPlayerIsNearby = NodePath("Area3D")
+speech = NodePath("speech/speechBubble")
+distanceFromHead = NodePath("speech/pointComponent")
+distanceFromBase = NodePath("speech/pointComponent/pointComponent2")
+active = true
 relatedQuest = NodePath("..")
 metadata/_custom_type_script = "uid://diwalt1vc2rlg"
 
@@ -187,6 +193,25 @@ shape = SubResource("CylinderShape3D_ca4ky")
 script = ExtResource("15_ijngx")
 metadata/_custom_type_script = "uid://bd5jdx213mojl"
 
+[node name="speech" type="Node3D" parent="Quest/pnj"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00257, 0)
+
+[node name="speechBubble" parent="Quest/pnj/speech" instance=ExtResource("17_y0vdg")]
+offset_left = 130.0
+offset_top = 134.0
+offset_right = 130.0
+offset_bottom = 134.0
+
+[node name="pointComponent" type="Marker3D" parent="Quest/pnj/speech"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.167744, 0.732969)
+script = ExtResource("18_dfdvx")
+metadata/_custom_type_script = "uid://ccn7onn3pv1b5"
+
+[node name="pointComponent2" type="Marker3D" parent="Quest/pnj/speech/pointComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.376552, 0.481337)
+script = ExtResource("18_dfdvx")
+metadata/_custom_type_script = "uid://ccn7onn3pv1b5"
+
 [node name="dialogueManager" type="Node3D" parent="Quest"]
 script = ExtResource("17_uk3ym")
 metadata/_custom_type_script = "uid://b8vkkw2it1d4c"
@@ -195,8 +220,9 @@ metadata/_custom_type_script = "uid://b8vkkw2it1d4c"
 script = ExtResource("18_2pdfk")
 metadata/_custom_type_script = "uid://dphe2yd20nunf"
 
-[node name="dialogue" type="Node3D" parent="Quest/dialogueManager/dialogueGroup"]
+[node name="dialogue" type="Node3D" parent="Quest/dialogueManager/dialogueGroup" node_paths=PackedStringArray("actionMaker")]
 script = ExtResource("19_ca4ky")
+actionMaker = [NodePath("../../../pnj")]
 metadata/_custom_type_script = "uid://ct0wy5rwyjmhi"
 
 [node name="dialogueActionComponent" type="Node3D" parent="Quest/dialogueManager/dialogueGroup/dialogue"]
