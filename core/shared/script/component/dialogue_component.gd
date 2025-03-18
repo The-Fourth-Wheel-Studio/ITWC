@@ -24,6 +24,5 @@ func _ready():
 			dialogueGroupvar.dialogueSpeaker[i] = self
 
 func doAction():
-	print("aaaa")
 	isActive = true
 	nextAction()

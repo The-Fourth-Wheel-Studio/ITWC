@@ -342,6 +342,7 @@ distanceFromBase = NodePath("Marker3D2")
 active = true
 
 [node name="speechBubble" parent="word/pnj/PnjDialogueManager" instance=ExtResource("17_ddgpi")]
+visible = false
 
 [node name="Marker3D" type="Marker3D" parent="word/pnj/PnjDialogueManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.21662, 0)
