@@ -9,7 +9,6 @@ var dialogueActionId : int = -1
 var isActive = false
 
 func nextAction():
-	print(dialogueActionId)
 	if dialogueActionId < self.get_child_count() -1:
 		dialogueActionId += 1
 		self.get_child(dialogueActionId).doTheAction()

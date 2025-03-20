@@ -66,3 +66,16 @@ static func get_rotation_towards(from_position: Vector3, to_position: Vector3, u
 
 static func getPerpendicularVector(vec1 : Vector3) -> Vector3:
 	return vec1.cross(Vector3(0, 1, 0)).normalized()
+
+#adam-bruno can't kill me for this one
+static func biggestClosestValueInArray(value :int, array:Array)->int:
+	var closestNum:int
+	var n : int = array.size() - 1
+	var ok : bool = true
+	while(ok and n >=0):
+		if value <= array[n]:
+			closestNum = array[n]
+		else:
+			ok = false
+		n -= 1
+	return closestNum

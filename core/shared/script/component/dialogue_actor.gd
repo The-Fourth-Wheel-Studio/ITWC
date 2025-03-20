@@ -4,7 +4,7 @@ class_name dialogueActor
 
 @export_category("related quest")
 @export var relatedQuest : Quest
-@export_category("don't even think touching here unless you'r a beautiful man called Titruc")
+@export_category("don't even think touching here unless you're a beautiful man called Titruc")
 @export var setManually : bool = false
 
 func _ready() -> void:
