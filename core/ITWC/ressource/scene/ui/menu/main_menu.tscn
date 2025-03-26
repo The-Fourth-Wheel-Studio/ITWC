@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bsl3ba6t5p52x"]
 
-[ext_resource type="Script" path="res://core/ITWC/ressource/script/ui/menu/mainMenu.gd" id="1_b6dsm"]
+[ext_resource type="Script" uid="uid://dtwt16ah1tby5" path="res://core/ITWC/ressource/script/ui/menu/mainMenu.gd" id="1_b6dsm"]
 
 [node name="mainMenu" type="Control" node_paths=PackedStringArray("saveSelector")]
 layout_mode = 3

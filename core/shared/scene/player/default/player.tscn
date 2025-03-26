@@ -20,10 +20,11 @@ WALK_SPEED = 500.0
 SPRINT_SPEED = 70.5
 CROUCH_SPEED = 20.5
 SPEED_VARIATION = 0.5
-JUMP_VELOCITY = 4.5
+JUMP_VELOCITY = 10.2
 COYOTE_TIME = 0.01
 MAX_STAIR_SIZE = -0.5
-GRAVITY = 9.81
+GRAVITY = 18.74
+ACCELERATION_FACTOR = 2.5
 metadata/_custom_type_script = ExtResource("2_m6t41")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0ba7k"]

@@ -16,3 +16,4 @@ class_name playerAttribute
 
 @export_category("newton")
 @export var GRAVITY : float = 9.81
+@export var ACCELERATION_FACTOR : float = 2.5

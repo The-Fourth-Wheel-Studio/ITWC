@@ -14,6 +14,7 @@ class_name Player
 @export var playerAttributeVar : playerAttribute
 @export_category("player Variables")
 @export var isAbleToMove : bool = true
+@export var gravityAccelerator : bool = false
 
 func execute(_delta):
 	pass

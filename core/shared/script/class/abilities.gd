@@ -4,7 +4,7 @@ class_name abilities
 
 
 @export var active : bool = false
-var player : CharacterBody3D
+var player : Player
 
 func setActive(b : bool):
 	self.active = b
