@@ -38,6 +38,7 @@ height = 1.49902
 
 [node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("velocityHandler", "inputhandler", "isOnFloor", "repulseHandlerComponent", "abilitieManager", "model")]
 collision_layer = 2
+floor_constant_speed = true
 script = ExtResource("1_4frpd")
 velocityHandler = NodePath("velocityComponent")
 inputhandler = NodePath("inputHandler")
