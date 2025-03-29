@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=4 uid="uid://fllkckogq02o"]
+
+[ext_resource type="Shader" uid="uid://bqbxy1g53hen1" path="res://editor/testFolder/bricks.gdshader" id="1_qyx2n"]
+[ext_resource type="Texture2D" uid="uid://cdr4ismg71l40" path="res://editor/testFolder/tuiletest.png" id="2_c8j3w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c8j3w"]
+render_priority = 0
+shader = ExtResource("1_qyx2n")
+shader_parameter/text = ExtResource("2_c8j3w")
+shader_parameter/palette = PackedVector4Array(0.4, 0.5, 0.2, 0, 0.3, 0.075, 0.2, 0, 0.7, 0.5, 0.4, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1rwed"]
+material = SubResource("ShaderMaterial_c8j3w")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(49.7006, 0, 0, 0, 5.7541, 0, 0, 0, 48.3632, 424.695, -379.669, 84.7499)
+mesh = SubResource("PlaneMesh_1rwed")

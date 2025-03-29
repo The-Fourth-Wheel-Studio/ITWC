@@ -82,3 +82,9 @@ crouch={
 3d_physics/layer_1="general"
 3d_physics/layer_2="cameraZone"
 3d_physics/layer_3="repulseHandler"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+textures/decals/filter=0
+textures/light_projectors/filter=0
