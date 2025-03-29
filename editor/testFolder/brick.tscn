@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=4 uid="uid://fllkckogq02o"]
+[gd_scene load_steps=6 format=4 uid="uid://fllkckogq02o"]
 
 [ext_resource type="Shader" uid="uid://bqbxy1g53hen1" path="res://editor/testFolder/bricks.gdshader" id="1_qyx2n"]
-[ext_resource type="Texture2D" uid="uid://cdr4ismg71l40" path="res://editor/testFolder/tuiletest.png" id="2_c8j3w"]
+[ext_resource type="Texture2D" uid="uid://daj6wtff6r7bc" path="res://core/ITWC/asset/texture/environement/village/house/roof.png" id="2_1rwed"]
+[ext_resource type="Texture2D" uid="uid://c08lydthli3m3" path="res://core/ITWC/asset/texture/environement/village/house/roof_variation_color.png" id="3_6f4jk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c8j3w"]
 render_priority = 0
 shader = ExtResource("1_qyx2n")
-shader_parameter/text = ExtResource("2_c8j3w")
-shader_parameter/palette = PackedVector4Array(0.4, 0.5, 0.2, 0, 0.3, 0.075, 0.2, 0, 0.7, 0.5, 0.4, 0)
+shader_parameter/roofTexture = ExtResource("2_1rwed")
+shader_parameter/roofVariationTexture = ExtResource("3_6f4jk")
+shader_parameter/palette = PackedVector4Array(0.707, 0.121, 0.03, 0, 0.675, 0.187, 0.121, 0, 0.665, 0.242, 0.203, 0)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1rwed"]
 material = SubResource("ShaderMaterial_c8j3w")
@@ -15,5 +17,17 @@ material = SubResource("ShaderMaterial_c8j3w")
 [node name="Node3D" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(49.7006, 0, 0, 0, 5.7541, 0, 0, 0, 48.3632, 424.695, -379.669, 84.7499)
+transform = Transform3D(49.7006, 0, 0, 0, 5.7541, 0, 0, 0, 48.3632, 25.3091, 0, 0)
+mesh = SubResource("PlaneMesh_1rwed")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(49.7006, 0, 0, 0, 5.7541, 0, 0, 0, 48.3632, 124.309, 0, 0)
+mesh = SubResource("PlaneMesh_1rwed")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(49.7006, 0, 0, 0, 5.7541, 0, 0, 0, 48.3632, 25.3091, 0, -97.0714)
+mesh = SubResource("PlaneMesh_1rwed")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(49.7006, 0, 0, 0, 5.7541, 0, 0, 0, 48.3632, 124.309, 0, -97.0714)
 mesh = SubResource("PlaneMesh_1rwed")
