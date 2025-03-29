@@ -9,7 +9,7 @@ render_priority = 0
 shader = ExtResource("1_qyx2n")
 shader_parameter/roofTexture = ExtResource("2_1rwed")
 shader_parameter/roofVariationTexture = ExtResource("3_6f4jk")
-shader_parameter/palette = PackedVector4Array(0.707, 0.121, 0.03, 0, 0.675, 0.187, 0.121, 0, 0.665, 0.242, 0.203, 0)
+shader_parameter/palette = PackedVector4Array(0.707, 0.121, 0.03, 1, 0.675, 0.187, 0.121, 1, 0.665, 0.242, 0.203, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1rwed"]
 material = SubResource("ShaderMaterial_c8j3w")
@@ -17,17 +17,17 @@ material = SubResource("ShaderMaterial_c8j3w")
 [node name="Node3D" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(49.7006, 0, 0, 0, 5.7541, 0, 0, 0, 48.3632, 25.3091, 0, 0)
+transform = Transform3D(49.7006, 0, 0, 0, 5.15469, -21.4926, 0, 2.55713, 43.3251, 0, 21.3312, 5.00025)
 mesh = SubResource("PlaneMesh_1rwed")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(49.7006, 0, 0, 0, 5.7541, 0, 0, 0, 48.3632, 124.309, 0, 0)
+transform = Transform3D(49.7006, 0, 0, 0, 5.15469, -21.4926, 0, 2.55713, 43.3251, 99, 21.3312, 5.00025)
 mesh = SubResource("PlaneMesh_1rwed")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(49.7006, 0, 0, 0, 5.7541, 0, 0, 0, 48.3632, 25.3091, 0, -97.0714)
+transform = Transform3D(49.7006, 0, 0, 0, 5.15469, -21.4926, 0, 2.55713, 43.3251, 0, -21.3312, 90.9997)
 mesh = SubResource("PlaneMesh_1rwed")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(49.7006, 0, 0, 0, 5.7541, 0, 0, 0, 48.3632, 124.309, 0, -97.0714)
+transform = Transform3D(49.7006, 0, 0, 0, 5.15469, -21.4926, 0, 2.55713, 43.3251, 99, -21.3312, 90.9997)
 mesh = SubResource("PlaneMesh_1rwed")

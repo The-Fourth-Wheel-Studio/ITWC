@@ -4,6 +4,11 @@ uniform sampler2D roofTexture;
 uniform sampler2D roofVariationTexture : filter_nearest;
 uniform vec4[3] palette;
 
+vec3 blendColors(vec4 colA, vec4 colB) {
+    float alphaFinal = colA.a + colB.a * (1.0 - colA.a);
+    return (colA.rgb * colA.a + colB.rgb * colB.a * (1.0 - colA.a)) / max(alphaFinal, 0.0001);
+}
+
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
@@ -15,17 +20,9 @@ float noise(vec2 input)
 
 void fragment() {
 	
-	int paletteKey = int(mod(noise(vec2(texture(roofVariationTexture, UV).r, NODE_POSITION_WORLD.x + NODE_POSITION_WORLD.y)),3));
+	int paletteKey = int(mod(noise(vec2(texture(roofVariationTexture, UV).r, NODE_POSITION_WORLD.y + NODE_POSITION_WORLD.x + NODE_POSITION_WORLD.z)),3));
 	vec4 roofTextureWithoutVariation = texture(roofTexture, UV);
-	if(roofTextureWithoutVariation.a <= 0.1)
-	{
-		ALBEDO = palette[paletteKey].xyz;
-	}
-	else
-	{
-		ALBEDO = roofTextureWithoutVariation.xyz;
-	}
-	
+	ALBEDO = blendColors(roofTextureWithoutVariation,palette[paletteKey]).xyz;
 }
 
 //void light() {
